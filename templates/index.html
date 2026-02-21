@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Risultati Betting</title>
+</head>
+<body>
+    <div>
+        <form action="{{ url_for('aggiorna') }}" method="get" style="margin-bottom: 24px; text-align: center;">
+            <button type="submit" style="font-size: 1.4em; padding: 12px 32px; margin-top: 18px; background: #d6d6d6; color: black; border: none; border-radius: 6px; cursor: pointer;">Aggiorna</button>
+        </form>
+        <h1 style="text-align: center; margin-bottom: 18px;">Partite selezionate</h1>
+        <div style="display: flex; justify-content: center;">
+            <style>
+                body, table, th, td {
+                    font-family: Helvetica, Arial, sans-serif;
+                }
+                table, th, td {
+                    border: 1px solid #888;
+                    border-collapse: collapse;
+                }
+                th, td {
+                    padding: 6px 10px;
+                }
+                th {
+                    background: #d6d6d6;
+                    text-align: left;
+                    color: black;
+                }
+                tr.today-row {
+                    background: #b4e8b8 !important;
+                }
+            </style>
+            {% if no_data %}
+                <p>Nessun risultato disponibile. Premi "Aggiorna" per generare i dati.</p>
+            {% elif table_headers and table_rows %}
+                <table class="bet-table">
+                    <thead>
+                        <tr>
+                            {% for header in table_headers %}
+                                <th>{{ header }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in table_rows %}
+                            <tr {% if loop.index0 in highlight_rows %}class="today-row"{% endif %}>
+                                {% for header in table_headers %}
+                                    <td>{{ row[header] }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+{
+  "2021": {
+    "serie a": 4,
+    "premier league": 4,
+    "la liga": 4,
+    "bundesliga": 4,
+    "ligue 1": 3,
+    "primeira liga": 3,
+    "eredivisie": 2,
+    "prva hnl": 1,
+    "saudi pro league": 1,
+    "super lig": 2
+  },
+  "2022": {
+    "serie a": 4,
+    "premier league": 4,
+    "la liga": 4,
+    "bundesliga": 4,
+    "ligue 1": 3,
+    "primeira liga": 3,
+    "eredivisie": 2,
+    "prva hnl": 1,
+    "saudi pro league": 3,
+    "super lig": 1
+  },
+  "2023": {
+    "premier league": 4,
+    "la liga": 4,
+    "bundesliga": 5,
+    "serie a": 5,
+    "ligue 1": 4,
+    "eredivisie": 3,
+    "primeira liga": 2,
+    "scottish premiership": 2,
+    "saudi pro league": 3,
+    "prva hnl": 1,
+    "super lig": 2
+  },
+  "2024": {
+    "premier league": 5,
+    "la liga": 5,
+    "bundesliga": 4,
+    "serie a": 4,
+    "ligue 1": 4,
+    "eredivisie": 3,
+    "primeira liga": 2,
+    "scottish premiership": 2,
+    "saudi pro league": 3,
+    "prva hnl": 1,
+    "super lig": 2
+  },
+  "2025": {
+    "premier league": 4,
+    "la liga": 4,
+    "bundesliga": 4,
+    "serie a": 4,
+    "ligue 1": 4,
+    "eredivisie": 3,
+    "primeira liga": 2,
+    "scottish premiership": 2,
+    "saudi pro league": 3,
+    "prva hnl": 1,
+    "super lig": 2
+  }
+}

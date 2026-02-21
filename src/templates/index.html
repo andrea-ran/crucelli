@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestione Dati Campionati</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Il sistema Crucelli</h1>
+        <form action="/update_data" method="post">
+            <button type="submit">Aggiorna i dati</button>
+        </form>
+        <form action="/filter_teams" method="post" style="margin-top: 20px;">
+            <button type="submit">Applica filro 1</button>
+        </form>
+        
+        <!-- Sezione per il risultato -->
+        {% if output %}
+        <div class="output">
+            {{ output|safe }}
+        </div>
+        {% endif %}
+        
+        <footer>
+            <p>Crucelli © 2025</p>
+        </footer>
+    </div>
+</body>
+</html>

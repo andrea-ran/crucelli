@@ -1,0 +1,563 @@
+team_id,team_name,league_id,league_name,season,rank,points,played,won,draw,lost,goals_for,goals_against,goal_diff,current_matchday
+2938,al-ittihad fc,307,saudi professional league,2022,1,72,30,22,6,2,60,13,47,21
+2939,al-nassr,307,saudi professional league,2022,2,67,30,20,7,3,63,18,45,21
+2932,al-hilal saudi fc,307,saudi professional league,2022,3,59,30,17,8,5,54,29,25,21
+2940,al shabab,307,saudi professional league,2022,4,56,30,17,5,8,57,33,24,21
+2936,al taawon,307,saudi professional league,2022,5,55,30,16,7,7,46,34,12,21
+2931,al-fateh,307,saudi professional league,2022,6,43,30,13,4,13,48,43,5,21
+2934,al-ettifaq,307,saudi professional league,2022,7,37,30,10,7,13,28,36,-8,21
+2956,dhamk,307,saudi professional league,2022,8,36,30,9,9,12,33,43,-10,21
+2942,al taee,307,saudi professional league,2022,9,34,30,10,4,16,41,49,-8,21
+2935,al-raed,307,saudi professional league,2022,10,34,30,9,7,14,41,49,-8,21
+2944,al-fayha,307,saudi professional league,2022,11,33,30,8,9,13,31,43,-12,21
+2951,abha,307,saudi professional league,2022,12,33,30,10,3,17,33,52,-19,21
+2937,al wehda club,307,saudi professional league,2022,13,32,30,8,8,14,26,43,-17,21
+2928,al khaleej saihat,307,saudi professional league,2022,14,31,30,9,4,17,30,44,-14,21
+2950,al-adalah,307,saudi professional league,2022,15,28,30,7,7,16,30,56,-26,21
+2926,al baten,307,saudi professional league,2022,16,20,30,5,5,20,27,63,-36,21
+2932,al-hilal saudi fc,307,saudi professional league,2023,1,96,34,31,3,0,101,23,78,21
+2939,al-nassr,307,saudi professional league,2023,2,82,34,26,4,4,100,42,58,21
+2929,al-ahli jeddah,307,saudi professional league,2023,3,65,34,19,8,7,67,35,32,21
+2936,al taawon,307,saudi professional league,2023,4,59,34,16,11,7,51,35,16,21
+2938,al-ittihad fc,307,saudi professional league,2023,5,54,34,16,6,12,63,54,9,21
+2934,al-ettifaq,307,saudi professional league,2023,6,48,34,12,12,10,43,34,9,21
+2931,al-fateh,307,saudi professional league,2023,7,45,34,12,9,13,57,55,2,21
+2940,al shabab,307,saudi professional league,2023,8,44,34,12,8,14,45,42,3,21
+2944,al-fayha,307,saudi professional league,2023,9,44,34,11,11,12,44,52,-8,21
+2956,damac,307,saudi professional league,2023,10,41,34,10,11,13,44,45,-1,21
+2928,al khaleej saihat,307,saudi professional league,2023,11,37,34,9,10,15,36,47,-11,21
+2935,al-raed,307,saudi professional league,2023,12,37,34,9,10,15,41,49,-8,21
+2937,al wehda club,307,saudi professional league,2023,13,36,34,10,6,18,45,60,-15,21
+10511,al riyadh,307,saudi professional league,2023,14,35,34,8,11,15,33,57,-24,21
+2977,al okhdood,307,saudi professional league,2023,15,33,34,9,6,19,33,52,-19,21
+2951,abha,307,saudi professional league,2023,16,32,34,9,5,20,38,87,-49,21
+2942,al taee,307,saudi professional league,2023,17,31,34,8,7,19,34,64,-30,21
+2945,al-hazm,307,saudi professional league,2023,18,24,34,4,12,18,34,76,-42,21
+2938,al-ittihad fc,307,saudi professional league,2024,1,83,34,26,5,3,79,35,44,21
+2932,al-hilal saudi fc,307,saudi professional league,2024,2,75,34,23,6,5,95,41,54,21
+2939,al-nassr,307,saudi professional league,2024,3,70,34,21,7,6,80,38,42,21
+2933,al-qadisiyah fc,307,saudi professional league,2024,4,68,34,21,5,8,53,31,22,21
+2929,al-ahli jeddah,307,saudi professional league,2024,5,67,34,21,4,9,69,36,33,21
+2940,al shabab,307,saudi professional league,2024,6,60,34,18,6,10,65,41,24,21
+2934,al-ettifaq,307,saudi professional league,2024,7,50,34,14,8,12,44,45,-1,21
+2936,al taawon,307,saudi professional league,2024,8,45,34,12,9,13,40,39,1,21
+10509,al kholood,307,saudi professional league,2024,9,40,34,12,4,18,42,64,-22,21
+2931,al-fateh,307,saudi professional league,2024,10,39,34,11,6,17,47,61,-14,21
+10511,al riyadh,307,saudi professional league,2024,11,38,34,10,8,16,37,52,-15,21
+2928,al khaleej saihat,307,saudi professional league,2024,12,37,34,10,7,17,40,57,-17,21
+2944,al-fayha,307,saudi professional league,2024,13,36,34,8,12,14,27,49,-22,21
+2956,damac,307,saudi professional league,2024,14,35,34,9,8,17,37,50,-13,21
+2977,al okhdood,307,saudi professional league,2024,15,34,34,9,7,18,33,56,-23,21
+2937,al wehda club,307,saudi professional league,2024,16,33,34,9,6,19,42,67,-25,21
+2961,al orubah,307,saudi professional league,2024,17,30,34,9,3,22,31,74,-43,21
+2935,al-raed,307,saudi professional league,2024,18,21,34,6,3,25,41,66,-25,21
+620,dinamo zagreb,210,hnl,2022,1,81,36,24,9,3,81,28,53,22
+608,hnk hajduk split,210,hnl,2022,2,71,36,21,8,7,65,41,24,22
+616,nk osijek,210,hnl,2022,3,50,36,13,11,12,46,41,5,22
+561,hnk rijeka,210,hnl,2022,4,49,36,14,7,15,44,44,0,22
+1483,nk varazdin,210,hnl,2022,5,46,36,12,10,14,41,51,-10,22
+1016,istra 1961,210,hnl,2022,6,46,36,11,13,12,36,38,-2,22
+1018,nk slaven belupo,210,hnl,2022,7,43,36,10,13,13,27,46,-19,22
+1017,nk lokomotiva zagreb,210,hnl,2022,8,43,36,11,10,15,45,50,-5,22
+1068,hnk gorica,210,hnl,2022,9,32,36,7,11,18,36,50,-14,22
+1475,sibenik,210,hnl,2022,10,27,36,5,12,19,24,56,-32,22
+620,dinamo zagreb,210,hnl,2023,1,82,36,25,7,4,67,30,37,22
+561,hnk rijeka,210,hnl,2023,2,74,36,23,5,8,69,30,39,22
+608,hnk hajduk split,210,hnl,2023,3,68,36,21,5,10,54,26,28,22
+616,nk osijek,210,hnl,2023,4,57,36,16,9,11,62,43,19,22
+1017,nk lokomotiva zagreb,210,hnl,2023,5,51,36,12,15,9,52,45,7,22
+1483,nk varazdin,210,hnl,2023,6,42,36,10,12,14,39,47,-8,22
+1068,hnk gorica,210,hnl,2023,7,41,36,11,8,17,35,50,-15,22
+1016,istra 1961,210,hnl,2023,8,41,36,10,11,15,36,54,-18,22
+1018,nk slaven belupo,210,hnl,2023,9,33,36,9,6,21,43,69,-26,22
+1019,rudes,210,hnl,2023,10,9,36,1,6,29,22,85,-63,22
+561,hnk rijeka,210,hnl,2024,1,65,36,18,11,7,49,21,28,22
+620,dinamo zagreb,210,hnl,2024,2,65,36,19,8,9,69,41,28,22
+608,hnk hajduk split,210,hnl,2024,3,63,36,17,12,7,49,34,15,22
+1483,nk varazdin,210,hnl,2024,4,49,36,11,16,9,28,24,4,22
+1018,nk slaven belupo,210,hnl,2024,5,48,36,13,9,14,42,45,-3,22
+1016,istra 1961,210,hnl,2024,6,48,36,11,15,10,39,42,-3,22
+616,nk osijek,210,hnl,2024,7,42,36,11,9,16,46,52,-6,22
+1017,nk lokomotiva zagreb,210,hnl,2024,8,39,36,10,9,17,45,54,-9,22
+1068,hnk gorica,210,hnl,2024,9,37,36,9,10,17,29,51,-22,22
+1475,sibenik,210,hnl,2024,10,30,36,7,9,20,28,60,-32,22
+85,paris saint germain,61,ligue 1,2022,1,85,38,27,4,7,89,40,49,22
+116,lens,61,ligue 1,2022,2,84,38,25,9,4,68,29,39,22
+81,marseille,61,ligue 1,2022,3,73,38,22,7,9,67,40,27,22
+94,rennes,61,ligue 1,2022,4,68,38,21,5,12,69,39,30,22
+79,lille,61,ligue 1,2022,5,67,38,19,10,9,65,44,21,22
+91,monaco,61,ligue 1,2022,6,65,38,19,8,11,70,58,12,22
+80,lyon,61,ligue 1,2022,7,62,38,18,8,12,65,47,18,22
+99,clermont foot,61,ligue 1,2022,8,59,38,17,8,13,45,49,-4,22
+84,nice,61,ligue 1,2022,9,58,38,15,13,10,48,37,11,22
+97,lorient,61,ligue 1,2022,10,55,38,15,10,13,52,53,-1,22
+93,reims,61,ligue 1,2022,11,51,38,12,15,11,45,45,0,22
+82,montpellier,61,ligue 1,2022,12,50,38,15,5,18,65,62,3,22
+96,toulouse,61,ligue 1,2022,13,48,38,13,9,16,51,57,-6,22
+106,stade brestois 29,61,ligue 1,2022,14,44,38,11,11,16,44,54,-10,22
+95,strasbourg,61,ligue 1,2022,15,40,38,9,13,16,51,59,-8,22
+83,nantes,61,ligue 1,2022,16,36,38,7,15,16,37,55,-18,22
+108,auxerre,61,ligue 1,2022,17,35,38,8,11,19,35,63,-28,22
+98,ajaccio,61,ligue 1,2022,18,26,38,7,5,26,23,74,-51,22
+110,estac troyes,61,ligue 1,2022,19,24,38,4,12,22,45,81,-36,22
+77,angers,61,ligue 1,2022,20,18,38,4,6,28,33,81,-48,22
+85,paris saint germain,61,ligue 1,2023,1,76,34,22,10,2,81,33,48,22
+91,monaco,61,ligue 1,2023,2,67,34,20,7,7,68,42,26,22
+106,stade brestois 29,61,ligue 1,2023,3,61,34,17,10,7,53,34,19,22
+79,lille,61,ligue 1,2023,4,59,34,16,11,7,52,34,18,22
+84,nice,61,ligue 1,2023,5,55,34,15,10,9,40,29,11,22
+80,lyon,61,ligue 1,2023,6,53,34,16,5,13,49,55,-6,22
+116,lens,61,ligue 1,2023,7,51,34,14,9,11,45,37,8,22
+81,marseille,61,ligue 1,2023,8,50,34,13,11,10,52,41,11,22
+93,reims,61,ligue 1,2023,9,47,34,13,8,13,42,47,-5,22
+94,rennes,61,ligue 1,2023,10,46,34,12,10,12,53,46,7,22
+96,toulouse,61,ligue 1,2023,11,43,34,11,10,13,42,46,-4,22
+82,montpellier,61,ligue 1,2023,12,41,34,10,12,12,43,48,-5,22
+95,strasbourg,61,ligue 1,2023,13,39,34,10,9,15,38,50,-12,22
+83,nantes,61,ligue 1,2023,14,33,34,9,6,19,30,55,-25,22
+111,le havre,61,ligue 1,2023,15,32,34,7,11,16,34,45,-11,22
+112,metz,61,ligue 1,2023,16,29,34,8,5,21,35,58,-23,22
+97,lorient,61,ligue 1,2023,17,29,34,7,8,19,43,66,-23,22
+99,clermont foot,61,ligue 1,2023,18,25,34,5,10,19,26,60,-34,22
+85,paris saint germain,61,ligue 1,2024,1,84,34,26,6,2,92,35,57,22
+81,marseille,61,ligue 1,2024,2,65,34,20,5,9,74,47,27,22
+91,monaco,61,ligue 1,2024,3,61,34,18,7,9,63,41,22,22
+84,nice,61,ligue 1,2024,4,60,34,17,9,8,66,41,25,22
+79,lille,61,ligue 1,2024,5,60,34,17,9,8,52,36,16,22
+80,lyon,61,ligue 1,2024,6,57,34,17,6,11,65,46,19,22
+95,strasbourg,61,ligue 1,2024,7,57,34,16,9,9,56,44,12,22
+116,lens,61,ligue 1,2024,8,52,34,15,7,12,42,39,3,22
+106,stade brestois 29,61,ligue 1,2024,9,50,34,15,5,14,52,59,-7,22
+96,toulouse,61,ligue 1,2024,10,42,34,11,9,14,44,43,1,22
+108,auxerre,61,ligue 1,2024,11,42,34,11,9,14,48,51,-3,22
+94,rennes,61,ligue 1,2024,12,41,34,13,2,19,51,50,1,22
+83,nantes,61,ligue 1,2024,13,36,34,8,12,14,39,52,-13,22
+77,angers,61,ligue 1,2024,14,36,34,10,6,18,32,53,-21,22
+111,le havre,61,ligue 1,2024,15,34,34,10,4,20,40,71,-31,22
+93,reims,61,ligue 1,2024,16,33,34,8,9,17,33,47,-14,22
+1063,saint etienne,61,ligue 1,2024,17,30,34,8,6,20,39,77,-38,22
+82,montpellier,61,ligue 1,2024,18,16,34,4,4,26,23,79,-56,22
+157,bayern munich,78,bundesliga,2022,1,71,34,21,8,5,92,38,54,22
+165,borussia dortmund,78,bundesliga,2022,2,71,34,22,5,7,83,44,39,22
+173,rb leipzig,78,bundesliga,2022,3,66,34,20,6,8,64,41,23,22
+182,union berlin,78,bundesliga,2022,4,62,34,18,8,8,51,38,13,22
+160,sc freiburg,78,bundesliga,2022,5,59,34,17,8,9,51,44,7,22
+168,bayer leverkusen,78,bundesliga,2022,6,50,34,14,8,12,57,49,8,22
+169,eintracht frankfurt,78,bundesliga,2022,7,50,34,13,11,10,58,52,6,22
+161,vfl wolfsburg,78,bundesliga,2022,8,49,34,13,10,11,57,48,9,22
+164,fsv mainz 05,78,bundesliga,2022,9,46,34,12,10,12,54,55,-1,22
+163,borussia m'gladbach,78,bundesliga,2022,10,43,34,11,10,13,52,55,-3,22
+192,fc koln,78,bundesliga,2022,11,42,34,10,12,12,49,54,-5,22
+167,1899 hoffenheim,78,bundesliga,2022,12,36,34,10,6,18,48,57,-9,22
+162,werder bremen,78,bundesliga,2022,13,36,34,10,6,18,51,64,-13,22
+176,vfl bochum,78,bundesliga,2022,14,35,34,10,5,19,40,72,-32,22
+170,fc augsburg,78,bundesliga,2022,15,34,34,9,7,18,42,63,-21,22
+172,vfb stuttgart,78,bundesliga,2022,16,33,34,7,12,15,45,57,-12,22
+174,fc schalke 04,78,bundesliga,2022,17,31,34,7,10,17,35,71,-36,22
+159,hertha berlin,78,bundesliga,2022,18,29,34,7,8,19,42,69,-27,22
+168,bayer leverkusen,78,bundesliga,2023,1,90,34,28,6,0,89,24,65,22
+172,vfb stuttgart,78,bundesliga,2023,2,73,34,23,4,7,78,39,39,22
+157,bayern munich,78,bundesliga,2023,3,72,34,23,3,8,94,45,49,22
+173,rb leipzig,78,bundesliga,2023,4,65,34,19,8,7,77,39,38,22
+165,borussia dortmund,78,bundesliga,2023,5,63,34,18,9,7,68,43,25,22
+169,eintracht frankfurt,78,bundesliga,2023,6,47,34,11,14,9,51,50,1,22
+167,1899 hoffenheim,78,bundesliga,2023,7,46,34,13,7,14,66,66,0,22
+180,fc heidenheim,78,bundesliga,2023,8,42,34,10,12,12,50,55,-5,22
+162,werder bremen,78,bundesliga,2023,9,42,34,11,9,14,48,54,-6,22
+160,sc freiburg,78,bundesliga,2023,10,42,34,11,9,14,45,58,-13,22
+170,fc augsburg,78,bundesliga,2023,11,39,34,10,9,15,50,60,-10,22
+161,vfl wolfsburg,78,bundesliga,2023,12,37,34,10,7,17,41,56,-15,22
+164,fsv mainz 05,78,bundesliga,2023,13,35,34,7,14,13,39,51,-12,22
+163,borussia m'gladbach,78,bundesliga,2023,14,34,34,7,13,14,56,67,-11,22
+182,union berlin,78,bundesliga,2023,15,33,34,9,6,19,33,58,-25,22
+176,vfl bochum,78,bundesliga,2023,16,33,34,7,12,15,42,74,-32,22
+192,1.fc koln,78,bundesliga,2023,17,27,34,5,12,17,28,60,-32,22
+181,sv darmstadt 98,78,bundesliga,2023,18,17,34,3,8,23,30,86,-56,22
+157,bayern munich,78,bundesliga,2024,1,82,34,25,7,2,99,32,67,22
+168,bayer leverkusen,78,bundesliga,2024,2,69,34,19,12,3,72,43,29,22
+169,eintracht frankfurt,78,bundesliga,2024,3,60,34,17,9,8,68,46,22,22
+165,borussia dortmund,78,bundesliga,2024,4,57,34,17,6,11,71,51,20,22
+160,sc freiburg,78,bundesliga,2024,5,55,34,16,7,11,49,53,-4,22
+164,fsv mainz 05,78,bundesliga,2024,6,52,34,14,10,10,55,43,12,22
+173,rb leipzig,78,bundesliga,2024,7,51,34,13,12,9,53,48,5,22
+162,werder bremen,78,bundesliga,2024,8,51,34,14,9,11,54,57,-3,22
+172,vfb stuttgart,78,bundesliga,2024,9,50,34,14,8,12,64,53,11,22
+163,borussia m'gladbach,78,bundesliga,2024,10,45,34,13,6,15,55,57,-2,22
+161,vfl wolfsburg,78,bundesliga,2024,11,43,34,11,10,13,56,54,2,22
+170,fc augsburg,78,bundesliga,2024,12,43,34,11,10,13,35,51,-16,22
+182,union berlin,78,bundesliga,2024,13,40,34,10,10,14,35,51,-16,22
+186,fc st. pauli,78,bundesliga,2024,14,32,34,8,8,18,28,41,-13,22
+167,1899 hoffenheim,78,bundesliga,2024,15,32,34,7,11,16,46,68,-22,22
+180,1. fc heidenheim,78,bundesliga,2024,16,29,34,8,5,21,37,64,-27,22
+191,holstein kiel,78,bundesliga,2024,17,25,34,6,7,21,49,80,-31,22
+176,vfl bochum,78,bundesliga,2024,18,25,34,6,7,21,33,67,-34,22
+50,manchester city,39,premier league,2022,1,89,38,28,5,5,94,33,61,27
+42,arsenal,39,premier league,2022,2,84,38,26,6,6,88,43,45,27
+33,manchester united,39,premier league,2022,3,75,38,23,6,9,58,43,15,27
+34,newcastle,39,premier league,2022,4,71,38,19,14,5,68,33,35,27
+40,liverpool,39,premier league,2022,5,67,38,19,10,9,75,47,28,27
+51,brighton,39,premier league,2022,6,62,38,18,8,12,72,53,19,27
+66,aston villa,39,premier league,2022,7,61,38,18,7,13,51,46,5,27
+47,tottenham,39,premier league,2022,8,60,38,18,6,14,70,63,7,27
+55,brentford,39,premier league,2022,9,59,38,15,14,9,58,46,12,27
+36,fulham,39,premier league,2022,10,52,38,15,7,16,55,53,2,27
+52,crystal palace,39,premier league,2022,11,45,38,11,12,15,40,49,-9,27
+49,chelsea,39,premier league,2022,12,44,38,11,11,16,38,47,-9,27
+39,wolves,39,premier league,2022,13,41,38,11,8,19,31,58,-27,27
+48,west ham,39,premier league,2022,14,40,38,11,7,20,42,55,-13,27
+35,bournemouth,39,premier league,2022,15,39,38,11,6,21,37,71,-34,27
+65,nottingham forest,39,premier league,2022,16,38,38,9,11,18,38,68,-30,27
+45,everton,39,premier league,2022,17,36,38,8,12,18,34,57,-23,27
+46,leicester,39,premier league,2022,18,34,38,9,7,22,51,68,-17,27
+63,leeds,39,premier league,2022,19,31,38,7,10,21,48,78,-30,27
+41,southampton,39,premier league,2022,20,25,38,6,7,25,36,73,-37,27
+50,manchester city,39,premier league,2023,1,91,38,28,7,3,96,34,62,27
+42,arsenal,39,premier league,2023,2,89,38,28,5,5,91,29,62,27
+40,liverpool,39,premier league,2023,3,82,38,24,10,4,86,41,45,27
+66,aston villa,39,premier league,2023,4,68,38,20,8,10,76,61,15,27
+47,tottenham,39,premier league,2023,5,66,38,20,6,12,74,61,13,27
+49,chelsea,39,premier league,2023,6,63,38,18,9,11,77,63,14,27
+34,newcastle,39,premier league,2023,7,60,38,18,6,14,85,62,23,27
+33,manchester united,39,premier league,2023,8,60,38,18,6,14,57,58,-1,27
+48,west ham,39,premier league,2023,9,52,38,14,10,14,60,74,-14,27
+52,crystal palace,39,premier league,2023,10,49,38,13,10,15,57,58,-1,27
+51,brighton,39,premier league,2023,11,48,38,12,12,14,55,62,-7,27
+35,bournemouth,39,premier league,2023,12,48,38,13,9,16,54,67,-13,27
+36,fulham,39,premier league,2023,13,47,38,13,8,17,55,61,-6,27
+39,wolves,39,premier league,2023,14,46,38,13,7,18,50,65,-15,27
+45,everton,39,premier league,2023,15,40,38,13,9,16,40,51,-11,27
+55,brentford,39,premier league,2023,16,39,38,10,9,19,56,65,-9,27
+65,nottingham forest,39,premier league,2023,17,32,38,9,9,20,49,67,-18,27
+1359,luton,39,premier league,2023,18,26,38,6,8,24,52,85,-33,27
+44,burnley,39,premier league,2023,19,24,38,5,9,24,41,78,-37,27
+62,sheffield utd,39,premier league,2023,20,16,38,3,7,28,35,104,-69,27
+40,liverpool,39,premier league,2024,1,84,38,25,9,4,86,41,45,27
+42,arsenal,39,premier league,2024,2,74,38,20,14,4,69,34,35,27
+50,manchester city,39,premier league,2024,3,71,38,21,8,9,72,44,28,27
+49,chelsea,39,premier league,2024,4,69,38,20,9,9,64,43,21,27
+34,newcastle,39,premier league,2024,5,66,38,20,6,12,68,47,21,27
+66,aston villa,39,premier league,2024,6,66,38,19,9,10,58,51,7,27
+65,nottingham forest,39,premier league,2024,7,65,38,19,8,11,58,46,12,27
+51,brighton,39,premier league,2024,8,61,38,16,13,9,66,59,7,27
+35,bournemouth,39,premier league,2024,9,56,38,15,11,12,58,46,12,27
+55,brentford,39,premier league,2024,10,56,38,16,8,14,66,57,9,27
+36,fulham,39,premier league,2024,11,54,38,15,9,14,54,54,0,27
+52,crystal palace,39,premier league,2024,12,53,38,13,14,11,51,51,0,27
+45,everton,39,premier league,2024,13,48,38,11,15,12,42,44,-2,27
+48,west ham,39,premier league,2024,14,43,38,11,10,17,46,62,-16,27
+33,manchester united,39,premier league,2024,15,42,38,11,9,18,44,54,-10,27
+39,wolves,39,premier league,2024,16,42,38,12,6,20,54,69,-15,27
+47,tottenham,39,premier league,2024,17,38,38,11,5,22,64,65,-1,27
+46,leicester,39,premier league,2024,18,25,38,6,7,25,33,80,-47,27
+57,ipswich,39,premier league,2024,19,22,38,4,10,24,36,82,-46,27
+41,southampton,39,premier league,2024,20,12,38,2,6,30,26,86,-60,27
+492,napoli,135,serie a,2022,1,90,38,28,6,4,77,28,49,25
+487,lazio,135,serie a,2022,2,74,38,22,8,8,60,30,30,25
+505,inter,135,serie a,2022,3,72,38,23,3,12,71,42,29,25
+489,ac milan,135,serie a,2022,4,70,38,20,10,8,64,43,21,25
+499,atalanta,135,serie a,2022,5,64,38,19,7,12,66,48,18,25
+497,as roma,135,serie a,2022,6,63,38,18,9,11,50,38,12,25
+496,juventus,135,serie a,2022,7,62,38,22,6,10,56,33,23,25
+502,fiorentina,135,serie a,2022,8,56,38,15,11,12,53,43,10,25
+500,bologna,135,serie a,2022,9,54,38,14,12,12,53,49,4,25
+503,torino,135,serie a,2022,10,53,38,14,11,13,42,41,1,25
+1579,monza,135,serie a,2022,11,52,38,14,10,14,48,52,-4,25
+494,udinese,135,serie a,2022,12,46,38,11,13,14,47,48,-1,25
+488,sassuolo,135,serie a,2022,13,45,38,12,9,17,47,61,-14,25
+511,empoli,135,serie a,2022,14,43,38,10,13,15,37,49,-12,25
+514,salernitana,135,serie a,2022,15,42,38,9,15,14,48,62,-14,25
+867,lecce,135,serie a,2022,16,36,38,8,12,18,33,46,-13,25
+515,spezia,135,serie a,2022,17,31,38,6,13,19,31,62,-31,25
+504,verona,135,serie a,2022,18,31,38,7,10,21,31,59,-28,25
+520,cremonese,135,serie a,2022,19,27,38,5,12,21,36,69,-33,25
+498,sampdoria,135,serie a,2022,20,19,38,3,10,25,24,71,-47,25
+505,inter,135,serie a,2023,1,94,38,29,7,2,89,22,67,25
+489,ac milan,135,serie a,2023,2,75,38,22,9,7,76,49,27,25
+496,juventus,135,serie a,2023,3,71,38,19,14,5,54,31,23,25
+499,atalanta,135,serie a,2023,4,69,38,21,6,11,72,42,30,25
+500,bologna,135,serie a,2023,5,68,38,18,14,6,54,32,22,25
+497,as roma,135,serie a,2023,6,63,38,18,9,11,65,46,19,25
+487,lazio,135,serie a,2023,7,61,38,18,7,13,49,39,10,25
+502,fiorentina,135,serie a,2023,8,60,38,17,9,12,61,46,15,25
+503,torino,135,serie a,2023,9,53,38,13,14,11,36,36,0,25
+492,napoli,135,serie a,2023,10,53,38,13,14,11,55,48,7,25
+495,genoa,135,serie a,2023,11,49,38,12,13,13,45,45,0,25
+1579,monza,135,serie a,2023,12,45,38,11,12,15,39,51,-12,25
+504,verona,135,serie a,2023,13,38,38,9,11,18,38,51,-13,25
+867,lecce,135,serie a,2023,14,38,38,8,14,16,32,54,-22,25
+494,udinese,135,serie a,2023,15,37,38,6,19,13,37,53,-16,25
+490,cagliari,135,serie a,2023,16,36,38,8,12,18,42,68,-26,25
+511,empoli,135,serie a,2023,17,36,38,9,9,20,29,54,-25,25
+512,frosinone,135,serie a,2023,18,35,38,8,11,19,44,69,-25,25
+488,sassuolo,135,serie a,2023,19,30,38,7,9,22,43,75,-32,25
+514,salernitana,135,serie a,2023,20,17,38,2,11,25,32,81,-49,25
+492,napoli,135,serie a,2024,1,82,38,24,10,4,59,27,32,25
+505,inter,135,serie a,2024,2,81,38,24,9,5,79,35,44,25
+499,atalanta,135,serie a,2024,3,74,38,22,8,8,78,37,41,25
+496,juventus,135,serie a,2024,4,70,38,18,16,4,58,35,23,25
+497,as roma,135,serie a,2024,5,69,38,20,9,9,56,35,21,25
+502,fiorentina,135,serie a,2024,6,65,38,19,8,11,60,41,19,25
+487,lazio,135,serie a,2024,7,65,38,18,11,9,61,49,12,25
+489,ac milan,135,serie a,2024,8,63,38,18,9,11,61,43,18,25
+500,bologna,135,serie a,2024,9,62,38,16,14,8,57,47,10,25
+895,como,135,serie a,2024,10,49,38,13,10,15,49,52,-3,25
+503,torino,135,serie a,2024,11,44,38,10,14,14,39,45,-6,25
+494,udinese,135,serie a,2024,12,44,38,12,8,18,41,56,-15,25
+495,genoa,135,serie a,2024,13,43,38,10,13,15,37,49,-12,25
+504,verona,135,serie a,2024,14,37,38,10,7,21,34,66,-32,25
+490,cagliari,135,serie a,2024,15,36,38,9,9,20,40,56,-16,25
+523,parma,135,serie a,2024,16,36,38,7,15,16,44,58,-14,25
+867,lecce,135,serie a,2024,17,34,38,8,10,20,27,58,-31,25
+511,empoli,135,serie a,2024,18,31,38,6,13,19,33,59,-26,25
+517,venezia,135,serie a,2024,19,29,38,5,14,19,32,56,-24,25
+1579,monza,135,serie a,2024,20,18,38,3,9,26,28,69,-41,25
+209,feyenoord,88,eredivisie,2022,1,82,34,25,7,2,81,30,51,23
+197,psv eindhoven,88,eredivisie,2022,2,75,34,23,6,5,89,40,49,23
+194,ajax,88,eredivisie,2022,3,69,34,20,9,5,86,38,48,23
+201,az alkmaar,88,eredivisie,2022,4,67,34,20,7,7,68,35,33,23
+415,twente,88,eredivisie,2022,5,64,34,18,10,6,66,27,39,23
+426,sparta rotterdam,88,eredivisie,2022,6,59,34,17,8,9,60,37,23,23
+207,utrecht,88,eredivisie,2022,7,54,34,15,9,10,55,50,5,23
+210,heerenveen,88,eredivisie,2022,8,46,34,12,10,12,44,50,-6,23
+417,waalwijk,88,eredivisie,2022,9,41,34,11,8,15,50,64,-14,23
+200,vitesse,88,eredivisie,2022,10,40,34,10,10,14,45,50,-5,23
+410,go ahead eagles,88,eredivisie,2022,11,40,34,10,10,14,46,56,-10,23
+413,nec nijmegen,88,eredivisie,2022,12,39,34,8,15,11,42,45,-3,23
+205,fortuna sittard,88,eredivisie,2022,13,36,34,10,6,18,39,62,-23,23
+416,fc volendam,88,eredivisie,2022,14,36,34,10,6,18,42,71,-29,23
+196,excelsior,88,eredivisie,2022,15,32,34,9,5,20,32,71,-39,23
+208,emmen,88,eredivisie,2022,16,28,34,6,10,18,33,65,-32,23
+420,cambuur,88,eredivisie,2022,17,19,34,5,4,25,26,69,-43,23
+202,groningen,88,eredivisie,2022,18,18,34,4,6,24,31,75,-44,23
+197,psv eindhoven,88,eredivisie,2023,1,91,34,29,4,1,111,21,90,23
+209,feyenoord,88,eredivisie,2023,2,84,34,26,6,2,92,26,66,23
+415,twente,88,eredivisie,2023,3,69,34,21,6,7,69,36,33,23
+201,az alkmaar,88,eredivisie,2023,4,65,34,19,8,7,70,39,31,23
+194,ajax,88,eredivisie,2023,5,56,34,15,11,8,74,61,13,23
+413,nec nijmegen,88,eredivisie,2023,6,53,34,14,11,9,68,51,17,23
+207,utrecht,88,eredivisie,2023,7,50,34,13,11,10,49,47,2,23
+426,sparta rotterdam,88,eredivisie,2023,8,49,34,14,7,13,51,48,3,23
+410,go ahead eagles,88,eredivisie,2023,9,46,34,12,10,12,47,46,1,23
+205,fortuna sittard,88,eredivisie,2023,10,38,34,9,11,14,37,56,-19,23
+210,heerenveen,88,eredivisie,2023,11,37,34,10,7,17,53,70,-17,23
+193,pec zwolle,88,eredivisie,2023,12,36,34,9,9,16,45,67,-22,23
+419,almere city fc,88,eredivisie,2023,13,34,34,7,13,14,33,59,-26,23
+206,heracles,88,eredivisie,2023,14,33,34,9,6,19,41,74,-33,23
+417,waalwijk,88,eredivisie,2023,15,29,34,7,8,19,38,56,-18,23
+196,excelsior,88,eredivisie,2023,16,29,34,6,11,17,50,73,-23,23
+416,fc volendam,88,eredivisie,2023,17,19,34,4,7,23,34,88,-54,23
+200,vitesse,88,eredivisie,2023,18,6,34,6,6,22,30,74,-44,23
+197,psv eindhoven,88,eredivisie,2024,1,79,34,25,4,5,103,39,64,23
+194,ajax,88,eredivisie,2024,2,78,34,24,6,4,67,32,35,23
+209,feyenoord,88,eredivisie,2024,3,68,34,20,8,6,76,38,38,23
+207,utrecht,88,eredivisie,2024,4,64,34,18,10,6,62,45,17,23
+201,az alkmaar,88,eredivisie,2024,5,57,34,16,9,9,58,37,21,23
+415,twente,88,eredivisie,2024,6,54,34,15,9,10,62,49,13,23
+410,go ahead eagles,88,eredivisie,2024,7,51,34,14,9,11,57,55,2,23
+413,nec nijmegen,88,eredivisie,2024,8,43,34,12,7,15,51,46,5,23
+210,heerenveen,88,eredivisie,2024,9,43,34,12,7,15,42,57,-15,23
+193,pec zwolle,88,eredivisie,2024,10,41,34,10,11,13,43,51,-8,23
+205,fortuna sittard,88,eredivisie,2024,11,41,34,11,8,15,37,54,-17,23
+426,sparta rotterdam,88,eredivisie,2024,12,39,34,9,12,13,39,43,-4,23
+202,groningen,88,eredivisie,2024,13,39,34,10,9,15,40,53,-13,23
+206,heracles,88,eredivisie,2024,14,38,34,9,11,14,42,63,-21,23
+203,nac breda,88,eredivisie,2024,15,33,34,8,9,17,34,58,-24,23
+195,willem ii,88,eredivisie,2024,16,26,34,6,8,20,34,56,-22,23
+417,waalwijk,88,eredivisie,2024,17,25,34,6,7,21,44,74,-30,23
+419,almere city fc,88,eredivisie,2024,18,22,34,4,10,20,23,64,-41,23
+211,benfica,94,liga portugal,2022,1,87,34,28,3,3,82,20,62,22
+212,fc porto,94,liga portugal,2022,2,85,34,27,4,3,73,22,51,22
+217,sc braga,94,liga portugal,2022,3,78,34,25,3,6,75,30,45,22
+228,sporting cp,94,liga portugal,2022,4,74,34,23,5,6,71,32,39,22
+240,arouca,94,liga portugal,2022,5,54,34,15,9,10,36,37,-1,22
+224,guimaraes,94,liga portugal,2022,6,53,34,16,5,13,34,39,-5,22
+223,chaves,94,liga portugal,2022,7,46,34,12,10,12,35,40,-5,22
+242,famalicao,94,liga portugal,2022,8,44,34,13,5,16,39,47,-8,22
+222,boavista,94,liga portugal,2022,9,44,34,12,8,14,43,54,-11,22
+4716,casa pia,94,liga portugal,2022,10,41,34,11,8,15,31,40,-9,22
+810,vizela,94,liga portugal,2022,11,40,34,11,7,16,34,38,-4,22
+226,rio ave,94,liga portugal,2022,12,40,34,10,10,14,36,43,-7,22
+762,gil vicente,94,liga portugal,2022,13,37,34,10,7,17,32,41,-9,22
+230,estoril,94,liga portugal,2022,14,35,34,10,5,19,33,49,-16,22
+216,portimonense,94,liga portugal,2022,15,34,34,10,4,20,25,48,-23,22
+214,maritimo,94,liga portugal,2022,16,26,34,7,5,22,32,63,-31,22
+234,pacos ferreira,94,liga portugal,2022,17,23,34,6,5,23,26,62,-36,22
+227,santa clara,94,liga portugal,2022,18,22,34,5,7,22,26,58,-32,22
+228,sporting cp,94,liga portugal,2023,1,90,34,29,3,2,96,29,67,22
+211,benfica,94,liga portugal,2023,2,80,34,25,5,4,77,28,49,22
+212,fc porto,94,liga portugal,2023,3,72,34,22,6,6,63,27,36,22
+217,sc braga,94,liga portugal,2023,4,68,34,21,5,8,71,50,21,22
+224,guimaraes,94,liga portugal,2023,5,63,34,19,6,9,52,38,14,22
+215,moreirense,94,liga portugal,2023,6,55,34,16,7,11,36,35,1,22
+240,arouca,94,liga portugal,2023,7,46,34,13,7,14,54,50,4,22
+242,famalicao,94,liga portugal,2023,8,42,34,10,12,12,37,41,-4,22
+4716,casa pia,94,liga portugal,2023,9,38,34,10,8,16,38,50,-12,22
+231,farense,94,liga portugal,2023,10,37,34,10,7,17,46,51,-5,22
+226,rio ave,94,liga portugal,2023,11,37,34,6,19,9,38,43,-5,22
+762,gil vicente,94,liga portugal,2023,12,36,34,9,9,16,42,52,-10,22
+230,estoril,94,liga portugal,2023,13,33,34,9,6,19,49,58,-9,22
+15130,estrela,94,liga portugal,2023,14,33,34,7,12,15,33,53,-20,22
+222,boavista,94,liga portugal,2023,15,32,34,7,11,16,39,62,-23,22
+216,portimonense,94,liga portugal,2023,16,32,34,8,8,18,39,72,-33,22
+810,vizela,94,liga portugal,2023,17,26,34,5,11,18,36,66,-30,22
+223,chaves,94,liga portugal,2023,18,23,34,5,8,21,31,72,-41,22
+228,sporting cp,94,liga portugal,2024,1,82,34,25,7,2,88,27,61,22
+211,benfica,94,liga portugal,2024,2,80,34,25,5,4,84,28,56,22
+212,fc porto,94,liga portugal,2024,3,71,34,22,5,7,65,30,35,22
+217,sc braga,94,liga portugal,2024,4,66,34,19,9,6,55,30,25,22
+227,santa clara,94,liga portugal,2024,5,57,34,17,6,11,36,32,4,22
+224,guimaraes,94,liga portugal,2024,6,54,34,14,12,8,47,37,10,22
+242,famalicao,94,liga portugal,2024,7,47,34,12,11,11,44,39,5,22
+230,estoril,94,liga portugal,2024,8,46,34,12,10,12,48,53,-5,22
+4716,casa pia,94,liga portugal,2024,9,45,34,12,9,13,39,44,-5,22
+215,moreirense,94,liga portugal,2024,10,40,34,10,10,14,42,50,-8,22
+226,rio ave,94,liga portugal,2024,11,38,34,9,11,14,39,55,-16,22
+240,arouca,94,liga portugal,2024,12,38,34,9,11,14,35,49,-14,22
+762,gil vicente,94,liga portugal,2024,13,34,34,8,10,16,34,47,-13,22
+225,nacional,94,liga portugal,2024,14,34,34,9,7,18,32,50,-18,22
+15130,estrela,94,liga portugal,2024,15,29,34,7,8,19,24,50,-26,22
+21595,avs,94,liga portugal,2024,16,27,34,5,12,17,25,60,-35,22
+231,farense,94,liga portugal,2024,17,27,34,6,9,19,25,46,-21,22
+222,boavista,94,liga portugal,2024,18,24,34,6,6,22,24,59,-35,22
+247,celtic,179,scottish premiership,2022,1,99,38,32,3,3,114,34,80,27
+257,rangers,179,scottish premiership,2022,2,92,38,29,5,4,93,37,56,27
+252,aberdeen,179,scottish premiership,2022,3,57,38,18,3,17,56,60,-4,27
+254,heart of midlothian,179,scottish premiership,2022,4,54,38,15,9,14,63,57,6,27
+249,hibernian,179,scottish premiership,2022,5,52,38,15,7,16,57,59,-2,27
+251,st mirren,179,scottish premiership,2022,6,46,38,12,10,16,43,61,-18,27
+247,celtic,179,scottish premiership,2023,1,93,38,29,6,3,95,30,65,27
+257,rangers,179,scottish premiership,2023,2,85,38,27,4,7,87,32,55,27
+254,heart of midlothian,179,scottish premiership,2023,3,68,38,20,8,10,54,42,12,27
+250,kilmarnock,179,scottish premiership,2023,4,56,38,14,14,10,46,44,2,27
+251,st mirren,179,scottish premiership,2023,5,47,38,13,8,17,46,52,-6,27
+253,dundee,179,scottish premiership,2023,6,42,38,10,12,16,49,68,-19,27
+247,celtic,179,scottish premiership,2024,1,81,33,26,3,4,97,22,75,27
+257,rangers,179,scottish premiership,2024,2,66,33,20,6,7,68,35,33,27
+249,hibernian,179,scottish premiership,2024,3,53,33,14,11,8,54,41,13,27
+1386,dundee utd,179,scottish premiership,2024,4,50,33,14,8,11,41,40,1,27
+252,aberdeen,179,scottish premiership,2024,5,50,33,14,8,11,45,49,-4,27
+251,st mirren,179,scottish premiership,2024,6,41,33,12,5,16,45,54,-9,27
+254,heart of midlothian,179,scottish premiership,2024,7,40,33,11,7,15,43,44,-1,27
+256,motherwell,179,scottish premiership,2024,8,39,33,11,6,16,37,56,-19,27
+250,kilmarnock,179,scottish premiership,2024,9,35,33,9,8,16,38,58,-20,27
+902,ross county,179,scottish premiership,2024,10,35,33,9,8,16,33,56,-23,27
+253,dundee,179,scottish premiership,2024,11,34,33,9,7,17,50,71,-21,27
+258,st johnstone,179,scottish premiership,2024,12,29,33,8,5,20,33,58,-25,27
+529,barcelona,140,laliga,2022,1,88,38,28,4,6,70,20,50,24
+541,real madrid,140,laliga,2022,2,78,38,24,6,8,75,36,39,24
+530,atletico madrid,140,laliga,2022,3,77,38,23,8,7,70,33,37,24
+548,real sociedad,140,laliga,2022,4,71,38,21,8,9,51,35,16,24
+533,villarreal,140,laliga,2022,5,64,38,19,7,12,59,40,19,24
+543,real betis,140,laliga,2022,6,60,38,17,9,12,46,41,5,24
+727,osasuna,140,laliga,2022,7,53,38,15,8,15,37,42,-5,24
+531,athletic club,140,laliga,2022,8,51,38,14,9,15,47,43,4,24
+798,mallorca,140,laliga,2022,9,50,38,14,8,16,37,43,-6,24
+547,girona,140,laliga,2022,10,49,38,13,10,15,58,55,3,24
+728,rayo vallecano,140,laliga,2022,11,49,38,13,10,15,45,53,-8,24
+536,sevilla,140,laliga,2022,12,49,38,13,10,15,47,54,-7,24
+538,celta vigo,140,laliga,2022,13,43,38,11,10,17,43,53,-10,24
+724,cadiz,140,laliga,2022,14,42,38,10,12,16,30,53,-23,24
+546,getafe,140,laliga,2022,15,42,38,10,12,16,34,45,-11,24
+532,valencia,140,laliga,2022,16,42,38,11,9,18,42,45,-3,24
+723,almeria,140,laliga,2022,17,41,38,11,8,19,49,65,-16,24
+720,valladolid,140,laliga,2022,18,40,38,11,7,20,33,63,-30,24
+540,espanyol,140,laliga,2022,19,37,38,8,13,17,52,69,-17,24
+797,elche,140,laliga,2022,20,25,38,5,10,23,30,67,-37,24
+541,real madrid,140,laliga,2023,1,95,38,29,8,1,87,26,61,24
+529,barcelona,140,laliga,2023,2,85,38,26,7,5,79,44,35,24
+547,girona,140,laliga,2023,3,81,38,25,6,7,85,46,39,24
+530,atletico madrid,140,laliga,2023,4,76,38,24,4,10,70,43,27,24
+531,athletic club,140,laliga,2023,5,68,38,19,11,8,61,37,24,24
+548,real sociedad,140,laliga,2023,6,60,38,16,12,10,51,39,12,24
+543,real betis,140,laliga,2023,7,57,38,14,15,9,48,45,3,24
+533,villarreal,140,laliga,2023,8,53,38,14,11,13,65,65,0,24
+532,valencia,140,laliga,2023,9,49,38,13,10,15,40,45,-5,24
+542,alaves,140,laliga,2023,10,46,38,12,10,16,36,46,-10,24
+727,osasuna,140,laliga,2023,11,45,38,12,9,17,45,56,-11,24
+546,getafe,140,laliga,2023,12,43,38,10,13,15,42,54,-12,24
+538,celta vigo,140,laliga,2023,13,41,38,10,11,17,46,57,-11,24
+536,sevilla,140,laliga,2023,14,41,38,10,11,17,48,54,-6,24
+798,mallorca,140,laliga,2023,15,40,38,8,16,14,33,44,-11,24
+534,las palmas,140,laliga,2023,16,40,38,10,10,18,33,47,-14,24
+728,rayo vallecano,140,laliga,2023,17,38,38,8,14,16,29,48,-19,24
+724,cadiz,140,laliga,2023,18,33,38,6,15,17,26,55,-29,24
+723,almeria,140,laliga,2023,19,21,38,3,12,23,43,75,-32,24
+715,granada cf,140,laliga,2023,20,21,38,4,9,25,38,79,-41,24
+529,barcelona,140,laliga,2024,1,88,38,28,4,6,102,39,63,24
+541,real madrid,140,laliga,2024,2,84,38,26,6,6,78,38,40,24
+530,atletico madrid,140,laliga,2024,3,76,38,22,10,6,68,30,38,24
+531,athletic club,140,laliga,2024,4,70,38,19,13,6,54,29,25,24
+533,villarreal,140,laliga,2024,5,70,38,20,10,8,71,51,20,24
+543,real betis,140,laliga,2024,6,60,38,16,12,10,57,50,7,24
+538,celta vigo,140,laliga,2024,7,55,38,16,7,15,59,57,2,24
+728,rayo vallecano,140,laliga,2024,8,52,38,13,13,12,41,45,-4,24
+727,osasuna,140,laliga,2024,9,52,38,12,16,10,48,52,-4,24
+798,mallorca,140,laliga,2024,10,48,38,13,9,16,35,44,-9,24
+548,real sociedad,140,laliga,2024,11,46,38,13,7,18,35,46,-11,24
+532,valencia,140,laliga,2024,12,46,38,11,13,14,44,54,-10,24
+546,getafe,140,laliga,2024,13,42,38,11,9,18,34,39,-5,24
+540,espanyol,140,laliga,2024,14,42,38,11,9,18,40,51,-11,24
+542,alaves,140,laliga,2024,15,42,38,10,12,16,38,48,-10,24
+547,girona,140,laliga,2024,16,41,38,11,8,19,44,60,-16,24
+536,sevilla,140,laliga,2024,17,41,38,10,11,17,42,55,-13,24
+537,leganes,140,laliga,2024,18,40,38,9,13,16,39,56,-17,24
+534,las palmas,140,laliga,2024,19,32,38,8,8,22,40,61,-21,24
+720,valladolid,140,laliga,2024,20,16,38,4,4,30,26,90,-64,24
+645,galatasaray,203,super lig,2022,1,88,36,28,4,4,83,27,56,22
+611,fenerbahce,203,super lig,2022,2,80,36,25,5,6,87,42,45,22
+549,besiktas,203,super lig,2022,3,78,36,23,9,4,78,36,42,22
+3563,adana demirspor,203,super lig,2022,4,69,36,20,9,7,76,45,31,22
+564,istanbul basaksehir,203,super lig,2022,5,62,36,18,8,10,54,37,17,22
+998,trabzonspor,203,super lig,2022,6,57,36,17,6,13,64,54,10,22
+3589,fatih karagumruk,203,super lig,2022,7,51,36,13,12,11,75,63,12,22
+607,konyaspor,203,super lig,2022,8,51,36,12,15,9,49,41,8,22
+1001,kayserispor,203,super lig,2022,9,47,36,15,5,16,55,61,-6,22
+1004,kasimpasa,203,super lig,2022,10,43,36,12,7,17,45,61,-16,22
+1010,ankaragucu,203,super lig,2022,11,42,36,12,6,18,43,53,-10,22
+3578,istanbulspor,203,super lig,2022,12,41,36,12,5,19,47,63,-16,22
+1005,antalyaspor,203,super lig,2022,13,41,36,11,8,17,46,55,-9,22
+1002,sivasspor,203,super lig,2022,14,41,36,11,8,17,46,54,-8,22
+996,alanyaspor,203,super lig,2022,15,41,36,11,8,17,54,70,-16,22
+3574,giresunspor,203,super lig,2022,16,40,36,10,10,16,42,60,-18,22
+3577,umraniyespor,203,super lig,2022,17,30,36,7,9,20,47,64,-17,22
+3573,gazisehir gaziantep,203,super lig,2022,18,25,36,6,7,23,31,72,-41,22
+3575,hatayspor,203,super lig,2022,19,23,36,6,5,25,19,83,-64,22
+645,galatasaray,203,super lig,2023,1,102,38,33,3,2,92,26,66,22
+611,fenerbahce,203,super lig,2023,2,99,38,31,6,1,99,31,68,22
+998,trabzonspor,203,super lig,2023,3,67,38,21,4,13,69,50,19,22
+564,istanbul basaksehir,203,super lig,2023,4,61,38,18,7,13,57,43,14,22
+1004,kasimpasa,203,super lig,2023,5,56,38,16,8,14,62,65,-3,22
+549,besiktas,203,super lig,2023,6,56,38,16,8,14,52,47,5,22
+1002,sivasspor,203,super lig,2023,7,54,38,14,12,12,47,54,-7,22
+996,alanyaspor,203,super lig,2023,8,52,38,12,16,10,53,50,3,22
+1007,rizespor,203,super lig,2023,9,50,38,14,8,16,48,58,-10,22
+1005,antalyaspor,203,super lig,2023,10,49,38,12,13,13,44,49,-5,22
+3573,gazisehir gaziantep,203,super lig,2023,11,44,38,12,8,18,50,57,-7,22
+3563,adana demirspor,203,super lig,2023,12,44,38,10,14,14,54,61,-7,22
+3603,samsunspor,203,super lig,2023,13,43,38,11,10,17,42,52,-10,22
+1001,kayserispor,203,super lig,2023,14,42,38,11,12,15,44,57,-13,22
+3575,hatayspor,203,super lig,2023,15,41,38,9,14,15,45,52,-7,22
+607,konyaspor,203,super lig,2023,16,41,38,9,14,15,40,53,-13,22
+1010,ankaragucu,203,super lig,2023,17,40,38,8,16,14,46,52,-6,22
+3589,fatih karagumruk,203,super lig,2023,18,40,38,10,10,18,49,52,-3,22
+3601,pendikspor,203,super lig,2023,19,37,38,9,10,19,42,73,-31,22
+3578,istanbulspor,203,super lig,2023,20,16,38,4,7,27,27,80,-53,22
+645,galatasaray,203,super lig,2024,1,95,36,30,5,1,91,31,60,22
+611,fenerbahce,203,super lig,2024,2,84,36,26,6,4,90,39,51,22
+3603,samsunspor,203,super lig,2024,3,64,36,19,7,10,55,41,14,22
+549,besiktas,203,super lig,2024,4,62,36,17,11,8,59,36,23,22
+564,istanbul basaksehir,203,super lig,2024,5,54,36,16,6,14,60,56,4,22
+3588,eyupspor,203,super lig,2024,6,53,36,15,8,13,52,47,5,22
+998,trabzonspor,203,super lig,2024,7,51,36,13,12,11,58,45,13,22
+994,goztepe,203,super lig,2024,8,50,36,13,11,12,59,50,9,22
+1007,rizespor,203,super lig,2024,9,49,36,15,4,17,52,58,-6,22
+1004,kasimpasa,203,super lig,2024,10,47,36,11,14,11,62,63,-1,22
+607,konyaspor,203,super lig,2024,11,46,36,13,7,16,45,50,-5,22
+996,alanyaspor,203,super lig,2024,12,45,36,12,9,15,43,50,-7,22
+1001,kayserispor,203,super lig,2024,13,45,36,11,12,13,45,57,-12,22
+3573,gazisehir gaziantep,203,super lig,2024,14,45,36,12,9,15,45,50,-5,22
+1005,antalyaspor,203,super lig,2024,15,44,36,12,8,16,37,62,-25,22
+3583,bb bodrumspor,203,super lig,2024,16,37,36,9,10,17,26,43,-17,22
+1002,sivasspor,203,super lig,2024,17,35,36,9,8,19,44,60,-16,22
+3575,hatayspor,203,super lig,2024,18,26,36,6,8,22,47,74,-27,22
+3563,adana demirspor,203,super lig,2024,19,2,36,3,5,28,34,92,-58,22

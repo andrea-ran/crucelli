@@ -1,0 +1,100 @@
+# src/data_update/update_upcoming.py
+
+import requests
+import pandas as pd
+import os
+import unicodedata
+from datetime import datetime
+
+# Configurazione API
+API_KEY = "691ccc74c6d55850f0b5c836ec0b10f2"
+HEADERS = {"x-apisports-key": API_KEY}
+
+# Configurazione campionati e stagioni
+LEAGUES = {
+    "Saudi Professional League": 307,
+    "HNL": 210,
+    "Ligue 1": 61,
+    "Bundesliga": 78,
+    "Premier League": 39,
+    "Serie A": 135,
+    "Eredivisie": 88,
+    "Liga Portugal": 94,
+    "Premiership": 179,      # Scozia
+    "LaLiga": 140,
+    "Super Lig": 203
+}
+
+
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
+from season_config import STAGIONE_CORRENTE
+
+SEASON = STAGIONE_CORRENTE
+
+# Percorso file output
+UPCOMING_PATH = "/Users/andrea/Desktop/crucelli/data/raw/upcoming_matches.csv"
+
+# Mapping per normalizzazione
+TEAM_NAME_MAPPING = {
+    "bayern munchen": "bayern munich",
+    "borussia monchengladbach": "borussia m'gladbach",
+    "borussia mönchengladbach": "borussia m'gladbach",
+    "man united": "manchester united",
+    "man city": "manchester city",
+    "psg": "paris saint germain",
+    # ...aggiungi altri mapping se necessario...
+}
+LEAGUE_NAME_MAPPING = {
+    "premiership": "scottish premiership",
+    "pro league": "saudi pro league",
+    # ...aggiungi altri mapping se necessario...
+}
+
+def normalize(s, mapping=None):
+    s = str(s).strip().lower()
+    s = unicodedata.normalize('NFKD', s).encode('ascii', errors='ignore').decode()
+    if mapping:
+        return mapping.get(s, s)
+    return s
+
+def normalize_df(df, team_cols=None, league_cols=None):
+    if team_cols:
+        for col in team_cols:
+            if col in df.columns:
+                df[col] = df[col].apply(lambda x: normalize(x, TEAM_NAME_MAPPING))
+    if league_cols:
+        for col in league_cols:
+            if col in df.columns:
+                df[col] = df[col].apply(lambda x: normalize(x, LEAGUE_NAME_MAPPING))
+    return df
+
+def fetch_upcoming_matches():
+    all_matches = []
+    for league_name, league_id in LEAGUES.items():
+        print(f"Fetching upcoming matches for {league_name} ({league_id})...")
+        url = f"https://v3.football.api-sports.io/fixtures?league={league_id}&season={SEASON}&next=20"
+        response = requests.get(url, headers=HEADERS)
+        data = response.json()
+        for match in data.get("response", []):
+            all_matches.append({
+                "match_id": match["fixture"]["id"],
+                "date": match["fixture"]["date"],
+                "league_id": match["league"]["id"],
+                "league_name": match["league"]["name"],
+                "season": match["league"]["season"],
+                "home_team": match["teams"]["home"]["name"],
+                "away_team": match["teams"]["away"]["name"],
+                "home_score": match["goals"]["home"],
+                "away_score": match["goals"]["away"],
+                "status": match["fixture"]["status"]["short"]
+            })
+    return pd.DataFrame(all_matches)
+
+if __name__ == "__main__":
+    df = fetch_upcoming_matches()
+    # Normalizza squadre e lega
+    df = normalize_df(df, team_cols=["home_team", "away_team"], league_cols=["league_name"])
+    os.makedirs(os.path.dirname(UPCOMING_PATH), exist_ok=True)
+    df.to_csv(UPCOMING_PATH, index=False)
+    print("✅ upcoming_matches.csv aggiornato e normalizzato!")
