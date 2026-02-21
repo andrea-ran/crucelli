@@ -32,18 +32,13 @@ def get_champions_zone(df, stagione, champions_slots):
     Restituisce le squadre in zona Champions League per una stagione.
     Gestisce sinonimi per la Saudi Pro League.
     """
-    df_season = df[df["season"] == stagione]
+    from synonyms import normalize_league_name
+    df_season = df[df["season"] == stagione].copy()
+    df_season["league_name"] = df_season["league_name"].apply(normalize_league_name)
     result = []
-    league_synonyms = {
-        "saudi pro league": ["saudi pro league", "saudi professional league"],
-        "prva hnl": ["prva hnl", "hnl"]
-    }
     for league, slot in champions_slots.items():
-        if league in league_synonyms:
-            mask = df_season["league_name"].str.lower().isin([s.lower() for s in league_synonyms[league]])
-            squadre = df_season[mask].sort_values("rank").head(slot)["team_name"].tolist()
-        else:
-            squadre = df_season[df_season["league_name"] == league].sort_values("rank").head(slot)["team_name"].tolist()
+        league_norm = normalize_league_name(league)
+        squadre = df_season[df_season["league_name"] == league_norm].sort_values("rank").head(slot)["team_name"].tolist()
         result.extend(squadre)
     return set(result)
 

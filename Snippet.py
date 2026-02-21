@@ -1,22 +1,34 @@
-import requests
+import pandas as pd
+from synonyms import normalize_league_name, normalize_team_name
 
-API_KEY = "691ccc74c6d55850f0b5c836ec0b10f2"
-HEADERS = {"x-apisports-key": API_KEY}
-league_id = 213  # Croatian Cup
-season = 2024    # Cambia se vuoi indagare un'altra stagione
+team_stats = pd.concat([
+    pd.read_csv("data/raw/team_stats_archive.csv"),
+    pd.read_csv("data/raw/team_stats_current.csv")
+], ignore_index=True)
 
-url = "https://v3.football.api-sports.io/fixtures"
-params = {
-    "league": league_id,
-    "season": season
-}
-response = requests.get(url, headers=HEADERS, params=params)
-data = response.json()
+team_stats["league_name"] = team_stats["league_name"].apply(normalize_league_name)
+team_stats["team_name"] = team_stats["team_name"].apply(normalize_team_name)
 
-rounds = set()
-for f in data.get("response", []):
-    rounds.add(f["league"]["round"])
+# Slot Champions per Primeira Liga 2025
+slot = 2
 
-print("Tutti i valori di 'round' trovati per la Croatian Cup:")
-for r in sorted(rounds):
-    print(r)
+# Qualificate Champions stagione precedente (Primeira Liga, 2024, slot=2)
+df_prev = team_stats[(team_stats["season"] == 2024) & (team_stats["league_name"] == "primeira liga")].sort_values("rank")
+qualificate_precedente = set(df_prev.head(slot)["team_name"])
+print("Qualificate precedente:", qualificate_precedente)
+
+# Stagione corrente
+df_curr = team_stats[(team_stats["season"] == 2025) & (team_stats["league_name"] == "primeira liga")].sort_values("rank")
+soglia_champions = df_curr.iloc[slot-1]["points"]  # slot=2
+
+print(f"Soglia Champions (2°): {soglia_champions}")
+for _, row in df_curr.iterrows():
+    team = row["team_name"]
+    punti = row["points"]
+    rank = row["rank"]
+    diff = punti - soglia_champions
+    condizione = False
+    if team in qualificate_precedente:
+        if diff >= -3 and diff <= 0:
+            condizione = True
+    print(f"team: {team}, rank: {rank}, diff: {diff}, slot: {slot}, qualif: {team in qualificate_precedente}, condizione: {condizione}")

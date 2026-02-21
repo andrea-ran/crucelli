@@ -11,6 +11,11 @@ team_id,team_name,league_id,league_name,season,rank,points,played,won,draw,lost,
 492,napoli,135,serie a,2025,3,50,25,15,5,5,38,25,13,25
 197,psv eindhoven,88,eredivisie,2025,1,59,23,19,2,2,67,28,39,23
 209,feyenoord,88,eredivisie,2025,2,45,23,14,3,6,53,32,21,23
+228,sporting cp,94,liga portugal,2025,2,55,22,17,4,1,56,12,44,22
 257,rangers,179,scottish premiership,2025,2,55,27,15,10,2,47,21,26,27
+541,real madrid,140,laliga,2025,1,60,24,19,3,2,53,19,34,24
+529,barcelona,140,laliga,2025,2,58,24,19,1,4,64,25,39,24
+533,villarreal,140,laliga,2025,3,48,24,15,3,6,45,26,19,24
+530,atletico madrid,140,laliga,2025,4,45,24,13,6,5,38,21,17,24
 645,galatasaray,203,super lig,2025,1,55,22,17,4,1,55,15,40,22
 611,fenerbahce,203,super lig,2025,2,52,22,15,7,0,51,20,31,22

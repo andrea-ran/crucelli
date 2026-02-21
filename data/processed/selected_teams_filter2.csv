@@ -1,7 +1,9 @@
 team_name,league_name,points_prev,champions_threshold_prev,diff
-aston villa,premier league,66,69,-3
 al-ahli jeddah,saudi professional league,67,68,-1
-borussia dortmund,bundesliga,57,57,0
-as roma,serie a,69,70,-1
-fenerbahce,super lig,84,84,0
+aston villa,premier league,66,69,-3
 lyon,ligue 1,57,60,-3
+rangers,scottish premiership,66,66,0
+as roma,serie a,69,70,-1
+feyenoord,eredivisie,68,68,0
+fenerbahce,super lig,84,84,0
+borussia dortmund,bundesliga,57,57,0

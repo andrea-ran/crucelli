@@ -20,22 +20,7 @@ df_current = pd.read_csv(CURRENT_PATH)
 team_stats = pd.concat([df_archive, df_current], ignore_index=True)
 with open(CHAMPIONS_SLOTS_PATH, "r") as f:
     champions_slots_all = json.load(f)
-# Usa i posti Champions specifici per la stagione
 champions_slots = champions_slots_all[str(STAGIONE_CORRENTE)]
-
-# Definisci i posti Champions per ogni lega (come in filtro 1)
-champions_slots = {
-    "serie a": 4,
-    "premier league": 4,
-    "la liga": 4,
-    "bundesliga": 4,
-    "ligue 1": 4,
-    "primeira liga": 3,
-    "eredivisie": 2,
-    "prva hnl": 1,
-    "saudi pro league": 2,
-    "super lig": 2
-}
 
 # Funzione per ottenere le squadre in zona Champions
 # (come in filtro 1, senza chiave stagione)
