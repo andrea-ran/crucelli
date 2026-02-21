@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ambienti virtuali
+.venv/
+venv/
+ENV/
+
+# File di configurazione locali
+*.env
+*.local
+
+# Dati temporanei
+*.log
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Altri file personali
+api openai.rtf
