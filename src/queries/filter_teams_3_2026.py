@@ -100,9 +100,6 @@ for league, slot in champions_slots.items():
 df_out = pd.DataFrame(results)
 import pandas as pd
 
-print("DEBUG: Squadre selezionate dal filtro 3:")
-for r in results:
-    print(r)
 
 df_out = pd.DataFrame(results)
 if not df_out.empty:

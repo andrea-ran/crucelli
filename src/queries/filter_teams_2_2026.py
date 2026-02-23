@@ -1,10 +1,11 @@
+
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 import pandas as pd
 import json
-import os
 from season_config import STAGIONE_CORRENTE, STAGIONE_PRECEDENTE
+from synonyms import normalize_league_name
 
 
 # Percorsi file aggiornati
@@ -25,24 +26,23 @@ champions_slots = champions_slots_all[str(STAGIONE_CORRENTE)]
 # Funzione per ottenere le squadre in zona Champions
 # (come in filtro 1, senza chiave stagione)
 def get_champions_zone(df, stagione, champions_slots):
-    df_season = df[df["season"] == stagione]
+    df_season = df[df["season"] == stagione].copy()
+    # Normalizza i nomi delle leghe nei dati
+    df_season["league_name_norm"] = df_season["league_name"].apply(normalize_league_name)
     result = []
-    league_synonyms = {
-        "saudi pro league": ["saudi pro league", "saudi professional league"]
-    }
     for league, slot in champions_slots.items():
-        if league in league_synonyms:
-            mask = df_season["league_name"].str.lower().isin([s.lower() for s in league_synonyms[league]])
-            squadre = df_season[mask].sort_values("rank").head(slot)["team_name"].tolist()
-        else:
-            squadre = df_season[df_season["league_name"] == league].sort_values("rank").head(slot)["team_name"].tolist()
+        league_norm = normalize_league_name(league)
+        squadre = df_season[df_season["league_name_norm"] == league_norm].sort_values("rank").head(slot)["team_name"].tolist()
         result.extend(squadre)
     return set(result)
 
 # Funzione per ottenere la soglia punti Champions per ogni lega
 def get_champions_points_threshold(df, stagione, league, champions_slots):
     slot = champions_slots.get(league, 4)
-    league_teams = df[(df["season"] == stagione) & (df["league_name"] == league)]
+    league_norm = normalize_league_name(league)
+    df_season = df[df["season"] == stagione].copy()
+    df_season["league_name_norm"] = df_season["league_name"].apply(normalize_league_name)
+    league_teams = df_season[df_season["league_name_norm"] == league_norm]
     if league_teams.empty:
         return None
     sorted_teams = league_teams.nsmallest(slot, "rank")
@@ -58,12 +58,16 @@ results = []
 
 for team in zone_corrente:
     # Trova la lega della squadra nella stagione corrente
-    row_corr = team_stats[(team_stats["season"] == STAGIONE_CORRENTE) & (team_stats["team_name"] == team)]
+    row_corr = team_stats[(team_stats["season"] == STAGIONE_CORRENTE) & (team_stats["team_name"] == team)].copy()
     if row_corr.empty:
         continue
     league = row_corr.iloc[0]["league_name"]
+    league_norm = normalize_league_name(league)
     # Trova punti squadra stagione precedente
-    row_prev = team_stats[(team_stats["season"] == STAGIONE_PRECEDENTE) & (team_stats["team_name"] == team) & (team_stats["league_name"] == league)]
+    row_prev = team_stats[(team_stats["season"] == STAGIONE_PRECEDENTE) & (team_stats["team_name"] == team)].copy()
+    # Normalizza anche qui la lega
+    row_prev["league_name_norm"] = row_prev["league_name"].apply(normalize_league_name)
+    row_prev = row_prev[row_prev["league_name_norm"] == league_norm]
     if row_prev.empty:
         continue
     punti_squadra = row_prev.iloc[0]["points"]
@@ -72,7 +76,7 @@ for team in zone_corrente:
     if soglia_champions is None:
         continue
     diff = punti_squadra - soglia_champions
-    if diff in [0, -1, -3]:
+    if diff >= -3:
         results.append({
             "team_name": team,
             "league_name": league,

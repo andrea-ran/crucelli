@@ -1,9 +1,28 @@
 team_name,league_name,points_prev,champions_threshold_prev,diff
-al-ahli jeddah,saudi professional league,67,68,-1
-aston villa,premier league,66,69,-3
+psv eindhoven,eredivisie,79,68,11
+al-nassr,saudi professional league,70,68,2
+inter,serie a,81,70,11
+bayern munich,bundesliga,82,57,25
+atletico madrid,laliga,76,70,6
 lyon,ligue 1,57,60,-3
+dinamo zagreb,hnl,65,49,16
+fc porto,liga portugal,71,66,5
+napoli,serie a,82,70,12
+feyenoord,eredivisie,68,68,0
+al-hilal saudi fc,saudi professional league,75,68,7
+manchester city,premier league,71,69,2
+paris saint germain,ligue 1,84,60,24
+barcelona,laliga,88,70,18
+chelsea,premier league,69,69,0
+arsenal,premier league,74,69,5
+real madrid,laliga,84,70,14
+borussia dortmund,bundesliga,57,57,0
+villarreal,laliga,70,70,0
+marseille,ligue 1,65,60,5
 rangers,scottish premiership,66,66,0
 as roma,serie a,69,70,-1
-feyenoord,eredivisie,68,68,0
+al-ahli jeddah,saudi professional league,67,68,-1
+aston villa,premier league,66,69,-3
+sporting cp,liga portugal,82,66,16
 fenerbahce,super lig,84,84,0
-borussia dortmund,bundesliga,57,57,0
+galatasaray,super lig,95,84,11

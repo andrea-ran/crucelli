@@ -1,8 +1,5 @@
 team_name,league_name,points,champions_threshold,diff,matches,matches_champ,diff_partite
-chelsea,premier league,44,45,-1,,,
-liverpool,premier league,42,45,-3,,,
-bayer leverkusen,bundesliga,39,42,-3,,,
-juventus,serie a,46,47,-1,,,
-ajax,eredivisie,42,42,0,,,
-benfica,primeira liga,52,55,-3,,,
-celtic,scottish premiership,54,55,-1,,,
+liverpool,premier league,45,45,0,,,
+ajax,eredivisie,43,43,0,,,
+benfica,primeira liga,55,58,-3,,,
+celtic,scottish premiership,54,56,-2,,,
