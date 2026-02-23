@@ -74,9 +74,8 @@ DATA_UPDATE_SCRIPTS = [
     os.path.join('src', 'data_update', 'update_national_cup.py'),
     os.path.join('src', 'data_update', 'update_upcoming_champions.py'),
 ]
-FILTER_SCRIPTS = [
-    os.path.join('src', 'queries', f'filter_teams_{i}_2026.py') for i in range(1, 6)
-]
+FILTER_SCRIPT = os.path.join('src', 'queries', 'filter_teams.py')
+
 
 @app.route('/aggiorna')
 @login_required
@@ -84,9 +83,8 @@ def aggiorna():
     # Esegui tutti gli script di aggiornamento dati
     for script in DATA_UPDATE_SCRIPTS:
         subprocess.run(['python3', script])
-    # Esegui tutti gli script di filtro
-    for script in FILTER_SCRIPTS:
-        subprocess.run(['python3', script])
+    # Esegui il nuovo script unico di filtro
+    subprocess.run(['python3', FILTER_SCRIPT])
     # Esegui lo script betting.py
     subprocess.run(['python3', BETTING_SCRIPT])
     return redirect(url_for('index', msg='Aggiornamento completato!'))

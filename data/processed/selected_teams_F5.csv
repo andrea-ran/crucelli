@@ -1,0 +1,11 @@
+team_id,team_name,league_id,league_name,season,rank,points,played,won,draw,lost,goals_for,goals_against,goal_diff,current_matchday
+85,paris saint germain,61,ligue 1,2025,1,54,23,17,3,3,52,19,33,23
+157,bayern munich,78,bundesliga,2025,1,60,23,19,3,1,85,21,64,23
+165,borussia dortmund,78,bundesliga,2025,2,52,23,15,7,1,49,22,27,23
+42,arsenal,39,premier league,2025,1,61,28,18,7,3,56,21,35,28
+50,manchester city,39,premier league,2025,2,56,27,17,5,5,56,25,31,28
+505,inter,135,serie a,2025,1,64,26,21,1,4,62,21,41,26
+197,psv eindhoven,88,eredivisie,2025,1,62,24,20,2,2,70,29,41,24
+257,rangers,179,scottish premiership,2025,2,56,28,15,11,2,49,23,26,28
+645,galatasaray,203,super lig,2025,1,55,23,17,4,2,55,17,38,23
+611,fenerbahce,203,super lig,2025,2,52,22,15,7,0,51,20,31,23
