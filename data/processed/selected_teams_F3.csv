@@ -1,5 +1,27 @@
-team_id,team_name,league_id,league_name,season,rank,points,played,won,draw,lost,goals_for,goals_against,goal_diff,current_matchday
-40,liverpool,39,premier league,2025,6,45,27,13,6,8,42,35,7,28
-194,ajax,88,eredivisie,2025,4,43,24,11,10,3,47,31,16,24
-211,benfica,94,liga portugal,2025,3,55,23,16,7,0,49,13,36,23
-247,celtic,179,scottish premiership,2025,3,54,27,17,3,7,49,28,21,28
+#,team_name,league_name,opponent,t_points,op_points,champ_points,delta,matches_diff,ripescaggio
+1,al-nassr,saudi pro league,al najma,70,0,70,70,0,
+2,al-hilal saudi fc,saudi pro league,al taawon,75,45,70,25,0,
+3,al-ahli jeddah,saudi pro league,damac,67,35,70,35,0,
+4,dinamo zagreb,prva hnl,hnk gorica,65,37,65,28,0,
+5,paris saint germain,ligue 1,le havre,84,34,60,26,0,
+6,1899 hoffenheim,bundesliga,fc st. pauli,32,32,57,25,0,
+7,vfb stuttgart,bundesliga,vfl wolfsburg,50,43,57,14,0,
+8,manchester city,premier league,leeds,71,0,66,66,0,
+9,aston villa,premier league,wolves,66,42,66,24,0,
+10,liverpool,premier league,west ham,84,43,66,23,0,
+11,inter,serie a,genoa,81,43,70,27,0,
+12,ac milan,serie a,cremonese,63,0,70,70,0,
+13,napoli,serie a,verona,82,37,70,33,0,
+14,psv eindhoven,eredivisie,heracles,79,38,68,30,0,
+15,feyenoord,eredivisie,twente,68,54,68,14,0,
+16,nec nijmegen,eredivisie,fortuna sittard,43,41,68,27,0,
+17,ajax,eredivisie,pec zwolle,78,41,68,27,0,
+18,fc porto,primeira liga,arouca,71,38,80,42,0,
+19,sporting cp,primeira liga,estoril,82,46,80,34,0,
+20,benfica,primeira liga,gil vicente,80,34,80,46,0,
+21,heart of midlothian,scottish premiership,aberdeen,40,50,66,16,0,
+22,barcelona,la liga,villarreal,88,70,70,0,0,diff_punti_>=15
+23,real madrid,la liga,getafe,84,42,70,28,0,
+24,atletico madrid,la liga,oviedo,76,0,70,70,0,
+25,galatasaray,super lig,alanyaspor,95,45,84,39,0,
+26,fenerbahce,super lig,kasmpasa,84,0,84,84,0,

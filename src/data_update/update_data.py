@@ -1,4 +1,6 @@
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 import pandas as pd
 import os
 import json
@@ -77,12 +79,30 @@ def normalize_df(df, team_cols=None, league_cols=None):
                 df[col] = df[col].apply(lambda x: normalize(x, LEAGUE_NAME_MAPPING))
     return df
 
+# Session globale con retry e timeout
+DEFAULT_TIMEOUT = 10
+
+def create_session(retries=3, backoff_factor=0.5, status_forcelist=(429, 500, 502, 503, 504)):
+    session = requests.Session()
+    retry = Retry(
+        total=retries,
+        backoff_factor=backoff_factor,
+        status_forcelist=status_forcelist,
+        allowed_methods=frozenset(["GET", "POST"])
+    )
+    adapter = HTTPAdapter(max_retries=retry)
+    session.mount("https://", adapter)
+    session.mount("http://", adapter)
+    return session
+
+SESSION = create_session()
+
 # Controlla se c'è connessione Internet
 def check_connection():
     try:
-        requests.get("https://www.google.com", timeout=3)
+        SESSION.get("https://www.google.com", timeout=3)
         return True
-    except requests.ConnectionError:
+    except requests.RequestException:
         return False
 
 # Controlla ultima data di aggiornamento
@@ -100,15 +120,17 @@ def update_last_update():
 # Funzione per determinare la giornata corrente
 def get_current_matchday(league_id, season):
     url = f"https://v3.football.api-sports.io/standings?league={league_id}&season={season}"
-    response = requests.get(url, headers=HEADERS)
-    if response.status_code == 200:
-        data = response.json()
+    try:
+        resp = SESSION.get(url, headers=HEADERS, timeout=DEFAULT_TIMEOUT)
+        resp.raise_for_status()
+        data = resp.json()
         standings = data.get("response", [])
         if standings:
             standings_data = standings[0].get("league", {}).get("standings", [[]])[0]
             if standings_data:
                 return standings_data[0].get("all", {}).get("played")  # Numero di partite giocate
-    print(f"⚠️ Impossibile determinare la giornata corrente per la lega {league_id}, stagione {season}.")
+    except requests.RequestException as e:
+        print(f"⚠️ Impossibile determinare la giornata corrente per la lega {league_id}, stagione {season}: {e}")
     return None
 
 # Scarica e aggiorna all_matches.csv
@@ -119,8 +141,13 @@ def update_matches():
         season = STAGIONE_CORRENTE
         print(f"Fetching matches for {league_name} ({league_id}), season {season}...")
         url = f"https://v3.football.api-sports.io/fixtures?league={league_id}&season={season}"
-        response = requests.get(url, headers=HEADERS)
-        data = response.json()
+        try:
+            resp = SESSION.get(url, headers=HEADERS, timeout=DEFAULT_TIMEOUT)
+            resp.raise_for_status()
+            data = resp.json()
+        except requests.RequestException as e:
+            print(f"⚠️ Errore fetching matches for {league_name} ({league_id}): {e}")
+            continue
 
         for match in data.get("response", []):
             all_matches.append({
@@ -151,14 +178,19 @@ def update_team_stats():
         season = STAGIONE_CORRENTE
         print(f"Fetching team stats for {league_name} ({league_id}), season {season}...")
         url = f"https://v3.football.api-sports.io/standings?league={league_id}&season={season}"
-        response = requests.get(url, headers=HEADERS)
-        data = response.json()
+        try:
+            resp = SESSION.get(url, headers=HEADERS, timeout=DEFAULT_TIMEOUT)
+            resp.raise_for_status()
+            data = resp.json()
+        except requests.RequestException as e:
+            print(f"⚠️ Errore fetching team stats for {league_name} ({league_id}): {e}")
+            continue
 
-        response = data.get("response", [])
-        if not response:
+        resp_list = data.get("response", [])
+        if not resp_list:
             print(f"⚠️ Nessun dato per {league_name} {season}, salto...")
             continue
-        for team in response[0]["league"]["standings"][0]:
+        for team in resp_list[0]["league"]["standings"][0]:
             all_stats.append({
                 "team_id": team["team"]["id"],
                 "team_name": team["team"]["name"],
@@ -201,8 +233,12 @@ if __name__ == "__main__":
         last_update = get_last_update()
         today = str(datetime.date.today())
         if last_update != today:
-            update_matches()
-            update_team_stats()
+            try:
+                update_matches()
+                update_team_stats()
+            except KeyboardInterrupt:
+                print("\n⛔ Aggiornamento interrotto dall'utente.")
+                sys.exit(1)
             update_last_update()
             print("✅ Dati aggiornati con successo!")
         else:

@@ -197,10 +197,10 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1436116,2026-02-21T19:00:00+00:00,307,saudi pro league,2025,al khaleej saihat,neom,0.0,1.0,FT
 1436115,2026-02-21T19:00:00+00:00,307,saudi pro league,2025,al-hilal saudi fc,al-ittihad fc,1.0,1.0,FT
 1436112,2026-02-21T19:00:00+00:00,307,saudi pro league,2025,al-nassr,al-hazm,4.0,0.0,FT
-1436001,2026-02-23T19:00:00+00:00,307,saudi pro league,2025,al-fateh,al okhdood,,,NS
-1435999,2026-02-23T19:00:00+00:00,307,saudi pro league,2025,al-qadisiyah fc,al-ettifaq,,,NS
-1435995,2026-02-23T19:00:00+00:00,307,saudi pro league,2025,al shabab,al riyadh,,,NS
-1435997,2026-02-23T19:00:00+00:00,307,saudi pro league,2025,damac,al-ahli jeddah,,,NS
+1436001,2026-02-23T19:00:00+00:00,307,saudi pro league,2025,al-fateh,al okhdood,2.0,1.0,FT
+1435999,2026-02-23T19:00:00+00:00,307,saudi pro league,2025,al-qadisiyah fc,al-ettifaq,4.0,0.0,FT
+1435995,2026-02-23T19:00:00+00:00,307,saudi pro league,2025,al shabab,al riyadh,3.0,1.0,FT
+1435997,2026-02-23T19:00:00+00:00,307,saudi pro league,2025,damac,al-ahli jeddah,0.0,1.0,FT
 1435998,2026-02-24T19:00:00+00:00,307,saudi pro league,2025,al khaleej saihat,al kholood,,,NS
 1436002,2026-02-24T19:00:00+00:00,307,saudi pro league,2025,al taawon,al-hilal saudi fc,,,NS
 1435996,2026-02-24T19:00:00+00:00,307,saudi pro league,2025,al-hazm,al-ittihad fc,,,NS
@@ -1367,7 +1367,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1379235,2026-02-22T14:00:00+00:00,39,premier league,2025,nottingham forest,liverpool,0.0,1.0,FT
 1379236,2026-02-22T14:00:00+00:00,39,premier league,2025,sunderland,fulham,1.0,3.0,FT
 1379237,2026-02-22T16:30:00+00:00,39,premier league,2025,tottenham,arsenal,1.0,4.0,FT
-1379233,2026-02-23T20:00:00+00:00,39,premier league,2025,everton,manchester united,,,NS
+1379233,2026-02-23T20:00:00+00:00,39,premier league,2025,everton,manchester united,0.0,1.0,FT
 1379248,2026-02-27T20:00:00+00:00,39,premier league,2025,wolves,aston villa,,,NS
 1379240,2026-02-28T12:30:00+00:00,39,premier league,2025,bournemouth,sunderland,,,NS
 1379247,2026-02-28T15:00:00+00:00,39,premier league,2025,newcastle,everton,,,NS
@@ -1735,8 +1735,8 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1378114,2026-02-22T14:00:00+00:00,135,serie a,2025,atalanta,napoli,2.0,1.0,FT
 1378121,2026-02-22T17:00:00+00:00,135,serie a,2025,ac milan,parma,0.0,1.0,FT
 1378122,2026-02-22T19:45:00+00:00,135,serie a,2025,as roma,cremonese,3.0,0.0,FT
-1378117,2026-02-23T17:30:00+00:00,135,serie a,2025,fiorentina,pisa,,,NS
-1378115,2026-02-23T19:45:00+00:00,135,serie a,2025,bologna,udinese,,,NS
+1378117,2026-02-23T17:30:00+00:00,135,serie a,2025,fiorentina,pisa,1.0,0.0,FT
+1378115,2026-02-23T19:45:00+00:00,135,serie a,2025,bologna,udinese,1.0,0.0,FT
 1378127,2026-02-27T19:45:00+00:00,135,serie a,2025,parma,cagliari,,,NS
 1378124,2026-02-28T14:00:00+00:00,135,serie a,2025,como,lecce,,,NS
 1378133,2026-02-28T17:00:00+00:00,135,serie a,2025,verona,napoli,,,NS
@@ -2369,7 +2369,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1396438,2026-02-21T20:30:00+00:00,94,primeira liga,2025,sc braga,guimaraes,3.0,2.0,FT
 1396439,2026-02-22T18:00:00+00:00,94,primeira liga,2025,estoril,gil vicente,3.0,1.0,FT
 1396442,2026-02-22T20:30:00+00:00,94,primeira liga,2025,fc porto,rio ave,1.0,0.0,FT
-1396441,2026-02-23T20:15:00+00:00,94,primeira liga,2025,famalicao,casa pia,,,NS
+1396441,2026-02-23T20:15:00+00:00,94,primeira liga,2025,famalicao,casa pia,2.0,0.0,FT
 1396446,2026-02-27T18:45:00+00:00,94,primeira liga,2025,fc porto,arouca,,,NS
 1396450,2026-02-27T20:45:00+00:00,94,primeira liga,2025,sporting cp,estoril,,,NS
 1396444,2026-02-28T15:30:00+00:00,94,primeira liga,2025,avs,estrela,,,NS
@@ -2915,7 +2915,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1391062,2026-02-22T15:15:00+00:00,140,la liga,2025,barcelona,levante,3.0,0.0,FT
 1391064,2026-02-22T17:30:00+00:00,140,la liga,2025,celta vigo,mallorca,2.0,0.0,FT
 1391068,2026-02-22T20:00:00+00:00,140,la liga,2025,villarreal,valencia,2.0,1.0,FT
-1391059,2026-02-23T20:00:00+00:00,140,la liga,2025,alaves,girona,,,NS
+1391059,2026-02-23T20:00:00+00:00,140,la liga,2025,alaves,girona,2.0,2.0,FT
 1391073,2026-02-27T20:00:00+00:00,140,la liga,2025,levante,alaves,,,NS
 1391075,2026-02-28T13:00:00+00:00,140,la liga,2025,rayo vallecano,athletic club,,,NS
 1391069,2026-02-28T15:15:00+00:00,140,la liga,2025,barcelona,villarreal,,,NS
@@ -3048,7 +3048,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1391194,2026-05-24T16:00:00+00:00,140,la liga,2025,girona,elche,,,NS
 1391195,2026-05-24T16:00:00+00:00,140,la liga,2025,mallorca,oviedo,,,NS
 1394436,2025-08-08T18:30:00+00:00,203,super lig,2025,gaziantep fk,galatasaray,0.0,3.0,FT
-1394440,2025-08-09T16:00:00+00:00,203,super lig,2025,samsunspor,genclerbirligi,2.0,1.0,FT
+1394440,2025-08-09T16:00:00+00:00,203,super lig,2025,samsunspor,genclerbirligi s.k.,2.0,1.0,FT
 1394433,2025-08-09T18:30:00+00:00,203,super lig,2025,antalyaspor,kasmpasa,2.0,1.0,FT
 1394439,2025-08-10T16:00:00+00:00,203,super lig,2025,rizespor,goztepe,0.0,3.0,FT
 1394434,2025-08-10T18:30:00+00:00,203,super lig,2025,eyupspor,konyaspor,1.0,4.0,FT
@@ -3058,13 +3058,13 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1394447,2025-08-16T18:30:00+00:00,203,super lig,2025,goztepe,fenerbahce,0.0,0.0,FT
 1394442,2025-08-16T18:30:00+00:00,203,super lig,2025,alanyaspor,rizespor,0.0,0.0,FT
 1394450,2025-08-17T16:00:00+00:00,203,super lig,2025,konyaspor,gaziantep fk,3.0,0.0,FT
-1394446,2025-08-17T16:00:00+00:00,203,super lig,2025,genclerbirligi,antalyaspor,0.0,1.0,FT
+1394446,2025-08-17T16:00:00+00:00,203,super lig,2025,genclerbirligi s.k.,antalyaspor,0.0,1.0,FT
 1394444,2025-08-17T18:30:00+00:00,203,super lig,2025,besiktas,eyupspor,2.0,1.0,FT
 1394443,2025-08-17T18:30:00+00:00,203,super lig,2025,basaksehir,kayserispor,1.0,1.0,FT
 1394448,2025-08-18T18:30:00+00:00,203,super lig,2025,kasmpasa,trabzonspor,0.0,1.0,FT
 1394454,2025-08-22T18:30:00+00:00,203,super lig,2025,fatih karagumruk,goztepe,0.0,2.0,FT
 1394452,2025-08-23T18:30:00+00:00,203,super lig,2025,fenerbahce,kocaelispor,3.0,1.0,FT
-1394453,2025-08-23T18:30:00+00:00,203,super lig,2025,gaziantep fk,genclerbirligi,2.0,1.0,FT
+1394453,2025-08-23T18:30:00+00:00,203,super lig,2025,gaziantep fk,genclerbirligi s.k.,2.0,1.0,FT
 1394459,2025-08-24T16:00:00+00:00,203,super lig,2025,trabzonspor,antalyaspor,1.0,0.0,FT
 1394455,2025-08-24T18:30:00+00:00,203,super lig,2025,kayserispor,galatasaray,0.0,4.0,FT
 1394451,2025-08-25T16:00:00+00:00,203,super lig,2025,eyupspor,alanyaspor,2.0,1.0,FT
@@ -3074,7 +3074,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1394463,2025-08-30T18:30:00+00:00,203,super lig,2025,galatasaray,rizespor,3.0,1.0,FT
 1394461,2025-08-30T18:30:00+00:00,203,super lig,2025,antalyaspor,fatih karagumruk,1.0,2.0,FT
 1394462,2025-08-31T16:00:00+00:00,203,super lig,2025,basaksehir,eyupspor,0.0,0.0,FT
-1394464,2025-08-31T16:00:00+00:00,203,super lig,2025,genclerbirligi,fenerbahce,1.0,3.0,FT
+1394464,2025-08-31T16:00:00+00:00,203,super lig,2025,genclerbirligi s.k.,fenerbahce,1.0,3.0,FT
 1394460,2025-08-31T18:30:00+00:00,203,super lig,2025,alanyaspor,besiktas,2.0,0.0,FT
 1394468,2025-08-31T18:30:00+00:00,203,super lig,2025,trabzonspor,samsunspor,1.0,1.0,FT
 1394470,2025-09-13T14:00:00+00:00,203,super lig,2025,eyupspor,galatasaray,0.0,2.0,FT
@@ -3085,12 +3085,12 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1394474,2025-09-14T14:00:00+00:00,203,super lig,2025,kayserispor,goztepe,1.0,1.0,FT
 1394471,2025-09-14T16:00:00+00:00,203,super lig,2025,fenerbahce,trabzonspor,1.0,0.0,FT
 1394472,2025-09-14T16:00:00+00:00,203,super lig,2025,gaziantep fk,kocaelispor,2.0,0.0,FT
-1394476,2025-09-15T17:00:00+00:00,203,super lig,2025,rizespor,genclerbirligi,1.0,0.0,FT
+1394476,2025-09-15T17:00:00+00:00,203,super lig,2025,rizespor,genclerbirligi s.k.,1.0,0.0,FT
 1394435,2025-09-17T17:00:00+00:00,203,super lig,2025,fenerbahce,alanyaspor,2.0,2.0,FT
 1394437,2025-09-17T17:00:00+00:00,203,super lig,2025,fatih karagumruk,basaksehir,0.0,2.0,FT
 1394458,2025-09-17T17:00:00+00:00,203,super lig,2025,samsunspor,kasmpasa,0.0,0.0,FT
 1394482,2025-09-19T17:00:00+00:00,203,super lig,2025,goztepe,besiktas,3.0,0.0,FT
-1394481,2025-09-20T14:00:00+00:00,203,super lig,2025,genclerbirligi,eyupspor,1.0,0.0,FT
+1394481,2025-09-20T14:00:00+00:00,203,super lig,2025,genclerbirligi s.k.,eyupspor,1.0,0.0,FT
 1394486,2025-09-20T17:00:00+00:00,203,super lig,2025,trabzonspor,gaziantep fk,1.0,1.0,FT
 1394478,2025-09-20T17:00:00+00:00,203,super lig,2025,antalyaspor,kayserispor,1.0,1.0,FT
 1394479,2025-09-21T14:00:00+00:00,203,super lig,2025,basaksehir,alanyaspor,1.0,1.0,FT
@@ -3106,11 +3106,11 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1394494,2025-09-28T14:00:00+00:00,203,super lig,2025,konyaspor,basaksehir,2.0,1.0,FT
 1394495,2025-09-28T14:00:00+00:00,203,super lig,2025,rizespor,kasmpasa,1.0,2.0,FT
 1394490,2025-09-28T17:00:00+00:00,203,super lig,2025,fenerbahce,antalyaspor,2.0,0.0,FT
-1394493,2025-09-28T17:00:00+00:00,203,super lig,2025,kayserispor,genclerbirligi,1.0,1.0,FT
+1394493,2025-09-28T17:00:00+00:00,203,super lig,2025,kayserispor,genclerbirligi s.k.,1.0,1.0,FT
 1394488,2025-09-29T17:00:00+00:00,203,super lig,2025,besiktas,kocaelispor,3.0,1.0,FT
 1394504,2025-10-03T17:00:00+00:00,203,super lig,2025,trabzonspor,kayserispor,4.0,0.0,FT
 1394496,2025-10-03T17:00:00+00:00,203,super lig,2025,antalyaspor,rizespor,2.0,5.0,FT
-1394498,2025-10-04T11:30:00+00:00,203,super lig,2025,genclerbirligi,alanyaspor,2.0,2.0,FT
+1394498,2025-10-04T11:30:00+00:00,203,super lig,2025,genclerbirligi s.k.,alanyaspor,2.0,2.0,FT
 1394502,2025-10-04T14:00:00+00:00,203,super lig,2025,kocaelispor,eyupspor,1.0,0.0,FT
 1394497,2025-10-04T17:00:00+00:00,203,super lig,2025,galatasaray,besiktas,1.0,1.0,FT
 1394501,2025-10-05T11:30:00+00:00,203,super lig,2025,kasmpasa,konyaspor,1.0,1.0,FT
@@ -3118,7 +3118,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1394499,2025-10-05T17:00:00+00:00,203,super lig,2025,goztepe,basaksehir,1.0,0.0,FT
 1394503,2025-10-05T17:00:00+00:00,203,super lig,2025,samsunspor,fenerbahce,0.0,0.0,FT
 1394512,2025-10-18T11:30:00+00:00,203,super lig,2025,konyaspor,kocaelispor,2.0,3.0,FT
-1394507,2025-10-18T14:00:00+00:00,203,super lig,2025,besiktas,genclerbirligi,1.0,2.0,FT
+1394507,2025-10-18T14:00:00+00:00,203,super lig,2025,besiktas,genclerbirligi s.k.,1.0,2.0,FT
 1394513,2025-10-18T14:00:00+00:00,203,super lig,2025,rizespor,trabzonspor,1.0,2.0,FT
 1394506,2025-10-18T17:00:00+00:00,203,super lig,2025,basaksehir,galatasaray,1.0,2.0,FT
 1394511,2025-10-19T11:30:00+00:00,203,super lig,2025,kayserispor,samsunspor,1.0,3.0,FT
@@ -3133,12 +3133,12 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1394522,2025-10-25T17:00:00+00:00,203,super lig,2025,trabzonspor,eyupspor,2.0,0.0,FT
 1394514,2025-10-26T11:30:00+00:00,203,super lig,2025,antalyaspor,basaksehir,0.0,4.0,FT
 1394515,2025-10-26T14:00:00+00:00,203,super lig,2025,galatasaray,goztepe,3.0,1.0,FT
-1394517,2025-10-26T14:00:00+00:00,203,super lig,2025,genclerbirligi,konyaspor,1.0,2.0,FT
+1394517,2025-10-26T14:00:00+00:00,203,super lig,2025,genclerbirligi s.k.,konyaspor,1.0,2.0,FT
 1394519,2025-10-26T17:00:00+00:00,203,super lig,2025,kasmpasa,besiktas,1.0,1.0,FT
 1394516,2025-10-27T17:00:00+00:00,203,super lig,2025,gaziantep fk,fenerbahce,0.0,4.0,FT
 1394521,2025-10-27T17:00:00+00:00,203,super lig,2025,samsunspor,rizespor,1.0,1.0,FT
 1394524,2025-10-31T17:00:00+00:00,203,super lig,2025,basaksehir,kocaelispor,1.0,0.0,FT
-1394528,2025-11-01T14:00:00+00:00,203,super lig,2025,goztepe,genclerbirligi,1.0,0.0,FT
+1394528,2025-11-01T14:00:00+00:00,203,super lig,2025,goztepe,genclerbirligi s.k.,1.0,0.0,FT
 1394527,2025-11-01T17:00:00+00:00,203,super lig,2025,galatasaray,trabzonspor,0.0,0.0,FT
 1394530,2025-11-02T11:30:00+00:00,203,super lig,2025,konyaspor,samsunspor,1.0,3.0,FT
 1394529,2025-11-02T14:00:00+00:00,203,super lig,2025,kayserispor,kasmpasa,3.0,2.0,FT
@@ -3146,7 +3146,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1394523,2025-11-03T17:00:00+00:00,203,super lig,2025,alanyaspor,gaziantep fk,0.0,0.0,FT
 1394531,2025-11-03T17:00:00+00:00,203,super lig,2025,rizespor,fatih karagumruk,1.0,0.0,FT
 1394526,2025-11-03T17:00:00+00:00,203,super lig,2025,eyupspor,antalyaspor,0.0,1.0,FT
-1394535,2025-11-07T17:00:00+00:00,203,super lig,2025,genclerbirligi,basaksehir,2.0,1.0,FT
+1394535,2025-11-07T17:00:00+00:00,203,super lig,2025,genclerbirligi s.k.,basaksehir,2.0,1.0,FT
 1394534,2025-11-08T11:30:00+00:00,203,super lig,2025,gaziantep fk,rizespor,2.0,2.0,FT
 1394540,2025-11-08T14:00:00+00:00,203,super lig,2025,trabzonspor,alanyaspor,1.0,1.0,FT
 1394537,2025-11-08T17:00:00+00:00,203,super lig,2025,kasmpasa,goztepe,0.0,2.0,FT
@@ -3157,14 +3157,14 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1394539,2025-11-09T17:00:00+00:00,203,super lig,2025,samsunspor,eyupspor,1.0,0.0,FT
 1394547,2025-11-22T11:30:00+00:00,203,super lig,2025,kayserispor,gaziantep fk,0.0,3.0,FT
 1394544,2025-11-22T14:00:00+00:00,203,super lig,2025,eyupspor,fatih karagumruk,1.0,1.0,FT
-1394545,2025-11-22T17:00:00+00:00,203,super lig,2025,galatasaray,genclerbirligi,3.0,2.0,FT
+1394545,2025-11-22T17:00:00+00:00,203,super lig,2025,galatasaray,genclerbirligi s.k.,3.0,2.0,FT
 1394546,2025-11-23T11:30:00+00:00,203,super lig,2025,goztepe,kocaelispor,0.0,0.0,FT
 1394543,2025-11-23T14:00:00+00:00,203,super lig,2025,besiktas,samsunspor,1.0,1.0,FT
 1394541,2025-11-23T14:00:00+00:00,203,super lig,2025,alanyaspor,kasmpasa,1.0,2.0,FT
 1394549,2025-11-23T17:00:00+00:00,203,super lig,2025,rizespor,fenerbahce,2.0,5.0,FT
 1394542,2025-11-24T17:00:00+00:00,203,super lig,2025,basaksehir,trabzonspor,3.0,4.0,FT
 1394548,2025-11-24T17:00:00+00:00,203,super lig,2025,konyaspor,antalyaspor,0.0,0.0,FT
-1394555,2025-11-28T17:00:00+00:00,203,super lig,2025,kocaelispor,genclerbirligi,1.0,0.0,FT
+1394555,2025-11-28T17:00:00+00:00,203,super lig,2025,kocaelispor,genclerbirligi s.k.,1.0,0.0,FT
 1394556,2025-11-29T11:30:00+00:00,203,super lig,2025,rizespor,kayserispor,0.0,1.0,FT
 1394552,2025-11-29T14:00:00+00:00,203,super lig,2025,gaziantep fk,eyupspor,1.0,2.0,FT
 1394558,2025-11-29T17:00:00+00:00,203,super lig,2025,trabzonspor,konyaspor,3.0,1.0,FT
@@ -3177,12 +3177,12 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1394562,2025-12-06T11:30:00+00:00,203,super lig,2025,eyupspor,kayserispor,1.0,1.0,FT
 1394567,2025-12-06T14:00:00+00:00,203,super lig,2025,konyaspor,rizespor,1.0,1.0,FT
 1394560,2025-12-06T17:00:00+00:00,203,super lig,2025,basaksehir,fenerbahce,1.0,1.0,FT
-1394564,2025-12-07T11:30:00+00:00,203,super lig,2025,genclerbirligi,fatih karagumruk,3.0,0.0,FT
+1394564,2025-12-07T11:30:00+00:00,203,super lig,2025,genclerbirligi s.k.,fatih karagumruk,3.0,0.0,FT
 1394566,2025-12-07T14:00:00+00:00,203,super lig,2025,kocaelispor,kasmpasa,0.0,0.0,FT
 1394565,2025-12-07T17:00:00+00:00,203,super lig,2025,goztepe,trabzonspor,1.0,2.0,FT
 1394561,2025-12-08T17:00:00+00:00,203,super lig,2025,besiktas,gaziantep fk,2.0,2.0,FT
 1394559,2025-12-08T17:00:00+00:00,203,super lig,2025,alanyaspor,antalyaspor,0.0,0.0,FT
-1394572,2025-12-12T17:00:00+00:00,203,super lig,2025,kasmpasa,genclerbirligi,0.0,0.0,FT
+1394572,2025-12-12T17:00:00+00:00,203,super lig,2025,kasmpasa,genclerbirligi s.k.,0.0,0.0,FT
 1394574,2025-12-13T11:30:00+00:00,203,super lig,2025,rizespor,eyupspor,3.0,0.0,FT
 1394573,2025-12-13T14:00:00+00:00,203,super lig,2025,kayserispor,alanyaspor,0.0,0.0,FT
 1394568,2025-12-13T17:00:00+00:00,203,super lig,2025,antalyaspor,galatasaray,1.0,4.0,FT
@@ -3199,11 +3199,11 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1394581,2025-12-21T17:00:00+00:00,203,super lig,2025,galatasaray,kasmpasa,3.0,0.0,FT
 1394583,2025-12-21T17:00:00+00:00,203,super lig,2025,goztepe,samsunspor,2.0,0.0,FT
 1394578,2025-12-22T14:00:00+00:00,203,super lig,2025,basaksehir,gaziantep fk,5.0,1.0,FT
-1394582,2025-12-22T17:00:00+00:00,203,super lig,2025,genclerbirligi,trabzonspor,4.0,3.0,FT
+1394582,2025-12-22T17:00:00+00:00,203,super lig,2025,genclerbirligi s.k.,trabzonspor,4.0,3.0,FT
 1394587,2026-01-17T14:00:00+00:00,203,super lig,2025,basaksehir,fatih karagumruk,2.0,1.0,FT
 1394589,2026-01-17T17:00:00+00:00,203,super lig,2025,galatasaray,gaziantep fk,1.0,1.0,FT
 1394592,2026-01-18T11:30:00+00:00,203,super lig,2025,kasmpasa,antalyaspor,0.0,0.0,FT
-1394590,2026-01-18T14:00:00+00:00,203,super lig,2025,genclerbirligi,samsunspor,1.0,1.0,FT
+1394590,2026-01-18T14:00:00+00:00,203,super lig,2025,genclerbirligi s.k.,samsunspor,1.0,1.0,FT
 1394593,2026-01-18T14:00:00+00:00,203,super lig,2025,kocaelispor,trabzonspor,1.0,2.0,FT
 1394586,2026-01-18T17:00:00+00:00,203,super lig,2025,alanyaspor,fenerbahce,2.0,3.0,FT
 1394594,2026-01-19T14:00:00+00:00,203,super lig,2025,konyaspor,eyupspor,1.0,1.0,FT
@@ -3214,7 +3214,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1394602,2026-01-24T14:00:00+00:00,203,super lig,2025,samsunspor,kocaelispor,0.0,0.0,FT
 1394599,2026-01-24T17:00:00+00:00,203,super lig,2025,fatih karagumruk,galatasaray,1.0,3.0,FT
 1394598,2026-01-25T11:30:00+00:00,203,super lig,2025,gaziantep fk,konyaspor,1.0,1.0,FT
-1394595,2026-01-25T14:00:00+00:00,203,super lig,2025,antalyaspor,genclerbirligi,2.0,1.0,FT
+1394595,2026-01-25T14:00:00+00:00,203,super lig,2025,antalyaspor,genclerbirligi s.k.,2.0,1.0,FT
 1394601,2026-01-25T14:00:00+00:00,203,super lig,2025,rizespor,alanyaspor,1.0,1.0,FT
 1394597,2026-01-25T17:00:00+00:00,203,super lig,2025,fenerbahce,goztepe,1.0,1.0,FT
 1394596,2026-01-26T17:00:00+00:00,203,super lig,2025,eyupspor,besiktas,2.0,2.0,FT
@@ -3224,7 +3224,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1394606,2026-01-31T14:00:00+00:00,203,super lig,2025,basaksehir,rizespor,2.0,2.0,FT
 1394607,2026-01-31T17:00:00+00:00,203,super lig,2025,besiktas,konyaspor,2.0,1.0,FT
 1394610,2026-01-31T17:00:00+00:00,203,super lig,2025,goztepe,fatih karagumruk,2.0,1.0,FT
-1394609,2026-02-01T14:00:00+00:00,203,super lig,2025,genclerbirligi,gaziantep fk,2.0,1.0,FT
+1394609,2026-02-01T14:00:00+00:00,203,super lig,2025,genclerbirligi s.k.,gaziantep fk,2.0,1.0,FT
 1394608,2026-02-01T17:00:00+00:00,203,super lig,2025,galatasaray,kayserispor,4.0,0.0,FT
 1394612,2026-02-02T17:00:00+00:00,203,super lig,2025,kocaelispor,fenerbahce,0.0,2.0,FT
 1394617,2026-02-07T11:30:00+00:00,203,super lig,2025,fatih karagumruk,antalyaspor,1.0,0.0,FT
@@ -3234,11 +3234,11 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1394620,2026-02-08T14:00:00+00:00,203,super lig,2025,rizespor,galatasaray,0.0,3.0,FT
 1394613,2026-02-08T17:00:00+00:00,203,super lig,2025,besiktas,alanyaspor,2.0,2.0,FT
 1394618,2026-02-09T14:00:00+00:00,203,super lig,2025,kayserispor,kocaelispor,1.0,2.0,FT
-1394615,2026-02-09T17:00:00+00:00,203,super lig,2025,fenerbahce,genclerbirligi,3.0,1.0,FT
+1394615,2026-02-09T17:00:00+00:00,203,super lig,2025,fenerbahce,genclerbirligi s.k.,3.0,1.0,FT
 1394616,2026-02-09T17:00:00+00:00,203,super lig,2025,gaziantep fk,kasmpasa,2.0,1.0,FT
 1394625,2026-02-13T17:00:00+00:00,203,super lig,2025,galatasaray,eyupspor,5.0,1.0,FT
 1394623,2026-02-13T17:00:00+00:00,203,super lig,2025,antalyaspor,samsunspor,3.0,1.0,FT
-1394626,2026-02-14T11:30:00+00:00,203,super lig,2025,genclerbirligi,rizespor,2.0,2.0,FT
+1394626,2026-02-14T11:30:00+00:00,203,super lig,2025,genclerbirligi s.k.,rizespor,2.0,2.0,FT
 1394622,2026-02-14T14:00:00+00:00,203,super lig,2025,alanyaspor,konyaspor,2.0,1.0,FT
 1394630,2026-02-14T17:00:00+00:00,203,super lig,2025,trabzonspor,fenerbahce,2.0,3.0,FT
 1394629,2026-02-15T11:30:00+00:00,203,super lig,2025,kocaelispor,gaziantep fk,3.0,0.0,FT
@@ -3246,21 +3246,21 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1394624,2026-02-15T17:00:00+00:00,203,super lig,2025,basaksehir,besiktas,2.0,3.0,FT
 1394628,2026-02-16T17:00:00+00:00,203,super lig,2025,kasmpasa,fatih karagumruk,3.0,2.0,FT
 1394639,2026-02-20T17:00:00+00:00,203,super lig,2025,rizespor,kocaelispor,2.0,0.0,FT
-1394633,2026-02-21T10:30:00+00:00,203,super lig,2025,eyupspor,genclerbirligi,1.0,0.0,FT
+1394633,2026-02-21T10:30:00+00:00,203,super lig,2025,eyupspor,genclerbirligi s.k.,1.0,0.0,FT
 1394631,2026-02-21T13:00:00+00:00,203,super lig,2025,alanyaspor,basaksehir,1.0,2.0,FT
 1394638,2026-02-21T17:00:00+00:00,203,super lig,2025,konyaspor,galatasaray,2.0,0.0,FT
 1394637,2026-02-22T10:30:00+00:00,203,super lig,2025,kayserispor,antalyaspor,1.0,0.0,FT
 1394635,2026-02-22T13:00:00+00:00,203,super lig,2025,gaziantep fk,trabzonspor,1.0,2.0,FT
 1394632,2026-02-22T17:00:00+00:00,203,super lig,2025,besiktas,goztepe,4.0,0.0,FT
 1394636,2026-02-22T17:00:00+00:00,203,super lig,2025,fatih karagumruk,samsunspor,0.0,0.0,FT
-1394634,2026-02-23T17:00:00+00:00,203,super lig,2025,fenerbahce,kasmpasa,,,NS
+1394634,2026-02-23T17:00:00+00:00,203,super lig,2025,fenerbahce,kasmpasa,1.0,1.0,FT
 1394641,2026-02-27T17:00:00+00:00,203,super lig,2025,basaksehir,konyaspor,,,NS
 1394648,2026-02-27T17:00:00+00:00,203,super lig,2025,trabzonspor,fatih karagumruk,,,NS
 1394645,2026-02-28T10:30:00+00:00,203,super lig,2025,kasmpasa,rizespor,,,NS
 1394646,2026-02-28T13:00:00+00:00,203,super lig,2025,kocaelispor,besiktas,,,NS
 1394642,2026-02-28T17:00:00+00:00,203,super lig,2025,galatasaray,alanyaspor,,,NS
 1394644,2026-02-28T17:00:00+00:00,203,super lig,2025,goztepe,eyupspor,,,NS
-1394643,2026-03-01T13:00:00+00:00,203,super lig,2025,genclerbirligi,kayserispor,,,NS
+1394643,2026-03-01T13:00:00+00:00,203,super lig,2025,genclerbirligi s.k.,kayserispor,,,NS
 1394640,2026-03-01T17:00:00+00:00,203,super lig,2025,antalyaspor,fenerbahce,,,NS
 1394647,2026-03-01T17:00:00+00:00,203,super lig,2025,samsunspor,gaziantep fk,,,NS
 1394650,2026-03-07T13:00:00+00:00,203,super lig,2025,basaksehir,goztepe,,,NS
@@ -3270,11 +3270,11 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1394656,2026-03-08T13:00:00+00:00,203,super lig,2025,konyaspor,kasmpasa,,,NS
 1394653,2026-03-08T17:00:00+00:00,203,super lig,2025,fenerbahce,samsunspor,,,NS
 1394652,2026-03-09T13:00:00+00:00,203,super lig,2025,eyupspor,kocaelispor,,,NS
-1394649,2026-03-09T17:00:00+00:00,203,super lig,2025,alanyaspor,genclerbirligi,,,NS
+1394649,2026-03-09T17:00:00+00:00,203,super lig,2025,alanyaspor,genclerbirligi s.k.,,,NS
 1394655,2026-03-09T17:00:00+00:00,203,super lig,2025,kayserispor,trabzonspor,,,NS
 1394659,2026-03-15T18:00:00+00:00,203,super lig,2025,galatasaray,basaksehir,,,NS
 1394661,2026-03-15T18:00:00+00:00,203,super lig,2025,goztepe,alanyaspor,,,NS
-1394660,2026-03-15T18:00:00+00:00,203,super lig,2025,genclerbirligi,besiktas,,,NS
+1394660,2026-03-15T18:00:00+00:00,203,super lig,2025,genclerbirligi s.k.,besiktas,,,NS
 1394666,2026-03-15T18:00:00+00:00,203,super lig,2025,trabzonspor,rizespor,,,NS
 1394663,2026-03-15T18:00:00+00:00,203,super lig,2025,kasmpasa,eyupspor,,,NS
 1394658,2026-03-15T18:00:00+00:00,203,super lig,2025,antalyaspor,gaziantep fk,,,NS
@@ -3283,7 +3283,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1394664,2026-03-15T18:00:00+00:00,203,super lig,2025,kocaelispor,konyaspor,,,NS
 1394669,2026-03-18T18:00:00+00:00,203,super lig,2025,besiktas,kasmpasa,,,NS
 1394668,2026-03-18T18:00:00+00:00,203,super lig,2025,basaksehir,antalyaspor,,,NS
-1394674,2026-03-18T18:00:00+00:00,203,super lig,2025,konyaspor,genclerbirligi,,,NS
+1394674,2026-03-18T18:00:00+00:00,203,super lig,2025,konyaspor,genclerbirligi s.k.,,,NS
 1394671,2026-03-18T18:00:00+00:00,203,super lig,2025,fenerbahce,gaziantep fk,,,NS
 1394672,2026-03-18T18:00:00+00:00,203,super lig,2025,goztepe,galatasaray,,,NS
 1394667,2026-03-18T18:00:00+00:00,203,super lig,2025,alanyaspor,kocaelispor,,,NS
@@ -3291,7 +3291,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1394675,2026-03-18T18:00:00+00:00,203,super lig,2025,rizespor,samsunspor,,,NS
 1394670,2026-03-18T18:00:00+00:00,203,super lig,2025,eyupspor,trabzonspor,,,NS
 1394677,2026-04-05T17:00:00+00:00,203,super lig,2025,fenerbahce,besiktas,,,NS
-1394679,2026-04-05T17:00:00+00:00,203,super lig,2025,genclerbirligi,goztepe,,,NS
+1394679,2026-04-05T17:00:00+00:00,203,super lig,2025,genclerbirligi s.k.,goztepe,,,NS
 1394684,2026-04-05T17:00:00+00:00,203,super lig,2025,trabzonspor,galatasaray,,,NS
 1394681,2026-04-05T17:00:00+00:00,203,super lig,2025,kasmpasa,kayserispor,,,NS
 1394676,2026-04-05T17:00:00+00:00,203,super lig,2025,antalyaspor,eyupspor,,,NS
@@ -3300,7 +3300,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1394683,2026-04-05T17:00:00+00:00,203,super lig,2025,samsunspor,konyaspor,,,NS
 1394682,2026-04-05T17:00:00+00:00,203,super lig,2025,kocaelispor,basaksehir,,,NS
 1394687,2026-04-12T17:00:00+00:00,203,super lig,2025,besiktas,antalyaspor,,,NS
-1394686,2026-04-12T17:00:00+00:00,203,super lig,2025,basaksehir,genclerbirligi,,,NS
+1394686,2026-04-12T17:00:00+00:00,203,super lig,2025,basaksehir,genclerbirligi s.k.,,,NS
 1394692,2026-04-12T17:00:00+00:00,203,super lig,2025,konyaspor,fatih karagumruk,,,NS
 1394689,2026-04-12T17:00:00+00:00,203,super lig,2025,galatasaray,kocaelispor,,,NS
 1394690,2026-04-12T17:00:00+00:00,203,super lig,2025,goztepe,kasmpasa,,,NS
@@ -3309,7 +3309,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1394693,2026-04-12T17:00:00+00:00,203,super lig,2025,rizespor,gaziantep fk,,,NS
 1394688,2026-04-12T17:00:00+00:00,203,super lig,2025,eyupspor,samsunspor,,,NS
 1394695,2026-04-19T17:00:00+00:00,203,super lig,2025,fenerbahce,rizespor,,,NS
-1394697,2026-04-19T17:00:00+00:00,203,super lig,2025,genclerbirligi,galatasaray,,,NS
+1394697,2026-04-19T17:00:00+00:00,203,super lig,2025,genclerbirligi s.k.,galatasaray,,,NS
 1394702,2026-04-19T17:00:00+00:00,203,super lig,2025,trabzonspor,basaksehir,,,NS
 1394699,2026-04-19T17:00:00+00:00,203,super lig,2025,kasmpasa,alanyaspor,,,NS
 1394694,2026-04-19T17:00:00+00:00,203,super lig,2025,antalyaspor,konyaspor,,,NS
@@ -3323,7 +3323,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1394707,2026-04-26T17:00:00+00:00,203,super lig,2025,galatasaray,fenerbahce,,,NS
 1394709,2026-04-26T17:00:00+00:00,203,super lig,2025,goztepe,antalyaspor,,,NS
 1394703,2026-04-26T17:00:00+00:00,203,super lig,2025,alanyaspor,samsunspor,,,NS
-1394708,2026-04-26T17:00:00+00:00,203,super lig,2025,genclerbirligi,kocaelispor,,,NS
+1394708,2026-04-26T17:00:00+00:00,203,super lig,2025,genclerbirligi s.k.,kocaelispor,,,NS
 1394710,2026-04-26T17:00:00+00:00,203,super lig,2025,kayserispor,rizespor,,,NS
 1394706,2026-04-26T17:00:00+00:00,203,super lig,2025,eyupspor,gaziantep fk,,,NS
 1394713,2026-05-03T17:00:00+00:00,203,super lig,2025,fenerbahce,basaksehir,,,NS
@@ -3333,7 +3333,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1394712,2026-05-03T17:00:00+00:00,203,super lig,2025,antalyaspor,alanyaspor,,,NS
 1394718,2026-05-03T17:00:00+00:00,203,super lig,2025,rizespor,konyaspor,,,NS
 1394714,2026-05-03T17:00:00+00:00,203,super lig,2025,gaziantep fk,besiktas,,,NS
-1394715,2026-05-03T17:00:00+00:00,203,super lig,2025,fatih karagumruk,genclerbirligi,,,NS
+1394715,2026-05-03T17:00:00+00:00,203,super lig,2025,fatih karagumruk,genclerbirligi s.k.,,,NS
 1394719,2026-05-03T17:00:00+00:00,203,super lig,2025,samsunspor,galatasaray,,,NS
 1394723,2026-05-10T17:00:00+00:00,203,super lig,2025,besiktas,trabzonspor,,,NS
 1394722,2026-05-10T17:00:00+00:00,203,super lig,2025,basaksehir,samsunspor,,,NS
@@ -3341,11 +3341,11 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1394725,2026-05-10T17:00:00+00:00,203,super lig,2025,galatasaray,antalyaspor,,,NS
 1394727,2026-05-10T17:00:00+00:00,203,super lig,2025,goztepe,gaziantep fk,,,NS
 1394721,2026-05-10T17:00:00+00:00,203,super lig,2025,alanyaspor,kayserispor,,,NS
-1394726,2026-05-10T17:00:00+00:00,203,super lig,2025,genclerbirligi,kasmpasa,,,NS
+1394726,2026-05-10T17:00:00+00:00,203,super lig,2025,genclerbirligi s.k.,kasmpasa,,,NS
 1394724,2026-05-10T17:00:00+00:00,203,super lig,2025,eyupspor,rizespor,,,NS
 1394728,2026-05-10T17:00:00+00:00,203,super lig,2025,kocaelispor,fatih karagumruk,,,NS
 1394731,2026-05-17T17:00:00+00:00,203,super lig,2025,fenerbahce,eyupspor,,,NS
-1394738,2026-05-17T17:00:00+00:00,203,super lig,2025,trabzonspor,genclerbirligi,,,NS
+1394738,2026-05-17T17:00:00+00:00,203,super lig,2025,trabzonspor,genclerbirligi s.k.,,,NS
 1394735,2026-05-17T17:00:00+00:00,203,super lig,2025,kayserispor,konyaspor,,,NS
 1394734,2026-05-17T17:00:00+00:00,203,super lig,2025,kasmpasa,galatasaray,,,NS
 1394730,2026-05-17T17:00:00+00:00,203,super lig,2025,antalyaspor,kocaelispor,,,NS

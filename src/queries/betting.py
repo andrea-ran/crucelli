@@ -1,15 +1,26 @@
 import pandas as pd
 import os
+import runpy
+import sys
 from datetime import datetime
 
-AGGREGATO_PATH = "data/processed/selected_teams_aggregato.csv"
+# Use only filter_teams_1 output (F1). If missing, attempt to run filter_teams_1.py to generate it.
+F1_PATH = "data/processed/selected_teams_F1.csv"
+AGGREGATO_PATH = F1_PATH
 UPCOMING_PATH = "data/raw/upcoming_matches.csv"
 OUTPUT_PATH = "data/processed/bet.csv"
 
-# Carica squadre selezionate dall'aggregato
-if not os.path.exists(AGGREGATO_PATH):
-    raise FileNotFoundError(f"File non trovato: {AGGREGATO_PATH}")
-df_agg = pd.read_csv(AGGREGATO_PATH)
+# Carica squadre selezionate da F1; se mancante, prova a generarlo eseguendo lo script `filter_teams_1.py`
+if not os.path.exists(F1_PATH):
+    print(f"{F1_PATH} non trovato. Genera il file eseguendo `src/queries/filter_teams_1.py` e riprova.")
+    sys.exit(1)
+
+df_agg = pd.read_csv(F1_PATH)
+if "team_name" in df_agg.columns and "squadra" not in df_agg.columns:
+    df_agg = df_agg.rename(columns={"team_name": "squadra"})
+if "league_name" in df_agg.columns and "lega" not in df_agg.columns:
+    df_agg = df_agg.rename(columns={"league_name": "lega"})
+print(f"Loaded selezionate from: {F1_PATH}")
 
 # Carica partite in programma
 if not os.path.exists(UPCOMING_PATH):

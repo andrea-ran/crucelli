@@ -1,5 +1,0 @@
-team_id,team_name,league_id,league_name,season,rank,points,played,won,draw,lost,goals_for,goals_against,goal_diff,current_matchday
-40,liverpool,39,premier league,2025,6,45,27,13,6,8,42,35,7,28
-194,ajax,88,eredivisie,2025,4,43,24,11,10,3,47,31,16,24
-211,benfica,94,liga portugal,2025,3,55,23,16,7,0,49,13,36,23
-247,celtic,179,scottish premiership,2025,3,54,27,17,3,7,49,28,21,28

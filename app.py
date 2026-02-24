@@ -74,7 +74,7 @@ DATA_UPDATE_SCRIPTS = [
     os.path.join('src', 'data_update', 'update_national_cup.py'),
     os.path.join('src', 'data_update', 'update_upcoming_champions.py'),
 ]
-FILTER_SCRIPT = os.path.join('src', 'queries', 'filter_teams.py')
+FILTER_SCRIPT = os.path.join('src', 'queries', 'filter_teams_1.py')
 
 
 @app.route('/aggiorna')
