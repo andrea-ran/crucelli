@@ -2,10 +2,11 @@ from flask import Flask, render_template, redirect, url_for, request, session
 import pandas as pd
 import subprocess
 import os
+import sys
 
 app = Flask(__name__)
-app.secret_key = 'cambia-questa-chiave'  # Cambia questa chiave in produzione!
-PASSWORD = 'Crucelli'  # Sostituisci con la password desiderata
+app.secret_key = os.getenv('SECRET_KEY', 'cambia-questa-chiave')
+PASSWORD = os.getenv('APP_PASSWORD', 'Crucelli')
 
 BET_PATH = os.path.join('data', 'processed', 'bet.csv')
 BETTING_SCRIPT = os.path.join('src', 'queries', 'betting.py')
@@ -82,12 +83,13 @@ FILTER_SCRIPT = os.path.join('src', 'queries', 'filter_teams_1.py')
 def aggiorna():
     # Esegui tutti gli script di aggiornamento dati
     for script in DATA_UPDATE_SCRIPTS:
-        subprocess.run(['python3', script])
+        subprocess.run([sys.executable, script], check=False)
     # Esegui il nuovo script unico di filtro
-    subprocess.run(['python3', FILTER_SCRIPT])
+    subprocess.run([sys.executable, FILTER_SCRIPT], check=False)
     # Esegui lo script betting.py
-    subprocess.run(['python3', BETTING_SCRIPT])
+    subprocess.run([sys.executable, BETTING_SCRIPT], check=False)
     return redirect(url_for('index', msg='Aggiornamento completato!'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.getenv('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)

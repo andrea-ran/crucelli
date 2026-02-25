@@ -1,14 +1,25 @@
 import requests
 import pandas as pd
-import sys
 import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
-from season_config import STAGIONE_PRECEDENTE
+import importlib.util
+
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../"))
+
+loader_spec = importlib.util.spec_from_file_location("project_loader", os.path.join(PROJECT_ROOT, "project_loader.py"))
+if loader_spec is None or loader_spec.loader is None:
+    raise ImportError("Impossibile caricare project_loader.py")
+project_loader = importlib.util.module_from_spec(loader_spec)
+loader_spec.loader.exec_module(project_loader)
+load_project_module = project_loader.load_project_module
+PROJECT_ROOT = project_loader.PROJECT_ROOT
+
+season_config = load_project_module("season_config", "season_config.py")
+STAGIONE_PRECEDENTE = season_config.STAGIONE_PRECEDENTE
 
 # Configurazione
 API_KEY = "691ccc74c6d55850f0b5c836ec0b10f2"
 HEADERS = {"x-apisports-key": API_KEY}
-OUTPUT_PATH = "/Users/andrea/Desktop/crucelli/data/raw/coppa_nazionale.csv"
+OUTPUT_PATH = os.path.join(PROJECT_ROOT, "data", "raw", "coppa_nazionale.csv")
 
 # Dizionario: nome coppa nazionale -> id lega API-SPORTS
 NATIONAL_CUPS = {
@@ -56,5 +67,6 @@ for cup_name, league_id in NATIONAL_CUPS.items():
 
 # Salva su CSV
 df = pd.DataFrame(winners)
+os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
 df.to_csv(OUTPUT_PATH, index=False)
 print(f"\n✅ File coppa_nazionale.csv aggiornato in {OUTPUT_PATH}")

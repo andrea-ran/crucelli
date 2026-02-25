@@ -2,11 +2,25 @@
 def normalize_team_name(name):
     return name.lower().replace("sl ", "").replace("fc ", "").strip()
 import pandas as pd
-import sys
 import json
-sys.path.append("/Users/andrea/Desktop/crucelli")
-from season_config import STAGIONE_CORRENTE, STAGIONE_PRECEDENTE
-from synonyms import normalize_league_name
+import os
+import importlib.util
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../"))
+
+loader_spec = importlib.util.spec_from_file_location("project_loader", os.path.join(PROJECT_ROOT, "project_loader.py"))
+if loader_spec is None or loader_spec.loader is None:
+    raise ImportError("Impossibile caricare project_loader.py")
+project_loader = importlib.util.module_from_spec(loader_spec)
+loader_spec.loader.exec_module(project_loader)
+load_project_module = project_loader.load_project_module
+PROJECT_ROOT = project_loader.PROJECT_ROOT
+
+season_config = load_project_module("season_config", "season_config.py")
+STAGIONE_CORRENTE = season_config.STAGIONE_CORRENTE
+STAGIONE_PRECEDENTE = season_config.STAGIONE_PRECEDENTE
+
+synonyms = load_project_module("synonyms", "synonyms.py")
+normalize_league_name = synonyms.normalize_league_name
 
 # --- INIZIO FUNZIONI FILTRI (ex rules.py) ---
 def selezione_filtro_1(df, df_coppa, champions_slots, champions_slots_prev, stagione_corrente, stagione_precedente):
@@ -258,10 +272,10 @@ def selezione_filtro_5(df, df_coppa, df_upcoming, champions_slots, champions_slo
 # --- FINE FUNZIONI FILTRI ---
 
 # Percorsi file aggiornati
-ARCHIVE_PATH = "data/raw/team_stats_archive.csv"
-CURRENT_PATH = "data/raw/team_stats_current.csv"
-COPPA_PATH = "data/raw/coppa_nazionale.csv"
-CHAMPIONS_SLOTS_PATH = "champions_slots.json"
+ARCHIVE_PATH = os.path.join(PROJECT_ROOT, "data", "raw", "team_stats_archive.csv")
+CURRENT_PATH = os.path.join(PROJECT_ROOT, "data", "raw", "team_stats_current.csv")
+COPPA_PATH = os.path.join(PROJECT_ROOT, "data", "raw", "coppa_nazionale.csv")
+CHAMPIONS_SLOTS_PATH = os.path.join(PROJECT_ROOT, "champions_slots.json")
 
 # Carica e concatena dati archivio + stagione corrente
 df_archive = pd.read_csv(ARCHIVE_PATH)
@@ -300,10 +314,11 @@ for nome_filtro, funzione_filtro, tipo_parametri in filtri:
     if tipo_parametri == "coppa":
         selezionate = funzione_filtro(df, df_coppa, champions_slots, champions_slots_prev, STAGIONE_CORRENTE, STAGIONE_PRECEDENTE)
     elif tipo_parametri == "storico":
-        from season_config import STAGIONE_PENULTIMA, STAGIONE_TERZULTIMA
+        STAGIONE_PENULTIMA = season_config.STAGIONE_PENULTIMA
+        STAGIONE_TERZULTIMA = season_config.STAGIONE_TERZULTIMA
         selezionate = funzione_filtro(df, champions_slots, STAGIONE_CORRENTE, STAGIONE_PENULTIMA, STAGIONE_TERZULTIMA)
     elif tipo_parametri == "upcoming":
-        UPCOMING_PATH = "data/raw/upcoming_matches.csv"
+        UPCOMING_PATH = os.path.join(PROJECT_ROOT, "data", "raw", "upcoming_matches.csv")
         df_upcoming = pd.read_csv(UPCOMING_PATH)
         selezionate = funzione_filtro(df, df_coppa, df_upcoming, champions_slots, champions_slots_prev, STAGIONE_CORRENTE, STAGIONE_PRECEDENTE)
     else:
@@ -329,9 +344,10 @@ df_season["filtri"] = df_season["squadra"].apply(lambda t: ','.join(sorted(selez
 
 colonne_finali = ["squadra", "lega", "2025", "2024", "filtri"]
 
-output_path = "data/processed/selected_teams_F1.csv"
+output_path = os.path.join(PROJECT_ROOT, "data", "processed", "selected_teams_F1.csv")
 df_out = df_season[colonne_finali].copy()
 df_out.insert(0, "#", range(1, len(df_out) + 1))
+os.makedirs(os.path.dirname(output_path), exist_ok=True)
 df_out.to_csv(output_path, index=False)
 print(f"\n===== RISULTATO F1 (SOLO FILTRATE) =====")
 print(df_out)

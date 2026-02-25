@@ -5,6 +5,7 @@ import pandas as pd
 from datetime import datetime, timedelta
 import unicodedata
 import os
+import importlib.util
 
 # === CONFIG ===
 API_KEY = "691ccc74c6d55850f0b5c836ec0b10f2"
@@ -12,16 +13,24 @@ BASE_URL = "https://v3.football.api-sports.io"
 LEAGUE_ID = 2  # Champions League
 
 #
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../'))
 
-import sys
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
-from season_config import STAGIONE_CORRENTE
+loader_spec = importlib.util.spec_from_file_location("project_loader", os.path.join(PROJECT_ROOT, "project_loader.py"))
+if loader_spec is None or loader_spec.loader is None:
+    raise ImportError("Impossibile caricare project_loader.py")
+project_loader = importlib.util.module_from_spec(loader_spec)
+loader_spec.loader.exec_module(project_loader)
+load_project_module = project_loader.load_project_module
+PROJECT_ROOT = project_loader.PROJECT_ROOT
+
+season_config = load_project_module("season_config", "season_config.py")
+STAGIONE_CORRENTE = season_config.STAGIONE_CORRENTE
 
 SEASON = STAGIONE_CORRENTE  # stagione corrente (2025/2026)
 # === CONFIG ===
 
 
-OUTPUT_PATH = "data/raw/upcoming_champions.csv"
+OUTPUT_PATH = os.path.join(PROJECT_ROOT, "data", "raw", "upcoming_champions.csv")
 
 # Mapping per normalizzazione
 TEAM_NAME_MAPPING = {

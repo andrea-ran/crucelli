@@ -26,7 +26,18 @@ print(f"Loaded selezionate from: {F1_PATH}")
 if not os.path.exists(UPCOMING_PATH):
     raise FileNotFoundError(f"File non trovato: {UPCOMING_PATH}")
 df_upcoming = pd.read_csv(UPCOMING_PATH)
-df_upcoming["date"] = pd.to_datetime(df_upcoming["date"])
+df_upcoming["date"] = pd.to_datetime(df_upcoming["date"], utc=True)
+
+# Mantieni solo partite future e non giocate
+now_utc = pd.Timestamp.utcnow()
+if "status" in df_upcoming.columns:
+    allowed_statuses = {"NS", "TBD"}
+    df_upcoming = df_upcoming[
+        (df_upcoming["date"] >= now_utc) &
+        (df_upcoming["status"].astype(str).str.upper().isin(allowed_statuses))
+    ].copy()
+else:
+    df_upcoming = df_upcoming[df_upcoming["date"] >= now_utc].copy()
 
 # Trova il prossimo incontro per ogni squadra selezionata
 team_next_match = {}
@@ -62,6 +73,7 @@ if team_next_match:
     oggi = datetime.now().strftime("%d/%m/%y")
     df_out['oggi'] = df_out['data'].apply(lambda x: 'OGGI' if x.startswith(oggi) else '')
     df_out = df_out.sort_values('data_sort').drop(columns=['data_sort'])
+    os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
     df_out.to_csv(OUTPUT_PATH, index=False)
     print(f"✅ Merge completato. File salvato in {OUTPUT_PATH}\n")
 else:

@@ -3,9 +3,19 @@ import os
 import json
 import unicodedata
 from datetime import datetime
-import sys
-sys.path.append("/Users/andrea/Desktop/crucelli")
-from synonyms import normalize_league_name
+import importlib.util
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../"))
+
+loader_spec = importlib.util.spec_from_file_location("project_loader", os.path.join(PROJECT_ROOT, "project_loader.py"))
+if loader_spec is None or loader_spec.loader is None:
+    raise ImportError("Impossibile caricare project_loader.py")
+project_loader = importlib.util.module_from_spec(loader_spec)
+loader_spec.loader.exec_module(project_loader)
+load_project_module = project_loader.load_project_module
+PROJECT_ROOT = project_loader.PROJECT_ROOT
+
+synonyms = load_project_module("synonyms", "synonyms.py")
+normalize_league_name = synonyms.normalize_league_name
 
 def log(message, level="INFO"):
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -20,13 +30,13 @@ def log(message, level="INFO"):
     print(f"{timestamp} {levels.get(level, 'ℹ️')} {message}")
 
 # Percorsi file
-FILTER1_PATH = "data/processed/selected_teams_F1.csv"
-ARCHIVE_PATH = "data/raw/team_stats_archive.csv"
-CURRENT_PATH = "data/raw/team_stats_current.csv"
-UPCOMING_PATH = "data/raw/upcoming_matches.csv"
-OUTPUT_PATH = "data/processed/selected_teams_F2.csv"
-CHAMPIONS_SLOTS_PATH = "champions_slots.json"
-UPCOMING_CHAMPIONS_PATH = "data/raw/upcoming_champions.csv"
+FILTER1_PATH = os.path.join(PROJECT_ROOT, "data", "processed", "selected_teams_F1.csv")
+ARCHIVE_PATH = os.path.join(PROJECT_ROOT, "data", "raw", "team_stats_archive.csv")
+CURRENT_PATH = os.path.join(PROJECT_ROOT, "data", "raw", "team_stats_current.csv")
+UPCOMING_PATH = os.path.join(PROJECT_ROOT, "data", "raw", "upcoming_matches.csv")
+OUTPUT_PATH = os.path.join(PROJECT_ROOT, "data", "processed", "selected_teams_F2.csv")
+CHAMPIONS_SLOTS_PATH = os.path.join(PROJECT_ROOT, "champions_slots.json")
+UPCOMING_CHAMPIONS_PATH = os.path.join(PROJECT_ROOT, "data", "raw", "upcoming_champions.csv")
 
 # Caricamento dati
 log("Caricamento dei dati...")

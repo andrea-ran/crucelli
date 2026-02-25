@@ -6,6 +6,8 @@ import os
 import json
 import datetime
 import unicodedata
+import sys
+import importlib.util
 
 # Configurazione API
 API_KEY = "691ccc74c6d55850f0b5c836ec0b10f2"
@@ -27,23 +29,29 @@ LEAGUES = {
 }
 # Configurazione stagioni da analizzare
 
-import sys
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../'))
 
-from season_config import (
-    STAGIONE_CORRENTE,
-    STAGIONE_PRECEDENTE,
-    STAGIONE_PENULTIMA,
-    STAGIONE_TERZULTIMA
-)
+loader_spec = importlib.util.spec_from_file_location("project_loader", os.path.join(PROJECT_ROOT, "project_loader.py"))
+if loader_spec is None or loader_spec.loader is None:
+    raise ImportError("Impossibile caricare project_loader.py")
+project_loader = importlib.util.module_from_spec(loader_spec)
+loader_spec.loader.exec_module(project_loader)
+load_project_module = project_loader.load_project_module
+PROJECT_ROOT = project_loader.PROJECT_ROOT
+
+season_config = load_project_module("season_config", "season_config.py")
+STAGIONE_CORRENTE = season_config.STAGIONE_CORRENTE
+STAGIONE_PRECEDENTE = season_config.STAGIONE_PRECEDENTE
+STAGIONE_PENULTIMA = season_config.STAGIONE_PENULTIMA
+STAGIONE_TERZULTIMA = season_config.STAGIONE_TERZULTIMA
 
 SEASONS = [STAGIONE_TERZULTIMA, STAGIONE_PENULTIMA, STAGIONE_PRECEDENTE, STAGIONE_CORRENTE]
 
 # Percorsi file
-LAST_UPDATE_PATH = "data/raw/last_update.json"
-MATCHES_PATH = "data/raw/all_matches_current.csv"
-STATS_PATH = "data/raw/team_stats_current.csv"
-UPCOMING_MATCHES_PATH = "data/raw/upcoming_matches.csv"
+LAST_UPDATE_PATH = os.path.join(PROJECT_ROOT, "data", "raw", "last_update.json")
+MATCHES_PATH = os.path.join(PROJECT_ROOT, "data", "raw", "all_matches_current.csv")
+STATS_PATH = os.path.join(PROJECT_ROOT, "data", "raw", "team_stats_current.csv")
+UPCOMING_MATCHES_PATH = os.path.join(PROJECT_ROOT, "data", "raw", "upcoming_matches.csv")
 
 # Mapping per normalizzazione
 TEAM_NAME_MAPPING = {
@@ -114,6 +122,7 @@ def get_last_update():
 
 # Aggiorna la data dell'ultimo aggiornamento
 def update_last_update():
+    os.makedirs(os.path.dirname(LAST_UPDATE_PATH), exist_ok=True)
     with open(LAST_UPDATE_PATH, "w") as file:
         json.dump({"last_update": str(datetime.date.today())}, file)
 
