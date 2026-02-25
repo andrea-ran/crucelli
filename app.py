@@ -6,7 +6,8 @@ import sys
 
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', 'cambia-questa-chiave')
-PASSWORD = os.getenv('APP_PASSWORD', 'Crucelli')
+PASSWORD = os.getenv('APP_PASSWORD')
+AUTH_ENABLED = bool(PASSWORD)
 
 BET_PATH = os.path.join('data', 'processed', 'bet.csv')
 BETTING_SCRIPT = os.path.join('src', 'queries', 'betting.py')
@@ -15,6 +16,8 @@ def login_required(f):
     from functools import wraps
     @wraps(f)
     def decorated_function(*args, **kwargs):
+        if not AUTH_ENABLED:
+            return f(*args, **kwargs)
         if not session.get('logged_in'):
             return redirect(url_for('login', next=request.url))
         return f(*args, **kwargs)
@@ -22,6 +25,8 @@ def login_required(f):
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    if not AUTH_ENABLED:
+        return redirect(url_for('index'))
     error = None
     if request.method == 'POST':
         if request.form.get('password') == PASSWORD:
@@ -34,6 +39,8 @@ def login():
 
 @app.route('/logout')
 def logout():
+    if not AUTH_ENABLED:
+        return redirect(url_for('index'))
     session.clear()
     return redirect(url_for('login'))
 
