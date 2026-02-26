@@ -6,6 +6,12 @@ import sys
 
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', 'cambia-questa-chiave')
+# When running inside Replit the preview is served in an HTTPS iframe, so allow cookies there
+if os.getenv('REPL_ID'):
+    app.config.update(
+        SESSION_COOKIE_SAMESITE='None',
+        SESSION_COOKIE_SECURE=True,
+    )
 PASSWORD = os.getenv('APP_PASSWORD')
 AUTH_ENABLED = bool(PASSWORD)
 
