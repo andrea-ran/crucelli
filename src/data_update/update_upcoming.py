@@ -1,15 +1,34 @@
 # src/data_update/update_upcoming.py
 
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 import pandas as pd
 import os
 import unicodedata
 from datetime import datetime
+import sys
 import importlib.util
 
 # Configurazione API
 API_KEY = "691ccc74c6d55850f0b5c836ec0b10f2"
 HEADERS = {"x-apisports-key": API_KEY}
+DEFAULT_TIMEOUT = 10
+
+def create_session(retries=3, backoff_factor=0.5, status_forcelist=(429, 500, 502, 503, 504)):
+    session = requests.Session()
+    retry = Retry(
+        total=retries,
+        backoff_factor=backoff_factor,
+        status_forcelist=status_forcelist,
+        allowed_methods=frozenset(["GET", "POST"])
+    )
+    adapter = HTTPAdapter(max_retries=retry)
+    session.mount("https://", adapter)
+    session.mount("http://", adapter)
+    return session
+
+SESSION = create_session()
 
 # Configurazione campionati e stagioni
 LEAGUES = {
@@ -81,9 +100,10 @@ def normalize_df(df, team_cols=None, league_cols=None):
 def fetch_upcoming_matches():
     all_matches = []
     for league_name, league_id in LEAGUES.items():
-        print(f"Fetching upcoming matches for {league_name} ({league_id})...")
+        print(f"📥 Recupero prossime partite: {league_name} ({league_id})...")
         url = f"https://v3.football.api-sports.io/fixtures?league={league_id}&season={SEASON}&next=20"
-        response = requests.get(url, headers=HEADERS)
+        response = SESSION.get(url, headers=HEADERS, timeout=DEFAULT_TIMEOUT)
+        response.raise_for_status()
         data = response.json()
         for match in data.get("response", []):
             all_matches.append({
@@ -100,10 +120,24 @@ def fetch_upcoming_matches():
             })
     return pd.DataFrame(all_matches)
 
+def check_api_connection():
+    url = "https://v3.football.api-sports.io/status"
+    try:
+        response = SESSION.get(url, headers=HEADERS, timeout=DEFAULT_TIMEOUT)
+        response.raise_for_status()
+        print("✅ Connessione API-FOOTBALL OK")
+        return True
+    except requests.RequestException as e:
+        print(f"❌ Connessione API-FOOTBALL non disponibile: {e}")
+        return False
+
 if __name__ == "__main__":
+    if not check_api_connection():
+        print("⛔ Interruzione aggiornamento: API non raggiungibile.")
+        sys.exit(1)
     df = fetch_upcoming_matches()
     # Normalizza squadre e lega
     df = normalize_df(df, team_cols=["home_team", "away_team"], league_cols=["league_name"])
     os.makedirs(os.path.dirname(UPCOMING_PATH), exist_ok=True)
     df.to_csv(UPCOMING_PATH, index=False)
-    print("✅ upcoming_matches.csv aggiornato e normalizzato!")
+    print("✅ File upcoming_matches.csv aggiornato e normalizzato!")

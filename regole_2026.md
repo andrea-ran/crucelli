@@ -10,15 +10,31 @@ terzultima stagione > 2022/2023
 
 Seleziona le squadre che in base alla classifica della mattina sono:
 
-1) in zona qualificazione champions league stagione corrente e allo stesso tempo che si sono qualificate in champions league nella stagione precedente, anche a causa della vittoria della coppa nazionale
+1) selezionare le squadre in zona qualificazione Champions League stagione corrente E ALLO STESSO TEMPO che si sono qualificate in Champions League nella stagione precedente, anche a causa della vittoria della coppa nazionale, o che hanno concluso la stagione precedente a 3 punti o meno dalla zona qualificazione Champions. Ovviamente, per la Saudi Professional League il riferimento è la AFC Champions League.
 
-2) in zona qualificazione champions league stagione corrente e allo stesso tempo che hanno concluso la stagione precedente a meno 0, meno 1 o meno 3 punti dalla zona qualificazione champions league;
+Logica filtro 1:
+(in_zona_champions_corrente)
+AND (qualificata_champions_precedente OR vincitrice_coppa_precedente OR entro_3_punti_dalla_zona_champions_precedente)
 
-3) solo se qualificate in champions nella stagione precedente o vincitrici coppa nazionale nella stagione precedente, selezionare le squadre a 3 o meno punti dalla zona champions, a 6 o meno punti dalla zona champions se hanno giocato una partita in meno una partita in meno rispetto all'ultima squadra in zona champions.
+2) seleziona le squadre che - solo se qualificate in Champions nella stagione precedente o vincitrici di coppa nazionale - sono a 3 o meno punti dalla zona Champions o a 6 o meno punti se hanno giocato una partita in meno dell'ultima squadra in classifica che si trova in zona Champions.
 
-4) ⁠⁠prima o seconda in classifica stagione corrente, anche potenzialmente a meno 1 punto dalla prima in classifica, meno 3 punti con 1 partita in meno rispetto alla prima in classifica, meno 2 meno 6 o meno 8 punti con 1 partita in meno rispetto alla prima in classifica e allo stesso tempo prima o seconda in classifica penultima stagione o allo stesso tempo prima o seconda in classifica terzultima stagione
+Logica filtro 2:
+(qualificata_champions_precedente OR vincitrice_coppa_precedente)
+AND (punti_dalla_zona_champions <= 3 OR (punti_dalla_zona_champions <= 6 AND partite_in_meno_rispetto_ultima_champions = 1))
 
-5) ⁠Segno 1 casa prima o seconda in classifica stagione corrente, anche nelle prime 10 giornate di campionato stagione corrente, anche potenzialmente con una partita in meno rispetto alla seconda in classifica e e allo stesso tempo che si sono qualificate in champions league nella stagione precedente, anche a causa della vittoria della coppa nazionale 
+3)  selezionare le squadre che nella stagione corrente sono prima e seconda in classifica e le squadre fino a 6 punti dalla prima in classifica (fino a 8 punti dalla prima in classifica se hanno una partita in meno della prima in classifica) e che nello stesso tempo si sono classificate prima e seconda sia nella penultima  che nella terzultima stagione.
+
+Logica filtro 3:
+(rank_corrente <= 2 OR distacco_dalla_prima <= 6 OR (distacco_dalla_prima <= 8 AND partite_in_meno_della_prima = 1))
+AND (rank_penultima <= 2)
+AND (rank_terzultima <= 2)
+
+4) solo tra le squadre che giocano in casa e si sono qualificate in champions league nella penultima stagione (da terminologila la 2023/2024) anche a causa della vittoria della coppa nazionale, selezionare quelle che sono prima o seconda in classifica nella stagione corrente e quelle con una partita in meno e a 3 o meno punti dalla seconda in classifica.
+
+Logica filtro 4:
+(in_casa)
+AND (qualificata_champions_penultima OR vincitrice_coppa_penultima)
+AND (rank_corrente <= 2 OR (partite_in_meno_della_seconda = 1 AND distacco_dalla_seconda <= 3))
 
 
 SOLO PER LE PRIME DIECI GIORNATE DI CAMPIONATO:

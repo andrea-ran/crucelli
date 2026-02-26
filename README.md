@@ -35,7 +35,7 @@ Apri il browser e vai su [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
 - Estrae statistiche delle squadre da file CSV
 - Applica filtri multipli per selezionare squadre con condizioni specifiche
-- Salva i risultati in `data/processed/selected_teams_F1.csv`, `selected_teams_F2.csv`, `selected_teams_F3.csv` e `bet.csv`
+- Salva i risultati in `data/processed/selezione_regola_1.csv` e `bet.csv`
 - Visualizza le squadre selezionate tramite interfaccia web Flask
 - Accesso protetto da password
 
@@ -57,9 +57,7 @@ Tutte incluse in `requirements.txt`.
 - `src/data_update/update_data.py`: aggiorna i dati delle squadre
 - `src/data_update/update_upcoming.py`: aggiorna le partite in programma
 - `src/data_update/update_national_cup.py`: aggiorna i vincitori delle coppe nazionali
-- `src/queries/filter_teams_1.py`: genera `selected_teams_F1.csv`
-- `src/queries/filter_teams_2.py`: genera `selected_teams_F2.csv`
-- `src/queries/filter_teams_3.py`: genera `selected_teams_F3.csv`
+- `src/queries/regola_1.py`: applica i filtri F1–F4 e genera `selezione_regola_1.csv`
 - `src/queries/betting.py`: genera il file `bet.csv` per la visualizzazione
 - `app.py`: avvia la webapp Flask
 
@@ -73,9 +71,7 @@ Esegui questi comandi dalla root del progetto:
 python src/data_update/update_data.py
 python src/data_update/update_upcoming.py
 python src/data_update/update_national_cup.py
-python src/queries/filter_teams_1.py
-python src/queries/filter_teams_2.py
-python src/queries/filter_teams_3.py
+python src/queries/regola_1.py
 python src/queries/betting.py
 python app.py
 ```

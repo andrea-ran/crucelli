@@ -105,6 +105,17 @@ def create_session(retries=3, backoff_factor=0.5, status_forcelist=(429, 500, 50
 
 SESSION = create_session()
 
+def check_api_connection():
+    url = "https://v3.football.api-sports.io/status"
+    try:
+        response = SESSION.get(url, headers=HEADERS, timeout=DEFAULT_TIMEOUT)
+        response.raise_for_status()
+        print("✅ Connessione API-FOOTBALL OK")
+        return True
+    except requests.RequestException as e:
+        print(f"❌ Connessione API-FOOTBALL non disponibile: {e}")
+        return False
+
 # Controlla se c'è connessione Internet
 def check_connection():
     try:
@@ -148,7 +159,7 @@ def update_matches():
     all_matches = []
     for league_name, league_id in LEAGUES.items():
         season = STAGIONE_CORRENTE
-        print(f"Fetching matches for {league_name} ({league_id}), season {season}...")
+        print(f"📥 Recupero partite: {league_name} ({league_id}), stagione {season}...")
         url = f"https://v3.football.api-sports.io/fixtures?league={league_id}&season={season}"
         try:
             resp = SESSION.get(url, headers=HEADERS, timeout=DEFAULT_TIMEOUT)
@@ -185,7 +196,7 @@ def update_team_stats():
     all_stats = []
     for league_name, league_id in LEAGUES.items():
         season = STAGIONE_CORRENTE
-        print(f"Fetching team stats for {league_name} ({league_id}), season {season}...")
+        print(f"📥 Recupero statistiche squadre: {league_name} ({league_id}), stagione {season}...")
         url = f"https://v3.football.api-sports.io/standings?league={league_id}&season={season}"
         try:
             resp = SESSION.get(url, headers=HEADERS, timeout=DEFAULT_TIMEOUT)
@@ -238,6 +249,9 @@ def update_team_stats():
 if __name__ == "__main__":
     if not check_connection():
         print("❌ Nessuna connessione a Internet. Riprova più tardi.")
+    elif not check_api_connection():
+        print("⛔ Interruzione aggiornamento: API non raggiungibile.")
+        sys.exit(1)
     else:
         last_update = get_last_update()
         today = str(datetime.date.today())

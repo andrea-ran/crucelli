@@ -56,8 +56,8 @@ def index():
             df = df.sort_values('data_sort').drop(columns=['data_sort'])
         # Aggiungi numerazione da 1 come prima colonna (dopo ordinamento)
         df.insert(0, 'N', range(1, len(df) + 1))
-        # Sostituisci NaN con stringa vuota nelle colonne dei filtri (F1-F5) e nella colonna 'oggi'
-        for col in [f'F{i}' for i in range(1, 6)] + ['oggi']:
+        # Sostituisci NaN con stringa vuota nelle colonne dei filtri (F1-F4) e nella colonna 'oggi'
+        for col in [f'F{i}' for i in range(1, 5)] + ['oggi']:
             if col in df.columns:
                 df[col] = df[col].fillna('')
         # Passa i dati e le intestazioni al template, rimuovendo la colonna 'oggi' se presente
@@ -82,7 +82,7 @@ DATA_UPDATE_SCRIPTS = [
     os.path.join('src', 'data_update', 'update_national_cup.py'),
     os.path.join('src', 'data_update', 'update_upcoming_champions.py'),
 ]
-FILTER_SCRIPT = os.path.join('src', 'queries', 'filter_teams_1.py')
+FILTER_SCRIPT = os.path.join('src', 'queries', 'regola_1.py')
 
 
 @app.route('/aggiorna')

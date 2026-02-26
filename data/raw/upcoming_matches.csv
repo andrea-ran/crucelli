@@ -1,9 +1,4 @@
 match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_score,status
-1435998,2026-02-24T19:00:00+00:00,307,saudi pro league,2025,al khaleej saihat,al kholood,,,NS
-1436002,2026-02-24T19:00:00+00:00,307,saudi pro league,2025,al taawon,al-hilal saudi fc,,,NS
-1435996,2026-02-24T19:00:00+00:00,307,saudi pro league,2025,al-hazm,al-ittihad fc,,,NS
-1435994,2026-02-25T19:00:00+00:00,307,saudi pro league,2025,al-fayha,neom,,,NS
-1436000,2026-02-25T19:00:00+00:00,307,saudi pro league,2025,al najma,al-nassr,,,NS
 1436122,2026-02-26T19:00:00+00:00,307,saudi pro league,2025,al-fateh,damac,,,NS
 1436121,2026-02-26T19:00:00+00:00,307,saudi pro league,2025,al riyadh,al-ahli jeddah,,,NS
 1436124,2026-02-27T19:00:00+00:00,307,saudi pro league,2025,al-ittihad fc,al khaleej saihat,,,NS
@@ -19,6 +14,11 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1436136,2026-03-06T19:00:00+00:00,307,saudi pro league,2025,al-ahli jeddah,al-ittihad fc,,,NS
 1436135,2026-03-06T19:00:00+00:00,307,saudi pro league,2025,al-hilal saudi fc,al najma,,,NS
 1436134,2026-03-06T19:00:00+00:00,307,saudi pro league,2025,al taawon,al-fateh,,,NS
+1436137,2026-03-07T19:00:00+00:00,307,saudi pro league,2025,al-ettifaq,al shabab,,,NS
+1436133,2026-03-07T19:00:00+00:00,307,saudi pro league,2025,al-nassr,neom,,,NS
+1436130,2026-03-07T19:00:00+00:00,307,saudi pro league,2025,al okhdood,al-fayha,,,NS
+1436139,2026-03-12T19:00:00+00:00,307,saudi pro league,2025,al-hazm,al kholood,,,NS
+1436140,2026-03-12T19:00:00+00:00,307,saudi pro league,2025,al najma,damac,,,NS
 1384037,2026-02-27T17:00:00+00:00,210,hnl,2025,nk slaven belupo,istra 1961,,,NS
 1384035,2026-02-28T14:00:00+00:00,210,hnl,2025,nk osijek,vukovar,,,NS
 1384038,2026-02-28T16:45:00+00:00,210,hnl,2025,nk varazdin,hnk hajduk split,,,NS
@@ -101,7 +101,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1379257,2026-03-05T20:00:00+00:00,39,premier league,2025,tottenham,crystal palace,,,NS
 1378127,2026-02-27T19:45:00+00:00,135,serie a,2025,parma,cagliari,,,NS
 1378124,2026-02-28T14:00:00+00:00,135,serie a,2025,como,lecce,,,NS
-1378133,2026-02-28T17:00:00+00:00,135,serie a,2025,verona,napoli,,,NS
+1378133,2026-02-28T17:00:00+00:00,135,serie a,2025,hellas verona,napoli,,,NS
 1378126,2026-02-28T19:45:00+00:00,135,serie a,2025,inter,genoa,,,NS
 1378125,2026-03-01T11:30:00+00:00,135,serie a,2025,cremonese,ac milan,,,NS
 1378130,2026-03-01T14:00:00+00:00,135,serie a,2025,sassuolo,atalanta,,,NS
@@ -116,7 +116,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1378138,2026-03-08T14:00:00+00:00,135,serie a,2025,genoa,as roma,,,NS
 1378139,2026-03-08T14:00:00+00:00,135,serie a,2025,juventus,pisa,,,NS
 1378134,2026-03-08T14:00:00+00:00,135,serie a,2025,atalanta,udinese,,,NS
-1378135,2026-03-08T14:00:00+00:00,135,serie a,2025,bologna,verona,,,NS
+1378135,2026-03-08T14:00:00+00:00,135,serie a,2025,bologna,hellas verona,,,NS
 1378137,2026-03-08T14:00:00+00:00,135,serie a,2025,fiorentina,parma,,,NS
 1378141,2026-03-08T14:00:00+00:00,135,serie a,2025,lecce,cremonese,,,NS
 1381088,2026-02-27T19:00:00+00:00,88,eredivisie,2025,telstar,nac breda,,,NS
@@ -159,7 +159,6 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1396457,2026-03-08T17:00:00+00:00,94,primeira liga,2025,estrela,gil vicente,,,NS
 1396465,2026-03-15T17:00:00+00:00,94,primeira liga,2025,fc porto,moreirense,,,NS
 1396470,2026-03-15T17:00:00+00:00,94,primeira liga,2025,guimaraes,famalicao,,,NS
-1382817,2026-02-24T19:45:00+00:00,179,scottish premiership,2025,dundee utd,aberdeen,,,NS
 1382834,2026-02-28T15:00:00+00:00,179,scottish premiership,2025,dundee,hibernian,,,NS
 1382836,2026-02-28T15:00:00+00:00,179,scottish premiership,2025,heart of midlothian,aberdeen,,,NS
 1382837,2026-02-28T15:00:00+00:00,179,scottish premiership,2025,livingston,st mirren,,,NS
@@ -179,6 +178,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1382848,2026-03-21T15:00:00+00:00,179,scottish premiership,2025,heart of midlothian,dundee,,,NS
 1382850,2026-03-21T15:00:00+00:00,179,scottish premiership,2025,motherwell,hibernian,,,NS
 1382847,2026-03-21T15:00:00+00:00,179,scottish premiership,2025,falkirk,st mirren,,,NS
+1382851,2026-03-21T17:45:00+00:00,179,scottish premiership,2025,rangers,aberdeen,,,NS
 1391073,2026-02-27T20:00:00+00:00,140,la liga,2025,levante,alaves,,,NS
 1391075,2026-02-28T13:00:00+00:00,140,la liga,2025,rayo vallecano,athletic club,,,NS
 1391069,2026-02-28T15:15:00+00:00,140,la liga,2025,barcelona,villarreal,,,NS

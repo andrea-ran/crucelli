@@ -1,18 +1,16 @@
 import pandas as pd
 import os
-import runpy
 import sys
 from datetime import datetime
 
-# Use only filter_teams_1 output (F1). If missing, attempt to run filter_teams_1.py to generate it.
-F1_PATH = "data/processed/selected_teams_F1.csv"
-AGGREGATO_PATH = F1_PATH
+# Usa solo l'output di regola_1 (F1). Se manca, esegui regola_1.py per generarlo.
+F1_PATH = "data/processed/selezione_regola_1.csv"
 UPCOMING_PATH = "data/raw/upcoming_matches.csv"
 OUTPUT_PATH = "data/processed/bet.csv"
 
-# Carica squadre selezionate da F1; se mancante, prova a generarlo eseguendo lo script `filter_teams_1.py`
+# Carica squadre selezionate da F1; se mancante, prova a generarlo eseguendo lo script `regola_1.py`
 if not os.path.exists(F1_PATH):
-    print(f"{F1_PATH} non trovato. Genera il file eseguendo `src/queries/filter_teams_1.py` e riprova.")
+    print(f"{F1_PATH} non trovato. Genera il file eseguendo `src/queries/regola_1.py` e riprova.")
     sys.exit(1)
 
 df_agg = pd.read_csv(F1_PATH)
@@ -20,7 +18,7 @@ if "team_name" in df_agg.columns and "squadra" not in df_agg.columns:
     df_agg = df_agg.rename(columns={"team_name": "squadra"})
 if "league_name" in df_agg.columns and "lega" not in df_agg.columns:
     df_agg = df_agg.rename(columns={"league_name": "lega"})
-print(f"Loaded selezionate from: {F1_PATH}")
+print(f"Squadre filtrate caricate da: {F1_PATH}")
 
 # Carica partite in programma
 if not os.path.exists(UPCOMING_PATH):
@@ -29,7 +27,7 @@ df_upcoming = pd.read_csv(UPCOMING_PATH)
 df_upcoming["date"] = pd.to_datetime(df_upcoming["date"], utc=True)
 
 # Mantieni solo partite future e non giocate
-now_utc = pd.Timestamp.utcnow()
+now_utc = pd.Timestamp.now(tz="UTC")
 if "status" in df_upcoming.columns:
     allowed_statuses = {"NS", "TBD"}
     df_upcoming = df_upcoming[
@@ -50,9 +48,9 @@ for _, row in df_agg.iterrows():
     if not team_matches.empty:
         # Prendi il match con la data più vicina
         next_match = team_matches.sort_values("date").iloc[0]
-        # Crea le colonne mastermind
+        # Crea le colonne indicatori filtri
         filtro_cols = {}
-        for f in ["F1", "F2", "F3", "F4", "F5"]:
+        for f in ["F1", "F2", "F3", "F4"]:
             filtro_cols[f] = 'x' if f in filtri.split(',') else ''
         team_next_match[squadra] = {
             "squadra selezionata": next_match["home_team"] if next_match["home_team"].strip().lower() == squadra else next_match["away_team"],

@@ -1,6 +1,9 @@
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 import pandas as pd
 import os
+import sys
 import importlib.util
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../"))
@@ -19,7 +22,23 @@ STAGIONE_PRECEDENTE = season_config.STAGIONE_PRECEDENTE
 # Configurazione
 API_KEY = "691ccc74c6d55850f0b5c836ec0b10f2"
 HEADERS = {"x-apisports-key": API_KEY}
+DEFAULT_TIMEOUT = 10
 OUTPUT_PATH = os.path.join(PROJECT_ROOT, "data", "raw", "coppa_nazionale.csv")
+
+def create_session(retries=3, backoff_factor=0.5, status_forcelist=(429, 500, 502, 503, 504)):
+    session = requests.Session()
+    retry = Retry(
+        total=retries,
+        backoff_factor=backoff_factor,
+        status_forcelist=status_forcelist,
+        allowed_methods=frozenset(["GET", "POST"])
+    )
+    adapter = HTTPAdapter(max_retries=retry)
+    session.mount("https://", adapter)
+    session.mount("http://", adapter)
+    return session
+
+SESSION = create_session()
 
 # Dizionario: nome coppa nazionale -> id lega API-SPORTS
 NATIONAL_CUPS = {
@@ -38,13 +57,29 @@ NATIONAL_CUPS = {
 
 winners = []
 
+def check_api_connection():
+    url = "https://v3.football.api-sports.io/status"
+    try:
+        response = SESSION.get(url, headers=HEADERS, timeout=DEFAULT_TIMEOUT)
+        response.raise_for_status()
+        print("✅ Connessione API-FOOTBALL OK")
+        return True
+    except requests.RequestException as e:
+        print(f"❌ Connessione API-FOOTBALL non disponibile: {e}")
+        return False
+
+if not check_api_connection():
+    print("⛔ Interruzione aggiornamento: API non raggiungibile.")
+    sys.exit(1)
+
 for cup_name, league_id in NATIONAL_CUPS.items():
     url = "https://v3.football.api-sports.io/fixtures"
     params = {
         "league": league_id,
         "season": STAGIONE_PRECEDENTE
     }
-    response = requests.get(url, headers=HEADERS, params=params)
+    response = SESSION.get(url, headers=HEADERS, params=params, timeout=DEFAULT_TIMEOUT)
+    response.raise_for_status()
     data = response.json()
     try:
         # Cerca la finale
@@ -53,7 +88,7 @@ for cup_name, league_id in NATIONAL_CUPS.items():
             if "final" in f["league"]["round"].lower()
         ]
         if not finali:
-            print(f"⚠️ Finale non trovata per {cup_name}")
+            print(f"⚠️ Finale non trovata: {cup_name}")
             continue
         finale = finali[0]
         if finale["teams"]["home"]["winner"]:
@@ -61,7 +96,7 @@ for cup_name, league_id in NATIONAL_CUPS.items():
         else:
             team_name = finale["teams"]["away"]["name"]
         winners.append({"team_name": team_name, "season": STAGIONE_PRECEDENTE, "cup": cup_name})
-        print(f"🏆 {cup_name} {STAGIONE_PRECEDENTE}: {team_name}")
+        print(f"🏆 Vincitore {cup_name} {STAGIONE_PRECEDENTE}: {team_name}")
     except Exception as e:
         print(f"⚠️ Errore per {cup_name}: {e}")
 

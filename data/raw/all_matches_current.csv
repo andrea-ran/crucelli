@@ -201,11 +201,11 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1435999,2026-02-23T19:00:00+00:00,307,saudi pro league,2025,al-qadisiyah fc,al-ettifaq,4.0,0.0,FT
 1435995,2026-02-23T19:00:00+00:00,307,saudi pro league,2025,al shabab,al riyadh,3.0,1.0,FT
 1435997,2026-02-23T19:00:00+00:00,307,saudi pro league,2025,damac,al-ahli jeddah,0.0,1.0,FT
-1435998,2026-02-24T19:00:00+00:00,307,saudi pro league,2025,al khaleej saihat,al kholood,,,NS
-1436002,2026-02-24T19:00:00+00:00,307,saudi pro league,2025,al taawon,al-hilal saudi fc,,,NS
-1435996,2026-02-24T19:00:00+00:00,307,saudi pro league,2025,al-hazm,al-ittihad fc,,,NS
-1435994,2026-02-25T19:00:00+00:00,307,saudi pro league,2025,al-fayha,neom,,,NS
-1436000,2026-02-25T19:00:00+00:00,307,saudi pro league,2025,al najma,al-nassr,,,NS
+1435998,2026-02-24T19:00:00+00:00,307,saudi pro league,2025,al khaleej saihat,al kholood,2.0,3.0,FT
+1436002,2026-02-24T19:00:00+00:00,307,saudi pro league,2025,al taawon,al-hilal saudi fc,1.0,1.0,FT
+1435996,2026-02-24T19:00:00+00:00,307,saudi pro league,2025,al-hazm,al-ittihad fc,1.0,1.0,FT
+1435994,2026-02-25T19:00:00+00:00,307,saudi pro league,2025,al-fayha,neom,1.0,1.0,FT
+1436000,2026-02-25T19:00:00+00:00,307,saudi pro league,2025,al najma,al-nassr,0.0,5.0,FT
 1436122,2026-02-26T19:00:00+00:00,307,saudi pro league,2025,al-fateh,damac,,,NS
 1436121,2026-02-26T19:00:00+00:00,307,saudi pro league,2025,al riyadh,al-ahli jeddah,,,NS
 1436124,2026-02-27T19:00:00+00:00,307,saudi pro league,2025,al-ittihad fc,al khaleej saihat,,,NS
@@ -1485,7 +1485,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1377866,2025-08-24T16:30:00+00:00,135,serie a,2025,como,lazio,2.0,0.0,FT
 1377869,2025-08-24T18:45:00+00:00,135,serie a,2025,juventus,parma,2.0,0.0,FT
 1377864,2025-08-24T18:45:00+00:00,135,serie a,2025,atalanta,pisa,1.0,1.0,FT
-1377873,2025-08-25T16:30:00+00:00,135,serie a,2025,udinese,verona,1.0,1.0,FT
+1377873,2025-08-25T16:30:00+00:00,135,serie a,2025,udinese,hellas verona,1.0,1.0,FT
 1377868,2025-08-25T18:45:00+00:00,135,serie a,2025,inter,torino,5.0,0.0,FT
 1377875,2025-08-29T16:30:00+00:00,135,serie a,2025,cremonese,sassuolo,3.0,2.0,FT
 1377879,2025-08-29T18:45:00+00:00,135,serie a,2025,lecce,ac milan,0.0,2.0,FT
@@ -1495,7 +1495,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1377882,2025-08-30T18:45:00+00:00,135,serie a,2025,pisa,as roma,0.0,1.0,FT
 1377876,2025-08-31T16:30:00+00:00,135,serie a,2025,genoa,juventus,0.0,1.0,FT
 1377883,2025-08-31T16:30:00+00:00,135,serie a,2025,torino,fiorentina,0.0,0.0,FT
-1377878,2025-08-31T18:45:00+00:00,135,serie a,2025,lazio,verona,4.0,0.0,FT
+1377878,2025-08-31T18:45:00+00:00,135,serie a,2025,lazio,hellas verona,4.0,0.0,FT
 1377877,2025-08-31T18:45:00+00:00,135,serie a,2025,inter,udinese,1.0,2.0,FT
 1377885,2025-09-13T13:00:00+00:00,135,serie a,2025,cagliari,parma,2.0,0.0,FT
 1377888,2025-09-13T16:00:00+00:00,135,serie a,2025,juventus,inter,4.0,3.0,FT
@@ -1505,11 +1505,11 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1377890,2025-09-14T13:00:00+00:00,135,serie a,2025,pisa,udinese,0.0,1.0,FT
 1377892,2025-09-14T16:00:00+00:00,135,serie a,2025,sassuolo,lazio,1.0,0.0,FT
 1377889,2025-09-14T18:45:00+00:00,135,serie a,2025,ac milan,bologna,1.0,0.0,FT
-1377893,2025-09-15T16:30:00+00:00,135,serie a,2025,verona,cremonese,0.0,0.0,FT
+1377893,2025-09-15T16:30:00+00:00,135,serie a,2025,hellas verona,cremonese,0.0,0.0,FT
 1377886,2025-09-15T18:45:00+00:00,135,serie a,2025,como,genoa,1.0,1.0,FT
 1377899,2025-09-19T18:45:00+00:00,135,serie a,2025,lecce,cagliari,1.0,2.0,FT
 1377894,2025-09-20T13:00:00+00:00,135,serie a,2025,bologna,genoa,2.0,1.0,FT
-1377903,2025-09-20T16:00:00+00:00,135,serie a,2025,verona,juventus,1.0,1.0,FT
+1377903,2025-09-20T16:00:00+00:00,135,serie a,2025,hellas verona,juventus,1.0,1.0,FT
 1377902,2025-09-20T18:45:00+00:00,135,serie a,2025,udinese,ac milan,0.0,3.0,FT
 1377898,2025-09-21T10:30:00+00:00,135,serie a,2025,lazio,as roma,0.0,1.0,FT
 1377901,2025-09-21T13:00:00+00:00,135,serie a,2025,torino,atalanta,0.0,3.0,FT
@@ -1521,13 +1521,13 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1377907,2025-09-27T16:00:00+00:00,135,serie a,2025,juventus,atalanta,1.0,1.0,FT
 1377904,2025-09-27T18:45:00+00:00,135,serie a,2025,cagliari,inter,0.0,2.0,FT
 1377913,2025-09-28T10:30:00+00:00,135,serie a,2025,sassuolo,udinese,3.0,1.0,FT
-1377912,2025-09-28T13:00:00+00:00,135,serie a,2025,as roma,verona,2.0,0.0,FT
+1377912,2025-09-28T13:00:00+00:00,135,serie a,2025,as roma,hellas verona,2.0,0.0,FT
 1377911,2025-09-28T13:00:00+00:00,135,serie a,2025,pisa,fiorentina,0.0,0.0,FT
 1377908,2025-09-28T16:00:00+00:00,135,serie a,2025,lecce,bologna,2.0,2.0,FT
 1377909,2025-09-28T18:45:00+00:00,135,serie a,2025,ac milan,napoli,2.0,1.0,FT
 1377910,2025-09-29T16:30:00+00:00,135,serie a,2025,parma,torino,2.0,1.0,FT
 1377906,2025-09-29T18:45:00+00:00,135,serie a,2025,genoa,lazio,0.0,3.0,FT
-1377923,2025-10-03T18:45:00+00:00,135,serie a,2025,verona,sassuolo,0.0,1.0,FT
+1377923,2025-10-03T18:45:00+00:00,135,serie a,2025,hellas verona,sassuolo,0.0,1.0,FT
 1377919,2025-10-04T13:00:00+00:00,135,serie a,2025,lazio,torino,3.0,3.0,FT
 1377921,2025-10-04T13:00:00+00:00,135,serie a,2025,parma,lecce,0.0,1.0,FT
 1377917,2025-10-04T16:00:00+00:00,135,serie a,2025,inter,cremonese,4.0,1.0,FT
@@ -1537,7 +1537,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1377916,2025-10-05T13:00:00+00:00,135,serie a,2025,fiorentina,as roma,1.0,2.0,FT
 1377920,2025-10-05T16:00:00+00:00,135,serie a,2025,napoli,genoa,2.0,1.0,FT
 1377918,2025-10-05T18:45:00+00:00,135,serie a,2025,juventus,ac milan,0.0,0.0,FT
-1377931,2025-10-18T13:00:00+00:00,135,serie a,2025,pisa,verona,0.0,0.0,FT
+1377931,2025-10-18T13:00:00+00:00,135,serie a,2025,pisa,hellas verona,0.0,0.0,FT
 1377929,2025-10-18T13:00:00+00:00,135,serie a,2025,lecce,sassuolo,0.0,0.0,FT
 1377933,2025-10-18T16:00:00+00:00,135,serie a,2025,torino,napoli,1.0,0.0,FT
 1377932,2025-10-18T18:45:00+00:00,135,serie a,2025,as roma,inter,0.0,1.0,FT
@@ -1554,14 +1554,14 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1377934,2025-10-25T18:45:00+00:00,135,serie a,2025,cremonese,atalanta,1.0,1.0,FT
 1377941,2025-10-26T11:30:00+00:00,135,serie a,2025,torino,genoa,2.0,1.0,FT
 1377940,2025-10-26T14:00:00+00:00,135,serie a,2025,sassuolo,as roma,0.0,1.0,FT
-1377943,2025-10-26T14:00:00+00:00,135,serie a,2025,verona,cagliari,2.0,2.0,FT
+1377943,2025-10-26T14:00:00+00:00,135,serie a,2025,hellas verona,cagliari,2.0,2.0,FT
 1377935,2025-10-26T17:00:00+00:00,135,serie a,2025,fiorentina,bologna,2.0,2.0,FT
 1377936,2025-10-26T19:45:00+00:00,135,serie a,2025,lazio,juventus,1.0,0.0,FT
 1377951,2025-10-28T17:30:00+00:00,135,serie a,2025,lecce,napoli,0.0,1.0,FT
 1377944,2025-10-28T19:45:00+00:00,135,serie a,2025,atalanta,ac milan,1.0,1.0,FT
 1377950,2025-10-29T17:30:00+00:00,135,serie a,2025,juventus,udinese,3.0,1.0,FT
 1377953,2025-10-29T17:30:00+00:00,135,serie a,2025,as roma,parma,2.0,1.0,FT
-1377947,2025-10-29T17:30:00+00:00,135,serie a,2025,como,verona,3.0,1.0,FT
+1377947,2025-10-29T17:30:00+00:00,135,serie a,2025,como,hellas verona,3.0,1.0,FT
 1377948,2025-10-29T19:45:00+00:00,135,serie a,2025,genoa,cremonese,0.0,2.0,FT
 1377945,2025-10-29T19:45:00+00:00,135,serie a,2025,bologna,torino,0.0,0.0,FT
 1377949,2025-10-29T19:45:00+00:00,135,serie a,2025,inter,fiorentina,3.0,0.0,FT
@@ -1570,7 +1570,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1377962,2025-11-01T14:00:00+00:00,135,serie a,2025,udinese,atalanta,1.0,0.0,FT
 1377958,2025-11-01T17:00:00+00:00,135,serie a,2025,napoli,como,0.0,0.0,FT
 1377954,2025-11-01T19:45:00+00:00,135,serie a,2025,cremonese,juventus,1.0,2.0,FT
-1377963,2025-11-02T11:30:00+00:00,135,serie a,2025,verona,inter,1.0,2.0,FT
+1377963,2025-11-02T11:30:00+00:00,135,serie a,2025,hellas verona,inter,1.0,2.0,FT
 1377955,2025-11-02T14:00:00+00:00,135,serie a,2025,fiorentina,lecce,0.0,1.0,FT
 1377961,2025-11-02T14:00:00+00:00,135,serie a,2025,torino,pisa,2.0,2.0,FT
 1377959,2025-11-02T17:00:00+00:00,135,serie a,2025,parma,bologna,1.0,3.0,FT
@@ -1578,7 +1578,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1377960,2025-11-03T17:30:00+00:00,135,serie a,2025,sassuolo,genoa,1.0,2.0,FT
 1377956,2025-11-03T19:45:00+00:00,135,serie a,2025,lazio,cagliari,2.0,0.0,FT
 1377972,2025-11-07T19:45:00+00:00,135,serie a,2025,pisa,cremonese,1.0,0.0,FT
-1377970,2025-11-08T14:00:00+00:00,135,serie a,2025,lecce,verona,0.0,0.0,FT
+1377970,2025-11-08T14:00:00+00:00,135,serie a,2025,lecce,hellas verona,0.0,0.0,FT
 1377966,2025-11-08T14:00:00+00:00,135,serie a,2025,como,cagliari,0.0,0.0,FT
 1377969,2025-11-08T17:00:00+00:00,135,serie a,2025,juventus,torino,0.0,0.0,FT
 1377971,2025-11-08T19:45:00+00:00,135,serie a,2025,parma,ac milan,2.0,2.0,FT
@@ -1591,14 +1591,14 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1377982,2025-11-22T14:00:00+00:00,135,serie a,2025,udinese,bologna,0.0,3.0,FT
 1377976,2025-11-22T17:00:00+00:00,135,serie a,2025,fiorentina,juventus,1.0,1.0,FT
 1377979,2025-11-22T19:45:00+00:00,135,serie a,2025,napoli,atalanta,3.0,1.0,FT
-1377983,2025-11-23T11:30:00+00:00,135,serie a,2025,verona,parma,1.0,2.0,FT
+1377983,2025-11-23T11:30:00+00:00,135,serie a,2025,hellas verona,parma,1.0,2.0,FT
 1377975,2025-11-23T14:00:00+00:00,135,serie a,2025,cremonese,as roma,1.0,3.0,FT
 1377978,2025-11-23T17:00:00+00:00,135,serie a,2025,lazio,lecce,2.0,0.0,FT
 1377977,2025-11-23T19:45:00+00:00,135,serie a,2025,inter,ac milan,0.0,1.0,FT
 1377981,2025-11-24T17:30:00+00:00,135,serie a,2025,torino,como,1.0,5.0,FT
 1377980,2025-11-24T19:45:00+00:00,135,serie a,2025,sassuolo,pisa,2.0,2.0,FT
 1377986,2025-11-28T19:45:00+00:00,135,serie a,2025,como,sassuolo,2.0,0.0,FT
-1377987,2025-11-29T14:00:00+00:00,135,serie a,2025,genoa,verona,2.0,1.0,FT
+1377987,2025-11-29T14:00:00+00:00,135,serie a,2025,genoa,hellas verona,2.0,1.0,FT
 1377991,2025-11-29T14:00:00+00:00,135,serie a,2025,parma,udinese,0.0,2.0,FT
 1377988,2025-11-29T17:00:00+00:00,135,serie a,2025,juventus,cagliari,2.0,1.0,FT
 1377990,2025-11-29T19:45:00+00:00,135,serie a,2025,ac milan,lazio,1.0,0.0,FT
@@ -1609,7 +1609,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1377985,2025-12-01T19:45:00+00:00,135,serie a,2025,bologna,cremonese,1.0,3.0,FT
 1378000,2025-12-06T14:00:00+00:00,135,serie a,2025,sassuolo,fiorentina,3.0,1.0,FT
 1377996,2025-12-06T17:00:00+00:00,135,serie a,2025,inter,como,4.0,0.0,FT
-1378003,2025-12-06T19:45:00+00:00,135,serie a,2025,verona,atalanta,3.0,1.0,FT
+1378003,2025-12-06T19:45:00+00:00,135,serie a,2025,hellas verona,atalanta,3.0,1.0,FT
 1377995,2025-12-07T11:30:00+00:00,135,serie a,2025,cremonese,lecce,2.0,0.0,FT
 1377994,2025-12-07T14:00:00+00:00,135,serie a,2025,cagliari,as roma,1.0,0.0,FT
 1377997,2025-12-07T17:00:00+00:00,135,serie a,2025,lazio,bologna,1.0,1.0,FT
@@ -1623,7 +1623,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1378004,2025-12-13T19:45:00+00:00,135,serie a,2025,atalanta,cagliari,2.0,1.0,FT
 1378009,2025-12-14T11:30:00+00:00,135,serie a,2025,ac milan,sassuolo,2.0,2.0,FT
 1378013,2025-12-14T14:00:00+00:00,135,serie a,2025,udinese,napoli,1.0,0.0,FT
-1378006,2025-12-14T14:00:00+00:00,135,serie a,2025,fiorentina,verona,1.0,2.0,FT
+1378006,2025-12-14T14:00:00+00:00,135,serie a,2025,fiorentina,hellas verona,1.0,2.0,FT
 1378007,2025-12-14T17:00:00+00:00,135,serie a,2025,genoa,inter,1.0,2.0,FT
 1378005,2025-12-14T19:45:00+00:00,135,serie a,2025,bologna,juventus,0.0,1.0,FT
 1378011,2025-12-15T19:45:00+00:00,135,serie a,2025,as roma,como,1.0,0.0,FT
@@ -1638,7 +1638,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1378027,2025-12-27T14:00:00+00:00,135,serie a,2025,lecce,como,0.0,3.0,FT
 1378033,2025-12-27T17:00:00+00:00,135,serie a,2025,udinese,lazio,1.0,1.0,FT
 1378030,2025-12-27T19:45:00+00:00,135,serie a,2025,pisa,juventus,0.0,2.0,FT
-1378028,2025-12-28T11:30:00+00:00,135,serie a,2025,ac milan,verona,3.0,0.0,FT
+1378028,2025-12-28T11:30:00+00:00,135,serie a,2025,ac milan,hellas verona,3.0,0.0,FT
 1378026,2025-12-28T14:00:00+00:00,135,serie a,2025,cremonese,napoli,0.0,2.0,FT
 1378025,2025-12-28T17:00:00+00:00,135,serie a,2025,bologna,sassuolo,1.0,1.0,FT
 1378024,2025-12-28T19:45:00+00:00,135,serie a,2025,atalanta,inter,0.0,1.0,FT
@@ -1651,12 +1651,12 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1378034,2026-01-03T19:45:00+00:00,135,serie a,2025,atalanta,as roma,1.0,0.0,FT
 1378041,2026-01-04T11:30:00+00:00,135,serie a,2025,lazio,napoli,0.0,2.0,FT
 1378037,2026-01-04T14:00:00+00:00,135,serie a,2025,fiorentina,cremonese,1.0,0.0,FT
-1378043,2026-01-04T17:00:00+00:00,135,serie a,2025,verona,torino,0.0,3.0,FT
+1378043,2026-01-04T17:00:00+00:00,135,serie a,2025,hellas verona,torino,0.0,3.0,FT
 1378039,2026-01-04T19:45:00+00:00,135,serie a,2025,inter,bologna,3.0,1.0,FT
 1378051,2026-01-06T14:00:00+00:00,135,serie a,2025,pisa,como,0.0,3.0,FT
 1378047,2026-01-06T17:00:00+00:00,135,serie a,2025,lecce,as roma,0.0,2.0,FT
 1378052,2026-01-06T19:45:00+00:00,135,serie a,2025,sassuolo,juventus,0.0,3.0,FT
-1378049,2026-01-07T17:30:00+00:00,135,serie a,2025,napoli,verona,2.0,2.0,FT
+1378049,2026-01-07T17:30:00+00:00,135,serie a,2025,napoli,hellas verona,2.0,2.0,FT
 1378044,2026-01-07T17:30:00+00:00,135,serie a,2025,bologna,atalanta,0.0,2.0,FT
 1378046,2026-01-07T19:45:00+00:00,135,serie a,2025,lazio,fiorentina,2.0,2.0,FT
 1378053,2026-01-07T19:45:00+00:00,135,serie a,2025,torino,udinese,1.0,2.0,FT
@@ -1669,13 +1669,13 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1378054,2026-01-10T19:45:00+00:00,135,serie a,2025,atalanta,torino,2.0,0.0,FT
 1378060,2026-01-11T11:30:00+00:00,135,serie a,2025,lecce,parma,1.0,2.0,FT
 1378056,2026-01-11T14:00:00+00:00,135,serie a,2025,fiorentina,ac milan,1.0,1.0,FT
-1378063,2026-01-11T17:00:00+00:00,135,serie a,2025,verona,lazio,0.0,1.0,FT
+1378063,2026-01-11T17:00:00+00:00,135,serie a,2025,hellas verona,lazio,0.0,1.0,FT
 1378058,2026-01-11T19:45:00+00:00,135,serie a,2025,inter,napoli,2.0,2.0,FT
 1378057,2026-01-12T17:30:00+00:00,135,serie a,2025,genoa,cagliari,3.0,0.0,FT
 1378059,2026-01-12T19:45:00+00:00,135,serie a,2025,juventus,cremonese,5.0,0.0,FT
 1378021,2026-01-14T17:30:00+00:00,135,serie a,2025,napoli,parma,0.0,0.0,FT
 1378018,2026-01-14T19:45:00+00:00,135,serie a,2025,inter,lecce,1.0,0.0,FT
-1378023,2026-01-15T17:30:00+00:00,135,serie a,2025,verona,bologna,2.0,3.0,FT
+1378023,2026-01-15T17:30:00+00:00,135,serie a,2025,hellas verona,bologna,2.0,3.0,FT
 1378015,2026-01-15T19:45:00+00:00,135,serie a,2025,como,ac milan,1.0,3.0,FT
 1378071,2026-01-16T19:45:00+00:00,135,serie a,2025,pisa,atalanta,1.0,1.0,FT
 1378073,2026-01-17T14:00:00+00:00,135,serie a,2025,udinese,inter,0.0,1.0,FT
@@ -1685,7 +1685,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1378064,2026-01-18T14:00:00+00:00,135,serie a,2025,bologna,fiorentina,1.0,2.0,FT
 1378072,2026-01-18T17:00:00+00:00,135,serie a,2025,torino,as roma,0.0,2.0,FT
 1378068,2026-01-18T19:45:00+00:00,135,serie a,2025,ac milan,lecce,1.0,0.0,FT
-1378066,2026-01-19T17:30:00+00:00,135,serie a,2025,cremonese,verona,0.0,0.0,FT
+1378066,2026-01-19T17:30:00+00:00,135,serie a,2025,cremonese,hellas verona,0.0,0.0,FT
 1378067,2026-01-19T19:45:00+00:00,135,serie a,2025,lazio,como,0.0,3.0,FT
 1378078,2026-01-23T19:45:00+00:00,135,serie a,2025,inter,pisa,6.0,2.0,FT
 1378075,2026-01-24T14:00:00+00:00,135,serie a,2025,como,torino,6.0,0.0,FT
@@ -1696,18 +1696,18 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1378074,2026-01-25T14:00:00+00:00,135,serie a,2025,atalanta,parma,4.0,0.0,FT
 1378079,2026-01-25T17:00:00+00:00,135,serie a,2025,juventus,napoli,3.0,0.0,FT
 1378081,2026-01-25T19:45:00+00:00,135,serie a,2025,as roma,ac milan,1.0,1.0,FT
-1378083,2026-01-26T19:45:00+00:00,135,serie a,2025,verona,udinese,1.0,3.0,FT
+1378083,2026-01-26T19:45:00+00:00,135,serie a,2025,hellas verona,udinese,1.0,3.0,FT
 1378088,2026-01-30T19:45:00+00:00,135,serie a,2025,lazio,genoa,3.0,2.0,FT
 1378091,2026-01-31T14:00:00+00:00,135,serie a,2025,pisa,sassuolo,1.0,3.0,FT
 1378089,2026-01-31T17:00:00+00:00,135,serie a,2025,napoli,fiorentina,2.0,1.0,FT
-1378085,2026-01-31T19:45:00+00:00,135,serie a,2025,cagliari,verona,4.0,0.0,FT
+1378085,2026-01-31T19:45:00+00:00,135,serie a,2025,cagliari,hellas verona,4.0,0.0,FT
 1378092,2026-02-01T11:30:00+00:00,135,serie a,2025,torino,lecce,1.0,0.0,FT
 1378086,2026-02-01T14:00:00+00:00,135,serie a,2025,como,atalanta,0.0,0.0,FT
 1378087,2026-02-01T17:00:00+00:00,135,serie a,2025,cremonese,inter,0.0,2.0,FT
 1378090,2026-02-01T19:45:00+00:00,135,serie a,2025,parma,juventus,1.0,4.0,FT
 1378093,2026-02-02T19:45:00+00:00,135,serie a,2025,udinese,as roma,1.0,0.0,FT
 1378084,2026-02-03T19:45:00+00:00,135,serie a,2025,bologna,ac milan,0.0,3.0,FT
-1378103,2026-02-06T19:45:00+00:00,135,serie a,2025,verona,pisa,0.0,0.0,FT
+1378103,2026-02-06T19:45:00+00:00,135,serie a,2025,hellas verona,pisa,0.0,0.0,FT
 1378097,2026-02-07T17:00:00+00:00,135,serie a,2025,genoa,napoli,2.0,3.0,FT
 1378096,2026-02-07T19:45:00+00:00,135,serie a,2025,fiorentina,torino,2.0,2.0,FT
 1378095,2026-02-08T11:30:00+00:00,135,serie a,2025,bologna,parma,0.0,1.0,FT
@@ -1722,12 +1722,12 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1378107,2026-02-14T19:45:00+00:00,135,serie a,2025,inter,juventus,3.0,2.0,FT
 1378113,2026-02-15T11:30:00+00:00,135,serie a,2025,udinese,sassuolo,1.0,2.0,FT
 1378106,2026-02-15T14:00:00+00:00,135,serie a,2025,cremonese,genoa,0.0,0.0,FT
-1378110,2026-02-15T14:00:00+00:00,135,serie a,2025,parma,verona,2.0,1.0,FT
+1378110,2026-02-15T14:00:00+00:00,135,serie a,2025,parma,hellas verona,2.0,1.0,FT
 1378112,2026-02-15T17:00:00+00:00,135,serie a,2025,torino,bologna,1.0,2.0,FT
 1378109,2026-02-15T19:45:00+00:00,135,serie a,2025,napoli,as roma,2.0,2.0,FT
 1378104,2026-02-16T19:45:00+00:00,135,serie a,2025,cagliari,lecce,0.0,2.0,FT
 1378100,2026-02-18T19:45:00+00:00,135,serie a,2025,ac milan,como,1.0,1.0,FT
-1378123,2026-02-20T19:45:00+00:00,135,serie a,2025,sassuolo,verona,3.0,0.0,FT
+1378123,2026-02-20T19:45:00+00:00,135,serie a,2025,sassuolo,hellas verona,3.0,0.0,FT
 1378119,2026-02-21T14:00:00+00:00,135,serie a,2025,juventus,como,0.0,2.0,FT
 1378120,2026-02-21T17:00:00+00:00,135,serie a,2025,lecce,inter,0.0,2.0,FT
 1378116,2026-02-21T19:45:00+00:00,135,serie a,2025,cagliari,lazio,0.0,0.0,FT
@@ -1739,7 +1739,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1378115,2026-02-23T19:45:00+00:00,135,serie a,2025,bologna,udinese,1.0,0.0,FT
 1378127,2026-02-27T19:45:00+00:00,135,serie a,2025,parma,cagliari,,,NS
 1378124,2026-02-28T14:00:00+00:00,135,serie a,2025,como,lecce,,,NS
-1378133,2026-02-28T17:00:00+00:00,135,serie a,2025,verona,napoli,,,NS
+1378133,2026-02-28T17:00:00+00:00,135,serie a,2025,hellas verona,napoli,,,NS
 1378126,2026-02-28T19:45:00+00:00,135,serie a,2025,inter,genoa,,,NS
 1378125,2026-03-01T11:30:00+00:00,135,serie a,2025,cremonese,ac milan,,,NS
 1378130,2026-03-01T14:00:00+00:00,135,serie a,2025,sassuolo,atalanta,,,NS
@@ -1754,7 +1754,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1378138,2026-03-08T14:00:00+00:00,135,serie a,2025,genoa,as roma,,,NS
 1378139,2026-03-08T14:00:00+00:00,135,serie a,2025,juventus,pisa,,,NS
 1378134,2026-03-08T14:00:00+00:00,135,serie a,2025,atalanta,udinese,,,NS
-1378135,2026-03-08T14:00:00+00:00,135,serie a,2025,bologna,verona,,,NS
+1378135,2026-03-08T14:00:00+00:00,135,serie a,2025,bologna,hellas verona,,,NS
 1378137,2026-03-08T14:00:00+00:00,135,serie a,2025,fiorentina,parma,,,NS
 1378141,2026-03-08T14:00:00+00:00,135,serie a,2025,lecce,cremonese,,,NS
 1378147,2026-03-15T14:00:00+00:00,135,serie a,2025,lazio,ac milan,,,NS
@@ -1762,7 +1762,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1378148,2026-03-15T14:00:00+00:00,135,serie a,2025,napoli,lecce,,,NS
 1378152,2026-03-15T14:00:00+00:00,135,serie a,2025,udinese,juventus,,,NS
 1378151,2026-03-15T14:00:00+00:00,135,serie a,2025,torino,parma,,,NS
-1378153,2026-03-15T14:00:00+00:00,135,serie a,2025,verona,genoa,,,NS
+1378153,2026-03-15T14:00:00+00:00,135,serie a,2025,hellas verona,genoa,,,NS
 1378146,2026-03-15T14:00:00+00:00,135,serie a,2025,inter,atalanta,,,NS
 1378145,2026-03-15T14:00:00+00:00,135,serie a,2025,cremonese,fiorentina,,,NS
 1378149,2026-03-15T14:00:00+00:00,135,serie a,2025,pisa,cagliari,,,NS
@@ -1772,7 +1772,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1378159,2026-03-22T14:00:00+00:00,135,serie a,2025,genoa,udinese,,,NS
 1378160,2026-03-22T14:00:00+00:00,135,serie a,2025,juventus,sassuolo,,,NS
 1378163,2026-03-22T14:00:00+00:00,135,serie a,2025,as roma,lecce,,,NS
-1378154,2026-03-22T14:00:00+00:00,135,serie a,2025,atalanta,verona,,,NS
+1378154,2026-03-22T14:00:00+00:00,135,serie a,2025,atalanta,hellas verona,,,NS
 1378155,2026-03-22T14:00:00+00:00,135,serie a,2025,bologna,lazio,,,NS
 1378158,2026-03-22T14:00:00+00:00,135,serie a,2025,fiorentina,inter,,,NS
 1378162,2026-03-22T14:00:00+00:00,135,serie a,2025,parma,cremonese,,,NS
@@ -1782,7 +1782,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1378169,2026-04-04T13:00:00+00:00,135,serie a,2025,napoli,ac milan,,,NS
 1378172,2026-04-04T13:00:00+00:00,135,serie a,2025,udinese,como,,,NS
 1378166,2026-04-04T13:00:00+00:00,135,serie a,2025,juventus,genoa,,,NS
-1378173,2026-04-04T13:00:00+00:00,135,serie a,2025,verona,fiorentina,,,NS
+1378173,2026-04-04T13:00:00+00:00,135,serie a,2025,hellas verona,fiorentina,,,NS
 1378165,2026-04-04T13:00:00+00:00,135,serie a,2025,inter,as roma,,,NS
 1378164,2026-04-04T13:00:00+00:00,135,serie a,2025,cremonese,bologna,,,NS
 1378170,2026-04-04T13:00:00+00:00,135,serie a,2025,pisa,torino,,,NS
@@ -1794,7 +1794,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1378174,2026-04-12T13:00:00+00:00,135,serie a,2025,atalanta,juventus,,,NS
 1378175,2026-04-12T13:00:00+00:00,135,serie a,2025,bologna,lecce,,,NS
 1378178,2026-04-12T13:00:00+00:00,135,serie a,2025,fiorentina,lazio,,,NS
-1378183,2026-04-12T13:00:00+00:00,135,serie a,2025,torino,verona,,,NS
+1378183,2026-04-12T13:00:00+00:00,135,serie a,2025,torino,hellas verona,,,NS
 1378181,2026-04-12T13:00:00+00:00,135,serie a,2025,parma,napoli,,,NS
 1378177,2026-04-12T13:00:00+00:00,135,serie a,2025,como,inter,,,NS
 1378191,2026-04-19T13:00:00+00:00,135,serie a,2025,sassuolo,como,,,NS
@@ -1802,7 +1802,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1378192,2026-04-19T13:00:00+00:00,135,serie a,2025,udinese,parma,,,NS
 1378186,2026-04-19T13:00:00+00:00,135,serie a,2025,juventus,bologna,,,NS
 1378190,2026-04-19T13:00:00+00:00,135,serie a,2025,as roma,atalanta,,,NS
-1378193,2026-04-19T13:00:00+00:00,135,serie a,2025,verona,ac milan,,,NS
+1378193,2026-04-19T13:00:00+00:00,135,serie a,2025,hellas verona,ac milan,,,NS
 1378185,2026-04-19T13:00:00+00:00,135,serie a,2025,inter,cagliari,,,NS
 1378184,2026-04-19T13:00:00+00:00,135,serie a,2025,cremonese,torino,,,NS
 1378189,2026-04-19T13:00:00+00:00,135,serie a,2025,pisa,genoa,,,NS
@@ -1815,11 +1815,11 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1378194,2026-04-26T13:00:00+00:00,135,serie a,2025,bologna,as roma,,,NS
 1378196,2026-04-26T13:00:00+00:00,135,serie a,2025,fiorentina,sassuolo,,,NS
 1378202,2026-04-26T13:00:00+00:00,135,serie a,2025,torino,inter,,,NS
-1378203,2026-04-26T13:00:00+00:00,135,serie a,2025,verona,lecce,,,NS
+1378203,2026-04-26T13:00:00+00:00,135,serie a,2025,hellas verona,lecce,,,NS
 1378201,2026-04-26T13:00:00+00:00,135,serie a,2025,parma,pisa,,,NS
 1378212,2026-05-03T13:00:00+00:00,135,serie a,2025,sassuolo,ac milan,,,NS
 1378213,2026-05-03T13:00:00+00:00,135,serie a,2025,udinese,torino,,,NS
-1378209,2026-05-03T13:00:00+00:00,135,serie a,2025,juventus,verona,,,NS
+1378209,2026-05-03T13:00:00+00:00,135,serie a,2025,juventus,hellas verona,,,NS
 1378211,2026-05-03T13:00:00+00:00,135,serie a,2025,as roma,fiorentina,,,NS
 1378204,2026-05-03T13:00:00+00:00,135,serie a,2025,atalanta,genoa,,,NS
 1378205,2026-05-03T13:00:00+00:00,135,serie a,2025,bologna,cagliari,,,NS
@@ -1833,7 +1833,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1378220,2026-05-10T13:00:00+00:00,135,serie a,2025,napoli,bologna,,,NS
 1378216,2026-05-10T13:00:00+00:00,135,serie a,2025,fiorentina,genoa,,,NS
 1378222,2026-05-10T13:00:00+00:00,135,serie a,2025,torino,sassuolo,,,NS
-1378223,2026-05-10T13:00:00+00:00,135,serie a,2025,verona,como,,,NS
+1378223,2026-05-10T13:00:00+00:00,135,serie a,2025,hellas verona,como,,,NS
 1378215,2026-05-10T13:00:00+00:00,135,serie a,2025,cremonese,pisa,,,NS
 1378221,2026-05-10T13:00:00+00:00,135,serie a,2025,parma,as roma,,,NS
 1378218,2026-05-10T13:00:00+00:00,135,serie a,2025,lecce,juventus,,,NS
@@ -1844,7 +1844,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1378229,2026-05-17T13:00:00+00:00,135,serie a,2025,juventus,fiorentina,,,NS
 1378231,2026-05-17T13:00:00+00:00,135,serie a,2025,as roma,lazio,,,NS
 1378224,2026-05-17T13:00:00+00:00,135,serie a,2025,atalanta,bologna,,,NS
-1378228,2026-05-17T13:00:00+00:00,135,serie a,2025,inter,verona,,,NS
+1378228,2026-05-17T13:00:00+00:00,135,serie a,2025,inter,hellas verona,,,NS
 1378230,2026-05-17T13:00:00+00:00,135,serie a,2025,pisa,napoli,,,NS
 1378226,2026-05-17T13:00:00+00:00,135,serie a,2025,como,parma,,,NS
 1378237,2026-05-24T13:00:00+00:00,135,serie a,2025,lazio,pisa,,,NS
@@ -1853,7 +1853,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1378234,2026-05-24T13:00:00+00:00,135,serie a,2025,bologna,inter,,,NS
 1378236,2026-05-24T13:00:00+00:00,135,serie a,2025,fiorentina,atalanta,,,NS
 1378242,2026-05-24T13:00:00+00:00,135,serie a,2025,torino,juventus,,,NS
-1378243,2026-05-24T13:00:00+00:00,135,serie a,2025,verona,as roma,,,NS
+1378243,2026-05-24T13:00:00+00:00,135,serie a,2025,hellas verona,as roma,,,NS
 1378235,2026-05-24T13:00:00+00:00,135,serie a,2025,cremonese,como,,,NS
 1378241,2026-05-24T13:00:00+00:00,135,serie a,2025,parma,sassuolo,,,NS
 1378238,2026-05-24T13:00:00+00:00,135,serie a,2025,lecce,genoa,,,NS
@@ -2633,7 +2633,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1382833,2026-02-21T19:30:00+00:00,179,scottish premiership,2025,st mirren,motherwell,0.0,5.0,FT
 1382829,2026-02-22T15:00:00+00:00,179,scottish premiership,2025,celtic,hibernian,1.0,2.0,FT
 1382832,2026-02-22T15:00:00+00:00,179,scottish premiership,2025,livingston,rangers,2.0,2.0,FT
-1382817,2026-02-24T19:45:00+00:00,179,scottish premiership,2025,dundee utd,aberdeen,,,NS
+1382817,2026-02-24T19:45:00+00:00,179,scottish premiership,2025,dundee utd,aberdeen,0.0,0.0,FT
 1382834,2026-02-28T15:00:00+00:00,179,scottish premiership,2025,dundee,hibernian,,,NS
 1382836,2026-02-28T15:00:00+00:00,179,scottish premiership,2025,heart of midlothian,aberdeen,,,NS
 1382837,2026-02-28T15:00:00+00:00,179,scottish premiership,2025,livingston,st mirren,,,NS
@@ -2947,16 +2947,16 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1391092,2026-03-15T17:30:00+00:00,140,la liga,2025,real betis,celta vigo,,,NS
 1391097,2026-03-15T20:00:00+00:00,140,la liga,2025,real sociedad,osasuna,,,NS
 1391095,2026-03-16T20:00:00+00:00,140,la liga,2025,rayo vallecano,levante,,,NS
-1391100,2026-03-22T17:00:00+00:00,140,la liga,2025,barcelona,rayo vallecano,,,NS
-1391099,2026-03-22T17:00:00+00:00,140,la liga,2025,athletic club,real betis,,,NS
-1391108,2026-03-22T17:00:00+00:00,140,la liga,2025,villarreal,real sociedad,,,NS
-1391107,2026-03-22T17:00:00+00:00,140,la liga,2025,sevilla,valencia,,,NS
-1391101,2026-03-22T17:00:00+00:00,140,la liga,2025,celta vigo,alaves,,,NS
-1391104,2026-03-22T17:00:00+00:00,140,la liga,2025,levante,oviedo,,,NS
-1391103,2026-03-22T17:00:00+00:00,140,la liga,2025,espanyol,getafe,,,NS
-1391106,2026-03-22T17:00:00+00:00,140,la liga,2025,real madrid,atletico madrid,,,NS
-1391105,2026-03-22T17:00:00+00:00,140,la liga,2025,osasuna,girona,,,NS
-1391102,2026-03-22T17:00:00+00:00,140,la liga,2025,elche,mallorca,,,NS
+1391108,2026-03-20T20:00:00+00:00,140,la liga,2025,villarreal,real sociedad,,,NS
+1391102,2026-03-21T13:00:00+00:00,140,la liga,2025,elche,mallorca,,,NS
+1391103,2026-03-21T15:15:00+00:00,140,la liga,2025,espanyol,getafe,,,NS
+1391104,2026-03-21T17:30:00+00:00,140,la liga,2025,levante,oviedo,,,NS
+1391105,2026-03-21T17:30:00+00:00,140,la liga,2025,osasuna,girona,,,NS
+1391107,2026-03-21T20:00:00+00:00,140,la liga,2025,sevilla,valencia,,,NS
+1391100,2026-03-22T13:00:00+00:00,140,la liga,2025,barcelona,rayo vallecano,,,NS
+1391101,2026-03-22T15:15:00+00:00,140,la liga,2025,celta vigo,alaves,,,NS
+1391099,2026-03-22T17:30:00+00:00,140,la liga,2025,athletic club,real betis,,,NS
+1391106,2026-03-22T20:00:00+00:00,140,la liga,2025,real madrid,atletico madrid,,,NS
 1391110,2026-04-05T16:00:00+00:00,140,la liga,2025,atletico madrid,barcelona,,,NS
 1391118,2026-04-05T16:00:00+00:00,140,la liga,2025,valencia,celta vigo,,,NS
 1391109,2026-04-05T16:00:00+00:00,140,la liga,2025,alaves,osasuna,,,NS
