@@ -22,12 +22,13 @@ Logica filtro 2:
 (qualificata_champions_precedente OR vincitrice_coppa_precedente)
 AND (punti_dalla_zona_champions <= 3 OR (punti_dalla_zona_champions <= 6 AND partite_in_meno_rispetto_ultima_champions = 1))
 
-3)  selezionare le squadre che nella stagione corrente sono prima e seconda in classifica e le squadre fino a 6 punti dalla prima in classifica (fino a 8 punti dalla prima in classifica se hanno una partita in meno della prima in classifica) e che nello stesso tempo si sono classificate prima e seconda sia nella penultima  che nella terzultima stagione.
+3)  selezionare le squadre che nella stagione corrente sono prima e seconda in classifica e le squadre fino a 6 punti dalla prima in classifica (fino a 8 punti dalla prima in classifica se hanno una partita in meno della prima in classifica) e che nello stesso tempo:
+o si sono classificate prima e seconda nella penultima stagione > 2023/2024
+o si sono classificate prima e seconda nella terzultima stagione > 2022/2023.
 
 Logica filtro 3:
 (rank_corrente <= 2 OR distacco_dalla_prima <= 6 OR (distacco_dalla_prima <= 8 AND partite_in_meno_della_prima = 1))
-AND (rank_penultima <= 2)
-AND (rank_terzultima <= 2)
+AND ((rank_penultima <= 2) OR (rank_terzultima <= 2))
 
 4) solo tra le squadre che giocano in casa e si sono qualificate in champions league nella penultima stagione (da terminologila la 2023/2024) anche a causa della vittoria della coppa nazionale, selezionare quelle che sono prima o seconda in classifica nella stagione corrente e quelle con una partita in meno e a 3 o meno punti dalla seconda in classifica.
 
