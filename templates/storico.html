@@ -2,17 +2,20 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Risultati Betting</title>
+    <title>Storico Betting</title>
 </head>
 <body>
     <div>
-        <div style="display: flex; justify-content: center; gap: 12px; margin-top: 18px;">
-            <a href="{{ url_for('storico') }}" style="font-size: 1em; padding: 10px 18px; background: #d6d6d6; color: black; text-decoration: none; border-radius: 6px;">Vai allo Storico</a>
+        <div style="display: flex; justify-content: center; gap: 12px; margin-top: 18px; margin-bottom: 18px;">
+            <a href="{{ url_for('index') }}" style="font-size: 1em; padding: 10px 18px; background: #d6d6d6; color: black; text-decoration: none; border-radius: 6px;">Torna alle Previsioni</a>
         </div>
-        <form action="{{ url_for('aggiorna') }}" method="get" style="margin-bottom: 24px; text-align: center;">
-            <button type="submit" style="font-size: 1.4em; padding: 12px 32px; margin-top: 18px; background: #d6d6d6; color: black; border: none; border-radius: 6px; cursor: pointer;">Aggiorna</button>
+        <form action="{{ url_for('aggiorna_storico') }}" method="get" style="margin-bottom: 16px; text-align: center;">
+            <button type="submit" style="font-size: 1em; padding: 10px 18px; background: #d6d6d6; color: black; border: none; border-radius: 6px; cursor: pointer;">Aggiorna storico risultati</button>
         </form>
-        <h1 style="text-align: center; margin-bottom: 18px;">Partite selezionate</h1>
+        {% if msg %}
+            <p style="text-align:center; margin-bottom: 10px;">{{ msg }}</p>
+        {% endif %}
+        <h1 style="text-align: center; margin-bottom: 18px;">Storico partite selezionate</h1>
         <div style="display: flex; justify-content: center;">
             <style>
                 body, table, th, td {
@@ -30,14 +33,11 @@
                     text-align: left;
                     color: black;
                 }
-                tr.today-row {
-                    background: #b4e8b8 !important;
-                }
             </style>
             {% if no_data %}
-                <p>Nessun risultato disponibile. Premi "Aggiorna" per generare i dati.</p>
+                <p>Nessun dato storico disponibile al momento.</p>
             {% elif table_headers and table_rows %}
-                <table class="bet-table">
+                <table>
                     <thead>
                         <tr>
                             {% for header in table_headers %}
@@ -47,7 +47,7 @@
                     </thead>
                     <tbody>
                         {% for row in table_rows %}
-                            <tr {% if loop.index0 in highlight_rows %}class="today-row"{% endif %}>
+                            <tr>
                                 {% for header in table_headers %}
                                     <td>{{ row[header] }}</td>
                                 {% endfor %}

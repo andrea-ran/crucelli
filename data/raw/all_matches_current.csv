@@ -206,8 +206,8 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1435996,2026-02-24T19:00:00+00:00,307,saudi pro league,2025,al-hazm,al-ittihad fc,1.0,1.0,FT
 1435994,2026-02-25T19:00:00+00:00,307,saudi pro league,2025,al-fayha,neom,1.0,1.0,FT
 1436000,2026-02-25T19:00:00+00:00,307,saudi pro league,2025,al najma,al-nassr,0.0,5.0,FT
-1436122,2026-02-26T19:00:00+00:00,307,saudi pro league,2025,al-fateh,damac,,,NS
-1436121,2026-02-26T19:00:00+00:00,307,saudi pro league,2025,al riyadh,al-ahli jeddah,,,NS
+1436122,2026-02-26T19:00:00+00:00,307,saudi pro league,2025,al-fateh,damac,1.0,1.0,FT
+1436121,2026-02-26T19:00:00+00:00,307,saudi pro league,2025,al riyadh,al-ahli jeddah,0.0,1.0,FT
 1436124,2026-02-27T19:00:00+00:00,307,saudi pro league,2025,al-ittihad fc,al khaleej saihat,,,NS
 1436123,2026-02-27T19:00:00+00:00,307,saudi pro league,2025,al shabab,al-hilal saudi fc,,,NS
 1436120,2026-02-27T19:00:00+00:00,307,saudi pro league,2025,al-hazm,al-ettifaq,,,NS
@@ -2379,15 +2379,15 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1396445,2026-03-01T18:00:00+00:00,94,primeira liga,2025,casa pia,moreirense,,,NS
 1396449,2026-03-01T20:30:00+00:00,94,primeira liga,2025,rio ave,famalicao,,,NS
 1396447,2026-03-02T20:15:00+00:00,94,primeira liga,2025,gil vicente,benfica,,,NS
-1396454,2026-03-08T17:00:00+00:00,94,primeira liga,2025,benfica,fc porto,,,NS
-1396459,2026-03-08T17:00:00+00:00,94,primeira liga,2025,moreirense,nacional,,,NS
-1396455,2026-03-08T17:00:00+00:00,94,primeira liga,2025,sc braga,sporting cp,,,NS
-1396461,2026-03-08T17:00:00+00:00,94,primeira liga,2025,tondela,rio ave,,,NS
-1396460,2026-03-08T17:00:00+00:00,94,primeira liga,2025,santa clara,guimaraes,,,NS
-1396456,2026-03-08T17:00:00+00:00,94,primeira liga,2025,estoril,casa pia,,,NS
-1396458,2026-03-08T17:00:00+00:00,94,primeira liga,2025,famalicao,arouca,,,NS
-1396453,2026-03-08T17:00:00+00:00,94,primeira liga,2025,alverca,avs,,,NS
-1396457,2026-03-08T17:00:00+00:00,94,primeira liga,2025,estrela,gil vicente,,,NS
+1396458,2026-03-06T20:15:00+00:00,94,primeira liga,2025,famalicao,arouca,,,NS
+1396459,2026-03-07T15:30:00+00:00,94,primeira liga,2025,moreirense,nacional,,,NS
+1396453,2026-03-07T15:30:00+00:00,94,primeira liga,2025,alverca,avs,,,NS
+1396455,2026-03-07T18:00:00+00:00,94,primeira liga,2025,sc braga,sporting cp,,,NS
+1396456,2026-03-07T20:30:00+00:00,94,primeira liga,2025,estoril,casa pia,,,NS
+1396457,2026-03-08T15:30:00+00:00,94,primeira liga,2025,estrela,gil vicente,,,NS
+1396454,2026-03-08T18:00:00+00:00,94,primeira liga,2025,benfica,fc porto,,,NS
+1396460,2026-03-08T20:30:00+00:00,94,primeira liga,2025,santa clara,guimaraes,,,NS
+1396461,2026-03-09T20:15:00+00:00,94,primeira liga,2025,tondela,rio ave,,,NS
 1396465,2026-03-15T17:00:00+00:00,94,primeira liga,2025,fc porto,moreirense,,,NS
 1396470,2026-03-15T17:00:00+00:00,94,primeira liga,2025,guimaraes,famalicao,,,NS
 1396467,2026-03-15T17:00:00+00:00,94,primeira liga,2025,nacional,estoril,,,NS

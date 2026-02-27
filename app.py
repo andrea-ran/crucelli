@@ -16,7 +16,9 @@ PASSWORD = os.getenv('APP_PASSWORD')
 AUTH_ENABLED = bool(PASSWORD)
 
 BET_PATH = os.path.join('data', 'processed', 'bet.csv')
+STORICO_PATH = os.path.join('data', 'processed', 'storico.csv')
 BETTING_SCRIPT = os.path.join('src', 'queries', 'betting.py')
+STORICO_UPDATE_SCRIPT = os.path.join('src', 'queries', 'update_storico_results.py')
 
 def login_required(f):
     from functools import wraps
@@ -81,6 +83,22 @@ def index():
         return render_template('index.html', table_headers=None, table_rows=None, highlight_rows=None, no_data=True, msg=msg)
 
 
+@app.route('/storico')
+@login_required
+def storico():
+    msg = request.args.get('msg')
+    if os.path.exists(STORICO_PATH):
+        df = pd.read_csv(STORICO_PATH)
+        if 'data' in df.columns:
+            df['data_sort'] = pd.to_datetime(df['data'], format="%d/%m/%y ore %H:%M", errors='coerce')
+            df = df.sort_values('data_sort').drop(columns=['data_sort'])
+        df.insert(0, 'N', range(1, len(df) + 1))
+        table_headers = df.columns.tolist()
+        table_rows = df.fillna('').to_dict(orient='records')
+        return render_template('storico.html', table_headers=table_headers, table_rows=table_rows, msg=msg)
+    return render_template('storico.html', table_headers=None, table_rows=None, no_data=True, msg=msg)
+
+
 # Percorsi script da eseguire in sequenza
 DATA_UPDATE_SCRIPTS = [
     os.path.join('src', 'data_update', 'update_data.py'),
@@ -102,6 +120,13 @@ def aggiorna():
     # Esegui lo script betting.py
     subprocess.run([sys.executable, BETTING_SCRIPT], check=False)
     return redirect(url_for('index', msg='Aggiornamento completato!'))
+
+
+@app.route('/aggiorna-storico')
+@login_required
+def aggiorna_storico():
+    subprocess.run([sys.executable, STORICO_UPDATE_SCRIPT], check=False)
+    return redirect(url_for('storico', msg='Storico aggiornato!'))
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
