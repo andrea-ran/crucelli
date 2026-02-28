@@ -83,6 +83,7 @@ def index():
         return render_template('index.html', table_headers=None, table_rows=None, highlight_rows=None, no_data=True, msg=msg)
 
 
+
 @app.route('/storico')
 @login_required
 def storico():
@@ -92,11 +93,19 @@ def storico():
         if 'data' in df.columns:
             df['data_sort'] = pd.to_datetime(df['data'], format="%d/%m/%y ore %H:%M", errors='coerce')
             df = df.sort_values('data_sort').drop(columns=['data_sort'])
+        if 'match_id' in df.columns:
+            df = df.drop(columns=['match_id'])
         df.insert(0, 'N', range(1, len(df) + 1))
         table_headers = df.columns.tolist()
         table_rows = df.fillna('').to_dict(orient='records')
-        return render_template('storico.html', table_headers=table_headers, table_rows=table_rows, msg=msg)
-    return render_template('storico.html', table_headers=None, table_rows=None, no_data=True, msg=msg)
+        highlight_rows = []
+        if 'esito_pick' in df.columns:
+            for idx, esito in enumerate(df['esito_pick']):
+                if isinstance(esito, str):
+                    if esito.strip().lower() == 'vinta' or esito.strip().lower() == 'persa':
+                        highlight_rows.append(idx)
+        return render_template('storico.html', table_headers=table_headers, table_rows=table_rows, msg=msg, highlight_rows=highlight_rows)
+    return render_template('storico.html', table_headers=None, table_rows=None, no_data=True, msg=msg, highlight_rows=None)
 
 
 # Percorsi script da eseguire in sequenza

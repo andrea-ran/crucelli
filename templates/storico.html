@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Storico Betting</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div>
@@ -19,21 +20,28 @@
         <div style="display: flex; justify-content: center;">
             <style>
                 body, table, th, td {
-                    font-family: Helvetica, Arial, sans-serif;
+                    font-family: Helvetica, Arial, sans-serif !important;
                 }
                 table, th, td {
-                    border: 1px solid #888;
-                    border-collapse: collapse;
+                    border: 1px solid #888 !important;
+                    border-collapse: collapse !important;
                 }
                 th, td {
-                    padding: 6px 10px;
+                    padding: 6px 10px !important;
                 }
                 th {
-                    background: #d6d6d6;
-                    text-align: left;
-                    color: black;
+                    background: #d6d6d6 !important;
+                    text-align: left !important;
+                    color: black !important;
+                }
+                tr.today-row {
+                    background: #b4e8b8 !important;
+                }
+                tr.today-row-lose {
+                    background: #f7c5c5 !important;
                 }
             </style>
+            <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
             {% if no_data %}
                 <p>Nessun dato storico disponibile al momento.</p>
             {% elif table_headers and table_rows %}
@@ -47,7 +55,12 @@
                     </thead>
                     <tbody>
                         {% for row in table_rows %}
-                            <tr>
+                            {% set esito = row['esito_pick']|default('')|lower %}
+                            <tr
+                              {% if esito == 'vinta' %}class="today-row"
+                              {% elif esito == 'persa' %}class="today-row-lose"
+                              {% endif %}
+                            >
                                 {% for header in table_headers %}
                                     <td>{{ row[header] }}</td>
                                 {% endfor %}

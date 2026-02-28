@@ -1,1 +1,17 @@
-
+match_id,date,home_team,away_team
+1528319,2026-03-10T20:00:00+00:00,newcastle,barcelona
+1528320,2026-03-10T20:00:00+00:00,paris saint germain,chelsea
+1528322,2026-03-10T20:00:00+00:00,bayer leverkusen,arsenal
+1528325,2026-03-10T20:00:00+00:00,bodo/glimt,sporting cp
+1528324,2026-03-10T20:00:00+00:00,atalanta,bayern munich
+1528323,2026-03-10T20:00:00+00:00,atletico madrid,tottenham
+1528318,2026-03-10T20:00:00+00:00,real madrid,manchester city
+1528321,2026-03-10T20:00:00+00:00,galatasaray,liverpool
+1528329,2026-03-17T20:00:00+00:00,liverpool,galatasaray
+1528330,2026-03-17T20:00:00+00:00,arsenal,bayer leverkusen
+1528331,2026-03-17T20:00:00+00:00,tottenham,atletico madrid
+1528328,2026-03-17T20:00:00+00:00,chelsea,paris saint germain
+1528326,2026-03-17T20:00:00+00:00,manchester city,real madrid
+1528332,2026-03-17T20:00:00+00:00,bayern munich,atalanta
+1528333,2026-03-17T20:00:00+00:00,sporting cp,bodo/glimt
+1528327,2026-03-17T20:00:00+00:00,barcelona,newcastle

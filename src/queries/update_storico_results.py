@@ -1,5 +1,6 @@
 import os
-from datetime import datetime
+import math
+from datetime import datetime, timezone, timedelta
 import unicodedata
 
 import pandas as pd
@@ -12,6 +13,7 @@ API_KEY = os.getenv("API_FOOTBALL_KEY", "691ccc74c6d55850f0b5c836ec0b10f2")
 HEADERS = {"x-apisports-key": API_KEY} if API_KEY else {}
 DEFAULT_TIMEOUT = 10
 FINISHED_STATUSES = {"FT", "AET", "PEN"}
+MATCH_DURATION_MINUTES = 100  # base duration used to estimate remaining time
 
 
 def normalize_text(value):
@@ -52,7 +54,11 @@ def fetch_fixture_result(match_id):
         away_team = match["teams"]["away"]["name"]
         home_score = match["goals"]["home"]
         away_score = match["goals"]["away"]
-        status_short = match["fixture"]["status"]["short"]
+        fixture_info = match["fixture"]
+        status_info = fixture_info["status"]
+        status_short = status_info["short"]
+        elapsed = status_info.get("elapsed")
+        timestamp = fixture_info.get("timestamp")
 
         winner = ""
         if home_score is not None and away_score is not None:
@@ -70,6 +76,8 @@ def fetch_fixture_result(match_id):
             "home_score": home_score,
             "away_score": away_score,
             "winner": winner,
+            "elapsed": elapsed,
+            "timestamp": timestamp,
         }
     except requests.RequestException:
         return None
@@ -135,9 +143,19 @@ def update_storico_results():
         print("Storico vuoto o privo di match_id, nessun aggiornamento necessario.")
         return
 
-    for col in ["status_partita", "home_score", "away_score", "vincitore", "esito_pick", "quota_pick_api", "aggiornato_il"]:
+    string_cols = [
+        "hs",
+        "as",
+        "vincitore",
+        "esito_pick",
+        "quota",
+    ]
+
+    for col in string_cols:
         if col not in storico_df.columns:
             storico_df[col] = ""
+        if storico_df[col].dtype != "string":
+            storico_df[col] = storico_df[col].astype("string")
 
     unique_match_ids = (
         storico_df["match_id"]
@@ -152,7 +170,6 @@ def update_storico_results():
 
     fixture_cache = {}
     odds_cache = {}
-    now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     for match_id in unique_match_ids:
         fixture_cache[match_id] = fetch_fixture_result(match_id)
@@ -166,14 +183,22 @@ def update_storico_results():
         if not fixture_data:
             continue
 
-        status = fixture_data.get("status", "")
-        storico_df.at[idx, "status_partita"] = status
+        # Normalize data column to show only the calendar date
+        data_value = str(storico_df.at[idx, "data"]).strip()
+        if data_value:
+            try:
+                parsed = datetime.strptime(data_value, "%d/%m/%y ore %H:%M")
+                storico_df.at[idx, "data"] = parsed.strftime("%d/%m/%y")
+            except ValueError:
+                if " ore" in data_value:
+                    storico_df.at[idx, "data"] = data_value.split(" ore")[0].strip()
 
         home_score = fixture_data.get("home_score")
         away_score = fixture_data.get("away_score")
-        storico_df.at[idx, "home_score"] = "" if home_score is None else home_score
-        storico_df.at[idx, "away_score"] = "" if away_score is None else away_score
+        storico_df.at[idx, "hs"] = "" if home_score is None else str(home_score)
+        storico_df.at[idx, "as"] = "" if away_score is None else str(away_score)
 
+        status = fixture_data.get("status", "")
         if status in FINISHED_STATUSES:
             winner = fixture_data.get("winner", "")
             storico_df.at[idx, "vincitore"] = winner
@@ -182,7 +207,7 @@ def update_storico_results():
             winner_norm = normalize_text(winner) if winner else ""
 
             if winner_norm == "pareggio":
-                storico_df.at[idx, "esito_pick"] = "PAREGGIO"
+                storico_df.at[idx, "esito_pick"] = "PERSA"
             elif winner_norm and selected_norm == winner_norm:
                 storico_df.at[idx, "esito_pick"] = "VINTA"
             elif winner_norm:
@@ -199,10 +224,33 @@ def update_storico_results():
 
             odd_value = odds_cache.get(cache_key, "")
             if odd_value:
-                storico_df.at[idx, "quota_pick_api"] = odd_value
+                storico_df.at[idx, "quota"] = odd_value
 
-        storico_df.at[idx, "aggiornato_il"] = now_str
+        # Rimuovi colonne non più usate
+        for col in ["status_partita", "aggiornato_il", "home_score", "away_score"]:
+            if col in storico_df.columns:
+                storico_df = storico_df.drop(columns=[col])
 
+    # Scrivi solo le colonne desiderate, in ordine pulito
+    colonne_finali = [
+        "match_id",
+        "data",
+        "campionato",
+        "squadra selezionata",
+        "squadra in casa",
+        "squadra fuori casa",
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "hs",
+        "as",
+        "vincitore",
+        "esito_pick",
+        "quota",
+    ]
+    colonne_presenti = [c for c in colonne_finali if c in storico_df.columns]
+    storico_df = storico_df[colonne_presenti]
     storico_df.to_csv(STORICO_PATH, index=False)
     print(f"✅ Storico risultati aggiornato: {STORICO_PATH}")
 

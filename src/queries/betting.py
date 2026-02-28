@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import os
 import sys
 from datetime import datetime
@@ -144,13 +145,11 @@ def append_and_update_storico(df_bet):
         "F2",
         "F3",
         "F4",
-        "status_partita",
-        "home_score",
-        "away_score",
+        "hs",
+        "as",
         "vincitore",
         "esito_pick",
         "quota_pick_api",
-        "aggiornato_il",
     ]
 
     if os.path.exists(STORICO_PATH):
@@ -161,14 +160,17 @@ def append_and_update_storico(df_bet):
     for col in storico_cols:
         if col not in storico_df.columns:
             storico_df[col] = ""
+    # Rimuovi colonne non più usate
+    for col in ["status_partita", "aggiornato_il", "home_score", "away_score"]:
+        if col in storico_df.columns:
+            storico_df = storico_df.drop(columns=[col])
 
     if not df_bet.empty and "oggi" in df_bet.columns:
         df_oggi = df_bet[df_bet["oggi"] == "OGGI"].copy()
         if not df_oggi.empty:
             df_oggi = df_oggi.rename(columns={"quota": "quota_pick_api"})
-            df_oggi["status_partita"] = ""
-            df_oggi["home_score"] = ""
-            df_oggi["away_score"] = ""
+            df_oggi["hs"] = ""
+            df_oggi["as"] = ""
             df_oggi["vincitore"] = ""
             df_oggi["esito_pick"] = ""
             df_oggi["quota_pick_api"] = ""
@@ -217,13 +219,12 @@ def append_and_update_storico(df_bet):
             if not fixture_data:
                 continue
 
-            status = fixture_data.get("status", "")
-            storico_df.at[idx, "status_partita"] = status
             home_score = fixture_data.get("home_score")
             away_score = fixture_data.get("away_score")
-            storico_df.at[idx, "home_score"] = "" if home_score is None else home_score
-            storico_df.at[idx, "away_score"] = "" if away_score is None else away_score
+            storico_df.at[idx, "hs"] = np.nan if home_score is None else home_score
+            storico_df.at[idx, "as"] = np.nan if away_score is None else away_score
 
+            status = fixture_data.get("status")
             if status in FINISHED_STATUSES:
                 winner = fixture_data.get("winner", "")
                 storico_df.at[idx, "vincitore"] = winner
@@ -232,7 +233,7 @@ def append_and_update_storico(df_bet):
                 winner_norm = normalize_text(winner) if winner else ""
 
                 if winner_norm == "pareggio":
-                    storico_df.at[idx, "esito_pick"] = "PAREGGIO"
+                    storico_df.at[idx, "esito_pick"] = "PERSA"
                 elif winner_norm and selected_norm == winner_norm:
                     storico_df.at[idx, "esito_pick"] = "VINTA"
                 elif winner_norm:
@@ -248,7 +249,10 @@ def append_and_update_storico(df_bet):
                     )
                 odd_value = odds_cache.get(cache_key, "")
                 if odd_value:
-                    storico_df.at[idx, "quota_pick_api"] = odd_value
+                    try:
+                        storico_df.at[idx, "quota_pick_api"] = float(odd_value)
+                    except ValueError:
+                        storico_df.at[idx, "quota_pick_api"] = np.nan
 
             storico_df.at[idx, "aggiornato_il"] = now_str
 
@@ -314,6 +318,10 @@ for _, row in df_agg.iterrows():
 # Output finale
 if team_next_match:
     df_out = pd.DataFrame(team_next_match.values())
+    # Rimuovi incontri doppi tra squadre selezionate (indipendentemente da casa/trasferta)
+    df_out['squadre_set'] = df_out.apply(lambda r: frozenset([r['squadra in casa'].strip().lower(), r['squadra fuori casa'].strip().lower()]), axis=1)
+    df_out = df_out.drop_duplicates(subset=['squadre_set', 'data'])
+    df_out = df_out.drop(columns=['squadre_set'])
     # Ordina per data (convertendo la colonna in datetime per ordinare correttamente)
     df_out['data_sort'] = pd.to_datetime(df_out['data'], format="%d/%m/%y ore %H:%M")
     oggi = datetime.now().strftime("%d/%m/%y")

@@ -1,0 +1,7 @@
+/* Evidenziazione righe storico */
+.tr-vinta {
+    background-color: #c8f7c5 !important; /* verde chiaro */
+}
+.tr-persa {
+    background-color: #f7c5c5 !important; /* rosso chiaro */
+}

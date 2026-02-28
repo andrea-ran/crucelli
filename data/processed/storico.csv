@@ -1,6 +1,21 @@
-match_id,data,campionato,squadra selezionata,squadra in casa,squadra fuori casa,2025,2024,F1,F2,F3,F4,status_partita,home_score,away_score,vincitore,esito_pick,quota_pick_api,aggiornato_il
-1396446,27/02/26 ore 18:45,primeira liga,fc porto,fc porto,arouca,1,3,,,x,,NS,,,,,,2026-02-27 12:24:29
-1436123,27/02/26 ore 19:00,saudi pro league,al-hilal saudi fc,al shabab,al-hilal saudi fc,3,2,x,,x,,NS,,,,,,2026-02-27 12:24:29
-1387913,27/02/26 ore 19:45,ligue 1,lens,strasbourg,lens,2,8,,,x,,NS,,,,,,2026-02-27 12:24:29
-1379248,27/02/26 ore 20:00,premier league,aston villa,wolves,aston villa,3,6,x,,,,NS,,,,,,2026-02-27 12:24:29
-1396450,27/02/26 ore 20:45,primeira liga,sporting cp,sporting cp,estoril,2,1,x,,x,x,NS,,,,,,2026-02-27 12:24:29
+match_id,data,campionato,squadra selezionata,squadra in casa,squadra fuori casa,F1,F2,F3,F4,hs,as,vincitore,esito_pick,quota,2025,2024,quota_pick_api,aggiornato_il
+1396446,27/02/26,primeira liga,fc porto,fc porto,arouca,,,x,,3,1,FC Porto,VINTA,1.22,,,1.22,2026-02-28 10:14:45
+1436123,27/02/26,saudi pro league,al-hilal saudi fc,al shabab,al-hilal saudi fc,x,,x,,3,5,Al-Hilal Saudi FC,VINTA,1.45,,,1.45,2026-02-28 10:14:45
+1387913,27/02/26,ligue 1,lens,strasbourg,lens,,,x,,1,1,pareggio,PERSA,2.9,,,2.9,2026-02-28 10:14:45
+1379248,27/02/26,premier league,aston villa,wolves,aston villa,x,,,,2,0,Wolves,PERSA,1.81,,,1.81,2026-02-28 10:14:45
+1396450,27/02/26,primeira liga,sporting cp,sporting cp,estoril,x,,x,x,3,0,Sporting CP,VINTA,1.19,,,1.19,2026-02-28 10:14:45
+1379245,28/02/26,premier league,liverpool,liverpool,west ham,,x,,,,,,,,,,,2026-02-28 10:14:45
+1391069,28/02/26,la liga,villarreal,barcelona,villarreal,x,,,,,,,,,,,,2026-02-28 10:14:45
+1391069,28/02/26,la liga,barcelona,barcelona,villarreal,x,,x,x,,,,,,,,,2026-02-28 10:14:45
+1384038,28/02/26,hnl,hnk hajduk split,nk varazdin,hnk hajduk split,,,x,,,,,,,,,,2026-02-28 10:14:45
+1378133,28/02/26,serie a,napoli,hellas verona,napoli,x,,,,,,,,,,,,2026-02-28 10:14:45
+1394642,28/02/26,super lig,galatasaray,galatasaray,alanyaspor,x,,x,x,,,,,,,,,2026-02-28 10:14:45
+1388518,28/02/26,bundesliga,borussia dortmund,borussia dortmund,bayern munich,x,,x,x,,,,,,,,,2026-02-28 10:14:45
+1379244,28/02/26,premier league,manchester city,leeds,manchester city,x,,x,x,,,,,,,,,2026-02-28 10:14:45
+1388518,28/02/26,bundesliga,bayern munich,borussia dortmund,bayern munich,x,,x,x,,,,,,,,,2026-02-28 10:14:45
+1381086,28/02/26,eredivisie,psv eindhoven,heracles,psv eindhoven,x,,x,x,,,,,,,,,2026-02-28 10:14:45
+1436126,28/02/26,saudi pro league,al-nassr,al-fayha,al-nassr,x,,x,x,,,,,,,,,2026-02-28 10:14:45
+1378126,28/02/26,serie a,inter,inter,genoa,x,,x,x,,,,,,,,,2026-02-28 10:14:45
+1391077,28/02/26,la liga,atletico madrid,oviedo,atletico madrid,x,,,,,,,,,,,,2026-02-28 10:14:45
+1387905,28/02/26,ligue 1,paris saint germain,le havre,paris saint germain,x,,x,x,,,,,,,,,2026-02-28 10:14:45
+1388516,28/02/26 ore 14:30,bundesliga,bayer leverkusen,bayer leverkusen,fsv mainz 05,,x,,,,,,,,6.0,2.0,,2026-02-28 10:14:45

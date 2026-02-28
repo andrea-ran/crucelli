@@ -1,17 +1,17 @@
 team_id,team_name,league_id,league_name,season,rank,points,played,won,draw,lost,goals_for,goals_against,goal_diff,current_matchday
 2929,al-ahli jeddah,307,saudi professional league,2025,1,59,24,18,5,1,46,15,31,24
 2939,al-nassr,307,saudi professional league,2025,2,58,23,19,1,3,62,18,44,24
-2932,al-hilal saudi fc,307,saudi professional league,2025,3,55,23,16,7,0,57,20,37,24
+2932,al-hilal saudi fc,307,saudi professional league,2025,3,58,24,17,7,0,62,23,39,24
 2933,al-qadisiyah fc,307,saudi professional league,2025,4,53,23,16,5,2,54,21,33,24
-2936,al taawon,307,saudi professional league,2025,5,40,23,12,4,7,41,28,13,24
-2938,al-ittihad fc,307,saudi professional league,2025,6,39,23,11,6,6,38,28,10,24
-2934,al-ettifaq,307,saudi professional league,2025,7,38,23,11,5,7,34,39,-5,24
+2938,al-ittihad fc,307,saudi professional league,2025,5,42,24,12,6,6,39,28,11,24
+2936,al taawon,307,saudi professional league,2025,6,40,23,12,4,7,41,28,13,24
+2934,al-ettifaq,307,saudi professional league,2025,7,38,24,11,5,8,35,42,-7,24
 10513,neom,307,saudi professional league,2025,8,32,23,9,5,9,28,31,-3,24
 2931,al-fateh,307,saudi professional league,2025,9,28,24,7,7,10,32,43,-11,24
-2928,al khaleej saihat,307,saudi professional league,2025,10,27,23,7,6,10,42,37,5,24
-2944,al-fayha,307,saudi professional league,2025,11,27,23,7,6,10,27,38,-11,24
-2940,al shabab,307,saudi professional league,2025,12,25,23,6,7,10,27,33,-6,24
-2945,al-hazm,307,saudi professional league,2025,13,25,23,6,7,10,23,43,-20,24
+2945,al-hazm,307,saudi professional league,2025,10,28,24,7,7,10,26,44,-18,24
+2928,al khaleej saihat,307,saudi professional league,2025,11,27,24,7,6,11,42,38,4,24
+2944,al-fayha,307,saudi professional league,2025,12,27,23,7,6,10,27,38,-11,24
+2940,al shabab,307,saudi professional league,2025,13,25,24,6,7,11,30,38,-8,24
 10509,al kholood,307,saudi professional league,2025,14,22,23,7,1,15,30,41,-11,24
 10511,al riyadh,307,saudi professional league,2025,15,16,24,3,7,14,22,45,-23,24
 2956,damac,307,saudi professional league,2025,16,16,24,2,10,12,18,41,-23,24
@@ -19,21 +19,21 @@ team_id,team_name,league_id,league_name,season,rank,points,played,won,draw,lost,
 2992,al najma,307,saudi professional league,2025,18,8,23,1,5,17,21,51,-30,24
 620,dinamo zagreb,210,hnl,2025,1,51,23,16,3,4,52,17,35,23
 608,hnk hajduk split,210,hnl,2025,2,46,23,14,4,5,35,20,15,23
-561,hnk rijeka,210,hnl,2025,3,32,23,8,8,7,34,25,9,23
-1483,nk varazdin,210,hnl,2025,4,32,23,9,5,9,29,34,-5,23
-1018,nk slaven belupo,210,hnl,2025,5,31,23,8,7,8,32,36,-4,23
-1016,istra 1961,210,hnl,2025,6,30,23,8,6,9,29,34,-5,23
+1018,nk slaven belupo,210,hnl,2025,3,34,24,9,7,8,33,36,-3,23
+561,hnk rijeka,210,hnl,2025,4,32,23,8,8,7,34,25,9,23
+1483,nk varazdin,210,hnl,2025,5,32,23,9,5,9,29,34,-5,23
+1016,istra 1961,210,hnl,2025,6,30,24,8,6,10,29,35,-6,23
 1017,nk lokomotiva zagreb,210,hnl,2025,7,29,23,7,8,8,29,35,-6,23
 1068,hnk gorica,210,hnl,2025,8,26,23,7,5,11,25,32,-7,23
 5730,vukovar,210,hnl,2025,9,20,23,4,8,11,26,41,-15,23
 616,nk osijek,210,hnl,2025,10,17,23,3,8,12,19,36,-17,23
 85,paris saint germain,61,ligue 1,2025,1,54,23,17,3,3,52,19,33,23
-116,lens,61,ligue 1,2025,2,52,23,17,1,5,44,20,24,23
+116,lens,61,ligue 1,2025,2,53,24,17,2,5,45,21,24,23
 80,lyon,61,ligue 1,2025,3,45,23,14,3,6,37,23,14,23
 81,marseille,61,ligue 1,2025,4,40,23,12,4,7,48,31,17,23
 79,lille,61,ligue 1,2025,5,37,23,11,4,8,36,31,5,23
 94,rennes,61,ligue 1,2025,6,37,23,10,7,6,37,35,2,23
-95,strasbourg,61,ligue 1,2025,7,34,23,10,4,9,39,30,9,23
+95,strasbourg,61,ligue 1,2025,7,35,24,10,5,9,40,31,9,23
 91,monaco,61,ligue 1,2025,8,34,23,10,4,9,38,36,2,23
 97,lorient,61,ligue 1,2025,9,32,23,8,8,7,32,36,-4,23
 96,toulouse,61,ligue 1,2025,10,31,23,8,7,8,33,27,6,23
@@ -53,10 +53,10 @@ team_id,team_name,league_id,league_name,season,rank,points,played,won,draw,lost,
 168,bayer leverkusen,78,bundesliga,2025,6,39,22,12,3,7,43,28,15,23
 160,sc freiburg,78,bundesliga,2025,7,33,23,9,6,8,34,37,-3,23
 169,eintracht frankfurt,78,bundesliga,2025,8,31,23,8,7,8,46,49,-3,23
-182,union berlin,78,bundesliga,2025,9,28,23,7,7,9,29,37,-8,23
-170,fc augsburg,78,bundesliga,2025,10,28,23,8,4,11,28,41,-13,23
+170,fc augsburg,78,bundesliga,2025,9,31,24,9,4,11,30,41,-11,23
+182,union berlin,78,bundesliga,2025,10,28,23,7,7,9,29,37,-8,23
 175,hamburger sv,78,bundesliga,2025,11,26,22,6,8,8,25,32,-7,23
-192,1. fc koln,78,bundesliga,2025,12,24,23,6,6,11,33,39,-6,23
+192,1. fc koln,78,bundesliga,2025,12,24,24,6,6,12,33,41,-8,23
 164,fsv mainz 05,78,bundesliga,2025,13,22,23,5,7,11,26,38,-12,23
 163,borussia m'gladbach,78,bundesliga,2025,14,22,23,5,7,11,26,39,-13,23
 161,vfl wolfsburg,78,bundesliga,2025,15,20,23,5,5,13,33,49,-16,23
@@ -65,7 +65,7 @@ team_id,team_name,league_id,league_name,season,rank,points,played,won,draw,lost,
 180,1. fc heidenheim,78,bundesliga,2025,18,14,23,3,5,15,22,51,-29,23
 42,arsenal,39,premier league,2025,1,61,28,18,7,3,56,21,35,28
 50,manchester city,39,premier league,2025,2,56,27,17,5,5,56,25,31,28
-66,aston villa,39,premier league,2025,3,51,27,15,6,6,38,28,10,28
+66,aston villa,39,premier league,2025,3,51,28,15,6,7,38,30,8,28
 33,manchester united,39,premier league,2025,4,48,27,13,9,5,48,37,11,28
 49,chelsea,39,premier league,2025,5,45,27,12,9,6,48,31,17,28
 40,liverpool,39,premier league,2025,6,45,27,13,6,8,42,35,7,28
@@ -82,7 +82,7 @@ team_id,team_name,league_id,league_name,season,rank,points,played,won,draw,lost,
 65,nottingham forest,39,premier league,2025,17,27,27,7,6,14,25,39,-14,28
 48,west ham,39,premier league,2025,18,25,27,6,7,14,32,49,-17,28
 44,burnley,39,premier league,2025,19,19,27,4,7,16,29,52,-23,28
-39,wolves,39,premier league,2025,20,10,28,1,7,20,18,51,-33,28
+39,wolves,39,premier league,2025,20,13,29,2,7,20,20,51,-31,28
 505,inter,135,serie a,2025,1,64,26,21,1,4,62,21,41,26
 489,ac milan,135,serie a,2025,2,54,26,15,9,2,41,20,21,26
 492,napoli,135,serie a,2025,3,50,26,15,5,6,39,27,12,26
@@ -93,9 +93,9 @@ team_id,team_name,league_id,league_name,season,rank,points,played,won,draw,lost,
 500,bologna,135,serie a,2025,8,36,26,10,6,10,35,32,3,26
 488,sassuolo,135,serie a,2025,9,35,26,10,5,11,32,35,-3,26
 487,lazio,135,serie a,2025,10,34,26,8,10,8,26,25,1,26
-494,udinese,135,serie a,2025,11,32,26,9,5,12,28,39,-11,26
-523,parma,135,serie a,2025,12,32,26,8,8,10,19,31,-12,26
-490,cagliari,135,serie a,2025,13,29,26,7,8,11,28,35,-7,26
+523,parma,135,serie a,2025,11,33,27,8,9,10,20,32,-12,26
+494,udinese,135,serie a,2025,12,32,26,9,5,12,28,39,-11,26
+490,cagliari,135,serie a,2025,13,30,27,7,9,11,29,36,-7,26
 495,genoa,135,serie a,2025,14,27,26,6,9,11,32,37,-5,26
 503,torino,135,serie a,2025,15,27,26,7,6,13,25,47,-22,26
 502,fiorentina,135,serie a,2025,16,24,26,5,9,12,30,39,-9,26
@@ -118,27 +118,27 @@ team_id,team_name,league_id,league_name,season,rank,points,played,won,draw,lost,
 410,go ahead eagles,88,eredivisie,2025,13,26,24,5,11,8,37,39,-2,24
 196,excelsior,88,eredivisie,2025,14,26,24,7,5,12,26,41,-15,24
 416,fc volendam,88,eredivisie,2025,15,24,24,6,6,12,26,39,-13,24
-203,nac breda,88,eredivisie,2025,16,22,24,5,7,12,25,36,-11,24
-427,telstar,88,eredivisie,2025,17,18,24,3,9,12,28,41,-13,24
+203,nac breda,88,eredivisie,2025,16,22,25,5,7,13,25,39,-14,24
+427,telstar,88,eredivisie,2025,17,21,25,4,9,12,31,41,-10,24
 206,heracles,88,eredivisie,2025,18,17,24,5,2,17,31,62,-31,24
-212,fc porto,94,liga portugal,2025,1,62,23,20,2,1,44,7,37,23
-228,sporting cp,94,liga portugal,2025,2,58,23,18,4,1,59,12,47,23
-211,benfica,94,liga portugal,2025,3,55,23,16,7,0,49,13,36,23
-217,sc braga,94,liga portugal,2025,4,42,23,12,6,5,48,22,26,23
-762,gil vicente,94,liga portugal,2025,5,40,23,11,7,5,34,21,13,23
-242,famalicao,94,liga portugal,2025,6,35,23,10,5,8,29,21,8,23
-230,estoril,94,liga portugal,2025,7,33,23,9,6,8,46,39,7,23
-215,moreirense,94,liga portugal,2025,8,33,23,10,3,10,29,33,-4,23
-224,guimaraes,94,liga portugal,2025,9,31,23,9,4,10,27,34,-7,23
-4724,alverca,94,liga portugal,2025,10,26,23,7,5,11,23,38,-15,23
-240,arouca,94,liga portugal,2025,11,26,23,7,5,11,31,49,-18,23
-15130,estrela,94,liga portugal,2025,12,23,23,5,8,10,26,41,-15,23
-4716,casa pia,94,liga portugal,2025,13,22,23,5,7,11,25,43,-18,23
-225,nacional,94,liga portugal,2025,14,21,23,5,6,12,27,34,-7,23
-226,rio ave,94,liga portugal,2025,15,20,23,4,8,11,23,44,-21,23
-227,santa clara,94,liga portugal,2025,16,18,23,4,6,13,18,29,-11,23
-218,tondela,94,liga portugal,2025,17,18,23,4,6,13,17,36,-19,23
-21595,avs,94,liga portugal,2025,18,8,23,1,5,17,18,57,-39,23
+212,fc porto,94,liga portugal,2025,1,65,24,21,2,1,47,8,39,24
+228,sporting cp,94,liga portugal,2025,2,61,24,19,4,1,62,12,50,24
+211,benfica,94,liga portugal,2025,3,55,23,16,7,0,49,13,36,24
+217,sc braga,94,liga portugal,2025,4,42,23,12,6,5,48,22,26,24
+762,gil vicente,94,liga portugal,2025,5,40,23,11,7,5,34,21,13,24
+242,famalicao,94,liga portugal,2025,6,35,23,10,5,8,29,21,8,24
+230,estoril,94,liga portugal,2025,7,33,24,9,6,9,46,42,4,24
+215,moreirense,94,liga portugal,2025,8,33,23,10,3,10,29,33,-4,24
+224,guimaraes,94,liga portugal,2025,9,31,23,9,4,10,27,34,-7,24
+4724,alverca,94,liga portugal,2025,10,26,23,7,5,11,23,38,-15,24
+240,arouca,94,liga portugal,2025,11,26,24,7,5,12,32,52,-20,24
+15130,estrela,94,liga portugal,2025,12,23,23,5,8,10,26,41,-15,24
+4716,casa pia,94,liga portugal,2025,13,22,23,5,7,11,25,43,-18,24
+225,nacional,94,liga portugal,2025,14,21,23,5,6,12,27,34,-7,24
+226,rio ave,94,liga portugal,2025,15,20,23,4,8,11,23,44,-21,24
+227,santa clara,94,liga portugal,2025,16,18,23,4,6,13,18,29,-11,24
+218,tondela,94,liga portugal,2025,17,18,23,4,6,13,17,36,-19,24
+21595,avs,94,liga portugal,2025,18,8,23,1,5,17,18,57,-39,24
 254,heart of midlothian,179,scottish premiership,2025,1,60,28,18,6,4,51,24,27,28
 257,rangers,179,scottish premiership,2025,2,56,28,15,11,2,49,23,26,28
 247,celtic,179,scottish premiership,2025,3,54,27,17,3,7,49,28,21,28
@@ -164,28 +164,28 @@ team_id,team_name,league_id,league_name,season,rank,points,played,won,draw,lost,
 547,girona,140,laliga,2025,11,30,25,7,9,9,26,40,-14,25
 536,sevilla,140,laliga,2025,12,29,25,8,5,12,32,39,-7,25
 546,getafe,140,laliga,2025,13,29,25,8,5,12,20,29,-9,25
-542,alaves,140,laliga,2025,14,27,25,7,6,12,23,32,-9,25
+542,alaves,140,laliga,2025,14,27,26,7,6,13,23,34,-11,25
 728,rayo vallecano,140,laliga,2025,15,26,24,6,8,10,22,31,-9,25
 532,valencia,140,laliga,2025,16,26,25,6,8,11,26,39,-13,25
 797,elche,140,laliga,2025,17,25,25,5,10,10,32,37,-5,25
 798,mallorca,140,laliga,2025,18,24,25,6,6,13,29,41,-12,25
-539,levante,140,laliga,2025,19,18,25,4,6,15,26,44,-18,25
+539,levante,140,laliga,2025,19,21,26,5,6,15,28,44,-16,25
 718,oviedo,140,laliga,2025,20,17,24,3,8,13,16,39,-23,25
 645,galatasaray,203,super lig,2025,1,55,23,17,4,2,55,17,38,23
 611,fenerbahce,203,super lig,2025,2,53,23,15,8,0,52,21,31,23
-998,trabzonspor,203,super lig,2025,3,48,23,14,6,3,45,27,18,23
+998,trabzonspor,203,super lig,2025,3,51,24,15,6,3,48,28,20,23
 549,besiktas,203,super lig,2025,4,43,23,12,7,4,44,29,15,23
 994,goztepe,203,super lig,2025,5,41,23,11,8,4,27,16,11,23
-564,basaksehir,203,super lig,2025,6,36,23,10,6,7,40,26,14,23
+564,basaksehir,203,super lig,2025,6,39,24,11,6,7,42,26,16,23
 3603,samsunspor,203,super lig,2025,7,31,23,7,10,6,25,27,-2,23
 7411,kocaelispor,203,super lig,2025,8,30,23,8,6,9,21,24,-3,23
 3573,gaziantep fk,203,super lig,2025,9,28,23,7,7,9,30,40,-10,23
 996,alanyaspor,203,super lig,2025,10,26,23,5,11,7,25,27,-2,23
 1007,rizespor,203,super lig,2025,11,24,23,5,9,9,28,35,-7,23
 997,genclerbirligi s.k.,203,super lig,2025,12,23,23,6,5,12,28,34,-6,23
-607,konyaspor,203,super lig,2025,13,23,23,5,8,10,27,35,-8,23
+607,konyaspor,203,super lig,2025,13,23,24,5,8,11,27,37,-10,23
 1005,antalyaspor,203,super lig,2025,14,23,23,6,5,12,22,36,-14,23
 3588,eyupspor,203,super lig,2025,15,21,23,5,6,12,19,35,-16,23
 1004,kasmpasa,203,super lig,2025,16,20,23,4,8,11,20,32,-12,23
 1001,kayserispor,203,super lig,2025,17,19,23,3,10,10,18,43,-25,23
-3589,fatih karagumruk,203,super lig,2025,18,13,23,3,4,16,20,42,-22,23
+3589,fatih karagumruk,203,super lig,2025,18,13,24,3,4,17,21,45,-24,23
