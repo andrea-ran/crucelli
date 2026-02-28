@@ -72,6 +72,8 @@ def filtro_2(df, df_coppa, champions_slots, champions_slots_prev, stagione_corre
             result.extend(squadre)
         return set(result)
     def get_coppa_winners(df_coppa, stagione):
+        if df_coppa.empty or "season" not in df_coppa.columns or "team_name" not in df_coppa.columns:
+            return set()
         df_coppa_season = df_coppa[df_coppa["season"] == stagione].copy()
         df_coppa_season["team_name"] = df_coppa_season["team_name"].apply(normalize_team_name)
         return set(df_coppa_season["team_name"].tolist())
@@ -89,26 +91,30 @@ def filtro_2(df, df_coppa, champions_slots, champions_slots_prev, stagione_corre
         if len(df_sorted) < slot:
             continue
         soglia_champions = df_sorted.iloc[slot-1]["points"]
-        partite_champions = df_sorted.iloc[slot-1]["matches"] if "matches" in df_sorted.columns else None
+        # Gestione robusta delle colonne partite giocate
+        def get_matches(row):
+            if "matches" in row and not pd.isnull(row["matches"]):
+                return row["matches"]
+            elif "played" in row and not pd.isnull(row["played"]):
+                return row["played"]
+            return None
+        partite_champions = get_matches(df_sorted.iloc[slot-1])
         df_out = df_league[df_league["rank"] > slot]
         for _, row in df_out.iterrows():
             team = row["team_name"]
             punti = row["points"]
-            partite_giocate = row["matches"] if "matches" in row else None
+            partite_giocate = get_matches(row)
             punti_dalla_zona_champions = soglia_champions - punti
-            partite_in_meno_rispetto_ultima_champions = None
-            if partite_champions is not None and partite_giocate is not None:
-                partite_in_meno_rispetto_ultima_champions = partite_champions - partite_giocate
-
+            partite_in_meno_rispetto_ultima_champions = partite_champions - partite_giocate if partite_champions is not None and partite_giocate is not None else None
             condizione_precedente = team in qualificate_precedente
-            condizione_punti_base = punti_dalla_zona_champions <= 3
-            condizione_punti_con_partita_in_meno = (
-                punti_dalla_zona_champions <= 6 and
-                partite_in_meno_rispetto_ultima_champions == 1
-            )
-
-            if condizione_precedente and (condizione_punti_base or condizione_punti_con_partita_in_meno):
-                squadre_filtrate.append(team)
+            # Se ha una partita in meno rispetto all'ultima in zona Champions, la soglia è 6, altrimenti 3
+            if condizione_precedente:
+                if partite_in_meno_rispetto_ultima_champions == 1:
+                    if 0 < punti_dalla_zona_champions <= 6:
+                        squadre_filtrate.append(team)
+                else:
+                    if 0 < punti_dalla_zona_champions <= 3:
+                        squadre_filtrate.append(team)
     return squadre_filtrate
 
 def filtro_3(df, stagione_corrente, stagione_penultima, stagione_terzultima):
@@ -185,6 +191,8 @@ def filtro_4(df, df_coppa, df_upcoming, champions_slots_penultima, stagione_corr
         return set(result)
 
     def get_coppa_winners(df_coppa, stagione):
+        if df_coppa.empty or "season" not in df_coppa.columns or "team_name" not in df_coppa.columns:
+            return set()
         df_coppa_season = df_coppa[df_coppa["season"] == stagione].copy()
         df_coppa_season["team_name"] = df_coppa_season["team_name"].apply(normalize_team_name)
         return set(df_coppa_season["team_name"].tolist())
