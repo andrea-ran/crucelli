@@ -22,9 +22,35 @@ Logica filtro 2:
 (qualificata_champions_precedente OR vincitrice_coppa_precedente)
 AND (punti_dalla_zona_champions <= 3 OR (punti_dalla_zona_champions <= 6 AND partite_in_meno_rispetto_ultima_champions = 1))
 
-3)  selezionare le squadre che nella stagione corrente sono prima e seconda in classifica e le squadre fino a 6 punti dalla prima in classifica (fino a 8 punti dalla prima in classifica se hanno una partita in meno della prima in classifica) e che nello stesso tempo:
-o si sono classificate prima e seconda nella penultima stagione > 2023/2024
-o si sono classificate prima e seconda nella terzultima stagione > 2022/2023.
+
+3) selezionare le squadre che nella stagione corrente:
+  - sono prima o seconda in classifica
+  - oppure sono fino a 6 punti dalla prima in classifica (fino a 8 punti se hanno una partita in meno della prima)
+E che contemporaneamente:
+  - sono in zona Champions nella stagione corrente
+E che contemporaneamente:
+  - si sono classificate prima o seconda nella penultima stagione (> 2023/2024)
+    oppure
+  - si sono classificate prima o seconda nella terzultima stagione (> 2022/2023)
+
+Logica filtro 3 aggiornata:
+(
+  (prima_o_seconda_corrente)
+  OR
+  (
+    entro_6_punti_dalla_prima_corrente
+    OR
+    (una_partita_in_meno_della_prima_corrente AND entro_8_punti_dalla_prima_corrente)
+  )
+)
+AND
+(in_zona_champions_corrente)
+AND
+(
+  prima_o_seconda_penultima_stagione
+  OR
+  prima_o_seconda_terzultima_stagione
+)
 
 (
   (prima_o_seconda_corrente)

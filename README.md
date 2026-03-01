@@ -58,7 +58,8 @@ Tutte incluse in `requirements.txt`.
 - `src/data_update/update_upcoming.py`: aggiorna le partite in programma
 - `src/data_update/update_national_cup.py`: aggiorna i vincitori delle coppe nazionali
 - `src/queries/regola_1.py`: applica i filtri F1–F4 e genera `selezione_regola_1.csv`
-- `src/queries/betting.py`: genera il file `bet.csv` per la visualizzazione
+- `src/queries/betting.py`: genera il file `bet.csv` e aggiorna lo storico risultati
+- `src/queries/analisi_storico.py`: genera un report separato da `storico.csv`
 - `app.py`: avvia la webapp Flask
 
 ---
@@ -75,6 +76,12 @@ python src/queries/regola_1.py
 python src/queries/betting.py
 python app.py
 ```
+
+### ⚠️ Note su storico e report
+
+- `betting.py` aggiorna automaticamente `storico.csv`.
+- Se vuoi evitare l'aggiornamento automatico: `python src/queries/betting.py --skip-storico-update`.
+- Per generare il report analitico: `python src/queries/analisi_storico.py` (output in `data/processed/storico_report.csv`).
 
 Nota: se usi Windows con `.venv`, attiva prima l'ambiente virtuale (`.venv\Scripts\Activate.ps1`).
 

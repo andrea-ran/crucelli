@@ -18,7 +18,6 @@ AUTH_ENABLED = bool(PASSWORD)
 BET_PATH = os.path.join('data', 'processed', 'bet.csv')
 STORICO_PATH = os.path.join('data', 'processed', 'storico.csv')
 BETTING_SCRIPT = os.path.join('src', 'queries', 'betting.py')
-STORICO_UPDATE_SCRIPT = os.path.join('src', 'queries', 'update_storico_results.py')
 
 def login_required(f):
     from functools import wraps
@@ -60,7 +59,11 @@ def index():
         df = pd.read_csv(BET_PATH)
         # Ordina sempre per data
         if 'data' in df.columns:
-            df['data_sort'] = pd.to_datetime(df['data'], format="%d/%m/%y ore %H:%M")
+            # Prova prima con orario, poi senza orario
+            try:
+                df['data_sort'] = pd.to_datetime(df['data'], format="%d/%m/%y ore %H:%M", errors='raise')
+            except Exception:
+                df['data_sort'] = pd.to_datetime(df['data'], format="%d/%m/%y", errors='coerce')
             df = df.sort_values('data_sort').drop(columns=['data_sort'])
         # Aggiungi numerazione da 1 come prima colonna (dopo ordinamento)
         df.insert(0, 'N', range(1, len(df) + 1))
@@ -91,7 +94,11 @@ def storico():
     if os.path.exists(STORICO_PATH):
         df = pd.read_csv(STORICO_PATH)
         if 'data' in df.columns:
-            df['data_sort'] = pd.to_datetime(df['data'], format="%d/%m/%y ore %H:%M", errors='coerce')
+            # Prova prima con orario, poi senza orario
+            try:
+                df['data_sort'] = pd.to_datetime(df['data'], format="%d/%m/%y ore %H:%M", errors='raise')
+            except Exception:
+                df['data_sort'] = pd.to_datetime(df['data'], format="%d/%m/%y", errors='coerce')
             df = df.sort_values('data_sort').drop(columns=['data_sort'])
         if 'match_id' in df.columns:
             df = df.drop(columns=['match_id'])
@@ -130,12 +137,6 @@ def aggiorna():
     subprocess.run([sys.executable, BETTING_SCRIPT], check=False)
     return redirect(url_for('index', msg='Aggiornamento completato!'))
 
-
-@app.route('/aggiorna-storico')
-@login_required
-def aggiorna_storico():
-    subprocess.run([sys.executable, STORICO_UPDATE_SCRIPT], check=False)
-    return redirect(url_for('storico', msg='Storico aggiornato!'))
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))

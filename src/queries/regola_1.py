@@ -117,7 +117,7 @@ def filtro_2(df, df_coppa, champions_slots, champions_slots_prev, stagione_corre
                         squadre_filtrate.append(team)
     return squadre_filtrate
 
-def filtro_3(df, stagione_corrente, stagione_penultima, stagione_terzultima):
+def filtro_3(df, stagione_corrente, stagione_penultima, stagione_terzultima, champions_slots):
     squadre_filtrate = []
 
     leghe_correnti = (
@@ -127,6 +127,7 @@ def filtro_3(df, stagione_corrente, stagione_penultima, stagione_terzultima):
         .apply(normalize_league_name)
         .unique()
     )
+
 
     for league_norm in leghe_correnti:
         df_corrente = df[
@@ -140,6 +141,16 @@ def filtro_3(df, stagione_corrente, stagione_penultima, stagione_terzultima):
         prima = df_corrente.iloc[0]
         punti_prima = prima["points"]
         partite_prima = prima["matches"] if "matches" in df_corrente.columns else None
+
+        # Determina il numero di slot Champions per la lega corrente
+        slot_champions = 4  # default fallback
+        for league_key in champions_slots.keys():
+            if normalize_league_name(league_key) == league_norm:
+                slot_champions = champions_slots[league_key]
+                break
+        if len(df_corrente) < slot_champions:
+            slot_champions = len(df_corrente)
+        squadre_zona_champions = set(df_corrente.sort_values("rank").head(slot_champions)["team_name"].tolist())
 
         for _, row in df_corrente.iterrows():
             team = row["team_name"]
@@ -157,6 +168,9 @@ def filtro_3(df, stagione_corrente, stagione_penultima, stagione_terzultima):
                 (distacco_dalla_prima <= 8 and partite_in_meno_della_prima == 1)
             )
 
+            # Nuova condizione: deve essere in zona Champions nella stagione corrente (usando slot reali)
+            condizione_zona_champions = team in squadre_zona_champions
+
             storico_penultima = df[
                 (df["season"] == stagione_penultima) &
                 (df["league_name"].apply(normalize_league_name) == league_norm) &
@@ -173,7 +187,7 @@ def filtro_3(df, stagione_corrente, stagione_penultima, stagione_terzultima):
                 (not storico_terzultima.empty and storico_terzultima.iloc[0]["rank"] <= 2)
             )
 
-            if condizione_corrente and condizione_storica:
+            if condizione_corrente and condizione_zona_champions and condizione_storica:
                 squadre_filtrate.append(team)
 
     return squadre_filtrate
@@ -289,7 +303,7 @@ for nome_filtro, filtro_attivo, tipo_parametri in filtri:
     elif tipo_parametri == "storico":
         STAGIONE_PENULTIMA = season_config.STAGIONE_PENULTIMA
         STAGIONE_TERZULTIMA = season_config.STAGIONE_TERZULTIMA
-        squadre_filtrate = filtro_attivo(df, STAGIONE_CORRENTE, STAGIONE_PENULTIMA, STAGIONE_TERZULTIMA)
+        squadre_filtrate = filtro_attivo(df, STAGIONE_CORRENTE, STAGIONE_PENULTIMA, STAGIONE_TERZULTIMA, champions_slots)
     elif tipo_parametri == "casa_penultima":
         STAGIONE_PENULTIMA = season_config.STAGIONE_PENULTIMA
         UPCOMING_PATH = os.path.join(PROJECT_ROOT, "data", "raw", "upcoming_matches.csv")

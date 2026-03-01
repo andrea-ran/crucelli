@@ -42,6 +42,133 @@ def create_session(retries=3, backoff_factor=0.5, status_forcelist=(429, 500, 50
 
 SESSION = create_session()
 
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
+from src.synonyms import normalize_team_name
+
+
+def should_skip_storico_update():
+    return "--skip-storico-update" in sys.argv
+
+
+def update_storico_results():
+    if not os.path.exists(STORICO_PATH):
+        print(f"Nessun file storico trovato: {STORICO_PATH}")
+        return
+
+    storico_df = pd.read_csv(STORICO_PATH)
+    if "data" in storico_df.columns:
+        storico_df["data"] = storico_df["data"].astype(str).str.split(" ore").str[0].str.strip()
+
+    if storico_df.empty or "match_id" not in storico_df.columns:
+        print("Storico vuoto o privo di match_id, nessun aggiornamento necessario.")
+        return
+
+    string_cols = [
+        "hs",
+        "as",
+        "vincitore",
+        "esito_pick",
+        "quota",
+    ]
+
+    for col in string_cols:
+        if col not in storico_df.columns:
+            storico_df[col] = ""
+        if storico_df[col].dtype != "string":
+            storico_df[col] = storico_df[col].astype("string")
+
+    unique_match_ids = (
+        storico_df["match_id"]
+        .dropna()
+        .astype(str)
+        .str.strip()
+        .replace("", pd.NA)
+        .dropna()
+        .unique()
+        .tolist()
+    )
+
+    fixture_cache = {}
+    odds_cache = {}
+
+    for match_id in unique_match_ids:
+        fixture_cache[match_id] = fetch_fixture_result(match_id)
+
+    for idx in storico_df.index:
+        match_id = str(storico_df.at[idx, "match_id"]).strip()
+        if not match_id:
+            continue
+
+        fixture_data = fixture_cache.get(match_id)
+        if not fixture_data:
+            continue
+
+        data_value = str(storico_df.at[idx, "data"]).strip()
+        if data_value:
+            try:
+                parsed = datetime.strptime(data_value, "%d/%m/%y ore %H:%M")
+                storico_df.at[idx, "data"] = parsed.strftime("%d/%m/%y")
+            except ValueError:
+                if " ore" in data_value:
+                    storico_df.at[idx, "data"] = data_value.split(" ore")[0].strip()
+
+        home_score = fixture_data.get("home_score")
+        away_score = fixture_data.get("away_score")
+        storico_df.at[idx, "hs"] = "" if home_score is None else str(int(home_score))
+        storico_df.at[idx, "as"] = "" if away_score is None else str(int(away_score))
+
+        status = fixture_data.get("status", "")
+        if status in FINISHED_STATUSES:
+            winner = fixture_data.get("winner", "")
+            storico_df.at[idx, "vincitore"] = winner
+            selected_team = storico_df.at[idx, "squadra selezionata"] if "squadra selezionata" in storico_df.columns else ""
+
+            selected_norm = normalize_team_name(selected_team)
+            winner_norm = normalize_team_name(winner) if winner else ""
+
+            if winner_norm == "pareggio":
+                storico_df.at[idx, "esito_pick"] = "PERSA"
+            elif winner_norm and selected_norm == winner_norm:
+                storico_df.at[idx, "esito_pick"] = "VINTA"
+            elif winner_norm:
+                storico_df.at[idx, "esito_pick"] = "PERSA"
+
+            cache_key = f"{match_id}|{selected_norm}"
+            if cache_key not in odds_cache:
+                odds_cache[cache_key] = fetch_selected_team_odd(
+                    match_id=match_id,
+                    selected_team=selected_team,
+                    home_team=fixture_data.get("home_team", ""),
+                    away_team=fixture_data.get("away_team", ""),
+                )
+
+            odd_value = odds_cache.get(cache_key, "")
+            if odd_value:
+                storico_df.at[idx, "quota"] = odd_value
+
+        for col in ["status_partita", "aggiornato_il", "home_score", "away_score"]:
+            if col in storico_df.columns:
+                storico_df = storico_df.drop(columns=[col])
+
+    colonne_finali = [
+        "match_id",
+        "data",
+        "squadra selezionata",
+        "squadra in casa",
+        "squadra fuori casa",
+        "hs",
+        "as",
+        "vincitore",
+        "esito_pick",
+        "quota",
+    ]
+    colonne_presenti = [c for c in colonne_finali if c in storico_df.columns]
+    storico_df = storico_df[colonne_presenti]
+    storico_df.to_csv(STORICO_PATH, index=False)
+    print(f"✅ Storico risultati aggiornato: {STORICO_PATH}")
+
 
 def fetch_fixture_result(match_id):
     if not HEADERS:
@@ -307,6 +434,10 @@ if team_next_match:
     df_out.to_csv(OUTPUT_PATH, index=False)
     print(f"✅ Merge completato. File salvato in {OUTPUT_PATH}\n")
     print(f"✅ Storico aggiornato in {STORICO_PATH}\n")
+    if not should_skip_storico_update():
+        update_storico_results()
 else:
     append_and_update_storico(pd.DataFrame())
     print("Nessuna partita trovata per le squadre selezionate.")
+    if not should_skip_storico_update():
+        update_storico_results()

@@ -22,5 +22,17 @@ def normalize_league_name(name):
     return name
 
 # Esempio di normalizzazione squadra (puoi estendere con sinonimi se necessario)
+TEAM_SYNONYMS = {
+    "bayern munich": ["bayern munich", "bayern münchen", "bayern m ", "bayern"],
+    "borussia dortmund": ["borussia dortmund", "dortmund"],
+    "manchester city": ["manchester city", "man city"],
+    # aggiungi altri sinonimi se necessario
+}
+
 def normalize_team_name(name):
-    return name.lower().replace("sl ", "").replace("fc ", "").strip()
+    n = name.lower().replace("sl ", "").replace("fc ", "").strip()
+    n = n.replace("ü", "u").replace("é", "e").replace("á", "a").replace("ö", "o").replace("ä", "a")
+    for key, values in TEAM_SYNONYMS.items():
+        if n in [v.lower().strip() for v in values]:
+            return key
+    return n

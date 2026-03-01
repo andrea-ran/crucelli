@@ -1,0 +1,17 @@
+match_id,data,squadra selezionata,squadra in casa,squadra fuori casa,hs,as,vincitore,esito_pick,quota
+1378126,28/02/26,inter,inter,genoa,2.0,0.0,Inter,VINTA,1.32
+1378133,28/02/26,napoli,hellas verona,napoli,1.0,2.0,Napoli,VINTA,1.66
+1379244,28/02/26,manchester city,leeds,manchester city,0.0,1.0,Manchester City,VINTA,1.66
+1381086,28/02/26,psv eindhoven,heracles,psv eindhoven,1.0,3.0,PSV Eindhoven,VINTA,1.29
+1387905,28/02/26,paris saint germain,le havre,paris saint germain,0.0,1.0,Paris Saint Germain,VINTA,1.26
+1388516,28/02/26,bayer leverkusen,bayer leverkusen,fsv mainz 05,1.0,1.0,pareggio,PERSA,
+1388518,28/02/26,borussia dortmund,borussia dortmund,bayern munich,2.0,3.0,Bayern München,PERSA,4.0
+1391069,28/02/26,villarreal,barcelona,villarreal,4.0,1.0,Barcelona,PERSA,6.0
+1391077,28/02/26,atletico madrid,oviedo,atletico madrid,0.0,1.0,Atletico Madrid,VINTA,1.81
+1394642,28/02/26,galatasaray,galatasaray,alanyaspor,3.0,1.0,Galatasaray,VINTA,
+1436126,28/02/26,al-nassr,al-fayha,al-nassr,1.0,3.0,Al-Nassr,VINTA,1.22
+1379248,27/02/26,aston villa,wolves,aston villa,2.0,0.0,Wolves,PERSA,1.81
+1387913,27/02/26,lens,strasbourg,lens,1.0,1.0,pareggio,PERSA,2.9
+1396446,27/02/26,fc porto,fc porto,arouca,3.0,1.0,FC Porto,VINTA,
+1396450,27/02/26,sporting cp,sporting cp,estoril,3.0,0.0,Sporting CP,VINTA,
+1436123,27/02/26,al-hilal saudi fc,al shabab,al-hilal saudi fc,3.0,5.0,Al-Hilal Saudi FC,VINTA,

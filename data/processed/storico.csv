@@ -1,21 +1,26 @@
-match_id,data,campionato,squadra selezionata,squadra in casa,squadra fuori casa,F1,F2,F3,F4,hs,as,vincitore,esito_pick,quota,2025,2024,quota_pick_api,aggiornato_il
-1396446,27/02/26,primeira liga,fc porto,fc porto,arouca,,,x,,3,1,FC Porto,VINTA,1.22,,,1.22,2026-02-28 10:14:45
-1436123,27/02/26,saudi pro league,al-hilal saudi fc,al shabab,al-hilal saudi fc,x,,x,,3,5,Al-Hilal Saudi FC,VINTA,1.45,,,1.45,2026-02-28 10:14:45
-1387913,27/02/26,ligue 1,lens,strasbourg,lens,,,x,,1,1,pareggio,PERSA,2.9,,,2.9,2026-02-28 10:14:45
-1379248,27/02/26,premier league,aston villa,wolves,aston villa,x,,,,2,0,Wolves,PERSA,1.81,,,1.81,2026-02-28 10:14:45
-1396450,27/02/26,primeira liga,sporting cp,sporting cp,estoril,x,,x,x,3,0,Sporting CP,VINTA,1.19,,,1.19,2026-02-28 10:14:45
-1379245,28/02/26,premier league,liverpool,liverpool,west ham,,x,,,,,,,,,,,2026-02-28 10:14:45
-1391069,28/02/26,la liga,villarreal,barcelona,villarreal,x,,,,,,,,,,,,2026-02-28 10:14:45
-1391069,28/02/26,la liga,barcelona,barcelona,villarreal,x,,x,x,,,,,,,,,2026-02-28 10:14:45
-1384038,28/02/26,hnl,hnk hajduk split,nk varazdin,hnk hajduk split,,,x,,,,,,,,,,2026-02-28 10:14:45
-1378133,28/02/26,serie a,napoli,hellas verona,napoli,x,,,,,,,,,,,,2026-02-28 10:14:45
-1394642,28/02/26,super lig,galatasaray,galatasaray,alanyaspor,x,,x,x,,,,,,,,,2026-02-28 10:14:45
-1388518,28/02/26,bundesliga,borussia dortmund,borussia dortmund,bayern munich,x,,x,x,,,,,,,,,2026-02-28 10:14:45
-1379244,28/02/26,premier league,manchester city,leeds,manchester city,x,,x,x,,,,,,,,,2026-02-28 10:14:45
-1388518,28/02/26,bundesliga,bayern munich,borussia dortmund,bayern munich,x,,x,x,,,,,,,,,2026-02-28 10:14:45
-1381086,28/02/26,eredivisie,psv eindhoven,heracles,psv eindhoven,x,,x,x,,,,,,,,,2026-02-28 10:14:45
-1436126,28/02/26,saudi pro league,al-nassr,al-fayha,al-nassr,x,,x,x,,,,,,,,,2026-02-28 10:14:45
-1378126,28/02/26,serie a,inter,inter,genoa,x,,x,x,,,,,,,,,2026-02-28 10:14:45
-1391077,28/02/26,la liga,atletico madrid,oviedo,atletico madrid,x,,,,,,,,,,,,2026-02-28 10:14:45
-1387905,28/02/26,ligue 1,paris saint germain,le havre,paris saint germain,x,,x,x,,,,,,,,,2026-02-28 10:14:45
-1388516,28/02/26 ore 14:30,bundesliga,bayer leverkusen,bayer leverkusen,fsv mainz 05,,x,,,,,,,,6.0,2.0,,2026-02-28 10:14:45
+match_id,data,squadra selezionata,squadra in casa,squadra fuori casa,hs,as,vincitore,esito_pick,quota
+1378126,28/02/26,inter,inter,genoa,2,0,Inter,VINTA,1.32
+1378133,28/02/26,napoli,hellas verona,napoli,1,2,Napoli,VINTA,1.66
+1379244,28/02/26,manchester city,leeds,manchester city,0,1,Manchester City,VINTA,1.66
+1381086,28/02/26,psv eindhoven,heracles,psv eindhoven,1,3,PSV Eindhoven,VINTA,1.29
+1387905,28/02/26,paris saint germain,le havre,paris saint germain,0,1,Paris Saint Germain,VINTA,1.26
+1388516,28/02/26,bayer leverkusen,bayer leverkusen,fsv mainz 05,1,1,pareggio,PERSA,
+1388518,28/02/26,borussia dortmund,borussia dortmund,bayern munich,2,3,Bayern München,PERSA,4.00
+1391069,28/02/26,villarreal,barcelona,villarreal,4,1,Barcelona,PERSA,6.00
+1391077,28/02/26,atletico madrid,oviedo,atletico madrid,0,1,Atletico Madrid,VINTA,1.81
+1394642,28/02/26,galatasaray,galatasaray,alanyaspor,3,1,Galatasaray,VINTA,
+1436126,28/02/26,al-nassr,al-fayha,al-nassr,1,3,Al-Nassr,VINTA,1.22
+1379248,27/02/26,aston villa,wolves,aston villa,2,0,Wolves,PERSA,1.81
+1387913,27/02/26,lens,strasbourg,lens,1,1,pareggio,PERSA,2.90
+1396446,27/02/26,fc porto,fc porto,arouca,3,1,FC Porto,VINTA,
+1396450,27/02/26,sporting cp,sporting cp,estoril,3.0,0.0,Sporting CP,VINTA,
+1436123,27/02/26,al-hilal saudi fc,al shabab,al-hilal saudi fc,3.0,5.0,Al-Hilal Saudi FC,VINTA,
+1381091,01/03/26,ajax,pec zwolle,ajax,,,,,
+1378125,01/03/26,ac milan,cremonese,ac milan,,,,,
+1382839,01/03/26,rangers,rangers,celtic,,,,,
+1381089,01/03/26,feyenoord,twente,feyenoord,,,,,
+1384034,01/03/26,dinamo zagreb,dinamo zagreb,hnk gorica,,,,,
+1379239,01/03/26,arsenal,arsenal,chelsea,,,,,
+1394640,01/03/26,fenerbahce,antalyaspor,fenerbahce,,,,,
+1387908,01/03/26,lyon,marseille,lyon,,,,,
+1378129,01/03/26,as roma,as roma,juventus,,,,,
