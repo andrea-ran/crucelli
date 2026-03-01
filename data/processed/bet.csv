@@ -1,31 +1,30 @@
-squadra selezionata,squadra in casa,squadra fuori casa,data,oggi,lega,2025,2024,filtri
-ajax,pec zwolle,ajax,01/03/26 ore 11:15,OGGI,eredivisie,3,2,F1
-ac milan,cremonese,ac milan,01/03/26 ore 11:30,OGGI,serie a,2,8,"F3,F4"
-rangers,rangers,celtic,01/03/26 ore 12:00,OGGI,scottish premiership,2,2,"F1,F3,F4"
-feyenoord,twente,feyenoord,01/03/26 ore 13:30,OGGI,eredivisie,2,3,"F1,F3"
-dinamo zagreb,dinamo zagreb,hnk gorica,01/03/26 ore 16:15,OGGI,hnl,1,2,"F1,F3,F4"
-arsenal,arsenal,chelsea,01/03/26 ore 16:30,OGGI,premier league,1,2,"F1,F3,F4"
-fenerbahce,antalyaspor,fenerbahce,01/03/26 ore 17:00,OGGI,super lig,2,2,"F1,F3,F4"
-lyon,marseille,lyon,01/03/26 ore 19:45,OGGI,ligue 1,3,6,F1
-as roma,as roma,juventus,01/03/26 ore 19:45,OGGI,serie a,4,5,F1
-real madrid,real madrid,getafe,02/03/26 ore 20:00,,laliga,2,2,"F1,F3,F4"
-benfica,gil vicente,benfica,02/03/26 ore 20:15,,liga portugal,3,2,F2
-bayer leverkusen,hamburger sv,bayer leverkusen,04/03/26 ore 19:30,,bundesliga,6,2,F2
-manchester city,manchester city,nottingham forest,04/03/26 ore 19:30,,premier league,2,3,"F1,F3,F4"
-aston villa,aston villa,chelsea,04/03/26 ore 19:30,,premier league,3,6,F1
-al-ahli jeddah,al-ahli jeddah,al-ittihad fc,06/03/26 ore 19:00,,saudi professional league,2,5,"F1,F4"
-al-hilal saudi fc,al-hilal saudi fc,al najma,06/03/26 ore 19:00,,saudi professional league,3,2,"F1,F3"
-bayern munich,bayern munich,borussia m'gladbach,06/03/26 ore 19:30,,bundesliga,1,1,"F1,F3,F4"
-paris saint germain,paris saint germain,monaco,06/03/26 ore 19:45,,ligue 1,1,1,"F1,F3,F4"
-napoli,napoli,torino,06/03/26 ore 19:45,,serie a,3,1,F1
-galatasaray,besiktas,galatasaray,07/03/26 ore 17:00,,super lig,1,1,"F1,F3,F4"
-borussia dortmund,1. fc koln,borussia dortmund,07/03/26 ore 17:30,,bundesliga,2,4,"F1,F3,F4"
-atletico madrid,atletico madrid,real sociedad,07/03/26 ore 17:30,,laliga,3,3,F1
-sporting cp,sc braga,sporting cp,07/03/26 ore 18:00,,liga portugal,2,1,"F1,F3,F4"
-psv eindhoven,psv eindhoven,az alkmaar,07/03/26 ore 19:00,,eredivisie,1,1,"F1,F3,F4"
-al-nassr,al-nassr,neom,07/03/26 ore 19:00,,saudi professional league,1,3,"F1,F3,F4"
-barcelona,athletic club,barcelona,07/03/26 ore 20:00,,laliga,1,1,"F1,F3"
-villarreal,villarreal,elche,08/03/26 ore 13:00,,laliga,4,5,F1
-lens,lens,metz,08/03/26 ore 14:00,,ligue 1,2,8,F3
-fc porto,benfica,fc porto,08/03/26 ore 18:00,,liga portugal,1,3,F3
-inter,ac milan,inter,08/03/26 ore 19:45,,serie a,1,2,"F1,F3,F4"
+squadra selezionata,squadra in casa,squadra fuori casa,data,oggi,SC,lega,2025,2024,filtri
+rangers,rangers,celtic,01/03/26 ore 12:00,OGGI,SI,scottish premiership,2,2,"F1,F3,F4"
+feyenoord,twente,feyenoord,01/03/26 ore 13:30,OGGI,,eredivisie,2,3,"F1,F3"
+dinamo zagreb,dinamo zagreb,hnk gorica,01/03/26 ore 16:15,OGGI,,hnl,1,2,"F1,F3,F4"
+arsenal,arsenal,chelsea,01/03/26 ore 16:30,OGGI,SI,premier league,1,2,"F1,F3,F4"
+fenerbahce,antalyaspor,fenerbahce,01/03/26 ore 17:00,OGGI,,super lig,2,2,"F1,F3,F4"
+lyon,marseille,lyon,01/03/26 ore 19:45,OGGI,SI,ligue 1,3,6,F1
+as roma,as roma,juventus,01/03/26 ore 19:45,OGGI,,serie a,4,5,F1
+real madrid,real madrid,getafe,02/03/26 ore 20:00,,,laliga,2,2,"F1,F3,F4"
+benfica,gil vicente,benfica,02/03/26 ore 20:15,,,liga portugal,3,2,F2
+bayer leverkusen,hamburger sv,bayer leverkusen,04/03/26 ore 19:30,,,bundesliga,6,2,F2
+manchester city,manchester city,nottingham forest,04/03/26 ore 19:30,,,premier league,2,3,"F1,F3,F4"
+aston villa,aston villa,chelsea,04/03/26 ore 19:30,,SI,premier league,3,6,F1
+al-ahli jeddah,al-ahli jeddah,al-ittihad fc,06/03/26 ore 19:00,,,saudi professional league,2,5,"F1,F4"
+al-hilal saudi fc,al-hilal saudi fc,al najma,06/03/26 ore 19:00,,,saudi professional league,3,2,"F1,F3"
+bayern munich,bayern munich,borussia m'gladbach,06/03/26 ore 19:30,,,bundesliga,1,1,"F1,F3,F4"
+napoli,napoli,torino,06/03/26 ore 19:45,,,serie a,3,1,F1
+paris saint germain,paris saint germain,monaco,06/03/26 ore 19:45,,SI,ligue 1,1,1,"F1,F3,F4"
+ajax,groningen,ajax,07/03/26 ore 15:30,,,eredivisie,3,2,F1
+galatasaray,besiktas,galatasaray,07/03/26 ore 17:00,,,super lig,1,1,"F1,F3,F4"
+borussia dortmund,1. fc koln,borussia dortmund,07/03/26 ore 17:30,,,bundesliga,2,4,"F1,F3,F4"
+atletico madrid,atletico madrid,real sociedad,07/03/26 ore 17:30,,,laliga,3,3,F1
+sporting cp,sc braga,sporting cp,07/03/26 ore 18:00,,,liga portugal,2,1,"F1,F3,F4"
+psv eindhoven,psv eindhoven,az alkmaar,07/03/26 ore 19:00,,,eredivisie,1,1,"F1,F3,F4"
+al-nassr,al-nassr,neom,07/03/26 ore 19:00,,,saudi professional league,1,3,"F1,F3,F4"
+barcelona,athletic club,barcelona,07/03/26 ore 20:00,,,laliga,1,1,"F1,F3"
+villarreal,villarreal,elche,08/03/26 ore 13:00,,,laliga,4,5,F1
+lens,lens,metz,08/03/26 ore 14:00,,,ligue 1,2,8,F3
+fc porto,benfica,fc porto,08/03/26 ore 18:00,,SI,liga portugal,1,3,F3
+inter,ac milan,inter,08/03/26 ore 19:45,,SI,serie a,1,2,"F1,F3,F4"

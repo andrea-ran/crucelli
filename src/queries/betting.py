@@ -380,6 +380,7 @@ else:
 
 from collections import OrderedDict
 # Trova il prossimo incontro per ogni squadra selezionata e aggiungi colonne filtro
+selected_teams = set(df_agg["squadra"].astype(str).str.strip().str.lower())
 team_next_match = OrderedDict()
 for _, row in df_agg.iterrows():
     squadra = row["squadra"].strip().lower()
@@ -394,12 +395,17 @@ for _, row in df_agg.iterrows():
         # Prendi il match con la data più vicina
         next_match = team_matches.sort_values("date").iloc[0]
         # Inserisci tutte le colonne filtro richieste
+        scontro_diretto = "SI" if {
+            next_match["home_team"].strip().lower(),
+            next_match["away_team"].strip().lower(),
+        }.issubset(selected_teams) else ""
         team_next_match[squadra] = {
             "match_id": next_match["match_id"],
             "squadra selezionata": next_match["home_team"] if next_match["home_team"].strip().lower() == squadra else next_match["away_team"],
             "squadra in casa": next_match["home_team"],
             "squadra fuori casa": next_match["away_team"],
             "data": next_match["date"].strftime("%d/%m/%y ore %H:%M"),
+            "SC": scontro_diretto,
             "lega": lega,
             "2025": rank_2025,
             "2024": rank_2024,
@@ -425,7 +431,16 @@ if team_next_match:
     df_out = df_out.drop(columns=['match_id'], errors='ignore')
     # Ordina le colonne in modo leggibile: squadra selezionata, squadra in casa, squadra fuori casa, data, oggi, lega, 2025, 2024, filtri
     colonne_finali = [
-        "squadra selezionata", "squadra in casa", "squadra fuori casa", "data", "oggi", "lega", "2025", "2024", "filtri"
+        "squadra selezionata",
+        "squadra in casa",
+        "squadra fuori casa",
+        "data",
+        "oggi",
+        "SC",
+        "lega",
+        "2025",
+        "2024",
+        "filtri",
     ]
     colonne_presenti = [c for c in colonne_finali if c in df_out.columns]
     altre_colonne = [c for c in df_out.columns if c not in colonne_presenti]
