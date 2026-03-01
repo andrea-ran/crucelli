@@ -2,13 +2,19 @@ import os
 import math
 from datetime import datetime, timezone, timedelta
 import unicodedata
+import sys
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
+from src.synonyms import normalize_team_name
 
 import pandas as pd
 import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
-STORICO_PATH = os.path.join("data", "processed", "storico.csv")
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+STORICO_PATH = os.path.join(PROJECT_ROOT, "data", "processed", "storico.csv")
 API_KEY = os.getenv("API_FOOTBALL_KEY", "691ccc74c6d55850f0b5c836ec0b10f2")
 HEADERS = {"x-apisports-key": API_KEY} if API_KEY else {}
 DEFAULT_TIMEOUT = 10
@@ -134,11 +140,15 @@ def fetch_selected_team_odd(match_id, selected_team, home_team, away_team):
 
 
 def update_storico_results():
+    # Forza la rimozione delle ore dalla colonna data
     if not os.path.exists(STORICO_PATH):
         print(f"Nessun file storico trovato: {STORICO_PATH}")
         return
 
     storico_df = pd.read_csv(STORICO_PATH)
+    if "data" in storico_df.columns:
+        storico_df["data"] = storico_df["data"].astype(str).str.split(" ore").str[0].str.strip()
+
     if storico_df.empty or "match_id" not in storico_df.columns:
         print("Storico vuoto o privo di match_id, nessun aggiornamento necessario.")
         return
@@ -195,16 +205,18 @@ def update_storico_results():
 
         home_score = fixture_data.get("home_score")
         away_score = fixture_data.get("away_score")
-        storico_df.at[idx, "hs"] = "" if home_score is None else str(home_score)
-        storico_df.at[idx, "as"] = "" if away_score is None else str(away_score)
+        # Forza sempre la conversione a int se non None
+        storico_df.at[idx, "hs"] = "" if home_score is None else str(int(home_score))
+        storico_df.at[idx, "as"] = "" if away_score is None else str(int(away_score))
 
         status = fixture_data.get("status", "")
         if status in FINISHED_STATUSES:
             winner = fixture_data.get("winner", "")
             storico_df.at[idx, "vincitore"] = winner
             selected_team = storico_df.at[idx, "squadra selezionata"] if "squadra selezionata" in storico_df.columns else ""
-            selected_norm = normalize_text(selected_team)
-            winner_norm = normalize_text(winner) if winner else ""
+
+            selected_norm = normalize_team_name(selected_team)
+            winner_norm = normalize_team_name(winner) if winner else ""
 
             if winner_norm == "pareggio":
                 storico_df.at[idx, "esito_pick"] = "PERSA"
@@ -235,14 +247,9 @@ def update_storico_results():
     colonne_finali = [
         "match_id",
         "data",
-        "campionato",
         "squadra selezionata",
         "squadra in casa",
         "squadra fuori casa",
-        "F1",
-        "F2",
-        "F3",
-        "F4",
         "hs",
         "as",
         "vincitore",
@@ -253,6 +260,54 @@ def update_storico_results():
     storico_df = storico_df[colonne_presenti]
     storico_df.to_csv(STORICO_PATH, index=False)
     print(f"✅ Storico risultati aggiornato: {STORICO_PATH}")
+
+
+# --- POST-PROCESSING: Mantieni solo la riga con quota più alta per match_id tra squadre selezionate che si affrontano ---
+import numpy as np
+storico_path = STORICO_PATH if 'STORICO_PATH' in globals() else 'data/processed/storico.csv'
+df = pd.read_csv(storico_path)
+
+# Funzione per scegliere la riga con quota più alta o segnare n.p.
+def pick_max_quota(group):
+    # Se una sola riga, restituisci così com'è
+    if len(group) == 1:
+        row = group.iloc[0].copy()
+        if pd.isna(row['quota']) or str(row['quota']).strip() == '':
+            row['esito_pick'] = 'n.p.'
+        return row
+    # Se più righe, scegli quella con quota massima (se entrambe vuote, n.p.)
+    group = group.copy()
+    group['quota_num'] = pd.to_numeric(group['quota'], errors='coerce')
+    if group['quota_num'].isnull().all():
+        # Nessuna quota disponibile
+        row = group.iloc[0].copy()
+        row['esito_pick'] = 'n.p.'
+        return row
+    else:
+        idx_max = group['quota_num'].idxmax()
+        return group.loc[idx_max].drop('quota_num')
+
+# Applica la funzione per ogni match_id
+new_df = df.groupby('match_id', as_index=False).apply(pick_max_quota)
+# Se il groupby crea un multiindex, resetta
+if isinstance(new_df.index, pd.MultiIndex):
+    new_df = new_df.reset_index(drop=True)
+# Salva il risultato
+new_df.to_csv(storico_path, index=False)
+print(f"✅ Post-processing: mantenute solo le righe con quota più alta per match_id in {storico_path}")
+
+
+# --- Filtra solo partite concluse (con hs e as valorizzati e non vuoti/nulli) ---
+mask_giocata = (~new_df['hs'].isnull()) & (~new_df['as'].isnull()) & (new_df['hs'].astype(str).str.strip() != '') & (new_df['as'].astype(str).str.strip() != '')
+new_df = new_df[mask_giocata].copy()
+# Riordina per data dopo il filtro
+try:
+    new_df['data_sort'] = pd.to_datetime(new_df['data'], format="%d/%m/%y")
+    new_df = new_df.sort_values('data_sort', ascending=False).drop(columns=['data_sort'])
+except Exception as e:
+    print(f"[WARN] Ordinamento per data fallito: {e}")
+new_df.to_csv(storico_path, index=False)
+print(f"✅ Storico filtrato: solo partite concluse in {storico_path}")
 
 
 if __name__ == "__main__":

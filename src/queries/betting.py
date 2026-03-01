@@ -135,16 +135,9 @@ def append_and_update_storico(df_bet):
     storico_cols = [
         "match_id",
         "data",
-        "campionato",
         "squadra selezionata",
         "squadra in casa",
         "squadra fuori casa",
-        "2025",
-        "2024",
-        "F1",
-        "F2",
-        "F3",
-        "F4",
         "hs",
         "as",
         "vincitore",
@@ -157,12 +150,45 @@ def append_and_update_storico(df_bet):
     else:
         storico_df = pd.DataFrame(columns=storico_cols)
 
+    storico_cols = [
+        "match_id",
+        "data",
+        "squadra selezionata",
+        "squadra in casa",
+        "squadra fuori casa",
+        "hs",
+        "as",
+        "vincitore",
+        "esito_pick",
+        "quota_pick_api",
+    ]
+
+    if os.path.exists(STORICO_PATH):
+        storico_df = pd.read_csv(STORICO_PATH)
+    else:
+        storico_df = pd.DataFrame(columns=storico_cols)
+
+    # Rimuovi orario dalla colonna data in tutto lo storico
+    if "data" in storico_df.columns:
+        storico_df["data"] = storico_df["data"].astype(str).str.split(" ore").str[0].str.strip()
+
+    if os.path.exists(STORICO_PATH):
+        storico_df = pd.read_csv(STORICO_PATH)
+    else:
+        storico_df = pd.DataFrame(columns=storico_cols)
+
+    # Filtra lo storico: mantieni solo le partite dove 'squadra selezionata' è tra quelle selezionate dalla regola
+    if not df_bet.empty and "squadra selezionata" in df_bet.columns:
+        squadre_selezionate = set(df_bet["squadra selezionata"].astype(str).str.strip().str.lower())
+        storico_df = storico_df[storico_df["squadra selezionata"].astype(str).str.strip().str.lower().isin(squadre_selezionate)].copy()
+
+    # Assicura che tutte le colonne richieste siano presenti
     for col in storico_cols:
         if col not in storico_df.columns:
             storico_df[col] = ""
-    # Rimuovi colonne non più usate
-    for col in ["status_partita", "aggiornato_il", "home_score", "away_score"]:
-        if col in storico_df.columns:
+    # Rimuovi tutte le colonne non richieste
+    for col in list(storico_df.columns):
+        if col not in storico_cols:
             storico_df = storico_df.drop(columns=[col])
 
     if not df_bet.empty and "oggi" in df_bet.columns:
@@ -174,8 +200,8 @@ def append_and_update_storico(df_bet):
             df_oggi["vincitore"] = ""
             df_oggi["esito_pick"] = ""
             df_oggi["quota_pick_api"] = ""
-            df_oggi["aggiornato_il"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
+            # NON modificare la colonna data qui: lasciamo l'orario per bet.csv
+            # La rimozione dell'orario avviene solo su storico_df più sotto
             df_oggi = df_oggi[storico_cols]
 
             storico_df["_key"] = (
@@ -192,70 +218,7 @@ def append_and_update_storico(df_bet):
                 storico_df = pd.concat([storico_df, df_new], ignore_index=True)
             storico_df = storico_df.drop(columns=["_key"], errors="ignore")
 
-    if not storico_df.empty:
-        unique_match_ids = (
-            storico_df["match_id"]
-            .dropna()
-            .astype(str)
-            .str.strip()
-            .replace("", pd.NA)
-            .dropna()
-            .unique()
-            .tolist()
-        )
-        fixture_cache = {}
-        odds_cache = {}
-        now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-        for match_id in unique_match_ids:
-            fixture_cache[match_id] = fetch_fixture_result(match_id)
-
-        for idx in storico_df.index:
-            match_id = str(storico_df.at[idx, "match_id"]).strip()
-            if not match_id:
-                continue
-
-            fixture_data = fixture_cache.get(match_id)
-            if not fixture_data:
-                continue
-
-            home_score = fixture_data.get("home_score")
-            away_score = fixture_data.get("away_score")
-            storico_df.at[idx, "hs"] = np.nan if home_score is None else home_score
-            storico_df.at[idx, "as"] = np.nan if away_score is None else away_score
-
-            status = fixture_data.get("status")
-            if status in FINISHED_STATUSES:
-                winner = fixture_data.get("winner", "")
-                storico_df.at[idx, "vincitore"] = winner
-                selected_team = storico_df.at[idx, "squadra selezionata"]
-                selected_norm = normalize_text(selected_team)
-                winner_norm = normalize_text(winner) if winner else ""
-
-                if winner_norm == "pareggio":
-                    storico_df.at[idx, "esito_pick"] = "PERSA"
-                elif winner_norm and selected_norm == winner_norm:
-                    storico_df.at[idx, "esito_pick"] = "VINTA"
-                elif winner_norm:
-                    storico_df.at[idx, "esito_pick"] = "PERSA"
-
-                cache_key = f"{match_id}|{selected_norm}"
-                if cache_key not in odds_cache:
-                    odds_cache[cache_key] = fetch_selected_team_odd(
-                        match_id=match_id,
-                        selected_team=selected_team,
-                        home_team=fixture_data.get("home_team", ""),
-                        away_team=fixture_data.get("away_team", ""),
-                    )
-                odd_value = odds_cache.get(cache_key, "")
-                if odd_value:
-                    try:
-                        storico_df.at[idx, "quota_pick_api"] = float(odd_value)
-                    except ValueError:
-                        storico_df.at[idx, "quota_pick_api"] = np.nan
-
-            storico_df.at[idx, "aggiornato_il"] = now_str
-
+    # Nessun aggiornamento di risultati/quote qui: solo struttura e popolamento
     os.makedirs(os.path.dirname(STORICO_PATH), exist_ok=True)
     storico_df.to_csv(STORICO_PATH, index=False)
 
@@ -288,31 +251,32 @@ if "status" in df_upcoming.columns:
 else:
     df_upcoming = df_upcoming[df_upcoming["date"] >= now_utc].copy()
 
-# Trova il prossimo incontro per ogni squadra selezionata
-team_next_match = {}
+from collections import OrderedDict
+# Trova il prossimo incontro per ogni squadra selezionata e aggiungi colonne filtro
+team_next_match = OrderedDict()
 for _, row in df_agg.iterrows():
     squadra = row["squadra"].strip().lower()
-    filtri = row["filtri"]
+    filtri = row["filtri"] if "filtri" in row else ""
+    lega = row["lega"] if "lega" in row else ""
+    rank_2025 = row["2025"] if "2025" in row else ""
+    rank_2024 = row["2024"] if "2024" in row else ""
     # Trova tutti i match futuri dove la squadra è home o away
     team_matches = df_upcoming[(df_upcoming["home_team"].str.strip().str.lower() == squadra) |
                                (df_upcoming["away_team"].str.strip().str.lower() == squadra)].copy()
     if not team_matches.empty:
         # Prendi il match con la data più vicina
         next_match = team_matches.sort_values("date").iloc[0]
-        # Crea le colonne indicatori filtri
-        filtro_cols = {}
-        for f in ["F1", "F2", "F3", "F4"]:
-            filtro_cols[f] = 'x' if f in filtri.split(',') else ''
+        # Inserisci tutte le colonne filtro richieste
         team_next_match[squadra] = {
             "match_id": next_match["match_id"],
             "squadra selezionata": next_match["home_team"] if next_match["home_team"].strip().lower() == squadra else next_match["away_team"],
-            "campionato": next_match["league_name"],
             "squadra in casa": next_match["home_team"],
             "squadra fuori casa": next_match["away_team"],
             "data": next_match["date"].strftime("%d/%m/%y ore %H:%M"),
-            "2025": row["2025"],
-            "2024": row["2024"],
-            **filtro_cols
+            "lega": lega,
+            "2025": rank_2025,
+            "2024": rank_2024,
+            "filtri": filtri,
         }
 
 # Output finale
@@ -328,9 +292,17 @@ if team_next_match:
     df_out['oggi'] = df_out['data'].apply(lambda x: 'OGGI' if x.startswith(oggi) else '')
     df_out = df_out.sort_values('data_sort').drop(columns=['data_sort'])
 
+    # NON modificare la colonna data qui: lasciamo l'orario per bet.csv
     append_and_update_storico(df_out.copy())
 
     df_out = df_out.drop(columns=['match_id'], errors='ignore')
+    # Ordina le colonne in modo leggibile: squadra selezionata, squadra in casa, squadra fuori casa, data, oggi, lega, 2025, 2024, filtri
+    colonne_finali = [
+        "squadra selezionata", "squadra in casa", "squadra fuori casa", "data", "oggi", "lega", "2025", "2024", "filtri"
+    ]
+    colonne_presenti = [c for c in colonne_finali if c in df_out.columns]
+    altre_colonne = [c for c in df_out.columns if c not in colonne_presenti]
+    df_out = df_out[colonne_presenti + altre_colonne]
     os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
     df_out.to_csv(OUTPUT_PATH, index=False)
     print(f"✅ Merge completato. File salvato in {OUTPUT_PATH}\n")
