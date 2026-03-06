@@ -14,6 +14,7 @@ if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 
 from api_config import API_KEY, HEADERS
+from src.synonyms import normalize_team_name
 
 
 STORICO_PATH = os.path.join(PROJECT_ROOT, "data", "processed", "storico.csv")
@@ -115,9 +116,9 @@ def _event_minute(event):
 
 
 def _scoring_side(event_team, home_team, away_team, detail):
-    team_norm = normalize_text(event_team)
-    home_norm = normalize_text(home_team)
-    away_norm = normalize_text(away_team)
+    team_norm = normalize_team_name(event_team)
+    home_norm = normalize_team_name(home_team)
+    away_norm = normalize_team_name(away_team)
     if not team_norm:
         return ""
 
@@ -136,9 +137,9 @@ def _scoring_side(event_team, home_team, away_team, detail):
 
 
 def compute_late_draw_cashout(selected_team, home_team, away_team, events, threshold_minute=89):
-    selected_norm = normalize_text(selected_team)
-    home_norm = normalize_text(home_team)
-    away_norm = normalize_text(away_team)
+    selected_norm = normalize_team_name(selected_team)
+    home_norm = normalize_team_name(home_team)
+    away_norm = normalize_team_name(away_team)
     if selected_norm not in {home_norm, away_norm}:
         return False
 
@@ -204,9 +205,9 @@ def compute_esito_from_scores(row):
     except (TypeError, ValueError):
         return row
 
-    selected = str(row.get("squadra selezionata", "")).strip().lower()
-    home_team = str(row.get("squadra in casa", "")).strip().lower()
-    away_team = str(row.get("squadra fuori casa", "")).strip().lower()
+    selected = normalize_team_name(str(row.get("squadra selezionata", "")).strip())
+    home_team = normalize_team_name(str(row.get("squadra in casa", "")).strip())
+    away_team = normalize_team_name(str(row.get("squadra fuori casa", "")).strip())
 
     if not selected or not home_team or not away_team:
         return row
@@ -222,6 +223,28 @@ def compute_esito_from_scores(row):
         else:
             row["esito_pick"] = "PERSA"
     return row
+
+
+def _parse_quota(value):
+    if value is None:
+        return None
+    raw = str(value).strip().replace(",", ".")
+    if not raw:
+        return None
+    try:
+        return float(raw)
+    except ValueError:
+        return None
+
+
+def compute_profit(row):
+    esito = str(row.get("esito_pick", "")).strip().upper()
+    quota = _parse_quota(row.get("quota", ""))
+    if esito in {"VINTA", "VINTAP"}:
+        return "" if quota is None else round(quota - 1, 2)
+    if esito == "PERSA":
+        return -1
+    return ""
 
 
 def main():
@@ -349,6 +372,7 @@ def main():
         }
 
         row_out = compute_esito_from_scores(row_out)
+        row_out["profitto"] = compute_profit(row_out)
         rows.append(row_out)
 
     if not rows:
@@ -374,6 +398,26 @@ def main():
         updated_ids = set(report_df["match_id"].astype(str).str.strip().tolist())
         existing_keep = report_existing[~report_existing["match_id"].isin(updated_ids)].copy()
         report_df = pd.concat([existing_keep, report_df], ignore_index=True)
+
+    profit_series = pd.to_numeric(report_df.get("profitto"), errors="coerce")
+    total_profit = profit_series.sum(min_count=1)
+    if pd.notna(total_profit):
+        esito_series = report_df.get("esito_pick", pd.Series([], dtype=str))
+        esito_count = esito_series.astype(str).str.strip().ne("").sum()
+        roi_value = round((float(total_profit) / esito_count) * 100, 2) if esito_count else ""
+        win_count = esito_series.astype(str).str.strip().isin(["VINTA", "VINTAP"]).sum()
+        success_value = round((win_count / esito_count) * 100, 2) if esito_count else ""
+        total_wins = profit_series[profit_series > 0].sum(min_count=1)
+        total_losses = profit_series[profit_series < 0].abs().sum(min_count=1)
+        pf_value = round((total_wins / total_losses), 2) if total_losses else ""
+        total_row = {
+            "match_id": "TOTALE",
+            "profitto": round(float(total_profit), 2),
+            "ROI %": roi_value,
+            "Successo %": success_value,
+            "PF": pf_value,
+        }
+        report_df = pd.concat([pd.DataFrame([total_row]), report_df], ignore_index=True)
 
     os.makedirs(os.path.dirname(STORICO_REPORT_PATH), exist_ok=True)
     report_df.to_csv(STORICO_REPORT_PATH, index=False)

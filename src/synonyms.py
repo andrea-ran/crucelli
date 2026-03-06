@@ -22,11 +22,15 @@ LEAGUE_SYNONYMS = {
 
 def normalize_team_name(name):
     n = name.lower()
-    n = re.sub(r"[^a-z0-9]", "", n)  # rimuove tutto tranne lettere e numeri
     n = n.replace("ü", "u").replace("é", "e").replace("á", "a").replace("ö", "o").replace("ä", "a")
+    n = n.replace("ç", "c").replace("ñ", "n").replace("í", "i").replace("ó", "o").replace("ú", "u")
+    n = re.sub(r"[^a-z0-9]", "", n)  # rimuove tutto tranne lettere e numeri
     for key, values in TEAM_SYNONYMS.items():
         for v in values:
-            v_norm = re.sub(r"[^a-z0-9]", "", v.lower())
+            v_norm = v.lower()
+            v_norm = v_norm.replace("ü", "u").replace("é", "e").replace("á", "a").replace("ö", "o").replace("ä", "a")
+            v_norm = v_norm.replace("ç", "c").replace("ñ", "n").replace("í", "i").replace("ó", "o").replace("ú", "u")
+            v_norm = re.sub(r"[^a-z0-9]", "", v_norm)
             if n == v_norm:
                 return key
     return n
