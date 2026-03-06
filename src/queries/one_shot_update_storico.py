@@ -11,11 +11,11 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(_
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 
+from api_config import API_KEY, HEADERS
+
 STORICO_PATH = os.path.join(PROJECT_ROOT, "data", "processed", "storico.csv")
 F1_PATH = os.path.join(PROJECT_ROOT, "data", "processed", "selezione_regola_1.csv")
 
-API_KEY = os.getenv("API_FOOTBALL_KEY", "")
-HEADERS = {"x-apisports-key": API_KEY} if API_KEY else {}
 DEFAULT_TIMEOUT = 10
 
 
@@ -111,6 +111,10 @@ def pick_selected_team(home_team, away_team, selected_set, odds):
 
 
 def main():
+    if not API_KEY:
+        print("API_FOOTBALL_KEY non impostata. Esempio: export API_FOOTBALL_KEY=la_tua_chiave")
+        return
+
     if not os.path.exists(STORICO_PATH):
         print(f"Nessuno storico trovato: {STORICO_PATH}")
         return

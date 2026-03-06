@@ -1,3 +1,4 @@
+import argparse
 import os
 import sys
 from datetime import datetime
@@ -12,12 +13,12 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(_
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 
+from api_config import API_KEY, HEADERS
+
 
 STORICO_PATH = os.path.join(PROJECT_ROOT, "data", "processed", "storico.csv")
 STORICO_REPORT_PATH = os.path.join(PROJECT_ROOT, "data", "processed", "storico_report.csv")
 
-API_KEY = os.getenv("API_FOOTBALL_KEY", "")
-HEADERS = {"x-apisports-key": API_KEY} if API_KEY else {}
 DEFAULT_TIMEOUT = 10
 FINISHED_STATUSES = {"FT", "AET", "PEN"}
 
@@ -93,44 +94,6 @@ def fetch_fixture_events(match_id):
         return response.json().get("response", [])
     except requests.RequestException:
         return []
-
-
-def fetch_fixture_odds(match_id, home_team, away_team):
-    if not HEADERS:
-        return {"home": "", "away": ""}
-    url = f"https://v3.football.api-sports.io/odds?fixture={match_id}"
-    try:
-        response = SESSION.get(url, headers=HEADERS, timeout=DEFAULT_TIMEOUT)
-        response.raise_for_status()
-        payload = response.json().get("response", [])
-        if not payload:
-            return {"home": "", "away": ""}
-
-        home_norm = normalize_text(home_team)
-        away_norm = normalize_text(away_team)
-        for market_container in payload:
-            bookmakers = market_container.get("bookmakers", [])
-            for bookmaker in bookmakers:
-                for bet in bookmaker.get("bets", []):
-                    values = bet.get("values", [])
-                    if not values:
-                        continue
-                    home_odd = ""
-                    away_odd = ""
-                    for item in values:
-                        raw_value = str(item.get("value", "")).strip()
-                        odd = str(item.get("odd", "")).strip()
-                        norm_value = normalize_text(raw_value)
-                        if norm_value in {"home", "1"} or norm_value == home_norm:
-                            home_odd = odd
-                        elif norm_value in {"away", "2"} or norm_value == away_norm:
-                            away_odd = odd
-
-                    if home_odd or away_odd:
-                        return {"home": home_odd, "away": away_odd}
-        return {"home": "", "away": ""}
-    except requests.RequestException:
-        return {"home": "", "away": ""}
 
 
 def _event_minute(event):
@@ -230,17 +193,6 @@ def compute_late_draw_cashout(selected_team, home_team, away_team, events, thres
     return False
 
 
-def pick_selected_odd(selected_team, home_team, away_team, odds):
-    selected_norm = normalize_text(selected_team)
-    home_norm = normalize_text(home_team)
-    away_norm = normalize_text(away_team)
-    if selected_norm == home_norm:
-        return odds.get("home", "")
-    if selected_norm == away_norm:
-        return odds.get("away", "")
-    return ""
-
-
 def compute_esito_from_scores(row):
     existing_esito = str(row.get("esito_pick", "")).strip().upper()
     if existing_esito == "VINTAP":
@@ -273,6 +225,18 @@ def compute_esito_from_scores(row):
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Genera il report storico dalle partite archiviate.")
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Ricalcola tutto ignorando lo storico_report.csv",
+    )
+    args = parser.parse_args()
+
+    if not API_KEY:
+        print("API_FOOTBALL_KEY non impostata. Esempio: export API_FOOTBALL_KEY=la_tua_chiave")
+        return
+
     if not os.path.exists(STORICO_PATH):
         print(f"Nessuno storico trovato: {STORICO_PATH}")
         return
@@ -283,7 +247,7 @@ def main():
         return
 
     report_existing = pd.DataFrame()
-    if os.path.exists(STORICO_REPORT_PATH):
+    if not args.force and os.path.exists(STORICO_REPORT_PATH):
         report_existing = pd.read_csv(STORICO_REPORT_PATH)
 
     if not report_existing.empty and "match_id" in report_existing.columns:
@@ -304,7 +268,6 @@ def main():
         )
 
     fixture_cache = {}
-    odds_cache = {}
     events_cache = {}
 
     rows = []
@@ -324,15 +287,25 @@ def main():
 
         home_team = fixture_data.get("home_team") or str(row.get("squadra in casa", "")).strip()
         away_team = fixture_data.get("away_team") or str(row.get("squadra fuori casa", "")).strip()
-        selected_team = str(row.get("squadra selezionata", "")).strip()
+
+        raw_selected = row.get("squadra selezionata", "")
+        if pd.isna(raw_selected):
+            selected_team = ""
+        else:
+            selected_team = str(raw_selected).strip()
+        if selected_team.lower() in {"nan", "none"}:
+            selected_team = ""
+
         if not selected_team:
             continue
 
-        if match_id not in odds_cache:
-            odds_cache[match_id] = fetch_fixture_odds(match_id, home_team, away_team)
-        odds = odds_cache.get(match_id, {"home": "", "away": ""})
-
-        selected_odd = pick_selected_odd(selected_team, home_team, away_team, odds)
+        raw_quota = row.get("quota", "")
+        if pd.isna(raw_quota):
+            selected_odd = ""
+        else:
+            selected_odd = str(raw_quota).strip()
+        if selected_odd.lower() in {"nan", "none"}:
+            selected_odd = ""
 
         home_score = fixture_data.get("home_score")
         away_score = fixture_data.get("away_score")

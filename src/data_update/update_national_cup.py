@@ -19,9 +19,14 @@ PROJECT_ROOT = project_loader.PROJECT_ROOT
 season_config = load_project_module("season_config", "season_config.py")
 STAGIONE_PRECEDENTE = season_config.STAGIONE_PRECEDENTE
 
+api_config = load_project_module("api_config", "api_config.py")
+API_KEY = api_config.API_KEY
+HEADERS = api_config.HEADERS
+if not API_KEY:
+    print("API_FOOTBALL_KEY non impostata. Esempio: export API_FOOTBALL_KEY=la_tua_chiave")
+    sys.exit(1)
+
 # Configurazione
-API_KEY = "691ccc74c6d55850f0b5c836ec0b10f2"
-HEADERS = {"x-apisports-key": API_KEY}
 DEFAULT_TIMEOUT = 10
 OUTPUT_PATH = os.path.join(PROJECT_ROOT, "data", "raw", "coppa_nazionale.csv")
 

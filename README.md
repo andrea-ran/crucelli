@@ -23,6 +23,21 @@ source venv/bin/activate  # Su Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
+### 3b. Configura la chiave API (obbligatoria)
+Scegli uno dei due metodi:
+
+**Metodo A (consigliato): file .env**
+1. Copia `.env.example` in `.env`
+2. Inserisci la tua chiave:
+```bash
+API_FOOTBALL_KEY=la_tua_chiave
+```
+
+**Metodo B: variabile d'ambiente**
+```bash
+export API_FOOTBALL_KEY="la_tua_chiave"
+```
+
 ### 4. Avvia l'interfaccia web
 ```bash
 python app.py
@@ -82,6 +97,7 @@ python app.py
 - `betting.py` aggiorna automaticamente `storico.csv`.
 - Se vuoi evitare l'aggiornamento automatico: `python src/queries/betting.py --skip-storico-update`.
 - Per generare il report analitico: `python src/queries/analisi_storico.py` (output in `data/processed/storico_report.csv`).
+- Per ricalcolare da zero: `python src/queries/analisi_storico.py --force`.
 
 Nota: se usi Windows con `.venv`, attiva prima l'ambiente virtuale (`.venv\Scripts\Activate.ps1`).
 

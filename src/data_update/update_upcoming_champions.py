@@ -11,10 +11,8 @@ import sys
 import importlib.util
 
 # === CONFIG ===
-API_KEY = "691ccc74c6d55850f0b5c836ec0b10f2"
 BASE_URL = "https://v3.football.api-sports.io"
 LEAGUE_ID = 2  # Champions League
-HEADERS = {"x-apisports-key": API_KEY}
 DEFAULT_TIMEOUT = 10
 
 def create_session(retries=3, backoff_factor=0.5, status_forcelist=(429, 500, 502, 503, 504)):
@@ -45,6 +43,13 @@ PROJECT_ROOT = project_loader.PROJECT_ROOT
 
 season_config = load_project_module("season_config", "season_config.py")
 STAGIONE_CORRENTE = season_config.STAGIONE_CORRENTE
+
+api_config = load_project_module("api_config", "api_config.py")
+API_KEY = api_config.API_KEY
+HEADERS = api_config.HEADERS
+if not API_KEY:
+    print("API_FOOTBALL_KEY non impostata. Esempio: export API_FOOTBALL_KEY=la_tua_chiave")
+    sys.exit(1)
 
 SEASON = STAGIONE_CORRENTE  # stagione corrente (2025/2026)
 # === CONFIG ===
