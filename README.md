@@ -98,6 +98,7 @@ python app.py
 - Se vuoi evitare l'aggiornamento automatico: `python src/queries/betting.py --skip-storico-update`.
 - Per generare il report analitico: `python src/queries/analisi_storico.py` (output in `data/processed/storico_report.csv`).
 - Per ricalcolare da zero: `python src/queries/analisi_storico.py --force`.
+- Il paracadute (VINTAP) scatta se il pareggio arriva dopo l'85'.
 
 Nota: se usi Windows con `.venv`, attiva prima l'ambiente virtuale (`.venv\Scripts\Activate.ps1`).
 

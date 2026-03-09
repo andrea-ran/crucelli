@@ -21,6 +21,7 @@ UPCOMING_PATH = "data/raw/upcoming_matches.csv"
 OUTPUT_PATH = "data/processed/bet.csv"
 STORICO_PATH = "data/processed/storico.csv"
 DEFAULT_TIMEOUT = 10
+ODDS_COLUMNS = ["quota_1", "quota_x", "quota_2"]
 
 PARSER = argparse.ArgumentParser(description="Genera bet.csv e aggiorna storico.csv")
 PARSER.add_argument(
@@ -54,16 +55,35 @@ def normalize_text(value):
     return text
 
 
+def is_missing(value):
+    return str(value).strip().lower() in {"", "nan", "none"}
+
+
+def _extract_match_odds(values, home_norm, away_norm):
+    odds = {"home": "", "draw": "", "away": ""}
+    for item in values:
+        raw_value = str(item.get("value", "")).strip()
+        odd = str(item.get("odd", "")).strip()
+        norm_value = normalize_text(raw_value)
+        if norm_value in {"home", "1"} or norm_value == home_norm:
+            odds["home"] = odd
+        elif norm_value in {"away", "2"} or norm_value == away_norm:
+            odds["away"] = odd
+        elif norm_value in {"draw", "x", "tie", "pareggio"}:
+            odds["draw"] = odd
+    return odds
+
+
 def fetch_fixture_odds(match_id, home_team, away_team):
     if not HEADERS:
-        return {"home": "", "away": ""}
+        return {"home": "", "draw": "", "away": ""}
     url = f"https://v3.football.api-sports.io/odds?fixture={match_id}"
     try:
         response = SESSION.get(url, headers=HEADERS, timeout=DEFAULT_TIMEOUT)
         response.raise_for_status()
         payload = response.json().get("response", [])
         if not payload:
-            return {"home": "", "away": ""}
+            return {"home": "", "draw": "", "away": ""}
 
         home_norm = normalize_text(home_team)
         away_norm = normalize_text(away_team)
@@ -74,22 +94,29 @@ def fetch_fixture_odds(match_id, home_team, away_team):
                     values = bet.get("values", [])
                     if not values:
                         continue
-                    home_odd = ""
-                    away_odd = ""
-                    for item in values:
-                        raw_value = str(item.get("value", "")).strip()
-                        odd = str(item.get("odd", "")).strip()
-                        norm_value = normalize_text(raw_value)
-                        if norm_value in {"home", "1"} or norm_value == home_norm:
-                            home_odd = odd
-                        elif norm_value in {"away", "2"} or norm_value == away_norm:
-                            away_odd = odd
+                    bet_name = normalize_text(bet.get("name", ""))
+                    if "1x2" not in bet_name and "match winner" not in bet_name and "full time result" not in bet_name and "fulltime result" not in bet_name:
+                        continue
+                    odds = _extract_match_odds(values, home_norm, away_norm)
+                    if odds["home"] or odds["away"] or odds["draw"]:
+                        return odds
 
-                    if home_odd or away_odd:
-                        return {"home": home_odd, "away": away_odd}
-        return {"home": "", "away": ""}
+        # Fallback: prendi il primo mercato disponibile
+        for market_container in payload:
+            bookmakers = market_container.get("bookmakers", [])
+            for bookmaker in bookmakers:
+                bets = bookmaker.get("bets", [])
+                if not bets:
+                    continue
+                values = bets[0].get("values", [])
+                if not values:
+                    continue
+                odds = _extract_match_odds(values, home_norm, away_norm)
+                if odds["home"] or odds["away"] or odds["draw"]:
+                    return odds
+        return {"home": "", "draw": "", "away": ""}
     except requests.RequestException:
-        return {"home": "", "away": ""}
+        return {"home": "", "draw": "", "away": ""}
 
 
 def pick_lowest_odd_team(home_team, away_team, odds):
@@ -151,33 +178,91 @@ def apply_direct_match_selection(df_out):
     return df_out
 
 
-def apply_selected_odds(df_out):
+def apply_odds(df_out):
     if df_out.empty:
         return df_out
     if not API_KEY:
         print("API_FOOTBALL_KEY non impostata: quote non disponibili.")
         if "quota" not in df_out.columns:
             df_out["quota"] = ""
+        for col in ODDS_COLUMNS:
+            if col not in df_out.columns:
+                df_out[col] = ""
         return df_out
 
     odds_cache = {}
     if "quota" not in df_out.columns:
         df_out["quota"] = ""
+    for col in ODDS_COLUMNS:
+        if col not in df_out.columns:
+            df_out[col] = ""
 
     for idx, row in df_out.iterrows():
         match_id = str(row.get("match_id", "")).strip()
         home_team = str(row.get("squadra in casa", "")).strip()
         away_team = str(row.get("squadra fuori casa", "")).strip()
-        selected_team = str(row.get("squadra selezionata", "")).strip()
-        if not match_id or not home_team or not away_team or not selected_team:
+        if not match_id or not home_team or not away_team:
             continue
 
         if match_id not in odds_cache:
             odds_cache[match_id] = fetch_fixture_odds(match_id, home_team, away_team)
-        odds = odds_cache.get(match_id, {"home": "", "away": ""})
-        df_out.at[idx, "quota"] = pick_selected_odd(selected_team, home_team, away_team, odds)
+        odds = odds_cache.get(match_id, {"home": "", "draw": "", "away": ""})
+        df_out.at[idx, "quota_1"] = odds.get("home", "")
+        df_out.at[idx, "quota_x"] = odds.get("draw", "")
+        df_out.at[idx, "quota_2"] = odds.get("away", "")
+
+        selected_team = str(row.get("squadra selezionata", "")).strip()
+        if selected_team:
+            df_out.at[idx, "quota"] = pick_selected_odd(selected_team, home_team, away_team, odds)
 
     return df_out
+
+
+def apply_direct_match_favorites(storico_df, selected_teams):
+    if storico_df.empty or not selected_teams or not API_KEY:
+        return storico_df
+
+    odds_cache = {}
+    selected_set = {str(team).strip().lower() for team in selected_teams}
+
+    if "quota" not in storico_df.columns:
+        storico_df["quota"] = ""
+    for col in ODDS_COLUMNS:
+        if col not in storico_df.columns:
+            storico_df[col] = ""
+
+    for idx, row in storico_df.iterrows():
+        home_team = str(row.get("squadra in casa", "")).strip()
+        away_team = str(row.get("squadra fuori casa", "")).strip()
+        if not home_team or not away_team:
+            continue
+
+        if home_team.lower() not in selected_set or away_team.lower() not in selected_set:
+            continue
+
+        match_id = str(row.get("match_id", "")).strip()
+        if not match_id:
+            continue
+
+        if match_id not in odds_cache:
+            odds_cache[match_id] = fetch_fixture_odds(match_id, home_team, away_team)
+        odds = odds_cache.get(match_id, {"home": "", "draw": "", "away": ""})
+        preferred = pick_lowest_odd_team(home_team, away_team, odds)
+        if not preferred:
+            continue
+
+        selected_odd = pick_selected_odd(preferred, home_team, away_team, odds)
+        storico_df.at[idx, "squadra selezionata"] = preferred
+        if is_missing(storico_df.at[idx, "quota_1"]):
+            storico_df.at[idx, "quota_1"] = odds.get("home", "")
+        if is_missing(storico_df.at[idx, "quota_x"]):
+            storico_df.at[idx, "quota_x"] = odds.get("draw", "")
+        if is_missing(storico_df.at[idx, "quota_2"]):
+            storico_df.at[idx, "quota_2"] = odds.get("away", "")
+        if selected_odd:
+            storico_df.at[idx, "quota"] = selected_odd
+
+    return storico_df
 
 
 def backfill_missing_quotes():
@@ -195,44 +280,95 @@ def backfill_missing_quotes():
 
     if "quota" not in storico_df.columns:
         storico_df["quota"] = ""
+    for col in ODDS_COLUMNS:
+        if col not in storico_df.columns:
+            storico_df[col] = ""
     storico_df["quota"] = storico_df["quota"].astype("string").fillna("")
+    for col in ODDS_COLUMNS:
+        storico_df[col] = storico_df[col].astype("string").fillna("")
 
-    missing_mask = storico_df["quota"].astype(str).str.strip() == ""
+    missing_mask = pd.Series(False, index=storico_df.index)
+    quota_norm = storico_df["quota"].astype(str).str.strip().str.lower()
+    missing_mask |= quota_norm.isin(["", "nan", "none"])
+    for col in ODDS_COLUMNS:
+        col_norm = storico_df[col].astype(str).str.strip().str.lower()
+        missing_mask |= col_norm.isin(["", "nan", "none"])
     if not missing_mask.any():
         print("Nessuna quota mancante da riempire.")
         return
 
     odds_cache = {}
     updated = 0
+    skipped_missing_fields = 0
+    missing_logged = 0
+    missing_log_limit = 20
     for idx, row in storico_df[missing_mask].iterrows():
         match_id = str(row.get("match_id", "")).strip()
         home_team = str(row.get("squadra in casa", "")).strip()
         away_team = str(row.get("squadra fuori casa", "")).strip()
         selected_team = str(row.get("squadra selezionata", "")).strip()
-        if not match_id or not home_team or not away_team or not selected_team:
+        if not match_id or not home_team or not away_team:
+            skipped_missing_fields += 1
             continue
 
         if match_id not in odds_cache:
             odds_cache[match_id] = fetch_fixture_odds(match_id, home_team, away_team)
-        odds = odds_cache.get(match_id, {"home": "", "away": ""})
-        selected_odd = pick_selected_odd(selected_team, home_team, away_team, odds)
-        if selected_odd:
-            storico_df.at[idx, "quota"] = selected_odd
+        odds = odds_cache.get(match_id, {"home": "", "draw": "", "away": ""})
+        row_updated = False
+
+        if is_missing(storico_df.at[idx, "quota_1"]):
+            storico_df.at[idx, "quota_1"] = odds.get("home", "")
+            row_updated = row_updated or bool(odds.get("home", ""))
+        if is_missing(storico_df.at[idx, "quota_x"]):
+            storico_df.at[idx, "quota_x"] = odds.get("draw", "")
+            row_updated = row_updated or bool(odds.get("draw", ""))
+        if is_missing(storico_df.at[idx, "quota_2"]):
+            storico_df.at[idx, "quota_2"] = odds.get("away", "")
+            row_updated = row_updated or bool(odds.get("away", ""))
+
+        if selected_team and is_missing(storico_df.at[idx, "quota"]):
+            selected_odd = pick_selected_odd(selected_team, home_team, away_team, odds)
+            if selected_odd:
+                storico_df.at[idx, "quota"] = selected_odd
+                row_updated = True
+
+        if row_updated:
             updated += 1
+        elif missing_logged < missing_log_limit:
+            home_odd = str(odds.get("home", "")).strip()
+            draw_odd = str(odds.get("draw", "")).strip()
+            away_odd = str(odds.get("away", "")).strip()
+            print(
+                "Quote non trovate",
+                f"match_id={match_id}",
+                f"home={home_team}",
+                f"away={away_team}",
+                f"selected={selected_team}",
+                f"odds_home={home_odd}",
+                f"odds_draw={draw_odd}",
+                f"odds_away={away_odd}",
+            )
+            missing_logged += 1
 
     if updated:
         storico_df.to_csv(STORICO_PATH, index=False)
+    if skipped_missing_fields:
+        print(f"Righe saltate per campi mancanti: {skipped_missing_fields}")
     print(f"Quote riempite: {updated}")
 
 
-def append_and_update_storico(df_bet):
+def append_and_update_storico(df_bet, selected_teams=None):
     storico_min_cols = [
         "match_id",
         "data",
         "squadra selezionata",
         "squadra in casa",
         "squadra fuori casa",
+        "SC",
         "quota",
+        "quota_1",
+        "quota_x",
+        "quota_2",
     ]
 
     if os.path.exists(STORICO_PATH):
@@ -252,17 +388,28 @@ def append_and_update_storico(df_bet):
 
     if "quota" in storico_df.columns:
         storico_df["quota"] = storico_df["quota"].astype("string").fillna("")
+    for col in ODDS_COLUMNS:
+        storico_df[col] = storico_df[col].astype("string").fillna("")
 
     if not df_bet.empty:
         df_all = df_bet.copy()
         df_all["data"] = df_all["data"].astype(str).str.split(" ore").str[0].str.strip()
+        if "SC" not in df_all.columns:
+            df_all["SC"] = ""
+        for col in ["quota"] + ODDS_COLUMNS:
+            if col not in df_all.columns:
+                df_all[col] = ""
         df_all_min = df_all[[
             "match_id",
             "data",
             "squadra selezionata",
             "squadra in casa",
             "squadra fuori casa",
+            "SC",
             "quota",
+            "quota_1",
+            "quota_x",
+            "quota_2",
         ]].copy()
 
         storico_df["_key"] = storico_df["match_id"].astype(str).str.strip()
@@ -280,15 +427,29 @@ def append_and_update_storico(df_bet):
                 storico_df.loc[missing_mask, "_key"].map(selected_map)
             )
 
-        quota_map = df_all_min.set_index("_key")["quota"]
-        quota_map = quota_map.dropna().astype(str).str.strip()
-        quota_map = quota_map[quota_map != ""]
-        if not quota_map.empty:
+        sc_map = df_all_min.set_index("_key")["SC"]
+        sc_map = sc_map.dropna().astype(str).str.strip()
+        sc_map = sc_map[sc_map != ""]
+        if not sc_map.empty:
+            missing_sc_mask = (
+                storico_df["_key"].isin(sc_map.index)
+                & (storico_df["SC"].astype(str).str.strip() == "")
+            )
+            storico_df.loc[missing_sc_mask, "SC"] = (
+                storico_df.loc[missing_sc_mask, "_key"].map(sc_map)
+            )
+
+        for col in ["quota"] + ODDS_COLUMNS:
+            quota_map = df_all_min.set_index("_key")[col]
+            quota_map = quota_map.dropna().astype(str).str.strip()
+            quota_map = quota_map[quota_map != ""]
+            if quota_map.empty:
+                continue
             missing_quota_mask = (
                 storico_df["_key"].isin(quota_map.index)
-                & (storico_df["quota"].astype(str).str.strip() == "")
+                & (storico_df[col].astype(str).str.strip() == "")
             )
-            storico_df.loc[missing_quota_mask, "quota"] = (
+            storico_df.loc[missing_quota_mask, col] = (
                 storico_df.loc[missing_quota_mask, "_key"].map(quota_map)
             )
 
@@ -305,6 +466,7 @@ def append_and_update_storico(df_bet):
         pass
 
     os.makedirs(os.path.dirname(STORICO_PATH), exist_ok=True)
+    storico_df = apply_direct_match_favorites(storico_df, selected_teams)
     storico_df.to_csv(STORICO_PATH, index=False)
 
 
@@ -382,15 +544,20 @@ if team_next_match:
     df_out = df_out.sort_values("data_sort").drop(columns=["data_sort"])
 
     df_out = apply_direct_match_selection(df_out)
-    df_out = apply_selected_odds(df_out)
+    df_out = apply_odds(df_out)
 
-    append_and_update_storico(df_out.copy())
+    append_and_update_storico(df_out.copy(), selected_teams=selected_teams)
 
     df_out = df_out[df_out["oggi"] == "OGGI"].copy()
     df_out = df_out.drop(columns=["match_id"], errors="ignore")
+    df_out.insert(0, "n", range(1, len(df_out) + 1))
     colonne_finali = [
+        "n",
         "squadra selezionata",
         "quota",
+        "quota_1",
+        "quota_x",
+        "quota_2",
         "squadra in casa",
         "squadra fuori casa",
         "data",
@@ -410,7 +577,7 @@ if team_next_match:
     print(f"✅ Merge completato. File salvato in {OUTPUT_PATH}\n")
     print(f"✅ Storico aggiornato in {STORICO_PATH}\n")
 else:
-    append_and_update_storico(pd.DataFrame())
+    append_and_update_storico(pd.DataFrame(), selected_teams=selected_teams)
     print("Nessuna partita trovata per le squadre selezionate.")
 
 if ARGS.backfill_quotes:

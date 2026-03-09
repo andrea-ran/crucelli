@@ -136,7 +136,7 @@ def _scoring_side(event_team, home_team, away_team, detail):
     return side
 
 
-def compute_late_draw_cashout(selected_team, home_team, away_team, events, threshold_minute=89):
+def compute_late_draw_cashout(selected_team, home_team, away_team, events, threshold_minute=85):
     selected_norm = normalize_team_name(selected_team)
     home_norm = normalize_team_name(home_team)
     away_norm = normalize_team_name(away_team)
@@ -183,10 +183,13 @@ def compute_late_draw_cashout(selected_team, home_team, away_team, events, thres
         if side != opponent_side:
             continue
 
+        pre_home = score_home - (1 if side == "home" else 0)
+        pre_away = score_away - (1 if side == "away" else 0)
+
         if selected_side == "home":
-            was_selected_leading = (score_home - 1) > score_away
+            was_selected_leading = pre_home > pre_away
         else:
-            was_selected_leading = (score_away - 1) > score_home
+            was_selected_leading = pre_away > pre_home
 
         now_draw = score_home == score_away
         if was_selected_leading and now_draw and minute > threshold_minute:
@@ -264,14 +267,40 @@ def main():
         print(f"Nessuno storico trovato: {STORICO_PATH}")
         return
 
+    cutoff_date = datetime(2026, 3, 1)
+
     storico_df = pd.read_csv(STORICO_PATH)
     if storico_df.empty or "match_id" not in storico_df.columns:
         print("Storico vuoto o privo di match_id, nessuna analisi eseguita.")
         return
 
+    if "data" in storico_df.columns:
+        storico_df["_data_raw"] = storico_df["data"].astype(str).str.split(" ore").str[0].str.strip()
+        storico_df["_data_dt"] = pd.to_datetime(
+            storico_df["_data_raw"],
+            format="%d/%m/%y",
+            errors="coerce",
+        )
+        storico_df = storico_df[storico_df["_data_dt"].notna()].copy()
+        storico_df = storico_df[storico_df["_data_dt"] >= cutoff_date].copy()
+        storico_df = storico_df.drop(columns=["_data_raw", "_data_dt"], errors="ignore")
+
     report_existing = pd.DataFrame()
     if not args.force and os.path.exists(STORICO_REPORT_PATH):
         report_existing = pd.read_csv(STORICO_REPORT_PATH)
+
+    if "data" in report_existing.columns:
+        report_existing["_data_raw"] = (
+            report_existing["data"].astype(str).str.split(" ore").str[0].str.strip()
+        )
+        report_existing["_data_dt"] = pd.to_datetime(
+            report_existing["_data_raw"],
+            format="%d/%m/%y",
+            errors="coerce",
+        )
+        report_existing = report_existing[report_existing["_data_dt"].notna()].copy()
+        report_existing = report_existing[report_existing["_data_dt"] >= cutoff_date].copy()
+        report_existing = report_existing.drop(columns=["_data_raw", "_data_dt"], errors="ignore")
 
     if not report_existing.empty and "match_id" in report_existing.columns:
         report_existing["match_id"] = report_existing["match_id"].astype(str).str.strip()
@@ -354,7 +383,7 @@ def main():
                 home_team=home_team,
                 away_team=away_team,
                 events=events,
-                threshold_minute=89,
+                threshold_minute=85,
             ):
                 esito_pick = "VINTAP"
 
@@ -388,16 +417,21 @@ def main():
     )
     report_df = report_df[mask_giocata].copy()
 
+    if not report_existing.empty and "match_id" in report_existing.columns:
+        updated_ids = set(report_df["match_id"].astype(str).str.strip().tolist())
+        existing_keep = report_existing[~report_existing["match_id"].isin(updated_ids)].copy()
+        report_df = pd.concat([report_df, existing_keep], ignore_index=True)
+
+    for col in ["hs", "as"]:
+        if col in report_df.columns:
+            col_num = pd.to_numeric(report_df[col], errors="coerce")
+            report_df[col] = col_num.map(lambda v: "" if pd.isna(v) else str(int(v)))
+
     try:
         report_df["data_sort"] = pd.to_datetime(report_df["data"], format="%d/%m/%y")
         report_df = report_df.sort_values("data_sort", ascending=False).drop(columns=["data_sort"])
     except Exception as exc:
         print(f"[WARN] Ordinamento per data fallito: {exc}")
-
-    if not report_existing.empty and "match_id" in report_existing.columns:
-        updated_ids = set(report_df["match_id"].astype(str).str.strip().tolist())
-        existing_keep = report_existing[~report_existing["match_id"].isin(updated_ids)].copy()
-        report_df = pd.concat([existing_keep, report_df], ignore_index=True)
 
     profit_series = pd.to_numeric(report_df.get("profitto"), errors="coerce")
     total_profit = profit_series.sum(min_count=1)

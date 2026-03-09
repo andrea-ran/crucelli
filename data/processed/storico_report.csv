@@ -1,17 +1,43 @@
-match_id,data,squadra selezionata,squadra in casa,squadra fuori casa,hs,as,vincitore,esito_pick,quota
-1378126,28/02/26,inter,inter,genoa,2.0,0.0,Inter,VINTA,1.32
-1378133,28/02/26,napoli,hellas verona,napoli,1.0,2.0,Napoli,VINTA,1.66
-1379244,28/02/26,manchester city,leeds,manchester city,0.0,1.0,Manchester City,VINTA,1.66
-1381086,28/02/26,psv eindhoven,heracles,psv eindhoven,1.0,3.0,PSV Eindhoven,VINTA,1.29
-1387905,28/02/26,paris saint germain,le havre,paris saint germain,0.0,1.0,Paris Saint Germain,VINTA,1.26
-1388516,28/02/26,bayer leverkusen,bayer leverkusen,fsv mainz 05,1.0,1.0,pareggio,PERSA,
-1388518,28/02/26,borussia dortmund,borussia dortmund,bayern munich,2.0,3.0,Bayern München,PERSA,4.0
-1391069,28/02/26,villarreal,barcelona,villarreal,4.0,1.0,Barcelona,PERSA,6.0
-1391077,28/02/26,atletico madrid,oviedo,atletico madrid,0.0,1.0,Atletico Madrid,VINTA,1.81
-1394642,28/02/26,galatasaray,galatasaray,alanyaspor,3.0,1.0,Galatasaray,VINTA,
-1436126,28/02/26,al-nassr,al-fayha,al-nassr,1.0,3.0,Al-Nassr,VINTA,1.22
-1379248,27/02/26,aston villa,wolves,aston villa,2.0,0.0,Wolves,PERSA,1.81
-1387913,27/02/26,lens,strasbourg,lens,1.0,1.0,pareggio,PERSA,2.9
-1396446,27/02/26,fc porto,fc porto,arouca,3.0,1.0,FC Porto,VINTA,
-1396450,27/02/26,sporting cp,sporting cp,estoril,3.0,0.0,Sporting CP,VINTA,
-1436123,27/02/26,al-hilal saudi fc,al shabab,al-hilal saudi fc,3.0,5.0,Al-Hilal Saudi FC,VINTA,
+match_id,profitto,ROI %,Successo %,PF,data,squadra selezionata,squadra in casa,squadra fuori casa,hs,as,vincitore,esito_pick,quota
+TOTALE,8.51,20.76,68.29,1.65,,,,,,,,,
+1378142,-1.0,,,,08/03/26,inter,AC Milan,Inter,1,0,AC Milan,PERSA,2.34
+1396454,-1.0,,,,08/03/26,benfica,Benfica,FC Porto,2,2,pareggio,PERSA,2.0
+1394653,0.45,,,,08/03/26,fenerbahce,Fenerbahçe,Samsunspor,3,2,Fenerbahçe,VINTA,1.45
+1378138,-1.0,,,,08/03/26,as roma,Genoa,AS Roma,2,1,Genoa,PERSA,1.9
+1387918,-1.0,,,,08/03/26,lyon,Lyon,Paris FC,1,1,pareggio,PERSA,1.7
+1381096,-1.0,,,,08/03/26,feyenoord,NAC Breda,Feyenoord,3,2,NAC Breda,PERSA,1.88
+1387916,0.26,,,,08/03/26,lens,Lens,Metz,3,0,Lens,VINTA,1.26
+1384040,1.18,,,,08/03/26,dinamo zagreb,HNK Hajduk Split,Dinamo Zagreb,1,3,Dinamo Zagreb,VINTA,2.18
+1391088,0.49,,,,08/03/26,villarreal,Villarreal,Elche,2,1,Villarreal,VINTA,1.49
+1396455,0.94,,,,07/03/26,sporting cp,SC Braga,Sporting CP,2,2,pareggio,VINTAP,1.94
+1388525,0.85,,,,07/03/26,borussia dortmund,1. FC Köln,Borussia Dortmund,1,2,Borussia Dortmund,VINTA,1.85
+1394651,1.5,,,,07/03/26,galatasaray,Beşiktaş,Galatasaray,0,1,Galatasaray,VINTA,2.5
+1381094,-1.0,,,,07/03/26,ajax,Groningen,Ajax,3,1,Groningen,PERSA,2.28
+1436133,0.25,,,,07/03/26,al-nassr,Al-Nassr,NEOM,1,0,Al-Nassr,VINTA,1.25
+1391080,0.66,,,,07/03/26,atletico madrid,Atletico Madrid,Real Sociedad,3,2,Atletico Madrid,VINTA,1.66
+1388526,1.32,,,,07/03/26,bayer leverkusen,SC Freiburg,Bayer Leverkusen,3,3,pareggio,VINTAP,2.32
+1381098,0.32,,,,07/03/26,psv eindhoven,PSV Eindhoven,AZ Alkmaar,2,1,PSV Eindhoven,VINTA,1.32
+1387922,1.18,,,,07/03/26,marseille,Toulouse,Marseille,0,1,Marseille,VINTA,2.18
+1391079,0.67,,,,07/03/26,barcelona,Athletic Club,Barcelona,0,1,Barcelona,VINTA,1.67
+1436136,0.85,,,,06/03/26,al-ahli jeddah,Al-Ahli Jeddah,Al-Ittihad FC,3,1,Al-Ahli Jeddah,VINTA,1.85
+1378143,0.55,,,,06/03/26,napoli,Napoli,Torino,2,1,Napoli,VINTA,1.55
+1436135,0.08,,,,06/03/26,al-hilal saudi fc,Al-Hilal Saudi FC,Al Najma,4,0,Al-Hilal Saudi FC,VINTA,1.08
+1387921,-1.0,,,,06/03/26,paris saint germain,Paris Saint Germain,Monaco,1,3,Monaco,PERSA,1.35
+1391081,1.26,,,,06/03/26,real madrid,Celta Vigo,Real Madrid,1,2,Real Madrid,VINTA,2.26
+1388524,0.21,,,,06/03/26,bayern munich,Bayern München,Borussia Mönchengladbach,4,1,Bayern München,VINTA,1.21
+1379255,-1.0,,,,04/03/26,manchester city,Manchester City,Nottingham Forest,2,2,pareggio,PERSA,1.41
+1379251,0.65,,,,04/03/26,arsenal,Brighton,Arsenal,0,1,Arsenal,VINTA,1.65
+1388455,0.9,,,,04/03/26,bayer leverkusen,Hamburger SV,Bayer Leverkusen,0,1,Bayer Leverkusen,VINTA,1.9
+1379249,1.44,,,,04/03/26,chelsea,Aston Villa,Chelsea,1,4,Chelsea,VINTA,2.44
+1382810,0.53,,,,04/03/26,celtic,Aberdeen,Celtic,1,2,Celtic,VINTA,1.53
+1379258,-1.0,,,,03/03/26,liverpool,Wolves,Liverpool,2,1,Wolves,PERSA,1.45
+1396447,0.55,,,,02/03/26,benfica,GIL Vicente,Benfica,1,2,Benfica,VINTA,1.55
+1391076,-1.0,,,,02/03/26,real madrid,Real Madrid,Getafe,0,1,Getafe,PERSA,1.33
+1381091,-1.0,,,,01/03/26,ajax,PEC Zwolle,Ajax,0,0,pareggio,PERSA,1.71
+1382839,1.14,,,,01/03/26,rangers,Rangers,Celtic,2,2,pareggio,VINTAP,2.14
+1379239,0.49,,,,01/03/26,arsenal,Arsenal,Chelsea,2,1,Arsenal,VINTA,1.49
+1384034,0.28,,,,01/03/26,dinamo zagreb,Dinamo Zagreb,HNK Gorica,4,2,Dinamo Zagreb,VINTA,1.28
+1381089,-1.0,,,,01/03/26,feyenoord,Twente,Feyenoord,2,0,Twente,PERSA,2.98
+1394640,-1.0,,,,01/03/26,fenerbahce,Antalyaspor,Fenerbahçe,2,2,pareggio,PERSA,1.51
+1378129,1.58,,,,01/03/26,as roma,AS Roma,Juventus,3,3,pareggio,VINTAP,2.58
+1387908,0.93,,,,01/03/26,marseille,Marseille,Lyon,3,2,Marseille,VINTA,1.93

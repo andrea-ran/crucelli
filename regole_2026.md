@@ -78,3 +78,8 @@ o si sono classificate prima e seconda nella terzultima stagione > 2022/2023.
 
 SOLO PER LE PRIME DIECI GIORNATE DI CAMPIONATO:
 •⁠  ⁠considerare come stagione corrente quella precedente e (di conseguenza) come precedenti la penultima e la terzultima
+
+
+PARACADUTE (VINTAP)
+
+Il paracadute scatta se il pareggio arriva dopo l'85'.
