@@ -1,1 +1,5 @@
-n,squadra selezionata,squadra in casa,squadra fuori casa,data,oggi,SC,lega,2025,2024,filtri
+n,squadra selezionata,quota,quota_1,quota_x,quota_2,squadra in casa,squadra fuori casa,data,oggi,SC,lega,2025,2024,filtri
+1,fenerbahce,1.39,7.50,4.65,1.39,fatih karagumruk,fenerbahce,13/03/26 ore 17:00,OGGI,,super lig,2,2,"F1,F3,F4"
+2,al-ahli jeddah,2.62,2.55,3.35,2.62,al-qadisiyah fc,al-ahli jeddah,13/03/26 ore 19:00,OGGI,,saudi professional league,2,5,"F1,F4"
+3,marseille,1.43,1.43,4.40,7.00,marseille,auxerre,13/03/26 ore 19:45,OGGI,,ligue 1,3,2,F1
+4,villarreal,2.20,3.20,3.30,2.20,alaves,villarreal,13/03/26 ore 20:00,OGGI,,laliga,4,5,F1

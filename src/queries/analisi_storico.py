@@ -264,7 +264,7 @@ def main():
         return
 
     if not os.path.exists(STORICO_PATH):
-        print(f"Nessuno storico trovato: {STORICO_PATH}")
+        print(f"File da analizzare non trovato: {STORICO_PATH}")
         return
 
     cutoff_date = datetime(2026, 3, 1)
@@ -405,7 +405,7 @@ def main():
         rows.append(row_out)
 
     if not rows:
-        print("Nessun dato disponibile per il report storico.")
+        print("Nessun nuovo dato da analizzare.")
         return
 
     report_df = pd.DataFrame(rows)
