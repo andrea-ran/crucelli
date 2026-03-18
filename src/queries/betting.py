@@ -1,6 +1,7 @@
 import argparse
 import os
 import sys
+import shutil
 from datetime import datetime
 import unicodedata
 
@@ -18,6 +19,7 @@ from api_config import API_KEY, HEADERS
 # Usa solo l'output di regola_1 (F1). Se manca, esegui regola_1.py per generarlo.
 F1_PATH = "data/processed/selezione_regola_1.csv"
 UPCOMING_PATH = "data/raw/upcoming_matches.csv"
+ALL_MATCHES_CURRENT_PATH = "data/raw/all_matches_current.csv"
 OUTPUT_PATH = "data/processed/bet.csv"
 STORICO_PATH = "data/processed/storico.csv"
 DEFAULT_TIMEOUT = 10
@@ -28,6 +30,16 @@ PARSER.add_argument(
     "--backfill-quotes",
     action="store_true",
     help="Prova a riempire le quote mancanti in storico.csv",
+)
+PARSER.add_argument(
+    "--as-of-date",
+    help="Data di riferimento (YYYY-MM-DD o DD/MM/YY) per ricostruzioni retroattive.",
+)
+PARSER.add_argument(
+    "--matches-source",
+    choices=["upcoming", "all_current"],
+    default="upcoming",
+    help="Sorgente partite: upcoming (default) o all_current.",
 )
 ARGS = PARSER.parse_args()
 
@@ -57,6 +69,18 @@ def normalize_text(value):
 
 def is_missing(value):
     return str(value).strip().lower() in {"", "nan", "none"}
+
+
+def parse_as_of_date(value):
+    if not value:
+        return None
+    raw = str(value).strip()
+    for fmt in ("%Y-%m-%d", "%d/%m/%y", "%d/%m/%Y"):
+        try:
+            return datetime.strptime(raw, fmt).date()
+        except ValueError:
+            continue
+    raise ValueError("Formato data non valido per --as-of-date")
 
 
 def _extract_match_odds(values, home_norm, away_norm):
@@ -467,6 +491,12 @@ def append_and_update_storico(df_bet, selected_teams=None):
 
     os.makedirs(os.path.dirname(STORICO_PATH), exist_ok=True)
     storico_df = apply_direct_match_favorites(storico_df, selected_teams)
+    if os.path.exists(STORICO_PATH):
+        backup_dir = os.path.join(os.path.dirname(STORICO_PATH), "backup_storici")
+        os.makedirs(backup_dir, exist_ok=True)
+        date_tag = datetime.now().strftime("%d-%m-%Y")
+        backup_path = os.path.join(backup_dir, f"storico_{date_tag}.csv")
+        shutil.copy2(STORICO_PATH, backup_path)
     storico_df.to_csv(STORICO_PATH, index=False)
 
 
@@ -481,21 +511,26 @@ if "league_name" in df_agg.columns and "lega" not in df_agg.columns:
     df_agg = df_agg.rename(columns={"league_name": "lega"})
 print(f"Squadre filtrate caricate da: {F1_PATH}")
 
-if not os.path.exists(UPCOMING_PATH):
-    raise FileNotFoundError(f"File non trovato: {UPCOMING_PATH}")
-df_upcoming = pd.read_csv(UPCOMING_PATH)
-df_upcoming["date"] = pd.to_datetime(df_upcoming["date"], utc=True)
+as_of_date = parse_as_of_date(ARGS.as_of_date)
+if as_of_date is None:
+    as_of_date = datetime.now().date()
+as_of_utc = pd.Timestamp(as_of_date, tz="UTC").normalize()
 
-now_utc = pd.Timestamp.now(tz="UTC")
-today_utc = now_utc.normalize()
-if "status" in df_upcoming.columns:
+matches_source = ARGS.matches_source
+matches_path = UPCOMING_PATH if matches_source == "upcoming" else ALL_MATCHES_CURRENT_PATH
+if not os.path.exists(matches_path):
+    raise FileNotFoundError(f"File non trovato: {matches_path}")
+df_matches = pd.read_csv(matches_path)
+df_matches["date"] = pd.to_datetime(df_matches["date"], utc=True)
+
+if matches_source == "upcoming" and "status" in df_matches.columns:
     allowed_statuses = {"NS", "TBD"}
-    df_upcoming = df_upcoming[
-        (df_upcoming["date"].dt.normalize() >= today_utc) &
-        (df_upcoming["status"].astype(str).str.upper().isin(allowed_statuses))
+    df_matches = df_matches[
+        (df_matches["date"].dt.normalize() >= as_of_utc) &
+        (df_matches["status"].astype(str).str.upper().isin(allowed_statuses))
     ].copy()
 else:
-    df_upcoming = df_upcoming[df_upcoming["date"].dt.normalize() >= today_utc].copy()
+    df_matches = df_matches[df_matches["date"].dt.normalize() >= as_of_utc].copy()
 
 from collections import OrderedDict
 
@@ -507,8 +542,8 @@ for _, row in df_agg.iterrows():
     lega = row["lega"] if "lega" in row else ""
     rank_2025 = row["2025"] if "2025" in row else ""
     rank_2024 = row["2024"] if "2024" in row else ""
-    team_matches = df_upcoming[(df_upcoming["home_team"].str.strip().str.lower() == squadra) |
-                               (df_upcoming["away_team"].str.strip().str.lower() == squadra)].copy()
+    team_matches = df_matches[(df_matches["home_team"].str.strip().str.lower() == squadra) |
+                              (df_matches["away_team"].str.strip().str.lower() == squadra)].copy()
     if not team_matches.empty:
         next_match = team_matches.sort_values("date").iloc[0]
         scontro_diretto = "SI" if {
@@ -537,10 +572,9 @@ if team_next_match:
     df_out = df_out.drop_duplicates(subset=["squadre_set", "data"])
     df_out = df_out.drop(columns=["squadre_set"])
     df_out["data_sort"] = pd.to_datetime(df_out["data"], format="%d/%m/%y ore %H:%M")
-    today_date = datetime.now().date()
-    df_out = df_out[df_out["data_sort"].dt.date <= today_date].copy()
-    oggi = datetime.now().strftime("%d/%m/%y")
-    df_out["oggi"] = df_out["data"].apply(lambda x: "OGGI" if x.startswith(oggi) else "")
+    df_out = df_out[df_out["data_sort"].dt.date <= as_of_date].copy()
+    as_of_label = as_of_date.strftime("%d/%m/%y")
+    df_out["oggi"] = df_out["data"].apply(lambda x: "OGGI" if x.startswith(as_of_label) else "")
     df_out = df_out.sort_values("data_sort").drop(columns=["data_sort"])
 
     df_out = apply_direct_match_selection(df_out)

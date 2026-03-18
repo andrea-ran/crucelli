@@ -17,6 +17,7 @@ AUTH_ENABLED = bool(PASSWORD)
 
 BET_PATH = os.path.join('data', 'processed', 'bet.csv')
 STORICO_PATH = os.path.join('data', 'processed', 'storico.csv')
+SELEZIONE_PATH = os.path.join('data', 'processed', 'selezione_regola_1.csv')
 BETTING_SCRIPT = os.path.join('src', 'queries', 'betting.py')
 
 def login_required(f):
@@ -55,6 +56,12 @@ def logout():
 @login_required
 def index():
     msg = request.args.get('msg')
+    selezione_headers = None
+    selezione_rows = None
+    if os.path.exists(SELEZIONE_PATH):
+        df_sel = pd.read_csv(SELEZIONE_PATH)
+        selezione_headers = df_sel.columns.tolist()
+        selezione_rows = df_sel.fillna('').to_dict(orient='records')
     if os.path.exists(BET_PATH):
         df = pd.read_csv(BET_PATH)
         # Ordina sempre per data
@@ -64,26 +71,41 @@ def index():
                 df['data_sort'] = pd.to_datetime(df['data'], format="%d/%m/%y ore %H:%M", errors='raise')
             except Exception:
                 df['data_sort'] = pd.to_datetime(df['data'], format="%d/%m/%y", errors='coerce')
-            df = df.sort_values('data_sort').drop(columns=['data_sort'])
+            df = df.sort_values('data_sort', ascending=False).drop(columns=['data_sort'])
+        df = df.reset_index(drop=True)
         # Aggiungi numerazione da 1 come prima colonna (dopo ordinamento)
         df.insert(0, 'N', range(1, len(df) + 1))
         # Sostituisci NaN con stringa vuota nelle colonne dei filtri (F1-F4) e nella colonna 'oggi'
         for col in [f'F{i}' for i in range(1, 5)] + ['oggi']:
             if col in df.columns:
                 df[col] = df[col].fillna('')
-        # Passa i dati e le intestazioni al template, rimuovendo la colonna 'oggi' se presente
+        # Passa anche la lista degli indici delle righe da evidenziare (quelle con 'OGGI')
+        highlight_rows = []
         if 'oggi' in df.columns:
+            highlight_rows = df.index[df['oggi'] == 'OGGI'].tolist()
             df = df.drop(columns=['oggi'])
         table_headers = df.columns.tolist()
         table_rows = df.to_dict(orient='records')
-        # Passa anche la lista degli indici delle righe da evidenziare (quelle che erano 'OGGI')
-        highlight_rows = []
-        df_oggi = pd.read_csv(BET_PATH)
-        if 'oggi' in df_oggi.columns:
-            highlight_rows = df_oggi.index[df_oggi['oggi'] == 'OGGI'].tolist()
-        return render_template('index.html', table_headers=table_headers, table_rows=table_rows, highlight_rows=highlight_rows, msg=msg)
+        return render_template(
+            'index.html',
+            table_headers=table_headers,
+            table_rows=table_rows,
+            highlight_rows=highlight_rows,
+            msg=msg,
+            selezione_headers=selezione_headers,
+            selezione_rows=selezione_rows,
+        )
     else:
-        return render_template('index.html', table_headers=None, table_rows=None, highlight_rows=None, no_data=True, msg=msg)
+        return render_template(
+            'index.html',
+            table_headers=None,
+            table_rows=None,
+            highlight_rows=None,
+            no_data=True,
+            msg=msg,
+            selezione_headers=selezione_headers,
+            selezione_rows=selezione_rows,
+        )
 
 
 
@@ -99,7 +121,7 @@ def storico():
                 df['data_sort'] = pd.to_datetime(df['data'], format="%d/%m/%y ore %H:%M", errors='raise')
             except Exception:
                 df['data_sort'] = pd.to_datetime(df['data'], format="%d/%m/%y", errors='coerce')
-            df = df.sort_values('data_sort').drop(columns=['data_sort'])
+            df = df.sort_values('data_sort', ascending=False).drop(columns=['data_sort'])
         if 'match_id' in df.columns:
             df = df.drop(columns=['match_id'])
         df.insert(0, 'N', range(1, len(df) + 1))

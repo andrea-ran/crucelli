@@ -227,12 +227,12 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1436139,2026-03-12T19:00:00+00:00,307,saudi pro league,2025,al-hazm,al kholood,2.0,1.0,FT
 1436140,2026-03-12T19:00:00+00:00,307,saudi pro league,2025,al najma,damac,1.0,3.0,FT
 1436145,2026-03-12T19:00:00+00:00,307,saudi pro league,2025,neom,al taawon,2.0,2.0,FT
-1436146,2026-03-13T19:00:00+00:00,307,saudi pro league,2025,al-qadisiyah fc,al-ahli jeddah,,,NS
-1436142,2026-03-13T19:00:00+00:00,307,saudi pro league,2025,al-fayha,al-ettifaq,,,NS
-1436138,2026-03-13T19:00:00+00:00,307,saudi pro league,2025,al riyadh,al-ittihad fc,,,NS
-1436143,2026-03-14T19:00:00+00:00,307,saudi pro league,2025,al khaleej saihat,al-nassr,,,NS
-1436144,2026-03-14T19:00:00+00:00,307,saudi pro league,2025,al-fateh,al-hilal saudi fc,,,NS
-1436141,2026-03-14T19:00:00+00:00,307,saudi pro league,2025,al shabab,al okhdood,,,NS
+1436146,2026-03-13T19:00:00+00:00,307,saudi pro league,2025,al-qadisiyah fc,al-ahli jeddah,3.0,2.0,FT
+1436142,2026-03-13T19:00:00+00:00,307,saudi pro league,2025,al-fayha,al-ettifaq,1.0,0.0,FT
+1436138,2026-03-13T19:00:00+00:00,307,saudi pro league,2025,al riyadh,al-ittihad fc,3.0,1.0,FT
+1436143,2026-03-14T19:00:00+00:00,307,saudi pro league,2025,al khaleej saihat,al-nassr,0.0,5.0,FT
+1436144,2026-03-14T19:00:00+00:00,307,saudi pro league,2025,al-fateh,al-hilal saudi fc,0.0,1.0,FT
+1436141,2026-03-14T19:00:00+00:00,307,saudi pro league,2025,al shabab,al okhdood,2.0,0.0,FT
 1436151,2026-04-03T16:00:00+00:00,307,saudi pro league,2025,al kholood,al khaleej saihat,,,NS
 1436147,2026-04-03T16:15:00+00:00,307,saudi pro league,2025,al-ittihad fc,al-hazm,,,NS
 1436154,2026-04-03T18:00:00+00:00,307,saudi pro league,2025,al-nassr,al najma,,,NS
@@ -430,11 +430,11 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1384042,2026-03-07T16:15:00+00:00,210,hnl,2025,nk lokomotiva zagreb,nk varazdin,1.0,1.0,FT
 1384040,2026-03-08T14:00:00+00:00,210,hnl,2025,hnk hajduk split,dinamo zagreb,1.0,3.0,FT
 1384043,2026-03-08T16:45:00+00:00,210,hnl,2025,vukovar,hnk rijeka,0.0,1.0,FT
-1384048,2026-03-13T17:00:00+00:00,210,hnl,2025,nk varazdin,vukovar,,,NS
-1384046,2026-03-14T14:00:00+00:00,210,hnl,2025,nk osijek,hnk gorica,,,NS
-1384044,2026-03-14T16:15:00+00:00,210,hnl,2025,dinamo zagreb,nk slaven belupo,,,NS
-1384045,2026-03-15T14:00:00+00:00,210,hnl,2025,hnk hajduk split,nk lokomotiva zagreb,,,NS
-1384047,2026-03-15T16:45:00+00:00,210,hnl,2025,hnk rijeka,istra 1961,,,NS
+1384048,2026-03-13T17:00:00+00:00,210,hnl,2025,nk varazdin,vukovar,2.0,0.0,FT
+1384046,2026-03-14T14:00:00+00:00,210,hnl,2025,nk osijek,hnk gorica,0.0,0.0,FT
+1384044,2026-03-14T16:15:00+00:00,210,hnl,2025,dinamo zagreb,nk slaven belupo,4.0,2.0,FT
+1384045,2026-03-15T14:00:00+00:00,210,hnl,2025,hnk hajduk split,nk lokomotiva zagreb,2.0,1.0,FT
+1384047,2026-03-15T16:45:00+00:00,210,hnl,2025,hnk rijeka,istra 1961,0.0,2.0,FT
 1384050,2026-03-20T17:00:00+00:00,210,hnl,2025,istra 1961,nk varazdin,,,NS
 1384053,2026-03-21T14:00:00+00:00,210,hnl,2025,vukovar,hnk hajduk split,,,NS
 1384051,2026-03-21T16:15:00+00:00,210,hnl,2025,nk lokomotiva zagreb,dinamo zagreb,,,NS
@@ -443,7 +443,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1384054,2026-04-04T15:00:00+00:00,210,hnl,2025,dinamo zagreb,nk osijek,,,NS
 1384056,2026-04-04T15:00:00+00:00,210,hnl,2025,istra 1961,hnk hajduk split,,,NS
 1384057,2026-04-04T15:00:00+00:00,210,hnl,2025,nk slaven belupo,hnk rijeka,,,NS
-1384055,2026-04-04T15:00:00+00:00,210,hnl,2025,hnk gorica,nk varazdin,,,NS
+1384055,2026-04-04T15:00:00+00:00,210,hnl,2025,nk varazdin,hnk gorica,,,NS
 1384058,2026-04-04T15:00:00+00:00,210,hnl,2025,vukovar,nk lokomotiva zagreb,,,NS
 1384061,2026-04-11T15:00:00+00:00,210,hnl,2025,hnk rijeka,nk osijek,,,NS
 1384059,2026-04-11T15:00:00+00:00,210,hnl,2025,hnk hajduk split,hnk gorica,,,NS
@@ -710,15 +710,15 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1387920,2026-03-08T16:15:00+00:00,61,ligue 1,2025,nice,rennes,0.0,4.0,FT
 1387915,2026-03-08T16:15:00+00:00,61,ligue 1,2025,stade brestois 29,le havre,2.0,0.0,FT
 1387918,2026-03-08T19:45:00+00:00,61,ligue 1,2025,lyon,paris fc,1.0,1.0,FT
+1387926,2026-03-13T19:45:00+00:00,61,ligue 1,2025,marseille,auxerre,1.0,0.0,FT
+1387925,2026-03-14T16:00:00+00:00,61,ligue 1,2025,lorient,lens,2.0,1.0,FT
+1387923,2026-03-14T18:00:00+00:00,61,ligue 1,2025,angers,nice,0.0,2.0,FT
+1387928,2026-03-14T20:05:00+00:00,61,ligue 1,2025,monaco,stade brestois 29,2.0,0.0,FT
+1387931,2026-03-15T14:00:00+00:00,61,ligue 1,2025,strasbourg,paris fc,0.0,0.0,FT
+1387924,2026-03-15T16:15:00+00:00,61,ligue 1,2025,le havre,lyon,0.0,0.0,FT
+1387927,2026-03-15T16:15:00+00:00,61,ligue 1,2025,metz,toulouse,3.0,4.0,FT
+1387930,2026-03-15T19:45:00+00:00,61,ligue 1,2025,rennes,lille,1.0,2.0,FT
 1387929,2026-03-15T16:00:00+00:00,61,ligue 1,2025,paris saint germain,nantes,,,PST
-1387926,2026-03-13T19:45:00+00:00,61,ligue 1,2025,marseille,auxerre,,,NS
-1387925,2026-03-14T16:00:00+00:00,61,ligue 1,2025,lorient,lens,,,NS
-1387923,2026-03-14T18:00:00+00:00,61,ligue 1,2025,angers,nice,,,NS
-1387928,2026-03-14T20:05:00+00:00,61,ligue 1,2025,monaco,stade brestois 29,,,NS
-1387931,2026-03-15T14:00:00+00:00,61,ligue 1,2025,strasbourg,paris fc,,,NS
-1387924,2026-03-15T16:15:00+00:00,61,ligue 1,2025,le havre,lyon,,,NS
-1387927,2026-03-15T16:15:00+00:00,61,ligue 1,2025,metz,toulouse,,,NS
-1387930,2026-03-15T19:45:00+00:00,61,ligue 1,2025,rennes,lille,,,NS
 1387933,2026-03-20T19:45:00+00:00,61,ligue 1,2025,lens,angers,,,NS
 1387940,2026-03-21T16:00:00+00:00,61,ligue 1,2025,toulouse,lorient,,,NS
 1387932,2026-03-21T18:00:00+00:00,61,ligue 1,2025,auxerre,stade brestois 29,,,NS
@@ -1016,15 +1016,15 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1388525,2026-03-07T17:30:00+00:00,78,bundesliga,2025,1. fc koln,borussia dortmund,1.0,2.0,FT
 1388530,2026-03-08T14:30:00+00:00,78,bundesliga,2025,fc st. pauli,eintracht frankfurt,0.0,0.0,FT
 1388531,2026-03-08T16:30:00+00:00,78,bundesliga,2025,union berlin,werder bremen,1.0,4.0,FT
-1388534,2026-03-13T19:30:00+00:00,78,bundesliga,2025,borussia m'gladbach,fc st. pauli,,,NS
-1388535,2026-03-14T14:30:00+00:00,78,bundesliga,2025,borussia dortmund,fc augsburg,,,NS
-1388539,2026-03-14T14:30:00+00:00,78,bundesliga,2025,1899 hoffenheim,vfl wolfsburg,,,NS
-1388533,2026-03-14T14:30:00+00:00,78,bundesliga,2025,bayer leverkusen,bayern munich,,,NS
-1388536,2026-03-14T14:30:00+00:00,78,bundesliga,2025,eintracht frankfurt,1. fc heidenheim,,,NS
-1388538,2026-03-14T17:30:00+00:00,78,bundesliga,2025,hamburger sv,1. fc koln,,,NS
-1388541,2026-03-15T14:30:00+00:00,78,bundesliga,2025,werder bremen,fsv mainz 05,,,NS
-1388537,2026-03-15T16:30:00+00:00,78,bundesliga,2025,sc freiburg,union berlin,,,NS
-1388540,2026-03-15T18:30:00+00:00,78,bundesliga,2025,vfb stuttgart,rb leipzig,,,NS
+1388534,2026-03-13T19:30:00+00:00,78,bundesliga,2025,borussia m'gladbach,fc st. pauli,2.0,0.0,FT
+1388535,2026-03-14T14:30:00+00:00,78,bundesliga,2025,borussia dortmund,fc augsburg,2.0,0.0,FT
+1388539,2026-03-14T14:30:00+00:00,78,bundesliga,2025,1899 hoffenheim,vfl wolfsburg,1.0,1.0,FT
+1388533,2026-03-14T14:30:00+00:00,78,bundesliga,2025,bayer leverkusen,bayern munich,1.0,1.0,FT
+1388536,2026-03-14T14:30:00+00:00,78,bundesliga,2025,eintracht frankfurt,1. fc heidenheim,1.0,0.0,FT
+1388538,2026-03-14T17:30:00+00:00,78,bundesliga,2025,hamburger sv,1. fc koln,1.0,1.0,FT
+1388541,2026-03-15T14:30:00+00:00,78,bundesliga,2025,werder bremen,fsv mainz 05,0.0,2.0,FT
+1388537,2026-03-15T16:30:00+00:00,78,bundesliga,2025,sc freiburg,union berlin,0.0,1.0,FT
+1388540,2026-03-15T18:30:00+00:00,78,bundesliga,2025,vfb stuttgart,rb leipzig,1.0,0.0,FT
 1388548,2026-03-20T19:30:00+00:00,78,bundesliga,2025,rb leipzig,1899 hoffenheim,,,NS
 1388543,2026-03-21T14:30:00+00:00,78,bundesliga,2025,bayern munich,union berlin,,,NS
 1388550,2026-03-21T14:30:00+00:00,78,bundesliga,2025,vfl wolfsburg,werder bremen,,,NS
@@ -1388,17 +1388,17 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1379249,2026-03-04T19:30:00+00:00,39,premier league,2025,aston villa,chelsea,1.0,4.0,FT
 1379256,2026-03-04T20:15:00+00:00,39,premier league,2025,newcastle,manchester united,2.0,1.0,FT
 1379257,2026-03-05T20:00:00+00:00,39,premier league,2025,tottenham,crystal palace,1.0,3.0,FT
+1379261,2026-03-14T15:00:00+00:00,39,premier league,2025,burnley,bournemouth,0.0,0.0,FT
+1379267,2026-03-14T15:00:00+00:00,39,premier league,2025,sunderland,brighton,0.0,1.0,FT
+1379259,2026-03-14T17:30:00+00:00,39,premier league,2025,arsenal,everton,2.0,0.0,FT
+1379262,2026-03-14T17:30:00+00:00,39,premier league,2025,chelsea,newcastle,0.0,1.0,FT
+1379268,2026-03-14T20:00:00+00:00,39,premier league,2025,west ham,manchester city,1.0,1.0,FT
+1379265,2026-03-15T14:00:00+00:00,39,premier league,2025,manchester united,aston villa,3.0,1.0,FT
+1379263,2026-03-15T14:00:00+00:00,39,premier league,2025,crystal palace,leeds,0.0,0.0,FT
+1379266,2026-03-15T14:00:00+00:00,39,premier league,2025,nottingham forest,fulham,0.0,0.0,FT
+1379264,2026-03-15T16:30:00+00:00,39,premier league,2025,liverpool,tottenham,1.0,1.0,FT
+1379260,2026-03-16T20:00:00+00:00,39,premier league,2025,brentford,wolves,2.0,2.0,FT
 1379275,2026-03-21T15:00:00+00:00,39,premier league,2025,manchester city,crystal palace,,,PST
-1379261,2026-03-14T15:00:00+00:00,39,premier league,2025,burnley,bournemouth,,,NS
-1379267,2026-03-14T15:00:00+00:00,39,premier league,2025,sunderland,brighton,,,NS
-1379259,2026-03-14T17:30:00+00:00,39,premier league,2025,arsenal,everton,,,NS
-1379262,2026-03-14T17:30:00+00:00,39,premier league,2025,chelsea,newcastle,,,NS
-1379268,2026-03-14T20:00:00+00:00,39,premier league,2025,west ham,manchester city,,,NS
-1379265,2026-03-15T14:00:00+00:00,39,premier league,2025,manchester united,aston villa,,,NS
-1379263,2026-03-15T14:00:00+00:00,39,premier league,2025,crystal palace,leeds,,,NS
-1379266,2026-03-15T14:00:00+00:00,39,premier league,2025,nottingham forest,fulham,,,NS
-1379264,2026-03-15T16:30:00+00:00,39,premier league,2025,liverpool,tottenham,,,NS
-1379260,2026-03-16T20:00:00+00:00,39,premier league,2025,brentford,wolves,,,NS
 1379270,2026-03-20T20:00:00+00:00,39,premier league,2025,bournemouth,manchester united,,,NS
 1379271,2026-03-21T12:30:00+00:00,39,premier league,2025,brighton,liverpool,,,NS
 1379273,2026-03-21T15:00:00+00:00,39,premier league,2025,fulham,burnley,,,NS
@@ -1757,16 +1757,16 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1378138,2026-03-08T17:00:00+00:00,135,serie a,2025,genoa,as roma,2.0,1.0,FT
 1378142,2026-03-08T19:45:00+00:00,135,serie a,2025,ac milan,inter,1.0,0.0,FT
 1378140,2026-03-09T19:45:00+00:00,135,serie a,2025,lazio,sassuolo,2.0,1.0,FT
-1378151,2026-03-13T19:45:00+00:00,135,serie a,2025,torino,parma,,,NS
-1378146,2026-03-14T14:00:00+00:00,135,serie a,2025,inter,atalanta,,,NS
-1378148,2026-03-14T17:00:00+00:00,135,serie a,2025,napoli,lecce,,,NS
-1378152,2026-03-14T19:45:00+00:00,135,serie a,2025,udinese,juventus,,,NS
-1378153,2026-03-15T11:30:00+00:00,135,serie a,2025,hellas verona,genoa,,,NS
-1378150,2026-03-15T14:00:00+00:00,135,serie a,2025,sassuolo,bologna,,,NS
-1378149,2026-03-15T14:00:00+00:00,135,serie a,2025,pisa,cagliari,,,NS
-1378144,2026-03-15T17:00:00+00:00,135,serie a,2025,como,as roma,,,NS
-1378147,2026-03-15T19:45:00+00:00,135,serie a,2025,lazio,ac milan,,,NS
-1378145,2026-03-16T19:45:00+00:00,135,serie a,2025,cremonese,fiorentina,,,NS
+1378151,2026-03-13T19:45:00+00:00,135,serie a,2025,torino,parma,4.0,1.0,FT
+1378146,2026-03-14T14:00:00+00:00,135,serie a,2025,inter,atalanta,1.0,1.0,FT
+1378148,2026-03-14T17:00:00+00:00,135,serie a,2025,napoli,lecce,2.0,1.0,FT
+1378152,2026-03-14T19:45:00+00:00,135,serie a,2025,udinese,juventus,0.0,1.0,FT
+1378153,2026-03-15T11:30:00+00:00,135,serie a,2025,hellas verona,genoa,0.0,2.0,FT
+1378150,2026-03-15T14:00:00+00:00,135,serie a,2025,sassuolo,bologna,0.0,1.0,FT
+1378149,2026-03-15T14:00:00+00:00,135,serie a,2025,pisa,cagliari,3.0,1.0,FT
+1378144,2026-03-15T17:00:00+00:00,135,serie a,2025,como,as roma,2.0,1.0,FT
+1378147,2026-03-15T19:45:00+00:00,135,serie a,2025,lazio,ac milan,1.0,0.0,FT
+1378145,2026-03-16T19:45:00+00:00,135,serie a,2025,cremonese,fiorentina,1.0,4.0,FT
 1378156,2026-03-20T17:30:00+00:00,135,serie a,2025,cagliari,napoli,,,NS
 1378159,2026-03-20T19:45:00+00:00,135,serie a,2025,genoa,udinese,,,NS
 1378162,2026-03-21T14:00:00+00:00,135,serie a,2025,parma,cremonese,,,NS
@@ -2091,15 +2091,15 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1381093,2026-03-08T13:30:00+00:00,88,eredivisie,2025,go ahead eagles,twente,1.0,4.0,FT
 1381096,2026-03-08T15:45:00+00:00,88,eredivisie,2025,nac breda,feyenoord,3.0,3.0,FT
 1381097,2026-03-08T19:00:00+00:00,88,eredivisie,2025,nec nijmegen,fc volendam,3.0,0.0,FT
-1381109,2026-03-13T19:00:00+00:00,88,eredivisie,2025,pec zwolle,groningen,,,NS
-1381103,2026-03-14T15:30:00+00:00,88,eredivisie,2025,fc volendam,fortuna sittard,,,NS
-1381107,2026-03-14T17:45:00+00:00,88,eredivisie,2025,psv eindhoven,nec nijmegen,,,NS
-1381106,2026-03-14T19:00:00+00:00,88,eredivisie,2025,heerenveen,telstar,,,NS
-1381101,2026-03-14T20:00:00+00:00,88,eredivisie,2025,ajax,sparta rotterdam,,,NS
-1381108,2026-03-15T11:15:00+00:00,88,eredivisie,2025,twente,utrecht,,,NS
-1381102,2026-03-15T13:30:00+00:00,88,eredivisie,2025,az alkmaar,heracles,,,NS
-1381104,2026-03-15T13:30:00+00:00,88,eredivisie,2025,feyenoord,excelsior,,,NS
-1381105,2026-03-15T15:45:00+00:00,88,eredivisie,2025,go ahead eagles,nac breda,,,NS
+1381109,2026-03-13T19:00:00+00:00,88,eredivisie,2025,pec zwolle,groningen,1.0,1.0,FT
+1381103,2026-03-14T15:30:00+00:00,88,eredivisie,2025,fc volendam,fortuna sittard,1.0,2.0,FT
+1381107,2026-03-14T17:45:00+00:00,88,eredivisie,2025,psv eindhoven,nec nijmegen,2.0,3.0,FT
+1381106,2026-03-14T19:00:00+00:00,88,eredivisie,2025,heerenveen,telstar,3.0,0.0,FT
+1381101,2026-03-14T20:00:00+00:00,88,eredivisie,2025,ajax,sparta rotterdam,4.0,0.0,FT
+1381108,2026-03-15T11:15:00+00:00,88,eredivisie,2025,twente,utrecht,0.0,2.0,FT
+1381102,2026-03-15T13:30:00+00:00,88,eredivisie,2025,az alkmaar,heracles,4.0,0.0,FT
+1381104,2026-03-15T13:30:00+00:00,88,eredivisie,2025,feyenoord,excelsior,2.0,1.0,FT
+1381105,2026-03-15T15:45:00+00:00,88,eredivisie,2025,go ahead eagles,nac breda,6.0,0.0,FT
 1381112,2026-03-20T19:00:00+00:00,88,eredivisie,2025,heracles,excelsior,,,NS
 1381114,2026-03-21T15:30:00+00:00,88,eredivisie,2025,fortuna sittard,twente,,,NS
 1381115,2026-03-21T17:45:00+00:00,88,eredivisie,2025,sparta rotterdam,fc volendam,,,NS
@@ -2388,14 +2388,14 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1396454,2026-03-08T18:00:00+00:00,94,primeira liga,2025,benfica,fc porto,2.0,2.0,FT
 1396460,2026-03-08T20:30:00+00:00,94,primeira liga,2025,santa clara,guimaraes,2.0,0.0,FT
 1396461,2026-03-09T20:15:00+00:00,94,primeira liga,2025,tondela,rio ave,0.0,1.0,FT
+1396470,2026-03-14T15:30:00+00:00,94,primeira liga,2025,guimaraes,famalicao,1.0,2.0,FT
+1396466,2026-03-14T18:00:00+00:00,94,primeira liga,2025,gil vicente,alverca,2.0,2.0,FT
+1396463,2026-03-14T20:30:00+00:00,94,primeira liga,2025,arouca,benfica,1.0,2.0,FT
+1396467,2026-03-15T15:30:00+00:00,94,primeira liga,2025,nacional,estoril,0.0,1.0,FT
+1396462,2026-03-15T15:30:00+00:00,94,primeira liga,2025,avs,santa clara,0.0,1.0,FT
+1396468,2026-03-15T18:00:00+00:00,94,primeira liga,2025,rio ave,estrela,2.0,1.0,FT
+1396465,2026-03-15T20:30:00+00:00,94,primeira liga,2025,fc porto,moreirense,3.0,0.0,FT
 1396469,2026-03-15T15:30:00+00:00,94,primeira liga,2025,sporting cp,tondela,,,PST
-1396470,2026-03-14T15:30:00+00:00,94,primeira liga,2025,guimaraes,famalicao,,,NS
-1396466,2026-03-14T18:00:00+00:00,94,primeira liga,2025,gil vicente,alverca,,,NS
-1396463,2026-03-14T20:30:00+00:00,94,primeira liga,2025,arouca,benfica,,,NS
-1396467,2026-03-15T15:30:00+00:00,94,primeira liga,2025,nacional,estoril,,,NS
-1396462,2026-03-15T15:30:00+00:00,94,primeira liga,2025,avs,santa clara,,,NS
-1396468,2026-03-15T18:00:00+00:00,94,primeira liga,2025,rio ave,estrela,,,NS
-1396465,2026-03-15T20:30:00+00:00,94,primeira liga,2025,fc porto,moreirense,,,NS
 1396475,2026-03-20T20:15:00+00:00,94,primeira liga,2025,estrela,casa pia,,,NS
 1396477,2026-03-21T15:30:00+00:00,94,primeira liga,2025,moreirense,arouca,,,NS
 1396476,2026-03-21T15:30:00+00:00,94,primeira liga,2025,famalicao,nacional,,,NS
@@ -2643,12 +2643,12 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1382799,2026-03-03T19:45:00+00:00,179,scottish premiership,2025,dundee utd,st mirren,2.0,1.0,FT
 1382810,2026-03-04T20:00:00+00:00,179,scottish premiership,2025,aberdeen,celtic,1.0,2.0,FT
 1382811,2026-03-07T15:00:00+00:00,179,scottish premiership,2025,dundee,motherwell,2.0,1.0,FT
-1382841,2026-03-14T15:00:00+00:00,179,scottish premiership,2025,celtic,motherwell,,,NS
-1382843,2026-03-14T15:00:00+00:00,179,scottish premiership,2025,hibernian,livingston,,,NS
-1382840,2026-03-14T15:00:00+00:00,179,scottish premiership,2025,aberdeen,falkirk,,,NS
-1382844,2026-03-14T20:00:00+00:00,179,scottish premiership,2025,kilmarnock,heart of midlothian,,,NS
-1382845,2026-03-15T12:00:00+00:00,179,scottish premiership,2025,st mirren,rangers,,,NS
-1382842,2026-03-15T14:00:00+00:00,179,scottish premiership,2025,dundee,dundee utd,,,NS
+1382841,2026-03-14T15:00:00+00:00,179,scottish premiership,2025,celtic,motherwell,3.0,1.0,FT
+1382843,2026-03-14T15:00:00+00:00,179,scottish premiership,2025,hibernian,livingston,0.0,0.0,FT
+1382840,2026-03-14T15:00:00+00:00,179,scottish premiership,2025,aberdeen,falkirk,1.0,1.0,FT
+1382844,2026-03-14T20:00:00+00:00,179,scottish premiership,2025,kilmarnock,heart of midlothian,1.0,0.0,FT
+1382845,2026-03-15T12:00:00+00:00,179,scottish premiership,2025,st mirren,rangers,0.0,1.0,FT
+1382842,2026-03-15T14:00:00+00:00,179,scottish premiership,2025,dundee,dundee utd,2.0,2.0,FT
 1382849,2026-03-21T15:00:00+00:00,179,scottish premiership,2025,kilmarnock,livingston,,,NS
 1382848,2026-03-21T15:00:00+00:00,179,scottish premiership,2025,heart of midlothian,dundee,,,NS
 1382850,2026-03-21T15:00:00+00:00,179,scottish premiership,2025,motherwell,hibernian,,,NS
@@ -2937,16 +2937,16 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1391086,2026-03-08T17:30:00+00:00,140,la liga,2025,sevilla,rayo vallecano,1.0,1.0,FT
 1391087,2026-03-08T20:00:00+00:00,140,la liga,2025,valencia,alaves,3.0,2.0,FT
 1391082,2026-03-09T20:00:00+00:00,140,la liga,2025,espanyol,oviedo,1.0,1.0,FT
-1391089,2026-03-13T20:00:00+00:00,140,la liga,2025,alaves,villarreal,,,NS
-1391093,2026-03-14T13:00:00+00:00,140,la liga,2025,girona,athletic club,,,NS
-1391090,2026-03-14T15:15:00+00:00,140,la liga,2025,atletico madrid,getafe,,,NS
-1391098,2026-03-14T17:30:00+00:00,140,la liga,2025,oviedo,valencia,,,NS
-1391096,2026-03-14T20:00:00+00:00,140,la liga,2025,real madrid,elche,,,NS
-1391094,2026-03-15T13:00:00+00:00,140,la liga,2025,mallorca,espanyol,,,NS
-1391091,2026-03-15T15:15:00+00:00,140,la liga,2025,barcelona,sevilla,,,NS
-1391092,2026-03-15T17:30:00+00:00,140,la liga,2025,real betis,celta vigo,,,NS
-1391097,2026-03-15T20:00:00+00:00,140,la liga,2025,real sociedad,osasuna,,,NS
-1391095,2026-03-16T20:00:00+00:00,140,la liga,2025,rayo vallecano,levante,,,NS
+1391089,2026-03-13T20:00:00+00:00,140,la liga,2025,alaves,villarreal,1.0,1.0,FT
+1391093,2026-03-14T13:00:00+00:00,140,la liga,2025,girona,athletic club,3.0,0.0,FT
+1391090,2026-03-14T15:15:00+00:00,140,la liga,2025,atletico madrid,getafe,1.0,0.0,FT
+1391098,2026-03-14T17:30:00+00:00,140,la liga,2025,oviedo,valencia,1.0,0.0,FT
+1391096,2026-03-14T20:00:00+00:00,140,la liga,2025,real madrid,elche,4.0,1.0,FT
+1391094,2026-03-15T13:00:00+00:00,140,la liga,2025,mallorca,espanyol,2.0,1.0,FT
+1391091,2026-03-15T15:15:00+00:00,140,la liga,2025,barcelona,sevilla,5.0,2.0,FT
+1391092,2026-03-15T17:30:00+00:00,140,la liga,2025,real betis,celta vigo,1.0,1.0,FT
+1391097,2026-03-15T20:00:00+00:00,140,la liga,2025,real sociedad,osasuna,3.0,1.0,FT
+1391095,2026-03-16T20:00:00+00:00,140,la liga,2025,rayo vallecano,levante,1.0,1.0,FT
 1391108,2026-03-20T20:00:00+00:00,140,la liga,2025,villarreal,real sociedad,,,NS
 1391102,2026-03-21T13:00:00+00:00,140,la liga,2025,elche,mallorca,,,NS
 1391103,2026-03-21T15:15:00+00:00,140,la liga,2025,espanyol,getafe,,,NS
@@ -2957,16 +2957,16 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1391101,2026-03-22T15:15:00+00:00,140,la liga,2025,celta vigo,alaves,,,NS
 1391099,2026-03-22T17:30:00+00:00,140,la liga,2025,athletic club,real betis,,,NS
 1391106,2026-03-22T20:00:00+00:00,140,la liga,2025,real madrid,atletico madrid,,,NS
-1391110,2026-04-05T16:00:00+00:00,140,la liga,2025,atletico madrid,barcelona,,,NS
-1391118,2026-04-05T16:00:00+00:00,140,la liga,2025,valencia,celta vigo,,,NS
-1391109,2026-04-05T16:00:00+00:00,140,la liga,2025,alaves,osasuna,,,NS
-1391111,2026-04-05T16:00:00+00:00,140,la liga,2025,real betis,espanyol,,,NS
-1391112,2026-04-05T16:00:00+00:00,140,la liga,2025,getafe,athletic club,,,NS
-1391113,2026-04-05T16:00:00+00:00,140,la liga,2025,girona,villarreal,,,NS
-1391116,2026-04-05T16:00:00+00:00,140,la liga,2025,real sociedad,levante,,,NS
-1391117,2026-04-05T16:00:00+00:00,140,la liga,2025,oviedo,sevilla,,,NS
-1391115,2026-04-05T16:00:00+00:00,140,la liga,2025,rayo vallecano,elche,,,NS
-1391114,2026-04-05T16:00:00+00:00,140,la liga,2025,mallorca,real madrid,,,NS
+1391115,2026-04-03T19:00:00+00:00,140,la liga,2025,rayo vallecano,elche,,,NS
+1391116,2026-04-04T12:00:00+00:00,140,la liga,2025,real sociedad,levante,,,NS
+1391114,2026-04-04T14:15:00+00:00,140,la liga,2025,mallorca,real madrid,,,NS
+1391109,2026-04-04T16:30:00+00:00,140,la liga,2025,alaves,osasuna,,,NS
+1391110,2026-04-04T19:00:00+00:00,140,la liga,2025,atletico madrid,barcelona,,,NS
+1391112,2026-04-05T12:00:00+00:00,140,la liga,2025,getafe,athletic club,,,NS
+1391118,2026-04-05T14:15:00+00:00,140,la liga,2025,valencia,celta vigo,,,NS
+1391117,2026-04-05T16:30:00+00:00,140,la liga,2025,oviedo,sevilla,,,NS
+1391111,2026-04-05T19:00:00+00:00,140,la liga,2025,real betis,espanyol,,,NS
+1391113,2026-04-06T19:00:00+00:00,140,la liga,2025,girona,villarreal,,,NS
 1391120,2026-04-12T16:00:00+00:00,140,la liga,2025,barcelona,espanyol,,,NS
 1391119,2026-04-12T16:00:00+00:00,140,la liga,2025,athletic club,villarreal,,,NS
 1391128,2026-04-12T16:00:00+00:00,140,la liga,2025,sevilla,atletico madrid,,,NS
@@ -3047,6 +3047,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1391193,2026-05-24T16:00:00+00:00,140,la liga,2025,getafe,osasuna,,,NS
 1391194,2026-05-24T16:00:00+00:00,140,la liga,2025,girona,elche,,,NS
 1391195,2026-05-24T16:00:00+00:00,140,la liga,2025,mallorca,oviedo,,,NS
+1394671,2026-03-17T17:00:00+00:00,203,super lig,2025,fenerbahce,gaziantep fk,0.0,0.0,1H
 1394436,2025-08-08T18:30:00+00:00,203,super lig,2025,gaziantep fk,galatasaray,0.0,3.0,FT
 1394440,2025-08-09T16:00:00+00:00,203,super lig,2025,samsunspor,genclerbirligi s.k.,2.0,1.0,FT
 1394433,2025-08-09T18:30:00+00:00,203,super lig,2025,antalyaspor,kasmpasa,2.0,1.0,FT
@@ -3272,18 +3273,17 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1394652,2026-03-09T13:00:00+00:00,203,super lig,2025,eyupspor,kocaelispor,0.0,1.0,FT
 1394649,2026-03-09T17:00:00+00:00,203,super lig,2025,alanyaspor,genclerbirligi s.k.,0.0,0.0,FT
 1394655,2026-03-09T17:00:00+00:00,203,super lig,2025,kayserispor,trabzonspor,1.0,3.0,FT
+1394658,2026-03-13T17:00:00+00:00,203,super lig,2025,antalyaspor,gaziantep fk,1.0,4.0,FT
+1394662,2026-03-13T17:00:00+00:00,203,super lig,2025,fatih karagumruk,fenerbahce,2.0,0.0,FT
+1394664,2026-03-14T10:30:00+00:00,203,super lig,2025,kocaelispor,konyaspor,1.0,2.0,FT
+1394659,2026-03-14T17:00:00+00:00,203,super lig,2025,galatasaray,basaksehir,3.0,0.0,FT
+1394661,2026-03-14T17:00:00+00:00,203,super lig,2025,goztepe,alanyaspor,2.0,2.0,FT
+1394666,2026-03-14T17:00:00+00:00,203,super lig,2025,trabzonspor,rizespor,1.0,0.0,FT
+1394663,2026-03-15T13:00:00+00:00,203,super lig,2025,kasmpasa,eyupspor,1.0,0.0,FT
+1394660,2026-03-15T17:00:00+00:00,203,super lig,2025,genclerbirligi s.k.,besiktas,0.0,2.0,FT
+1394665,2026-03-15T17:00:00+00:00,203,super lig,2025,samsunspor,kayserispor,2.0,1.0,FT
 1394672,2026-03-18T18:00:00+00:00,203,super lig,2025,goztepe,galatasaray,,,PST
 1394675,2026-03-18T18:00:00+00:00,203,super lig,2025,rizespor,samsunspor,,,PST
-1394658,2026-03-13T17:00:00+00:00,203,super lig,2025,antalyaspor,gaziantep fk,,,NS
-1394662,2026-03-13T17:00:00+00:00,203,super lig,2025,fatih karagumruk,fenerbahce,,,NS
-1394664,2026-03-14T10:30:00+00:00,203,super lig,2025,kocaelispor,konyaspor,,,NS
-1394659,2026-03-14T17:00:00+00:00,203,super lig,2025,galatasaray,basaksehir,,,NS
-1394661,2026-03-14T17:00:00+00:00,203,super lig,2025,goztepe,alanyaspor,,,NS
-1394666,2026-03-14T17:00:00+00:00,203,super lig,2025,trabzonspor,rizespor,,,NS
-1394663,2026-03-15T13:00:00+00:00,203,super lig,2025,kasmpasa,eyupspor,,,NS
-1394660,2026-03-15T17:00:00+00:00,203,super lig,2025,genclerbirligi s.k.,besiktas,,,NS
-1394665,2026-03-15T17:00:00+00:00,203,super lig,2025,samsunspor,kayserispor,,,NS
-1394671,2026-03-17T17:00:00+00:00,203,super lig,2025,fenerbahce,gaziantep fk,,,NS
 1394667,2026-03-18T13:00:00+00:00,203,super lig,2025,alanyaspor,kocaelispor,,,NS
 1394668,2026-03-18T17:00:00+00:00,203,super lig,2025,basaksehir,antalyaspor,,,NS
 1394670,2026-03-18T17:00:00+00:00,203,super lig,2025,eyupspor,trabzonspor,,,NS

@@ -12,7 +12,7 @@
         <form action="{{ url_for('aggiorna') }}" method="get" style="margin-bottom: 24px; text-align: center;">
             <button type="submit" style="font-size: 1.4em; padding: 12px 32px; margin-top: 18px; background: #d6d6d6; color: black; border: none; border-radius: 6px; cursor: pointer;">Aggiorna</button>
         </form>
-        <h1 style="text-align: center; margin-bottom: 18px;">Partite selezionate</h1>
+        <h2 style="text-align: center; margin-bottom: 18px;">Partite di oggi</h2>
         <div style="display: flex; justify-content: center;">
             <style>
                 body, table, th, td {
@@ -55,6 +55,31 @@
                         {% endfor %}
                     </tbody>
                 </table>
+            {% endif %}
+        </div>
+        <h2 style="text-align: center; margin: 28px 0 18px;">Squadre selezionate</h2>
+        <div style="display: flex; justify-content: center;">
+            {% if selezione_headers and selezione_rows %}
+                <table class="bet-table">
+                    <thead>
+                        <tr>
+                            {% for header in selezione_headers %}
+                                <th>{{ header }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in selezione_rows %}
+                            <tr>
+                                {% for header in selezione_headers %}
+                                    <td>{{ row[header] }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>Nessuna selezione disponibile.</p>
             {% endif %}
         </div>
     </div>
