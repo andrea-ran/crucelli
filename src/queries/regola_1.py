@@ -110,10 +110,10 @@ def filtro_2(df, df_coppa, champions_slots, champions_slots_prev, stagione_corre
             # Se ha una partita in meno rispetto all'ultima in zona Champions, la soglia è 6, altrimenti 3
             if condizione_precedente:
                 if partite_in_meno_rispetto_ultima_champions == 1:
-                    if 0 < punti_dalla_zona_champions <= 6:
+                    if 0 <= punti_dalla_zona_champions <= 6:
                         squadre_filtrate.append(team)
                 else:
-                    if 0 < punti_dalla_zona_champions <= 3:
+                    if 0 <= punti_dalla_zona_champions <= 3:
                         squadre_filtrate.append(team)
     return squadre_filtrate
 
@@ -258,17 +258,142 @@ def filtro_4(df, df_coppa, df_upcoming, champions_slots_penultima, stagione_corr
 
 # --- FINE FUNZIONI FILTRI ---
 
+
+def is_selected_match_last_home(upcoming_df, matches_df, season, league_norm, team_norm):
+    if upcoming_df.empty or matches_df.empty:
+        return False
+    df_up = upcoming_df[upcoming_df["season"] == season].copy()
+    if df_up.empty:
+        return False
+    df_up = df_up.dropna(subset=["date"]).copy()
+    if df_up.empty:
+        return False
+    df_up = df_up[df_up["league_name"].apply(normalize_league_name) == league_norm].copy()
+    if df_up.empty:
+        return False
+    df_up["home_norm"] = df_up["home_team"].astype(str).apply(normalize_team_name)
+    df_up = df_up[df_up["home_norm"] == team_norm].copy()
+    if df_up.empty:
+        return False
+
+    df = matches_df[matches_df["season"] == season].copy()
+    df = df.dropna(subset=["date"]).copy()
+    df = df[df["league_name"].apply(normalize_league_name) == league_norm].copy()
+    if df.empty:
+        return False
+    df["home_norm"] = df["home_team"].astype(str).apply(normalize_team_name)
+    df_home = df[df["home_norm"] == team_norm].copy()
+    if df_home.empty:
+        return False
+    last_home_date = df_home["date"].max()
+    if pd.isna(last_home_date):
+        return False
+
+    return (df_up["date"] == last_home_date).any()
+
+
+def remove_runaway_leaders(df_all, filtri_per_squadra, upcoming_df, matches_df, season):
+    df_season = df_all[df_all["season"] == season].copy()
+    if df_season.empty:
+        return
+
+    leagues = (
+        df_season["league_name"]
+        .dropna()
+        .astype(str)
+        .apply(normalize_league_name)
+        .unique()
+    )
+
+    for league_norm in leagues:
+        df_league = df_season[df_season["league_name"].apply(normalize_league_name) == league_norm].copy()
+        if len(df_league) < 2:
+            continue
+        df_sorted = df_league.sort_values("rank")
+        prima = df_sorted.iloc[0]
+        seconda = df_sorted.iloc[1]
+        try:
+            gap = float(prima["points"]) - float(seconda["points"])
+        except (TypeError, ValueError):
+            continue
+        if gap < 14:
+            continue
+
+        team = str(prima["team_name"])
+        team_norm = normalize_team_name(team)
+        if is_selected_match_last_home(upcoming_df, matches_df, season, league_norm, team_norm):
+            continue
+
+        to_remove = [k for k in filtri_per_squadra.keys() if normalize_team_name(k) == team_norm]
+        for key in to_remove:
+            filtri_per_squadra.pop(key, None)
+
+
+def remove_mid_gap_teams(df_all, filtri_per_squadra, season, champions_slots):
+    df_season = df_all[df_all["season"] == season].copy()
+    if df_season.empty:
+        return
+
+    leagues = (
+        df_season["league_name"]
+        .dropna()
+        .astype(str)
+        .apply(normalize_league_name)
+        .unique()
+    )
+
+    for league_norm in leagues:
+        slot_champions = 4
+        for league_key in champions_slots.keys():
+            if normalize_league_name(league_key) == league_norm:
+                slot_champions = champions_slots[league_key]
+                break
+
+        df_league = df_season[df_season["league_name"].apply(normalize_league_name) == league_norm].copy()
+        df_league = df_league.sort_values("rank")
+        if len(df_league) <= slot_champions:
+            continue
+
+        prima = df_league.iloc[0]
+        prima_punti = prima.get("points")
+        first_non_champions = df_league.iloc[slot_champions]
+        non_champions_punti = first_non_champions.get("points")
+        if pd.isnull(prima_punti) or pd.isnull(non_champions_punti):
+            continue
+
+        df_champions = df_league.head(slot_champions).copy()
+        for _, row in df_champions.iterrows():
+            try:
+                punti_team = float(row["points"])
+            except (TypeError, ValueError):
+                continue
+            distacco_dalla_prima = float(prima_punti) - punti_team
+            margine_su_non_champions = punti_team - float(non_champions_punti)
+            if distacco_dalla_prima >= 8 and margine_su_non_champions >= 10:
+                team_norm = normalize_team_name(str(row["team_name"]))
+                to_remove = [k for k in filtri_per_squadra.keys() if normalize_team_name(k) == team_norm]
+                for key in to_remove:
+                    filtri_per_squadra.pop(key, None)
+
 # Percorsi file aggiornati
 ARCHIVE_PATH = os.path.join(PROJECT_ROOT, "data", "raw", "team_stats_archive.csv")
 CURRENT_PATH = os.path.join(PROJECT_ROOT, "data", "raw", "team_stats_current.csv")
 COPPA_PATH = os.path.join(PROJECT_ROOT, "data", "raw", "coppa_nazionale.csv")
 CHAMPIONS_SLOTS_PATH = os.path.join(PROJECT_ROOT, "champions_slots.json")
+MATCHES_CURRENT_PATH = os.path.join(PROJECT_ROOT, "data", "raw", "all_matches_current.csv")
+UPCOMING_PATH = os.path.join(PROJECT_ROOT, "data", "raw", "upcoming_matches.csv")
 
 # Carica e concatena dati archivio + stagione corrente
 df_archive = pd.read_csv(ARCHIVE_PATH)
 df_current = pd.read_csv(CURRENT_PATH)
 df = pd.concat([df_archive, df_current], ignore_index=True)
 df_coppa = pd.read_csv(COPPA_PATH)
+df_matches = pd.read_csv(MATCHES_CURRENT_PATH) if os.path.exists(MATCHES_CURRENT_PATH) else pd.DataFrame()
+if not df_matches.empty and "date" in df_matches.columns:
+    df_matches["date"] = pd.to_datetime(df_matches["date"], utc=True, errors="coerce")
+df_upcoming = pd.read_csv(UPCOMING_PATH) if os.path.exists(UPCOMING_PATH) else pd.DataFrame()
+if not df_upcoming.empty and "date" in df_upcoming.columns:
+    df_upcoming["date"] = pd.to_datetime(df_upcoming["date"], utc=True, errors="coerce")
 
 # Carica i posti Champions specifici per la stagione
 with open(CHAMPIONS_SLOTS_PATH, "r") as f:
@@ -306,13 +431,14 @@ for nome_filtro, filtro_attivo, tipo_parametri in filtri:
         squadre_filtrate = filtro_attivo(df, STAGIONE_CORRENTE, STAGIONE_PENULTIMA, STAGIONE_TERZULTIMA, champions_slots)
     elif tipo_parametri == "casa_penultima":
         STAGIONE_PENULTIMA = season_config.STAGIONE_PENULTIMA
-        UPCOMING_PATH = os.path.join(PROJECT_ROOT, "data", "raw", "upcoming_matches.csv")
-        df_upcoming = pd.read_csv(UPCOMING_PATH)
         squadre_filtrate = filtro_attivo(df, df_coppa, df_upcoming, champions_slots_penultima, STAGIONE_CORRENTE, STAGIONE_PENULTIMA)
     else:
         squadre_filtrate = []
     for team in squadre_filtrate:
         filtri_per_squadra[team].add(nome_filtro)
+
+remove_runaway_leaders(df, filtri_per_squadra, df_upcoming, df_matches, STAGIONE_CORRENTE)
+remove_mid_gap_teams(df, filtri_per_squadra, STAGIONE_CORRENTE, champions_slots)
 
 
 
