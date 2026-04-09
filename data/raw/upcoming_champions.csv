@@ -1,8 +1,9 @@
 match_id,date,home_team,away_team
-1528330,2026-03-17T20:00:00+00:00,arsenal,bayer leverkusen
-1528328,2026-03-17T20:00:00+00:00,chelsea,paris saint germain
-1528326,2026-03-17T20:00:00+00:00,manchester city,real madrid
-1528327,2026-03-18T17:45:00+00:00,barcelona,newcastle
-1528329,2026-03-18T20:00:00+00:00,liverpool,galatasaray
-1528331,2026-03-18T20:00:00+00:00,tottenham,atletico madrid
-1528332,2026-03-18T20:00:00+00:00,bayern munich,atalanta
+1534570,2026-04-07T19:00:00+00:00,sporting cp,arsenal
+1534909,2026-04-07T19:00:00+00:00,real madrid,bayern munich
+1534908,2026-04-08T19:00:00+00:00,paris saint germain,liverpool
+1534907,2026-04-08T19:00:00+00:00,barcelona,atletico madrid
+1534912,2026-04-14T19:00:00+00:00,liverpool,paris saint germain
+1534910,2026-04-14T19:00:00+00:00,atletico madrid,barcelona
+1534571,2026-04-15T19:00:00+00:00,arsenal,sporting cp
+1534911,2026-04-15T19:00:00+00:00,bayern munich,real madrid
