@@ -272,9 +272,9 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1436186,2026-05-03T16:00:00+00:00,307,saudi pro league,2025,al shabab,al taawon,1.0,5.0,FT
 1436184,2026-05-03T18:00:00+00:00,307,saudi pro league,2025,al-ahli jeddah,al okhdood,4.0,0.0,FT
 1436187,2026-05-03T18:00:00+00:00,307,saudi pro league,2025,al-qadisiyah fc,al-nassr,3.0,1.0,FT
-1436188,2026-05-04T16:10:00+00:00,307,saudi pro league,2025,al-fayha,al riyadh,,,NS
-1436189,2026-05-04T18:00:00+00:00,307,saudi pro league,2025,al-ettifaq,al najma,,,NS
-1436185,2026-05-04T18:00:00+00:00,307,saudi pro league,2025,al-ittihad fc,al kholood,,,NS
+1436188,2026-05-04T16:10:00+00:00,307,saudi pro league,2025,al-fayha,al riyadh,4.0,2.0,FT
+1436189,2026-05-04T18:00:00+00:00,307,saudi pro league,2025,al-ettifaq,al najma,0.0,0.0,FT
+1436185,2026-05-04T18:00:00+00:00,307,saudi pro league,2025,al-ittihad fc,al kholood,0.0,0.0,FT
 1436164,2026-05-05T18:00:00+00:00,307,saudi pro league,2025,al khaleej saihat,al-hilal saudi fc,,,NS
 1436156,2026-05-06T18:00:00+00:00,307,saudi pro league,2025,al-ahli jeddah,al-fateh,,,NS
 1436201,2026-05-07T18:00:00+00:00,307,saudi pro league,2025,al shabab,al-nassr,,,NS
@@ -469,7 +469,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1384083,2026-05-02T16:45:00+00:00,210,hnl,2025,vukovar,nk osijek,1.0,0.0,FT
 1384082,2026-05-03T14:00:00+00:00,210,hnl,2025,nk lokomotiva zagreb,hnk rijeka,0.0,3.0,FT
 1384080,2026-05-03T16:45:00+00:00,210,hnl,2025,hnk hajduk split,nk varazdin,3.0,1.0,FT
-1384081,2026-05-04T16:00:00+00:00,210,hnl,2025,istra 1961,nk slaven belupo,,,NS
+1384081,2026-05-04T16:00:00+00:00,210,hnl,2025,istra 1961,nk slaven belupo,3.0,1.0,FT
 1384086,2026-05-08T18:00:00+00:00,210,hnl,2025,hnk rijeka,vukovar,,,NS
 1384084,2026-05-09T14:00:00+00:00,210,hnl,2025,dinamo zagreb,hnk hajduk split,,,NS
 1384088,2026-05-09T16:45:00+00:00,210,hnl,2025,nk varazdin,nk lokomotiva zagreb,,,NS
@@ -1444,8 +1444,8 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1379311,2026-05-03T13:00:00+00:00,39,premier league,2025,bournemouth,crystal palace,3.0,0.0,FT
 1379316,2026-05-03T14:30:00+00:00,39,premier league,2025,manchester united,liverpool,3.0,2.0,FT
 1379310,2026-05-03T18:00:00+00:00,39,premier league,2025,aston villa,tottenham,1.0,2.0,FT
-1379313,2026-05-04T14:00:00+00:00,39,premier league,2025,chelsea,nottingham forest,,,NS
-1379314,2026-05-04T19:00:00+00:00,39,premier league,2025,everton,manchester city,,,NS
+1379313,2026-05-04T14:00:00+00:00,39,premier league,2025,chelsea,nottingham forest,1.0,3.0,FT
+1379314,2026-05-04T19:00:00+00:00,39,premier league,2025,everton,manchester city,3.0,3.0,FT
 1379323,2026-05-09T11:30:00+00:00,39,premier league,2025,liverpool,chelsea,,,NS
 1379322,2026-05-09T14:00:00+00:00,39,premier league,2025,fulham,bournemouth,,,NS
 1379319,2026-05-09T14:00:00+00:00,39,premier league,2025,brighton,wolves,,,NS
@@ -1825,8 +1825,8 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1378212,2026-05-03T13:00:00+00:00,135,serie a,2025,sassuolo,ac milan,2.0,0.0,FT
 1378209,2026-05-03T16:00:00+00:00,135,serie a,2025,juventus,hellas verona,1.0,1.0,FT
 1378208,2026-05-03T18:45:00+00:00,135,serie a,2025,inter,parma,2.0,0.0,FT
-1378207,2026-05-04T16:30:00+00:00,135,serie a,2025,cremonese,lazio,,,NS
-1378211,2026-05-04T18:45:00+00:00,135,serie a,2025,as roma,fiorentina,,,NS
+1378207,2026-05-04T16:30:00+00:00,135,serie a,2025,cremonese,lazio,1.0,2.0,FT
+1378211,2026-05-04T18:45:00+00:00,135,serie a,2025,as roma,fiorentina,4.0,0.0,FT
 1378222,2026-05-08T18:45:00+00:00,135,serie a,2025,torino,sassuolo,,,NS
 1378214,2026-05-09T13:00:00+00:00,135,serie a,2025,cagliari,udinese,,,NS
 1378217,2026-05-09T16:00:00+00:00,135,serie a,2025,lazio,inter,,,NS
@@ -2458,7 +2458,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1396518,2026-05-03T14:30:00+00:00,94,primeira liga,2025,casa pia,tondela,0.0,1.0,FT
 1396517,2026-05-03T17:00:00+00:00,94,primeira liga,2025,sc braga,estoril,1.0,1.0,FT
 1396523,2026-05-03T19:30:00+00:00,94,primeira liga,2025,rio ave,gil vicente,0.0,0.0,FT
-1396524,2026-05-04T19:15:00+00:00,94,primeira liga,2025,sporting cp,guimaraes,,,NS
+1396524,2026-05-04T19:15:00+00:00,94,primeira liga,2025,sporting cp,guimaraes,5.0,1.0,FT
 1396527,2026-05-10T16:00:00+00:00,94,primeira liga,2025,benfica,sc braga,,,NS
 1396532,2026-05-10T16:00:00+00:00,94,primeira liga,2025,tondela,moreirense,,,NS
 1396533,2026-05-10T16:00:00+00:00,94,primeira liga,2025,guimaraes,casa pia,,,NS
@@ -2686,7 +2686,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1540009,2026-05-02T14:00:00+00:00,179,scottish premiership,2025,dundee,st mirren,1.0,0.0,FT
 1540023,2026-05-02T14:00:00+00:00,179,scottish premiership,2025,falkirk,motherwell,1.0,0.0,FT
 1540024,2026-05-03T11:00:00+00:00,179,scottish premiership,2025,hibernian,celtic,1.0,2.0,FT
-1540025,2026-05-04T16:30:00+00:00,179,scottish premiership,2025,heart of midlothian,rangers,,,NS
+1540025,2026-05-04T16:30:00+00:00,179,scottish premiership,2025,heart of midlothian,rangers,2.0,1.0,FT
 1543679,2026-05-05T18:45:00+00:00,179,scottish premiership,2025,dunfermline,arbroath,,,NS
 1543680,2026-05-08T18:30:00+00:00,179,scottish premiership,2025,arbroath,dunfermline,,,NS
 1540013,2026-05-09T14:00:00+00:00,179,scottish premiership,2025,st mirren,kilmarnock,,,NS
@@ -3046,7 +3046,7 @@ match_id,date,league_id,league_name,season,home_team,away_team,home_score,away_s
 1391153,2026-05-03T14:15:00+00:00,140,la liga,2025,getafe,rayo vallecano,0.0,2.0,FT
 1391150,2026-05-03T16:30:00+00:00,140,la liga,2025,real betis,oviedo,3.0,0.0,FT
 1391152,2026-05-03T19:00:00+00:00,140,la liga,2025,espanyol,real madrid,0.0,2.0,FT
-1391156,2026-05-04T19:00:00+00:00,140,la liga,2025,sevilla,real sociedad,,,NS
+1391156,2026-05-04T19:00:00+00:00,140,la liga,2025,sevilla,real sociedad,1.0,0.0,FT
 1391163,2026-05-08T19:00:00+00:00,140,la liga,2025,levante,osasuna,,,NS
 1391162,2026-05-09T12:00:00+00:00,140,la liga,2025,elche,alaves,,,NS
 1391168,2026-05-09T14:15:00+00:00,140,la liga,2025,sevilla,espanyol,,,NS
