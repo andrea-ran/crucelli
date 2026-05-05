@@ -1,4 +1,3 @@
-n,squadra selezionata,quota,quota_1,quota_x,quota_2,squadra in casa,squadra fuori casa,data,oggi,SC,lega,2025,2024,filtri
-1,rangers,2.40,2.70,3.55,2.40,heart of midlothian,rangers,04/05/26 ore 16:30,OGGI,,scottish premiership,2,2,"F1,F3,F4"
-2,manchester city,1.45,6.50,4.40,1.45,everton,manchester city,04/05/26 ore 19:00,OGGI,,premier league,2,3,"F1,F3,F4"
-3,sporting cp,1.25,1.25,5.75,10.00,sporting cp,guimaraes,04/05/26 ore 19:15,OGGI,,liga portugal,3,1,F2
+n,match_id,lega_match,squadra in casa,squadra fuori casa,data,sc,selezione casa,selezione trasferta,filtri casa,filtri trasferta,lega casa,lega trasferta,2025 casa,2025 trasferta,2024 casa,2024 trasferta
+1,1379314,premier league,everton,manchester city,04/05/26 ore 19:00,,,SI,,"F1,F3,F4",,premier league,,2,,3
+2,1396524,primeira liga,sporting cp,guimaraes,04/05/26 ore 19:15,,SI,,F2,,liga portugal,,3,,1,
