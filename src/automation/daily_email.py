@@ -51,52 +51,73 @@ def run_script(script_path, args=None):
     return result.stdout
 
 
-def format_csv_table(csv_path, max_col_width=36):
+def format_match_list(csv_path):
     if not os.path.exists(csv_path):
-        return ""
+        return []
 
     with open(csv_path, "r", encoding="utf-8") as handle:
         reader = csv.reader(handle)
         rows = list(reader)
 
     if not rows:
-        return ""
+        return []
 
     headers = rows[0]
     data_rows = rows[1:]
     if not data_rows:
-        return ""
+        return []
 
-    # Limit columns to a compact summary
-    keep_cols = []
-    for idx, name in enumerate(headers):
-        if name in {"data", "squadra in casa", "squadra fuori casa", "lega_match"}:
-            keep_cols.append(idx)
+    def col_index(name):
+        try:
+            return headers.index(name)
+        except ValueError:
+            return None
 
-    if not keep_cols:
-        keep_cols = list(range(min(6, len(headers))))
-
-    filtered = [[headers[i] for i in keep_cols]]
-    for row in data_rows:
-        filtered.append([row[i] if i < len(row) else "" for i in keep_cols])
-
-    widths = []
-    for col in zip(*filtered):
-        widths.append(min(max(len(str(cell)) for cell in col), max_col_width))
+    idx_date = col_index("data")
+    idx_home = col_index("squadra in casa")
+    idx_away = col_index("squadra fuori casa")
+    idx_league = col_index("lega_match")
+    idx_sc = col_index("sc")
+    idx_sel_home = col_index("selezione casa")
+    idx_sel_away = col_index("selezione trasferta")
 
     lines = []
-    for r_idx, row in enumerate(filtered):
-        cells = []
-        for c_idx, cell in enumerate(row):
-            value = str(cell).replace("\n", " ").strip()
-            if len(value) > widths[c_idx]:
-                value = value[: widths[c_idx] - 1] + "..."
-            cells.append(value.ljust(widths[c_idx]))
-        lines.append(" | ".join(cells))
-        if r_idx == 0:
-            lines.append("-+-".join("-" * w for w in widths))
+    for row in data_rows:
+        date_raw = row[idx_date] if idx_date is not None and idx_date < len(row) else ""
+        home = row[idx_home] if idx_home is not None and idx_home < len(row) else ""
+        away = row[idx_away] if idx_away is not None and idx_away < len(row) else ""
+        league = row[idx_league] if idx_league is not None and idx_league < len(row) else ""
+        sc = row[idx_sc] if idx_sc is not None and idx_sc < len(row) else ""
+        sel_home = row[idx_sel_home] if idx_sel_home is not None and idx_sel_home < len(row) else ""
+        sel_away = row[idx_sel_away] if idx_sel_away is not None and idx_sel_away < len(row) else ""
 
-    return "\n".join(lines)
+        date_raw = str(date_raw).strip()
+        home = str(home).strip()
+        away = str(away).strip()
+        league = str(league).strip()
+
+        if " ore " in date_raw:
+            date_part, time_part = date_raw.split(" ore ", 1)
+            date_text = f"{date_part} {time_part}"
+        else:
+            date_text = date_raw
+
+        pick = ""
+        if str(sc).strip().upper() == "SI":
+            pick = "SC (entrambe)"
+        elif str(sel_home).strip().upper() == "SI":
+            pick = f"CASA: {home}"
+        elif str(sel_away).strip().upper() == "SI":
+            pick = f"TRASFERTA: {away}"
+        else:
+            pick = "N/D"
+
+        line = f"- {date_text} | {home} vs {away} | puntare: {pick}"
+        if league:
+            line += f" ({league})"
+        lines.append(line)
+
+    return lines
 
 
 def send_email(subject, body, sender, recipients, smtp_host, smtp_port, smtp_user, smtp_pass):
@@ -128,6 +149,9 @@ def main():
     update_data = os.path.join(PROJECT_ROOT, "src", "data_update", "update_data.py")
     update_upcoming = os.path.join(PROJECT_ROOT, "src", "data_update", "update_upcoming.py")
     update_cup = os.path.join(PROJECT_ROOT, "src", "data_update", "update_national_cup.py")
+    update_upcoming_champions = os.path.join(
+        PROJECT_ROOT, "src", "data_update", "update_upcoming_champions.py"
+    )
     betting_bot = os.path.join(PROJECT_ROOT, "src", "queries", "betting-bot.py")
 
     print("[1/4] Aggiorno dati stagionali...")
@@ -139,15 +163,21 @@ def main():
     print("[3/4] Aggiorno coppe nazionali...")
     run_script(update_cup)
 
-    print("[4/4] Calcolo selezioni...")
+    print("[4/5] Aggiorno upcoming champions...")
+    run_script(update_upcoming_champions)
+
+    print("[5/5] Calcolo selezioni...")
     output_csv = os.path.join(PROJECT_ROOT, "data", "processed", "bet.csv")
     run_script(betting_bot, ["--output", output_csv])
 
-    table = format_csv_table(output_csv)
+    match_lines = format_match_list(output_csv)
     today = datetime.now().strftime("%d/%m/%Y")
     subject = f"Crucelli - Selezioni {today}"
-    if table:
-        body = "Selezione incontri:\n\n" + table + "\n"
+    if match_lines:
+        count = len(match_lines)
+        body = "Selezione incontri:\n"
+        body += f"Totale partite: {count}\n\n"
+        body += "\n".join(match_lines) + "\n"
     else:
         body = "oggi nessuna partita\n"
 
