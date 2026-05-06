@@ -2,7 +2,7 @@ name: Daily Betting Job
 
 on:
   schedule:
-    - cron: "0 7 * * *"  # 8:00 ora italiana (UTC+1 invernale)
+    - cron: "0 5 * * *"  # 8:00 ora italiana (UTC+1 invernale)
   workflow_dispatch:       # permette avvio manuale dal pannello GitHub
 
 jobs:
