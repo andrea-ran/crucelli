@@ -640,8 +640,30 @@ def main():
         champions_slots_all,
     )
 
+    output_columns = [
+        "n",
+        "match_id",
+        "lega_match",
+        "squadra in casa",
+        "squadra fuori casa",
+        "data",
+        "sc",
+        "selezione casa",
+        "selezione trasferta",
+        "filtri casa",
+        "filtri trasferta",
+        "lega casa",
+        "lega trasferta",
+        "2025 casa",
+        "2025 trasferta",
+        "2024 casa",
+        "2024 trasferta",
+    ]
+
     if df_selected.empty:
         print("Nessuna squadra selezionata.")
+        os.makedirs(os.path.dirname(args.output), exist_ok=True)
+        pd.DataFrame(columns=output_columns).to_csv(args.output, index=False)
         return
 
     print("===== SQUADRE SELEZIONATE =====")
@@ -663,6 +685,8 @@ def main():
     df_out = build_today_matches(df_selected, df_matches, as_of_date)
     if df_out.empty:
         print("Nessuna partita trovata per le squadre selezionate.")
+        os.makedirs(os.path.dirname(args.output), exist_ok=True)
+        pd.DataFrame(columns=output_columns).to_csv(args.output, index=False)
         return
 
     print("===== PARTITE DI OGGI =====")
